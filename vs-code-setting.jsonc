@@ -508,6 +508,9 @@
             "--nb-glass-blur": "blur(16px)",
             "--nb-blur-strong": "blur(22px)"
         },
+        ".part.sidebar": {
+            "font-family": "'Bear Sans UI', sans-serif !important"
+        },
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
             "font-family": "var(--nb-font-heading) !important",
             "font-weight": "700 !important",
@@ -543,7 +546,7 @@
             "border-radius": "0 !important",
             "margin": "0 !important",
             "box-shadow": "none !important",
-            "font-family": "var(--nb-font-ui) !important"
+            "font-family": "'Bear Sans UI', sans-serif !important"
         },
         ".part.statusbar .items-container": {
             "margin-top": "-2px !important"
@@ -768,7 +771,7 @@
             "margin": "0 !important",
             "border-right": "none !important",
             "border-radius": "var(--nb-radius-item) var(--nb-radius-item) 0 0 !important",
-            "font-family": "var(--nb-font-ui) !important",
+            "font-family": "'Bear Sans UI', sans-serif !important",
             "display": "flex !important",
             "align-items": "center !important",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
@@ -910,7 +913,7 @@
             "box-shadow": "var(--nb-ring) !important"
         },
         ".command-center-center": {
-            "font-family": "var(--nb-font-ui) !important",
+            "font-family": "'Bear Sans UI', sans-serif !important",
             "border-radius": "9999px !important",
             "overflow": "hidden !important",
             "border": "none !important",
