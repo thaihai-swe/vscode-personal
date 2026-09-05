@@ -80,6 +80,11 @@
         "label": "Sage",
         "uiTheme": "vs",
         "path": "./themes/sage.json"
+      },
+      {
+        "label": "Moegi Dawn",
+        "uiTheme": "vs",
+        "path": "./themes/moegi-dawn-color-theme.json"
       }
     ]
   },
