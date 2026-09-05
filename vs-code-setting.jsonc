@@ -1,9 +1,5 @@
 {
     "window.zoomLevel": 1.2,
-    "extensions.allowed": {
-        "anthropic.claude-code": false,
-        "*": true
-    },
     // ======================================================================
     // Tab management
     // ======================================================================
@@ -252,7 +248,7 @@
     // ======================================================================
     // 9. Search, files, excludes, and performance
     // ======================================================================
-    "search.searchOnType": false,
+    "search.searchOnType": true,
     "search.showLineNumbers": true,
     "search.decorations.colors": true,
     "search.collapseResults": "auto",
