@@ -98,8 +98,8 @@
         "editor.lineHighlightBackground": "#f5ece2",
         "editorLink.activeForeground": "#e38181",
         "editorWhitespace.foreground": "#180f0710",
-        "editorIndentGuide.background": "#180f0710",
-        "editorIndentGuide.activeBackground": "#180f0729",
+        "editorIndentGuide.background1": "#180f0710",
+        "editorIndentGuide.activeBackground1": "#180f0729",
         "editorInlayHint.background": "#26966a2f",
         "editorInlayHint.foreground": "#26966a",
         /// Codelens
@@ -139,7 +139,6 @@
         "peekViewResult.selectionBackground": "#26966a3f",
         "peekViewResult.background": "#f0eae4",
         "peekViewTitle.background": "#f5efe9",
-        "peekViewEditorStickScroll.background": "#f5efe9",
         // Merge conflicts colors
         "merge.currentHeaderBackground": "#26966a7f",
         "merge.currentContentBackground": "#26966a3f",

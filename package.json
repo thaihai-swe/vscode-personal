@@ -1,7 +1,7 @@
 {
   "name": "glass-paper-theme",
   "displayName": "Glass Paper Theme",
-  "description": "Solarized, Nord, and Rosé Pine-inspired, calm, readable themes for VS Code with long-session comfort and Glass Paper settings",
+  "description": "Solarized, Nord, and Rosé Pine-inspired, calm, readable themes for VS Code",
   "version": "0.0.1",
   "publisher": "note-book",
   "license": "MIT",
@@ -31,11 +31,6 @@
   ],
   "contributes": {
     "themes": [
-      {
-        "label": "Midnight Teal",
-        "uiTheme": "vs-dark",
-        "path": "./themes/midnight-teal.json"
-      },
       {
         "label": "Nord",
         "uiTheme": "vs-dark",
