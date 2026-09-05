@@ -13,6 +13,7 @@ Indentation is treated like Indent Rainbow: each theme cycles six distinct hues 
 - **Farmhouse** — warm gray editorial surface
 - **Parchment** — warm paper surface
 - **Rosé Pine Dawn** — soft low-stimulation palette
+- **Ghostty Rosé Pine Dawn** — Ghostty's Dawn palette 1:1 (base `#faf4ed`, text `#575279`, selection `#dfdad9`)
 - **Sage** — calm green surface
 
 ### Dark variants

@@ -61,6 +61,11 @@
         "path": "./themes/rose-pine-dawn.json"
       },
       {
+        "label": "Ghostty Rosé Pine Dawn",
+        "uiTheme": "vs",
+        "path": "./themes/ghostty-rose-pine-dawn.json"
+      },
+      {
         "label": "Parchment",
         "uiTheme": "vs",
         "path": "./themes/parchment.json"

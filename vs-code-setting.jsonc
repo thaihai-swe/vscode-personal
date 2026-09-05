@@ -1,17 +1,3 @@
-// ============================================================================
-// Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5
-// Hallmark · genre: modern-minimal · macrostructure: Workbench · theme: Note Book Glass Paper
-// Hallmark · studied: no · audience: developers · use: long-session coding · tone: technical
-// Purpose: Warm, low-glare chrome with stable focus states for long-session readability.
-// Glass Paper: translucent chrome only where it communicates hierarchy; no decorative glow.
-// Motion: OS-adaptive by default; reduced-motion mode becomes fully static.
-// Notes:
-// - This file is JSONC, not strict JSON. VS Code settings.json supports comments.
-// - Keep this as User Settings unless you intentionally want it project-specific.
-// - The custom-ui-style.stylesheet section requires your Custom UI Style extension.
-// - If a font is not installed, VS Code falls back to the next font in the list.
-// - Reload Window after Custom UI Style changes (or run "Custom UI Style: Reload").
-// ============================================================================
 {
     "window.zoomLevel": 1.2,
     "extensions.allowed": {
@@ -31,7 +17,7 @@
     // ======================================================================
     // 1. Window, startup, and focus behavior
     // ----------------------------------------------------------------------
-    // Liquid glass shell: custom title bar, command center as pill search,
+    // Islands shell: custom title bar, command center as glass pill search.
     // Motion follows the OS reduce-motion setting; comfort takes priority over flourish.
     // ======================================================================
     "zenMode.centerLayout": false,
@@ -53,7 +39,7 @@
     // ======================================================================
     // 2. Editor scrollbar and minimap
     // ----------------------------------------------------------------------
-    // Thin floating rails; keep minimap and scrollbar readable by default.
+    // Thin floating rails; minimap slider always visible, canvas fades until hover.
     // ======================================================================
     "editor.scrollbar.vertical": "visible",
     "editor.scrollbar.horizontal": "auto",
@@ -65,7 +51,7 @@
     "editor.minimap.size": "proportional",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.maxColumn": 120,
-    "editor.minimap.showSlider": "mouseover",
+    "editor.minimap.showSlider": "always",
     // ======================================================================
     // 3. Editor behavior and typography
     // ----------------------------------------------------------------------
@@ -201,7 +187,7 @@
     // ======================================================================
     // 7. Workbench tabs and editor management
     // ----------------------------------------------------------------------
-    // Floating glass cards, stable tabs, refined spring motion unless OS reduce-motion is on.
+    // Floating islands, browser-style tabs, quiet motion unless OS reduce-motion is on.
     // ======================================================================
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
@@ -366,7 +352,7 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.enablePersistentSessions": true,
     "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
-    "terminal.integrated.fontFamily": "'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "450",
     "terminal.integrated.lineHeight": 1.55,
@@ -431,23 +417,15 @@
     "problems.autoReveal": false,
     "problems.sortOrder": "severity",
     // ======================================================================
-    // 13. Custom UI stylesheet — Glass Paper motion and chrome
+    // 13. Custom UI stylesheet — Islands Dark chrome, Glass Paper tokens
     // ----------------------------------------------------------------------
-    // Material system:
-    //   quiet  → title/status chrome
-    //   raised → sidebars, panels, tabs
-    //   widget → dialogs, command palette, suggestions
-    // New in this revision:
-    //   • Expanded token tiers: --nb-depth-1/2/3 shadows, --nb-surface-2/overlay,
-    //     --nb-text-muted/faint, --nb-border-strong, --nb-radius-sm, --nb-motion-xs,
-    //     --nb-blur-strong, --nb-glass-tint, --nb-ring, --nb-scrim, spacing scale.
-    //   • Per-theme dark overrides via .monaco-workbench.vs-dark (deeper glass,
-    //     stronger shadows, oklch blends) so the chrome reads on dark surfaces.
-    //   • Full Windows High Contrast (forced-colors) reset: blur/shadow removed,
-    //     CanvasText outlines and borders restore OS contrast.
-    //   • Stronger, offset focus rings on every interactive element including inputs.
-    // Hairline borders provide separation; motion communicates state, not decoration.
-    // Decorative surface-glow removed; widget tier gets a stronger depth shadow.
+    // Canvas water + floating islands (bwya77/vscode-dark-islands):
+    //   canvas  → title bar, activity gutter, status bar
+    //   island  → sidebar, editor, auxiliary bar, bottom panel
+    //   pill    → activity bar, command center, scrollbar thumbs
+    //   widget  → palette, hover, dialogs, notifications
+    // Kept from Glass Paper: adaptive tokens, focus rings, reduced-motion freeze,
+    // forced-colors reset. Skipped: aurora borders, drop-morph, breathing glow.
     // Requires Custom UI Style extension.
     // ======================================================================
     "custom-ui-style.stylesheet": {
@@ -456,76 +434,91 @@
             "--nb-font-heading": "'Bear Sans UI Heading', 'Bear Sans UI', system-ui, sans-serif",
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
-            "--nb-font-size-heading": "13px",
-            "--nb-radius-panel": "14px",
-            "--nb-radius-widget": "10px",
-            "--nb-radius-input": "7px",
+            "--nb-font-size-heading": "12px",
+            "--nb-radius-panel": "24px",
+            "--nb-radius-widget": "14px",
+            "--nb-radius-input": "12px",
             "--nb-radius-item": "6px",
+            "--nb-radius-sm": "4px",
             "--nb-panel-gap": "6px",
             "--nb-panel-top": "6px",
-            "--nb-canvas": "color-mix(in srgb, var(--vscode-editor-background) 85%, var(--vscode-foreground) 15%)",
-            "--nb-surface": "color-mix(in srgb, var(--vscode-sideBar-background) 92%, transparent)",
+            "--nb-canvas": "color-mix(in srgb, var(--vscode-editor-background) 92%, var(--vscode-foreground) 8%)",
+            "--nb-surface": "color-mix(in srgb, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in srgb, var(--vscode-editorWidget-background) 96%, transparent)",
             "--nb-surface-highlight": "color-mix(in srgb, var(--vscode-foreground) 8%, transparent)",
+            "--nb-surface-2": "color-mix(in srgb, var(--vscode-sideBar-background) 88%, var(--vscode-editor-background) 12%)",
+            "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
+            "--nb-tab-seam": "color-mix(in srgb, var(--vscode-editorGroupHeader-tabsBackground, var(--vscode-editor-background)) 82%, var(--vscode-foreground) 18%)",
+            "--nb-glass-n": "color-mix(in srgb, #fff 58%, transparent)",
+            "--nb-glass-w": "color-mix(in srgb, #fff 38%, transparent)",
+            "--nb-glass-s": "color-mix(in srgb, var(--vscode-foreground) 10%, transparent)",
+            "--nb-glass-e": "color-mix(in srgb, var(--vscode-foreground) 10%, transparent)",
             "--nb-border": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 38%, transparent)",
             "--nb-border-subtle": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 20%, transparent)",
-            "--nb-surface-shadow": "0 4px 18px color-mix(in srgb, var(--vscode-widget-shadow, rgba(0, 0, 0, 0.24)) 22%, transparent)",
-            "--nb-widget-shadow": "0 12px 32px color-mix(in srgb, var(--vscode-widget-shadow, rgba(0, 0, 0, 0.24)) 34%, transparent)",
+            "--nb-border-strong": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 52%, transparent)",
+            "--nb-surface-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
+            "--nb-widget-shadow": "0 8px 24px color-mix(in srgb, var(--vscode-widget-shadow, #000) 40%, transparent)",
+            "--nb-shadow-soft": "0 4px 12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 3px color-mix(in srgb, #fff 10%, transparent), 0 1px 4px color-mix(in srgb, #000 18%, transparent)",
+            "--nb-glass-inset": "inset 0 1px 0 var(--nb-glass-n), inset 1px 0 0 var(--nb-glass-w), inset 0 -1px 0 var(--nb-glass-s), inset -1px 0 0 var(--nb-glass-e)",
             "--nb-glass-blur": "blur(12px)",
+            "--nb-blur-strong": "blur(18px)",
+            "--nb-motion-xs": "80ms",
             "--nb-motion-fast": "120ms",
             "--nb-motion-base": "180ms",
             "--nb-motion-slow": "260ms",
             "--nb-ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
             "--nb-ease-in": "cubic-bezier(0.7, 0, 0.84, 0)",
             "--nb-ease-in-out": "cubic-bezier(0.65, 0, 0.35, 1)",
-            "--nb-ease-spring": "cubic-bezier(0.16, 1, 0.3, 1)",
+            "--nb-ease-soft": "cubic-bezier(0.4, 0, 0.2, 1)",
             "--nb-focus": "var(--vscode-focusBorder)",
             "--nb-accent-soft": "color-mix(in oklch, var(--nb-focus) 18%, transparent)",
             "--nb-accent-medium": "color-mix(in oklch, var(--nb-focus) 32%, transparent)",
-            "--nb-surface-glow": "none",
             "--nb-focus-ring": "0 0 0 3px color-mix(in oklch, var(--nb-focus) 30%, transparent)",
-            "--nb-shadow-soft": "0 8px 24px color-mix(in oklch, var(--vscode-widget-shadow, #000) 18%, transparent)",
-            "--nb-depth-1": "0 1px 2px color-mix(in oklch, var(--vscode-widget-shadow, #000) 14%, transparent)",
-            "--nb-depth-2": "0 6px 16px color-mix(in oklch, var(--vscode-widget-shadow, #000) 24%, transparent)",
-            "--nb-depth-3": "0 16px 40px color-mix(in oklch, var(--vscode-widget-shadow, #000) 38%, transparent)",
-            "--nb-glass-tint": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            "--nb-surface-2": "color-mix(in srgb, var(--vscode-sideBar-background) 88%, var(--vscode-editor-background) 12%)",
-            "--nb-surface-overlay": "color-mix(in srgb, var(--vscode-editorWidget-background) 90%, transparent)",
-            "--nb-scrim": "color-mix(in oklch, var(--vscode-editor-background) 55%, transparent)",
-            "--nb-text-muted": "color-mix(in oklch, var(--vscode-foreground) 72%, transparent)",
-            "--nb-text-faint": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
-            "--nb-border-strong": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 52%, transparent)",
-            "--nb-radius-sm": "4px",
-            "--nb-motion-xs": "80ms",
-            "--nb-blur-strong": "blur(18px)",
             "--nb-focus-ring-offset": "2px",
             "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
+            "--nb-text-muted": "color-mix(in oklch, var(--vscode-foreground) 72%, transparent)",
+            "--nb-text-faint": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
+            "--nb-scrim": "color-mix(in oklch, var(--vscode-editor-background) 55%, transparent)",
             "--nb-spacing-xs": "4px",
             "--nb-spacing-sm": "8px",
             "--nb-spacing-md": "12px",
             "--nb-spacing-lg": "16px",
             "--nb-z-overlay": "1000",
             "background-color": "var(--nb-canvas) !important",
-            "font-family": "var(--nb-font-ui) !important",
-            "transition": "background-color var(--nb-motion-slow) var(--nb-ease-out), color var(--nb-motion-slow) var(--nb-ease-out) !important"
+            "font-family": "var(--nb-font-ui) !important"
         },
         ".monaco-workbench.vs-dark, .vs-dark .monaco-workbench": {
-            "--nb-canvas": "color-mix(in oklch, var(--vscode-editor-background) 80%, #000 20%)",
-            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 86%, transparent)",
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-editor-background) 45%, #121216 55%)",
+            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 82%, #181a1d 18%)",
             "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background) 92%, transparent)",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
+            "--nb-pill": "color-mix(in srgb, var(--nb-canvas), var(--nb-surface) 30%)",
+            "--nb-tab-seam": "#25262a",
+            "--nb-glass-n": "rgba(255, 255, 255, 0.12)",
+            "--nb-glass-w": "rgba(255, 255, 255, 0.08)",
+            "--nb-glass-s": "rgba(255, 255, 255, 0.03)",
+            "--nb-glass-e": "rgba(255, 255, 255, 0.03)",
             "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 30%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 16%, transparent)",
+            "--nb-surface-shadow": "0 2px 8px rgba(0, 0, 0, 0.3)",
+            "--nb-widget-shadow": "0 8px 24px rgba(0, 0, 0, 0.5)",
+            "--nb-shadow-soft": "0 4px 12px rgba(0, 0, 0, 0.4)",
+            "--nb-pill-shadow": "inset 0 1px 3px rgba(255, 255, 255, 0.06), 0 1px 4px rgba(0, 0, 0, 0.3)",
             "--nb-glass-blur": "blur(16px)",
-            "--nb-blur-strong": "blur(22px)",
-            "--nb-surface-shadow": "0 4px 18px color-mix(in oklch, var(--vscode-widget-shadow, #000) 42%, transparent)",
-            "--nb-widget-shadow": "0 12px 32px color-mix(in oklch, var(--vscode-widget-shadow, #000) 58%, transparent)",
-            "--nb-shadow-soft": "0 8px 24px color-mix(in oklch, var(--vscode-widget-shadow, #000) 36%, transparent)"
+            "--nb-blur-strong": "blur(22px)"
         },
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
             "font-family": "var(--nb-font-heading) !important",
-            "font-weight": "600 !important",
+            "font-weight": "700 !important",
             "font-size": "var(--nb-font-size-heading) !important"
+        },
+        ".part.sidebar .title-label h2": {
+            "font-family": "var(--nb-font-heading) !important",
+            "font-size": "12px !important",
+            "font-weight": "700 !important",
+            "text-transform": "uppercase !important",
+            "letter-spacing": "1px !important"
         },
         ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget .quick-input-header, .notifications-center, .notification-toast": {
             "font-family": "var(--nb-font-ui) !important"
@@ -536,127 +529,359 @@
         ".part.statusbar, .monaco-breadcrumbs, .tab .label-name": {
             "font-size": "var(--nb-font-size-small) !important"
         },
-        ".monaco-workbench .part, .monaco-workbench .monaco-list-row, .monaco-workbench .tab, .monaco-workbench .monaco-button": {
-            "transition-timing-function": "var(--nb-ease-out) !important"
-        },
         ".part.titlebar": {
-            "background-color": "transparent !important",
+            "background-color": "var(--nb-canvas) !important",
             "border-bottom": "none !important",
-            "box-shadow": "none !important",
-            "transition": "background-color var(--nb-motion-slow) var(--nb-ease-out) !important"
+            "box-shadow": "none !important"
+        },
+        ".part.titlebar .action-label": {
+            "border-radius": "50% !important"
         },
         ".part.statusbar": {
-            "background-color": "var(--nb-surface) !important",
-            "border-top": "1px solid var(--nb-border) !important",
-            "border-radius": "var(--nb-radius-panel) var(--nb-radius-panel) 0 0 !important",
-            "margin": "0 var(--nb-panel-gap) !important",
-            "box-shadow": "var(--nb-shadow-soft) !important"
+            "background-color": "var(--nb-canvas) !important",
+            "border-top": "none !important",
+            "border-radius": "0 !important",
+            "margin": "0 !important",
+            "box-shadow": "none !important",
+            "font-family": "var(--nb-font-ui) !important"
         },
-        ".part.statusbar .statusbar-item-label": {
-            "opacity": "0.9 !important",
-            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+        ".part.statusbar .items-container": {
+            "margin-top": "-2px !important"
         },
-        ".part.statusbar:hover .statusbar-item-label": {
+        ".part.statusbar .statusbar-item-label, .part.statusbar .codicon": {
+            "opacity": "0.55 !important",
+            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft) !important"
+        },
+        ".part.statusbar:hover .statusbar-item-label, .part.statusbar:hover .codicon, .part.statusbar:focus-within .statusbar-item-label, .part.statusbar:focus-within .codicon": {
             "opacity": "1 !important"
         },
-        ".part.sidebar, .part.auxiliarybar, .part.panel.bottom": {
+        ".part.activitybar": {
+            "background": "var(--nb-canvas) !important",
+            "border": "none !important",
+            "border-radius": "0 !important",
+            "margin": "8px 0 30px 0 !important",
+            "box-shadow": "none !important",
+            "overflow": "visible !important",
+            "width": "54px !important",
+            "background-image": "none !important"
+        },
+        ".part.activitybar .composite-bar": {
+            "background": "var(--nb-pill) !important",
+            "border-radius": "9999px !important",
+            "overflow": "hidden !important",
+            "width": "calc(100% - 4px) !important",
+            "margin-left": "auto !important",
+            "margin-right": "auto !important",
+            "padding": "8px 3px !important",
+            "box-sizing": "border-box !important",
+            "display": "flex !important",
+            "flex-direction": "column !important",
+            "align-items": "center !important",
+            "border-top": "1px solid var(--nb-glass-n) !important",
+            "border-left": "1px solid var(--nb-glass-w) !important",
+            "border-bottom": "1px solid var(--nb-glass-s) !important",
+            "border-right": "1px solid var(--nb-glass-e) !important",
+            "box-shadow": "var(--nb-pill-shadow) !important"
+        },
+        ".part.activitybar .content > div:last-child": {
+            "transform": "translateY(-10px) !important"
+        },
+        ".part.activitybar .actions-container": {
+            "align-items": "center !important",
+            "justify-content": "center !important",
+            "width": "100% !important",
+            "overflow": "visible !important"
+        },
+        ".part.activitybar .action-item": {
+            "display": "flex !important",
+            "justify-content": "center !important",
+            "width": "100% !important",
+            "overflow": "visible !important",
+            "border-radius": "0 !important",
+            "background": "transparent !important",
+            "box-shadow": "none !important"
+        },
+        ".part.activitybar .action-item .action-label": {
+            "font-size": "22px !important",
+            "width": "34px !important",
+            "height": "34px !important",
+            "line-height": "34px !important",
+            "display": "flex !important",
+            "align-items": "center !important",
+            "justify-content": "center !important",
+            "overflow": "visible !important",
+            "transition": "filter var(--nb-motion-base) var(--nb-ease-soft), background var(--nb-motion-base) var(--nb-ease-soft), box-shadow var(--nb-motion-base) var(--nb-ease-soft) !important"
+        },
+        ".part.activitybar .action-item .action-label .codicon": {
+            "font-size": "22px !important"
+        },
+        ".part.activitybar .action-item .action-label img": {
+            "max-width": "22px !important",
+            "max-height": "22px !important"
+        },
+        ".part.activitybar .action-item .active-item-indicator": {
+            "display": "none !important"
+        },
+        ".part.activitybar .action-item.checked .action-label": {
+            "background": "linear-gradient(180deg, color-mix(in srgb, var(--vscode-foreground) 16%, transparent), color-mix(in srgb, var(--vscode-foreground) 8%, transparent)) !important",
+            "border-radius": "50% !important",
+            "width": "30px !important",
+            "height": "30px !important",
+            "box-shadow": "var(--nb-glass-inset), inset 0 1px 2px color-mix(in srgb, #fff 8%, transparent), 0 1px 3px color-mix(in srgb, #000 24%, transparent) !important"
+        },
+        ".part.activitybar .badge": {
+            "z-index": "10 !important",
+            "overflow": "visible !important",
+            "transform": "scale(0.8) !important",
+            "transform-origin": "top right !important"
+        },
+        ".part.sidebar, .part.auxiliarybar": {
             "background-color": "var(--nb-surface) !important",
-            "border": "1px solid var(--nb-border) !important",
+            "margin": "var(--nb-panel-top) var(--nb-panel-gap) 0 var(--nb-panel-gap) !important",
             "border-radius": "var(--nb-radius-panel) !important",
-            "margin": "var(--nb-panel-top) var(--nb-panel-gap) var(--nb-panel-gap) var(--nb-panel-gap) !important",
+            "overflow": "hidden !important",
+            "max-height": "calc(100% - var(--nb-panel-top) - 2px) !important",
+            "border-top": "1px solid var(--nb-glass-n) !important",
+            "border-left": "1px solid var(--nb-glass-w) !important",
+            "border-bottom": "1px solid var(--nb-glass-s) !important",
+            "border-right": "1px solid var(--nb-glass-e) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
             "background-image": "none !important"
+        },
+        ".part.sidebar .composite.title": {
+            "padding": "8px 20px 0 0 !important"
+        },
+        ".part.sidebar .content": {
+            "width": "calc(100% - 20px) !important",
+            "padding-left": "10px !important",
+            "margin-left": "6px !important"
+        },
+        ".part.sidebar .welcome-view-content": {
+            "max-width": "100% !important",
+            "box-sizing": "border-box !important"
+        },
+        ".part.sidebar .pane-header": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "outline-offset": "-1px !important"
+        },
+        ".part.sidebar .header": {
+            "padding-right": "20px !important"
+        },
+        ".part.sidebar .label-name": {
+            "font-size": "13px !important"
+        },
+        ".part.sidebar .pane-header .title": {
+            "font-size": "10px !important"
+        },
+        ".explorer-viewlet .split-view-container": {
+            "margin-top": "0 !important"
+        },
+        ".explorer-folders-view .monaco-tl-row": {
+            "padding-top": "1px !important",
+            "padding-bottom": "1px !important"
+        },
+        ".part.sidebar .monaco-list-row": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "margin-left": "4px !important",
+            "margin-right": "4px !important",
+            "width": "calc(100% - 8px) !important",
+            "transition": "background var(--nb-motion-base) var(--nb-ease-soft), box-shadow var(--nb-motion-base) var(--nb-ease-soft) !important"
+        },
+        ".part.sidebar .monaco-list-row.selected": {
+            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 12%, transparent), color-mix(in srgb, var(--vscode-foreground) 7%, transparent)) !important",
+            "box-shadow": "inset 0 0 0 1px color-mix(in srgb, #fff 8%, transparent) !important"
+        },
+        ".part.sidebar .monaco-list-row.focused": {
+            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 18%, transparent), color-mix(in srgb, var(--vscode-foreground) 10%, transparent)) !important",
+            "box-shadow": "inset 0 0 0 1px color-mix(in srgb, #fff 10%, transparent) !important"
+        },
+        ".part.sidebar .monaco-list-row:hover": {
+            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 10%, transparent), color-mix(in srgb, var(--vscode-foreground) 5%, transparent)) !important",
+            "border-radius": "var(--nb-radius-item) !important"
+        },
+        ".part.auxiliarybar .composite.title": {
+            "padding": "8px 0 0 8px !important"
+        },
+        ".part.auxiliarybar .content": {
+            "width": "100% !important"
+        },
+        ".part.auxiliarybar .split-view-view": {
+            "max-height": "100% !important",
+            "overflow": "hidden !important",
+            "display": "flex !important",
+            "flex-direction": "column !important"
+        },
+        ".part.auxiliarybar .header": {
+            "padding-left": "8px !important"
+        },
+        ".part.auxiliarybar .chat-input-part": {
+            "position": "sticky !important",
+            "bottom": "0 !important",
+            "z-index": "10 !important"
+        },
+        ".part.auxiliarybar .interactive-input-part, .part.auxiliarybar .interactive-session": {
+            "display": "flex !important",
+            "flex-direction": "column !important",
+            "overflow": "hidden !important"
+        },
+        ".part.auxiliarybar .interactive-session": {
+            "height": "100% !important"
+        },
+        ".part.auxiliarybar .interactive-list": {
+            "flex": "1 1 auto !important",
+            "overflow-y": "auto !important",
+            "min-height": "0 !important"
+        },
+        ".part.auxiliarybar .chat-input-container": {
+            "flex-shrink": "0 !important",
+            "overflow": "visible !important",
+            "min-height": "fit-content !important"
+        },
+        ".monaco-workbench.linux .part.editor > .content": {
+            "padding-top": "20px !important"
         },
         ".part.editor": {
             "background-color": "var(--vscode-editor-background) !important",
-            "border": "1px solid var(--nb-border) !important",
+            "margin": "var(--nb-panel-top) var(--nb-panel-gap) 0 var(--nb-panel-gap) !important",
             "border-radius": "var(--nb-radius-panel) !important",
-            "margin": "var(--nb-panel-top) var(--nb-panel-gap) var(--nb-panel-gap) 0 !important",
             "overflow": "hidden !important",
-            "box-shadow": "var(--nb-surface-shadow) !important"
-        },
-        ".part.activitybar": {
-            "background-color": "var(--nb-surface) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "border-radius": "var(--nb-radius-panel) !important",
-            "margin": "var(--nb-panel-top) 0 var(--nb-panel-gap) var(--nb-panel-gap) !important",
+            "max-height": "calc(100% - var(--nb-panel-top) - 2px) !important",
+            "border-top": "1px solid var(--nb-glass-n) !important",
+            "border-left": "1px solid var(--nb-glass-w) !important",
+            "border-bottom": "1px solid var(--nb-glass-s) !important",
+            "border-right": "1px solid var(--nb-glass-e) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
-            "background-image": "none !important"
-        },
-        ".part.activitybar .action-item": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
-        },
-        ".part.activitybar .action-item:hover": {
-            "background-color": "var(--nb-surface-highlight) !important"
-        },
-        ".part.activitybar .action-item.checked": {
-            "background-color": "var(--nb-accent-soft) !important",
-            "box-shadow": "inset 2px 0 0 var(--nb-focus) !important",
-            "border-radius": "var(--nb-radius-item) !important"
+            "isolation": "isolate",
+            "contain": "paint"
         },
         ".tabs-and-actions-container": {
             "background-color": "transparent !important",
-            "border-bottom": "1px solid var(--nb-border) !important"
+            "border-bottom": "none !important"
+        },
+        ".editor-actions, .tabs-container": {
+            "background-image": "linear-gradient(to top, var(--nb-tab-seam) 1px, transparent 1px) !important",
+            "background-repeat": "no-repeat !important",
+            "background-position": "bottom !important"
         },
         ".tab": {
             "position": "relative !important",
-            "border-radius": "var(--nb-radius-item) !important",
-            "margin": "3px 2px !important",
+            "margin": "0 !important",
+            "border-right": "none !important",
+            "border-radius": "var(--nb-radius-item) var(--nb-radius-item) 0 0 !important",
+            "font-family": "var(--nb-font-ui) !important",
+            "display": "flex !important",
+            "align-items": "center !important",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
-        ".tab .tab-close-action": {
-            "opacity": "0.55 !important",
-            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+        ".tab .tab-actions .action-label": {
+            "border-radius": "50% !important"
         },
-        ".tab:hover .tab-close-action, .tab:focus-within .tab-close-action, .tab.active .tab-close-action": {
-            "opacity": "1 !important"
+        ".tab.active": {
+            "background-color": "var(--vscode-tab-activeBackground) !important",
+            "box-shadow": "inset -1px 0 0 0 var(--nb-tab-seam), inset 1px 0 0 0 var(--nb-tab-seam) !important",
+            "border-right": "none !important"
         },
-        ".tab::after": {
-            "content": "'' !important",
-            "position": "absolute !important",
-            "left": "8px !important",
-            "right": "8px !important",
-            "bottom": "0 !important",
-            "height": "2px !important",
-            "border-radius": "999px !important",
-            "background-color": "var(--vscode-tab-activeBorder, var(--vscode-statusBarItem-remoteBackground, var(--vscode-focusBorder))) !important",
-            "transform": "scaleX(0) !important",
-            "transform-origin": "left center !important",
-            "opacity": "0 !important",
-            "transition": "transform var(--nb-motion-slow) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+        ".tab:not(.active)": {
+            "box-shadow": "inset 0 -1px 0 0 var(--nb-tab-seam) !important"
         },
-        ".tab:hover::after": {
-            "opacity": "0.75 !important",
-            "transform": "scaleX(0.5) !important"
-        },
-        ".tab.active::after": {
-            "opacity": "1 !important",
-            "transform": "scaleX(1) !important"
+        ".tab.active:first-child": {
+            "box-shadow": "inset -1px 0 0 0 var(--nb-tab-seam) !important"
         },
         ".tab:hover": {
             "background-color": "var(--vscode-tab-hoverBackground) !important"
         },
-        ".tab.active": {
-            "background-color": "var(--vscode-tab-activeBackground) !important"
+        ".tab:hover .label-name": {
+            "text-shadow": "0 0 5px color-mix(in srgb, var(--vscode-foreground) 18%, transparent) !important",
+            "transition": "text-shadow 0.3s ease !important"
+        },
+        ".tab .tab-actions, .tab .tab-close-action": {
+            "opacity": "0 !important",
+            "transition": "opacity var(--nb-motion-base) var(--nb-ease-soft) !important"
+        },
+        ".tab:hover .tab-actions, .tab:focus-within .tab-actions, .tab.active .tab-actions, .tab:hover .tab-close-action, .tab:focus-within .tab-close-action, .tab.active .tab-close-action": {
+            "opacity": "1 !important"
+        },
+        ".minimap canvas": {
+            "opacity": "0.6 !important",
+            "transition": "opacity 0.4s ease !important"
+        },
+        ".minimap:hover canvas, .minimap:focus-within canvas": {
+            "opacity": "1 !important"
         },
         ".monaco-breadcrumbs": {
-            "color": "var(--vscode-breadcrumb-foreground) !important",
-            "transition": "color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-top": "none !important",
+            "opacity": "0.4 !important",
+            "transition": "opacity 0.4s var(--nb-ease-soft) !important"
         },
-        ".monaco-list-row": {
+        ".monaco-breadcrumbs:hover, .monaco-breadcrumbs:focus-within": {
+            "opacity": "1 !important"
+        },
+        ".part.panel.bottom": {
+            "border-radius": "var(--nb-radius-panel) !important",
+            "overflow": "hidden !important",
+            "box-sizing": "border-box !important",
+            "background-color": "var(--nb-surface) !important",
+            "margin-top": "6px !important",
+            "border-left": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
+            "border-right": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
+            "border-bottom": "none !important",
+            "border-top": "none !important",
+            "box-shadow": "var(--nb-glass-inset) !important",
+            "isolation": "isolate",
+            "contain": "paint"
+        },
+        ".part.panel.bottom > .composite.title": {
+            "position": "relative !important",
+            "z-index": "1 !important"
+        },
+        ".part.panel.bottom > .content": {
+            "margin-top": "0 !important",
+            "position": "relative !important",
+            "border-radius": "0 0 calc(var(--nb-radius-panel) - var(--nb-panel-gap)) calc(var(--nb-radius-panel) - var(--nb-panel-gap)) !important",
+            "overflow": "hidden !important",
+            "contain": "paint"
+        },
+        ".part.panel.bottom:has(.terminal-outer-container) > .content": {
+            "margin-top": "-7px !important"
+        },
+        ".part.panel.bottom .pane, .part.panel.bottom .pane-body, .part.panel.bottom .split-view-view, .part.panel.bottom .composite, .part.panel.bottom .monaco-pane-view, .part.panel.bottom .output-view": {
+            "border-bottom": "none !important"
+        },
+        ".part.panel.bottom .tabs-container": {
+            "border-bottom": "none !important",
+            "background-image": "none !important"
+        },
+        ".part.panel.bottom .terminal-outer-container": {
+            "border-left": "1px solid var(--nb-glass-w) !important",
+            "border-radius": "0 0 0 18px !important",
+            "box-sizing": "border-box !important",
+            "overflow": "hidden !important",
+            "isolation": "isolate",
+            "contain": "paint"
+        },
+        ".part.panel.bottom .terminal.xterm": {
+            "border-radius": "0 0 0 18px !important"
+        },
+        ".part.panel.bottom .message-box-container, .part.panel.bottom .welcome-view-content": {
+            "border-radius": "10px !important",
+            "margin": "4px !important",
+            "width": "calc(100% - 34px) !important",
+            "box-sizing": "border-box !important"
+        },
+        ".split-view-view:has(.terminal-tabs-entry)": {
+            "min-width": "220px !important",
+            "border-bottom": "none !important"
+        },
+        ".split-view-view:has(.terminal-tabs-entry) .monaco-list-row": {
             "border-radius": "var(--nb-radius-item) !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "margin-right": "20px !important",
+            "width": "calc(100% - 20px) !important"
         },
-        ".monaco-list-row.focused": {
-            "outline": "1px solid var(--nb-focus) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-focus), 0 0 0 3px var(--nb-accent-soft) !important",
-            "outline-offset": "-1px !important"
+        ".viewpane-filter .monaco-inputbox, .search-widget .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
+            "border-radius": "var(--nb-radius-input) !important",
+            "overflow": "hidden !important"
         },
-        ".monaco-list-row:hover": {
-            "transform": "none !important"
-        },
-        ".monaco-inputbox, .monaco-findInput, .scm-input, .scm-editor": {
+        ".monaco-inputbox, .monaco-findInput": {
             "border-radius": "var(--nb-radius-input) !important",
             "border": "1px solid var(--nb-border) !important",
             "background-color": "var(--vscode-input-background) !important",
@@ -670,12 +895,8 @@
             "border-radius": "var(--nb-radius-input) !important",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
-        ".monaco-button:hover, .action-label:hover": {
-            "transform": "none !important"
-        },
         ".monaco-button:active, .action-label:active": {
-            "transform": "scale(0.98) !important",
-            "transition": "transform var(--nb-motion-fast) var(--nb-ease-in) !important"
+            "transform": "scale(0.98) !important"
         },
         ".monaco-workbench :focus-visible": {
             "outline": "2px solid var(--nb-focus) !important",
@@ -688,28 +909,61 @@
             "outline": "none !important",
             "box-shadow": "var(--nb-ring) !important"
         },
-        ".quick-input-widget": {
+        ".command-center-center": {
+            "font-family": "var(--nb-font-ui) !important",
+            "border-radius": "9999px !important",
+            "overflow": "hidden !important",
+            "border": "none !important",
+            "background": "var(--nb-pill) !important",
+            "box-shadow": "var(--nb-glass-inset), var(--nb-pill-shadow) !important",
+            "transition": "box-shadow var(--nb-motion-base) var(--nb-ease-soft), background var(--nb-motion-base) var(--nb-ease-soft) !important"
+        },
+        ".command-center-center *": {
+            "border-radius": "9999px !important"
+        },
+        ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
             "border-radius": "var(--nb-radius-widget) !important",
             "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
+            "overflow": "hidden !important",
+            "border-top": "1px solid var(--nb-glass-n) !important",
+            "border-left": "1px solid var(--nb-glass-w) !important",
+            "border-bottom": "1px solid var(--nb-glass-s) !important",
+            "border-right": "1px solid var(--nb-glass-e) !important",
+            "box-shadow": "var(--nb-widget-shadow) !important"
+        },
+        ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
             "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
+            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
+        },
+        ".quick-input-widget": {
             "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
         },
-        ".suggest-widget": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
-            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".monaco-hover": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
+        ".suggest-widget, .monaco-hover": {
             "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
+        },
+        ".monaco-dialog-box, .notifications-center, .monaco-menu": {
+            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+        },
+        ".notification-toast": {
+            "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+        },
+        ".notifications-toasts": {
+            "margin-right": "var(--nb-panel-gap) !important",
+            "margin-bottom": "var(--nb-panel-gap) !important"
+        },
+        ".quick-input-widget .monaco-list-row": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "margin-left": "4px !important",
+            "margin-right": "4px !important",
+            "width": "calc(100% - 8px) !important",
+            "transition": "background 0.15s var(--nb-ease-soft) !important"
+        },
+        ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
+            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 18%, transparent), color-mix(in srgb, var(--vscode-foreground) 10%, transparent)) !important",
+            "box-shadow": "inset 0 0 0 1px color-mix(in srgb, #fff 8%, transparent) !important"
+        },
+        ".monaco-dialog-box .dialog-buttons .monaco-button": {
+            "border-radius": "var(--nb-radius-input) !important"
         },
         ".colorpicker-widget": {
             "border-radius": "var(--nb-radius-widget) !important",
@@ -717,52 +971,6 @@
             "border": "1px solid var(--nb-border) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
             "overflow": "hidden !important"
-        },
-        ".colorpicker-widget .colorpicker-header": {
-            "border-bottom": "1px solid var(--nb-border-subtle) !important"
-        },
-        ".colorpicker-widget .colorpicker-saturation-box, .colorpicker-widget .colorpicker-hue-strip, .colorpicker-widget .colorpicker-opacity-strip": {
-            "border-radius": "var(--nb-radius-item) !important"
-        },
-        ".monaco-dialog-box": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".notification-toast": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".notifications-center": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".monaco-menu": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "animation": "nb-settle-in var(--nb-motion-fast) var(--nb-ease-out) both !important"
-        },
-        ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
-            "outline": "1px solid var(--nb-focus) !important",
-            "background-color": "var(--vscode-quickInputList-focusBackground) !important"
         },
         ".settings-editor .setting-item": {
             "border-radius": "var(--nb-radius-widget) !important",
@@ -781,14 +989,25 @@
         },
         ".settings-editor .setting-item:hover": {
             "border-color": "var(--vscode-focusBorder) !important",
-            "background-color": "var(--nb-surface-highlight) !important",
-            "transform": "none !important"
+            "background-color": "var(--nb-surface-highlight) !important"
         },
         ".settings-editor .setting-item.setting-item-modified .setting-item-contents": {
             "border-left": "3px solid var(--vscode-settings-modifiedItemIndicator) !important"
         },
+        ".monaco-list-row": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".monaco-workbench :focus-visible.monaco-list-row, .monaco-list-row:focus-visible": {
+            "outline": "2px solid var(--nb-focus) !important",
+            "outline-offset": "-2px !important"
+        },
         ".monaco-progress-container .progress-bit": {
             "animation": "nb-progress-sweep 900ms var(--nb-ease-in-out) infinite !important"
+        },
+        ".scrollbar .slider": {
+            "border-radius": "9999px !important",
+            "transition": "opacity 0.3s var(--nb-ease-soft) !important"
         },
         ".monaco-scrollable-element > .scrollbar.vertical": {
             "width": "14px !important"
@@ -797,33 +1016,7 @@
             "width": "6px !important",
             "margin-left": "4px !important",
             "border-radius": "999px !important",
-            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important",
-            "transition": "width var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
-        },
-        ".monaco-scrollable-element > .scrollbar > .slider:hover": {
-            "background": "var(--vscode-scrollbarSlider-hoverBackground) !important"
-        },
-        ".monaco-sash:hover": {
-            "background-color": "var(--vscode-sash-hoverBorder) !important",
-            "box-shadow": "none !important"
-        },
-        ".monaco-list-row.selected": {
-            "background-color": "var(--vscode-list-activeSelectionBackground) !important",
-            "color": "var(--vscode-list-activeSelectionForeground) !important"
-        },
-        ".monaco-tl-row:hover, .monaco-list-row:hover": {
-            "background-color": "var(--nb-surface-highlight) !important"
-        },
-        ".monaco-breadcrumbs .breadcrumbs-item:hover": {
-            "color": "var(--vscode-foreground) !important",
-            "text-decoration": "underline dotted !important",
-            "text-underline-offset": "3px !important"
-        },
-        ".monaco-hover .hover-row": {
-            "padding": "2px 4px !important"
-        },
-        ".suggest-widget .details > .monaco-scrollable-element": {
-            "border-radius": "var(--nb-radius-item) !important"
+            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important"
         },
         ".monaco-scrollable-element > .scrollbar.horizontal > .slider": {
             "height": "6px !important",
@@ -831,29 +1024,66 @@
             "border-radius": "999px !important",
             "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important"
         },
+        ".monaco-scrollable-element > .scrollbar > .slider:hover": {
+            "background": "var(--vscode-scrollbarSlider-hoverBackground) !important"
+        },
+        ".monaco-count-badge": {
+            "border-radius": "9999px !important",
+            "font-size": "12px !important",
+            "padding": "0 6px !important",
+            "min-height": "16px !important",
+            "line-height": "16px !important",
+            "transform": "scale(0.85) !important"
+        },
+        ".sticky-widget": {
+            "box-shadow": "0 4px 8px -2px color-mix(in srgb, #000 28%, transparent) !important"
+        },
+        ".monaco-sash:hover": {
+            "background-color": "var(--vscode-sash-hoverBorder) !important",
+            "box-shadow": "none !important"
+        },
         ".monaco-editor .margin": {
             "border-right": "1px solid var(--nb-border-subtle) !important"
         },
-        ".part.sidebar, .part.auxiliarybar, .part.panel.bottom, .part.activitybar": {
-            "box-shadow": "inset 0 1px 0 var(--nb-glass-tint), var(--nb-surface-shadow) !important"
+        ".monaco-editor .cursor": {
+            "filter": "none !important",
+            "animation": "none !important"
         },
-        ".part.statusbar": {
-            "box-shadow": "inset 0 1px 0 var(--nb-glass-tint), var(--nb-shadow-soft) !important"
+        ".monaco-workbench.vs-dark .monaco-icon-label.file-icon::before, .vs-dark .monaco-icon-label.file-icon::before": {
+            "filter": "drop-shadow(0 0 2.5px currentColor)",
+            "opacity": "1 !important"
+        },
+        ".letterpress": {
+            "opacity": "0.4 !important"
+        },
+        ".chat-input-container": {
+            "background-color": "var(--nb-surface) !important",
+            "border-radius": "var(--nb-radius-widget) !important",
+            "border-top": "1px solid var(--nb-glass-n) !important",
+            "border-left": "1px solid var(--nb-glass-w) !important",
+            "border-bottom": "1px solid var(--nb-glass-s) !important",
+            "border-right": "1px solid var(--nb-glass-e) !important",
+            "overflow": "visible !important"
+        },
+        ".interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2": {
+            "border-radius": "var(--nb-radius-widget) !important",
+            "overflow": "visible !important"
+        },
+        ".notebookOverlay": {
+            "border-radius": "0 0 var(--nb-radius-panel) var(--nb-radius-panel) !important",
+            "clip-path": "inset(0 18px var(--nb-panel-gap) var(--nb-panel-gap) round 0 0 var(--nb-radius-panel) var(--nb-radius-panel)) !important",
+            "isolation": "isolate",
+            "contain": "paint"
+        },
+        ".monaco-button-dropdown-separator": {
+            "display": "none !important",
+            "width": "0 !important",
+            "opacity": "0 !important"
         },
         "@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)))": {
             ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
                 "background-color": "var(--vscode-editorWidget-background) !important"
             }
-        },
-        ".command-center-center": {
-            "border-radius": "999px !important",
-            "border": "1px solid var(--nb-border) !important",
-            "background-color": "var(--nb-surface) !important",
-            "box-shadow": "none !important"
-        },
-        ".monaco-editor .cursor": {
-            "filter": "none !important",
-            "animation": "none !important"
         },
         "@keyframes nb-settle-in": {
             "from": {
@@ -891,7 +1121,8 @@
         "@media (prefers-reduced-transparency: reduce)": {
             ".monaco-workbench": {
                 "--nb-surface": "var(--vscode-sideBar-background)",
-                "--nb-surface-raised": "var(--vscode-editorWidget-background)"
+                "--nb-surface-raised": "var(--vscode-editorWidget-background)",
+                "--nb-pill": "var(--vscode-sideBar-background)"
             },
             ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
                 "backdrop-filter": "none !important",
@@ -904,9 +1135,17 @@
                 "animation": "none !important",
                 "scroll-behavior": "auto !important"
             },
-            ".tab::after, .monaco-progress-container .progress-bit": {
-                "animation": "none !important",
-                "transition": "none !important"
+            ".monaco-breadcrumbs": {
+                "opacity": "1 !important"
+            },
+            ".part.statusbar .statusbar-item-label, .part.statusbar .codicon": {
+                "opacity": "1 !important"
+            },
+            ".tab .tab-actions, .tab .tab-close-action": {
+                "opacity": "1 !important"
+            },
+            ".minimap canvas": {
+                "opacity": "1 !important"
             },
             ".monaco-button:active, .action-label:active": {
                 "transform": "none !important"
@@ -914,19 +1153,19 @@
         },
         "@media (prefers-contrast: more)": {
             ".monaco-workbench": {
+                "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
+                "--nb-glass-w": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)",
+                "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)",
+                "--nb-glass-e": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)",
                 "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
                 "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)"
             },
-            ".part.sidebar, .part.auxiliarybar, .part.panel.bottom, .part.statusbar, .part.titlebar": {
-                "backdrop-filter": "none !important",
-                "-webkit-backdrop-filter": "none !important"
+            ".monaco-breadcrumbs": {
+                "opacity": "1 !important"
             },
             ".monaco-workbench :focus-visible": {
                 "outline-width": "3px !important",
                 "outline-offset": "3px !important"
-            },
-            ".monaco-progress-container .progress-bit": {
-                "animation-duration": "400ms !important"
             }
         },
         "@media (forced-colors: active)": {
@@ -935,7 +1174,8 @@
                 "-webkit-backdrop-filter": "none !important",
                 "box-shadow": "none !important",
                 "background-image": "none !important",
-                "border-radius": "0 !important"
+                "border-radius": "0 !important",
+                "filter": "none !important"
             },
             ".monaco-workbench :focus-visible, .monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within": {
                 "outline": "2px solid CanvasText !important",
@@ -944,8 +1184,8 @@
             ".part.sidebar, .part.auxiliarybar, .part.panel.bottom, .part.activitybar, .part.statusbar, .part.editor": {
                 "border": "1px solid CanvasText !important"
             },
-            ".tab::after": {
-                "background-color": "CanvasText !important"
+            ".monaco-breadcrumbs, .part.statusbar .statusbar-item-label, .minimap canvas": {
+                "opacity": "1 !important"
             }
         }
     },
