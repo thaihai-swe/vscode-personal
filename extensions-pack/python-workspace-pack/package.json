@@ -12,6 +12,7 @@
     ],
     "extensionPack": [
         "ms-python.python",
+        "ms-toolsai.jupyter",
         "ms-python.vscode-pylance",
         "ms-python.debugpy",
         "ms-python.black-formatter",
