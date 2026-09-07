@@ -485,12 +485,12 @@
             "font-family": "var(--nb-font-ui) !important"
         },
         ".monaco-workbench.vs-dark, .vs-dark .monaco-workbench": {
-            "--nb-canvas": "color-mix(in oklch, var(--vscode-editor-background) 45%, #121216 55%)",
-            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 82%, #181a1d 18%)",
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-editor-background) 88%, var(--vscode-foreground) 12%)",
+            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background) 92%, transparent)",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
-            "--nb-pill": "color-mix(in srgb, var(--nb-canvas), var(--nb-surface) 30%)",
-            "--nb-tab-seam": "#25262a",
+            "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
+            "--nb-tab-seam": "color-mix(in oklch, var(--vscode-editorGroupHeader-tabsBackground, var(--vscode-editor-background)) 82%, var(--vscode-foreground) 18%)",
             "--nb-glass-n": "rgba(255, 255, 255, 0.12)",
             "--nb-glass-w": "rgba(255, 255, 255, 0.08)",
             "--nb-glass-s": "rgba(255, 255, 255, 0.03)",
