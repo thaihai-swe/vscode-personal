@@ -438,7 +438,7 @@
             "--nb-radius-sm": "4px",
             "--nb-panel-gap": "6px",
             "--nb-panel-top": "6px",
-            "--nb-canvas": "color-mix(in srgb, var(--vscode-editor-background) 92%, var(--vscode-foreground) 8%)",
+            "--nb-canvas": "color-mix(in srgb, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
             "--nb-surface": "color-mix(in srgb, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in srgb, var(--vscode-editorWidget-background) 96%, transparent)",
             "--nb-surface-highlight": "color-mix(in srgb, var(--vscode-foreground) 8%, transparent)",
@@ -485,7 +485,7 @@
             "font-family": "var(--nb-font-ui) !important"
         },
         ".monaco-workbench.vs-dark, .vs-dark .monaco-workbench": {
-            "--nb-canvas": "color-mix(in oklch, var(--vscode-editor-background) 88%, var(--vscode-foreground) 12%)",
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 88%, var(--vscode-foreground) 12%)",
             "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background) 92%, transparent)",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
@@ -555,7 +555,7 @@
             "opacity": "1 !important"
         },
         ".part.activitybar": {
-            "background": "var(--nb-canvas) !important",
+            "background": "var(--vscode-activityBar-background, var(--nb-canvas)) !important",
             "border": "none !important",
             "border-radius": "0 !important",
             "margin": "8px 0 30px 0 !important",
@@ -653,7 +653,7 @@
             "background-image": "none !important"
         },
         ".part.sidebar .composite.title": {
-            "padding": "8px 20px 0 0 !important"
+            "padding": "8px 8px 0 0 !important"
         },
         ".part.sidebar .content": {
             "width": "100% !important",
@@ -671,7 +671,7 @@
             "outline-offset": "-1px !important"
         },
         ".part.sidebar .header": {
-            "padding-right": "20px !important"
+            "padding-right": "8px !important"
         },
         ".part.sidebar .label-name": {
             "font-size": "13px !important"
@@ -871,7 +871,7 @@
         ".part.panel.bottom .message-box-container, .part.panel.bottom .welcome-view-content": {
             "border-radius": "10px !important",
             "margin": "4px !important",
-            "width": "calc(100% - 34px) !important",
+            "width": "calc(100% - 8px) !important",
             "box-sizing": "border-box !important"
         },
         ".split-view-view:has(.terminal-tabs-entry)": {
@@ -880,28 +880,28 @@
         },
         ".split-view-view:has(.terminal-tabs-entry) .monaco-list-row": {
             "border-radius": "var(--nb-radius-item) !important",
-            "margin-right": "20px !important",
-            "width": "calc(100% - 20px) !important"
+            "margin-right": "4px !important",
+            "width": "calc(100% - 8px) !important"
         },
         ".viewpane-filter .monaco-inputbox, .search-widget .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
             "border-radius": "var(--nb-radius-input) !important",
             "overflow": "hidden !important"
         },
-        ".search-widget .replace-container": {
+        ".search-widget .search-container, .search-widget .replace-container, .search-widget .query-details, .editor-widget.find-widget .find-part, .editor-widget.find-widget .replace-part": {
             "display": "flex !important",
             "align-items": "center !important",
             "overflow": "visible !important"
         },
-        ".search-widget .replace-container > .replace-input": {
+        ".search-widget .search-container > .search-input, .search-widget .replace-container > .replace-input, .editor-widget.find-widget .monaco-findInput, .editor-widget.find-widget .replace-input": {
             "flex": "1 1 auto !important",
             "min-width": "0 !important"
         },
-        ".search-widget .replace-container > .monaco-action-bar": {
+        ".search-widget .search-container > .monaco-action-bar, .search-widget .replace-container > .monaco-action-bar, .editor-widget.find-widget .monaco-action-bar, .editor-widget.find-widget .replace-actions": {
             "flex": "0 0 auto !important",
             "overflow": "visible !important",
             "visibility": "visible !important"
         },
-        ".search-widget .replace-container .action-label": {
+        ".search-widget .replace-container .action-label, .editor-widget.find-widget .action-label": {
             "opacity": "1 !important",
             "visibility": "visible !important"
         },
