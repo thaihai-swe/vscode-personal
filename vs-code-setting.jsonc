@@ -439,11 +439,13 @@
             "--nb-surface-2": "color-mix(in srgb, var(--vscode-sideBar-background) 88%, var(--vscode-editor-background) 12%)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
             "--nb-tab-seam": "color-mix(in srgb, var(--vscode-editorGroupHeader-tabsBackground, var(--vscode-editor-background)) 82%, var(--vscode-foreground) 18%)",
-            // Firefox NOVA tab outline: a soft violet-to-warm accent, derived from the active theme.
-            "--nb-border-accent-start": "color-mix(in srgb, var(--vscode-focusBorder) 78%, var(--vscode-foreground) 22%)",
-            "--nb-border-accent-end": "color-mix(in srgb, var(--vscode-errorForeground) 68%, var(--vscode-focusBorder) 32%)",
-            "--nb-border-soft": "color-mix(in srgb, var(--vscode-foreground) 22%, transparent)",
-            "--nb-border-hover": "color-mix(in srgb, var(--vscode-focusBorder) 62%, transparent)",
+            // Firefox NOVA tab outline: use the theme's active-tab accent and focus color.
+            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
+            "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 68%, transparent)",
+            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 88%, var(--vscode-editor-background) 12%)",
+            "--nb-tab-active-surface": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 25%, transparent)",
+            "--nb-tab-shadow": "0 3px 7px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent)",
             "--nb-glass-n": "color-mix(in srgb, var(--vscode-foreground) 24%, transparent)",
             "--nb-glass-w": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
             "--nb-glass-s": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
@@ -769,41 +771,50 @@
         },
         ".tabs-and-actions-container": {
             "background-color": "transparent !important",
-            "border-bottom": "none !important"
+            "border-bottom": "none !important",
+            "padding": "3px 6px 0 !important"
         },
         ".editor-actions, .tabs-container": {
             "background-image": "linear-gradient(to top, var(--nb-tab-seam) 1px, transparent 1px) !important",
             "background-repeat": "no-repeat !important",
             "background-position": "bottom !important"
         },
+        ".tabs-container": {
+            "gap": "4px !important",
+            "align-items": "stretch !important"
+        },
         ".tab": {
             "position": "relative !important",
-            "margin": "3px 3px 4px !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "border-radius": "9px !important",
+            "margin": "3px 0 5px !important",
+            "border": "1px solid var(--nb-tab-outline) !important",
+            "border-radius": "9999px !important",
             "background-clip": "padding-box !important",
+            "background-color": "var(--nb-tab-surface) !important",
+            "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--vscode-foreground) 6%, transparent), transparent) !important",
+            "box-shadow": "inset 0 0 0 1px color-mix(in oklch, var(--vscode-foreground) 8%, transparent), inset 0 -1px 0 0 var(--nb-tab-seam), var(--nb-tab-shadow) !important",
+            "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
             "font-family": "'Bear Sans UI', sans-serif !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".tab .tab-actions .action-label": {
             "border-radius": "50% !important"
         },
         ".tab.active": {
-            "background": "linear-gradient(var(--vscode-tab-activeBackground), var(--vscode-tab-activeBackground)) padding-box, linear-gradient(105deg, var(--nb-border-accent-start) 0%, var(--nb-border-accent-start) 24%, var(--nb-border-accent-end) 78%, var(--nb-border-accent-end) 100%) border-box !important",
-            "border-color": "transparent !important",
-            "box-shadow": "inset 0 1px 0 color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent) !important"
-        },
-        ".tab:not(.active)": {
-            "box-shadow": "inset 0 -1px 0 0 var(--nb-tab-seam) !important"
-        },
-        ".tab.active:first-child": {
-            "box-shadow": "inset 0 1px 0 color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent) !important"
+            "border": "1px solid var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder)) !important",
+            "background-color": "var(--nb-tab-active-surface) !important",
+            "box-shadow": "inset 0 0 0 1px color-mix(in oklch, var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder)) 42%, transparent), inset 0 -1px 0 0 var(--nb-tab-seam), var(--nb-tab-shadow) !important",
+            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important"
         },
         ".tab:hover": {
-            "background-color": "var(--vscode-tab-hoverBackground) !important",
-            "border-color": "var(--nb-border-hover) !important"
+            "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface)) !important",
+            "border-color": "var(--nb-border-hover) !important",
+            "transform": "translateY(-1px) !important"
+        },
+        ".tab.active:hover": {
+            "border-color": "var(--vscode-focusBorder) !important",
+            "background-color": "color-mix(in oklch, var(--nb-tab-active-surface) 88%, var(--vscode-foreground) 12%) !important"
         },
         ".tab:hover .label-name": {
             "text-shadow": "0 0 5px color-mix(in srgb, var(--vscode-foreground) 18%, transparent) !important",
@@ -1360,5 +1371,6 @@
     "notebook.cell.border_width": 1,
     "notebook.cell.border_radius": 4,
     "terminal.integrated.darwin.borderStyle": "nil",
-    "scm.startUpdateNotifications": false
+    "scm.startUpdateNotifications": false,
+    "workbench.preferredDarkColorTheme": "Firefox NOVA Light"
 }
