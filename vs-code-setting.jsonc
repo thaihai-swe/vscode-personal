@@ -182,7 +182,8 @@
     // ======================================================================
     // 7. Workbench tabs and editor management
     // ----------------------------------------------------------------------
-    // Floating islands, browser-style tabs, quiet motion unless OS reduce-motion is on.
+    // Firefox Nova tabs: separated, rounded browser tabs with a quiet strip,
+    // a raised active surface, and controls that appear on intent.
     // ======================================================================
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
@@ -215,7 +216,7 @@
     // ======================================================================
     // 8. Explorer / solution-view behavior
     // ======================================================================
-    "workbench.tree.indent": 18,
+    "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.enableStickyScroll": true,
     "workbench.tree.expandMode": "singleClick",
@@ -419,8 +420,8 @@
     // ======================================================================
     "custom-ui-style.stylesheet": {
         ".monaco-workbench": {
-            "--nb-font-ui": "'Bear Sans UI', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-            "--nb-font-heading": "'Bear Sans UI Heading', 'Bear Sans UI', system-ui, sans-serif",
+            "--nb-font-ui": "'Bear Sans UI', sans-serif",
+            "--nb-font-heading": "'Bear Sans UI Heading', sans-serif",
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
             "--nb-font-size-heading": "12px",
@@ -438,14 +439,16 @@
             "--nb-surface-highlight": "color-mix(in srgb, var(--vscode-foreground) 8%, transparent)",
             "--nb-surface-2": "color-mix(in srgb, var(--vscode-sideBar-background) 88%, var(--vscode-editor-background) 12%)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
-            "--nb-tab-seam": "color-mix(in srgb, var(--vscode-editorGroupHeader-tabsBackground, var(--vscode-editor-background)) 82%, var(--vscode-foreground) 18%)",
-            // Firefox NOVA tab outline: use the theme's active-tab accent and focus color.
-            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
-            "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 68%, transparent)",
-            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 88%, var(--vscode-editor-background) 12%)",
+            "--nb-tab-seam": "transparent",
+            // Firefox NOVA tab chrome: theme-aware surfaces, soft outlines, and
+            // the same violet/blue accent used by the active theme.
+            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
+            "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 62%, transparent)",
+            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 94%, var(--vscode-editor-background) 6%)",
             "--nb-tab-active-surface": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 25%, transparent)",
-            "--nb-tab-shadow": "0 3px 7px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
+            "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder))",
+            "--nb-tab-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 26%, transparent)",
             "--nb-glass-n": "color-mix(in srgb, var(--vscode-foreground) 24%, transparent)",
             "--nb-glass-w": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
             "--nb-glass-s": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
@@ -493,7 +496,7 @@
             "--nb-surface-elevated": "color-mix(in oklch, var(--vscode-editorWidget-background) 86%, var(--vscode-foreground) 14%)",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
-            "--nb-tab-seam": "color-mix(in oklch, var(--vscode-editorGroupHeader-tabsBackground, var(--vscode-editor-background)) 82%, var(--vscode-foreground) 18%)",
+            "--nb-tab-seam": "transparent",
             "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
             "--nb-glass-w": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
@@ -530,6 +533,9 @@
         },
         ".part.statusbar, .monaco-breadcrumbs, .tab .label-name": {
             "font-size": "var(--nb-font-size-small) !important"
+        },
+        ".part.statusbar, .command-center-center": {
+            "font-family": "'Bear Sans UI', sans-serif !important"
         },
         ".part.titlebar": {
             "background-color": "var(--nb-canvas) !important",
@@ -690,6 +696,13 @@
         ".part.sidebar .pane-header .title": {
             "font-size": "10px !important"
         },
+        ".extensions-search-container .suggest-input-container": {
+            "font-size": "11px !important",
+            "--editor-font-size": "11px !important"
+        },
+        ".extensions-search-container .suggest-input-placeholder": {
+            "font-size": "11px !important"
+        },
         ".explorer-viewlet .split-view-container": {
             "margin-top": "0 !important"
         },
@@ -772,59 +785,90 @@
         ".tabs-and-actions-container": {
             "background-color": "transparent !important",
             "border-bottom": "none !important",
-            "padding": "3px 6px 0 !important"
+            "padding": "5px 8px 2px !important",
+            "min-height": "40px !important"
         },
         ".editor-actions, .tabs-container": {
-            "background-image": "linear-gradient(to top, var(--nb-tab-seam) 1px, transparent 1px) !important",
-            "background-repeat": "no-repeat !important",
-            "background-position": "bottom !important"
+            "background-image": "none !important",
+            "border-bottom": "none !important"
         },
         ".tabs-container": {
-            "gap": "4px !important",
-            "align-items": "stretch !important"
+            "gap": "6px !important",
+            "align-items": "center !important",
+            "padding": "0 2px !important"
         },
         ".tab": {
             "position": "relative !important",
-            "margin": "3px 0 5px !important",
+            "font-family": "'Bear Sans UI', sans-serif !important",
+            "font-size": "13px !important",
+            "height": "32px !important",
+            "margin": "0 !important",
+            "padding": "0 8px !important",
             "border": "1px solid var(--nb-tab-outline) !important",
-            "border-radius": "9999px !important",
+            "border-radius": "12px !important",
             "background-clip": "padding-box !important",
             "background-color": "var(--nb-tab-surface) !important",
-            "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--vscode-foreground) 6%, transparent), transparent) !important",
-            "box-shadow": "inset 0 0 0 1px color-mix(in oklch, var(--vscode-foreground) 8%, transparent), inset 0 -1px 0 0 var(--nb-tab-seam), var(--nb-tab-shadow) !important",
+            "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--vscode-foreground) 5%, transparent), transparent) !important",
+            "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--vscode-foreground) 8%, transparent), var(--nb-tab-shadow) !important",
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
-            "font-family": "'Bear Sans UI', sans-serif !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-soft), border-color var(--nb-motion-fast) var(--nb-ease-soft), box-shadow var(--nb-motion-fast) var(--nb-ease-soft), color var(--nb-motion-fast) var(--nb-ease-soft) !important"
         },
-        ".tab .tab-actions .action-label": {
-            "border-radius": "50% !important"
+        ".tab .tab-label": {
+            "height": "100% !important",
+            "display": "flex !important",
+            "align-items": "center !important",
+            "gap": "7px !important"
         },
-        ".tab.active": {
-            "border": "1px solid var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder)) !important",
+        ".tab .tab-actions .action-label, .tab .tab-close-action": {
+            "border-radius": "7px !important",
+            "transition": "background-color var(--nb-motion-xs) var(--nb-ease-soft), opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
+        },
+        ".tab .tab-actions .action-label:hover, .tab .tab-close-action:hover": {
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important"
+        },
+        ".tab.active, .tab:has(.tab-label .codicon-modifier-modified)": {
+            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 62%, var(--nb-tab-outline)) !important",
             "background-color": "var(--nb-tab-active-surface) !important",
-            "box-shadow": "inset 0 0 0 1px color-mix(in oklch, var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder)) 42%, transparent), inset 0 -1px 0 0 var(--nb-tab-seam), var(--nb-tab-shadow) !important",
+            "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--nb-tab-accent) 10%, transparent), transparent) !important",
+            "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--nb-tab-accent) 48%, transparent), 0 3px 10px color-mix(in srgb, var(--vscode-widget-shadow, #000) 34%, transparent) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important"
+        },
+        ".tab.active::after": {
+            "content": "\"\" !important",
+            "position": "absolute !important",
+            "left": "12px !important",
+            "right": "12px !important",
+            "bottom": "-1px !important",
+            "height": "2px !important",
+            "border-radius": "999px !important",
+            "background-color": "var(--nb-tab-accent) !important",
+            "opacity": "0.78 !important",
+            "pointer-events": "none !important"
+        },
+        ".tab .dirty, .tab .codicon-modifier-modified": {
+            "color": "var(--nb-tab-accent) !important"
         },
         ".tab:hover": {
             "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface)) !important",
             "border-color": "var(--nb-border-hover) !important",
-            "transform": "translateY(-1px) !important"
+            "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--vscode-foreground) 12%, transparent), var(--nb-tab-shadow) !important"
         },
         ".tab.active:hover": {
             "border-color": "var(--vscode-focusBorder) !important",
-            "background-color": "color-mix(in oklch, var(--nb-tab-active-surface) 88%, var(--vscode-foreground) 12%) !important"
+            "background-color": "color-mix(in oklch, var(--nb-tab-active-surface) 92%, var(--vscode-foreground) 8%) !important"
         },
-        ".tab:hover .label-name": {
-            "text-shadow": "0 0 5px color-mix(in srgb, var(--vscode-foreground) 18%, transparent) !important",
-            "transition": "text-shadow 0.3s ease !important"
+        ".tab:focus-visible": {
+            "outline": "none !important",
+            "box-shadow": "var(--nb-ring) !important"
         },
         ".tab.pinned": {
-            "padding": "0 10px !important"
+            "padding": "0 9px !important",
+            "min-width": "34px !important"
         },
         ".editor-group-container:not(.active) .tabs-container": {
-            "opacity": "0.85 !important",
+            "opacity": "0.78 !important",
             "transition": "opacity var(--nb-motion-base) var(--nb-ease-soft) !important"
         },
         ".editor-group-container.active .tabs-container": {
@@ -832,7 +876,7 @@
         },
         ".tab .tab-actions, .tab .tab-close-action": {
             "opacity": "0 !important",
-            "transition": "opacity var(--nb-motion-base) var(--nb-ease-soft) !important"
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
         },
         ".tab:hover .tab-actions, .tab:focus-within .tab-actions, .tab.active .tab-actions, .tab:hover .tab-close-action, .tab:focus-within .tab-close-action, .tab.active .tab-close-action": {
             "opacity": "1 !important"
@@ -1119,7 +1163,7 @@
         },
         ".monaco-count-badge": {
             "border-radius": "9999px !important",
-            "font-size": "11px !important",
+            "font-size": "12px !important",
             "font-weight": "600 !important",
             "padding": "1px 7px !important",
             "min-height": "16px !important",
@@ -1356,7 +1400,6 @@
     "[jsonc]": {
         "editor.tabSize": 4
     },
-    "workbench.editor.tabActionLocation": "right",
     // ======================================================================
     // 16. Modern VS Code features — AI assistance, diff, testing, notebooks
     // ----------------------------------------------------------------------
