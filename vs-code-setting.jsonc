@@ -1,6 +1,6 @@
 {
     // Firefox NOVA uses compact chrome; keep the editor comfortably readable.
-    "window.zoomLevel": 1.25,
+    "window.zoomLevel": 1.15,
     // ======================================================================
     // Tab management
     // ======================================================================
