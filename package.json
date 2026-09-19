@@ -80,6 +80,16 @@
         "label": "Moegi Dawn",
         "uiTheme": "vs",
         "path": "./themes/moegi-dawn-color-theme.json"
+      },
+      {
+        "label": "Firefox NOVA Light",
+        "uiTheme": "vs",
+        "path": "./themes/firefox-nova-light.json"
+      },
+      {
+        "label": "Firefox NOVA Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/firefox-nova-dark.json"
       }
     ]
   },
