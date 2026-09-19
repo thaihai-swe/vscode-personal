@@ -1,6 +1,9 @@
 {
-    // Firefox NOVA uses compact chrome; keep the editor comfortably readable.
+    // Glass Paper keeps the chrome compact while preserving a generous editor.
     "window.zoomLevel": 1.15,
+    "workbench.colorTheme": "Islands Dark",
+    "workbench.preferredDarkColorTheme": "Islands Dark",
+    "workbench.preferredLightColorTheme": "Sage",
     // ======================================================================
     // Tab management
     // ======================================================================
@@ -14,7 +17,7 @@
     // ======================================================================
     // 1. Window, startup, and focus behavior
     // ----------------------------------------------------------------------
-    // Firefox NOVA shell: soft organic geometry and compact density.
+    // Glass Paper shell: floating islands, soft geometry, and compact density.
     // Theme colors remain controlled by the selected VS Code theme.
     // ======================================================================
     "zenMode.centerLayout": false,
@@ -413,9 +416,9 @@
     "problems.autoReveal": false,
     "problems.sortOrder": "severity",
     // ======================================================================
-    // 13. Custom UI stylesheet — Firefox NOVA chrome
+    // 13. Custom UI stylesheet — Glass Paper / Islands chrome
     // ----------------------------------------------------------------------
-    // Soft organic geometry, theme-aware surfaces, compact density, and subtle
+    // Floating panels, directional glass borders, compact density, and subtle
     // focus treatments. Requires Custom UI Style extension.
     // ======================================================================
     "custom-ui-style.stylesheet": {
@@ -425,13 +428,13 @@
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
             "--nb-font-size-heading": "12px",
-            "--nb-radius-panel": "18px",
-            "--nb-radius-widget": "16px",
-            "--nb-radius-input": "16px",
-            "--nb-radius-item": "10px",
-            "--nb-radius-sm": "8px",
-            "--nb-panel-gap": "5px",
-            "--nb-panel-top": "5px",
+            "--nb-radius-panel": "24px",
+            "--nb-radius-widget": "14px",
+            "--nb-radius-input": "12px",
+            "--nb-radius-item": "8px",
+            "--nb-radius-sm": "6px",
+            "--nb-panel-gap": "6px",
+            "--nb-panel-top": "6px",
             "--nb-canvas": "color-mix(in srgb, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
             "--nb-surface": "color-mix(in srgb, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in srgb, var(--vscode-editorWidget-background) 96%, transparent)",
@@ -440,8 +443,8 @@
             "--nb-surface-2": "color-mix(in srgb, var(--vscode-sideBar-background) 88%, var(--vscode-editor-background) 12%)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
             "--nb-tab-seam": "transparent",
-            // Firefox NOVA tab chrome: theme-aware surfaces, soft outlines, and
-            // the same violet/blue accent used by the active theme.
+            // Islands tab chrome: theme-aware surfaces, soft outlines, and the
+            // selected theme's focus accent.
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 62%, transparent)",
             "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 94%, var(--vscode-editor-background) 6%)",
@@ -1414,6 +1417,5 @@
     "notebook.cell.border_width": 1,
     "notebook.cell.border_radius": 4,
     "terminal.integrated.darwin.borderStyle": "nil",
-    "scm.startUpdateNotifications": false,
-    "workbench.preferredDarkColorTheme": "Firefox NOVA Light"
+    "scm.startUpdateNotifications": false
 }

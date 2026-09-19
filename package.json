@@ -1,7 +1,7 @@
 {
   "name": "glass-paper-theme",
   "displayName": "Glass Paper Theme",
-  "description": "Solarized, Nord, and Rosé Pine-inspired, calm, readable themes for VS Code",
+  "description": "A calm, readable Glass Paper theme system for VS Code with Solarized, Nord, Rosé Pine, Sage, and Islands-style variants",
   "version": "0.0.1",
   "publisher": "note-book",
   "license": "MIT",
@@ -75,6 +75,11 @@
         "label": "Sage",
         "uiTheme": "vs",
         "path": "./themes/sage.json"
+      },
+      {
+        "label": "Islands Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/glass-paper-islands-dark.json"
       },
       {
         "label": "Moegi Dawn",
