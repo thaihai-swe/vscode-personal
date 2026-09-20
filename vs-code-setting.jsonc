@@ -200,6 +200,7 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.wrapTabs": false,
     "workbench.editor.tabCloseButton": "right",
+    "workbench.editor.tabActionLocation": "right",
     "workbench.editor.alwaysShowEditorActions": false,
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
@@ -364,6 +365,7 @@
     "terminal.integrated.tabs.hideCondition": "singleTerminal",
     "terminal.integrated.mouseWheelScrollSensitivity": 3,
     "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.darwin.borderStyle": "nil",
     // ======================================================================
     // 11. Git, diff, merge, AI tools
     // ======================================================================
@@ -406,6 +408,7 @@
     "chat.detectParticipant.enabled": false,
     "chat.viewSessions.orientation": "stacked",
     "claudeCode.preferredLocation": "panel",
+    "scm.startUpdateNotifications": false,
     // ======================================================================
     // 12. Problems panel
     // ======================================================================
@@ -441,7 +444,6 @@
             "--nb-surface-raised": "color-mix(in srgb, var(--vscode-editorWidget-background) 96%, transparent)",
             "--nb-surface-elevated": "color-mix(in srgb, var(--vscode-editorWidget-background) 90%, var(--vscode-foreground) 10%)",
             "--nb-surface-highlight": "color-mix(in srgb, var(--vscode-foreground) 8%, transparent)",
-            "--nb-surface-2": "color-mix(in srgb, var(--vscode-sideBar-background) 88%, var(--vscode-editor-background) 12%)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
             "--nb-tab-seam": "transparent",
             // Islands tab chrome: theme-aware surfaces, soft outlines, and the
@@ -449,7 +451,6 @@
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 62%, transparent)",
             "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 94%, var(--vscode-editor-background) 6%)",
-            "--nb-tab-active-surface": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))",
             "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 48%, transparent)",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder))",
             "--nb-tab-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 26%, transparent)",
@@ -459,7 +460,6 @@
             "--nb-glass-e": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
             "--nb-border": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 38%, transparent)",
             "--nb-border-subtle": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 20%, transparent)",
-            "--nb-border-strong": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 52%, transparent)",
             "--nb-surface-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
             "--nb-widget-shadow": "0 8px 24px color-mix(in srgb, var(--vscode-widget-shadow, #000) 40%, transparent)",
             "--nb-shadow-soft": "0 4px 12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent)",
@@ -476,20 +476,10 @@
             "--nb-ease-in-out": "cubic-bezier(0.65, 0, 0.35, 1)",
             "--nb-ease-soft": "cubic-bezier(0.4, 0, 0.2, 1)",
             "--nb-focus": "var(--vscode-focusBorder)",
-            "--nb-accent-soft": "color-mix(in oklch, var(--nb-focus) 18%, transparent)",
-            "--nb-accent-medium": "color-mix(in oklch, var(--nb-focus) 32%, transparent)",
             "--nb-focus-ring": "0 0 0 3px color-mix(in oklch, var(--nb-focus) 30%, transparent)",
             "--nb-focus-ring-offset": "2px",
             "--nb-transition-ui": "background-color var(--nb-motion-fast) var(--nb-ease-soft), border-color var(--nb-motion-fast) var(--nb-ease-soft), box-shadow var(--nb-motion-fast) var(--nb-ease-soft), color var(--nb-motion-fast) var(--nb-ease-soft)",
             "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
-            "--nb-text-muted": "color-mix(in oklch, var(--vscode-foreground) 72%, transparent)",
-            "--nb-text-faint": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
-            "--nb-scrim": "color-mix(in oklch, var(--vscode-editor-background) 55%, transparent)",
-            "--nb-spacing-xs": "4px",
-            "--nb-spacing-sm": "8px",
-            "--nb-spacing-md": "12px",
-            "--nb-spacing-lg": "16px",
-            "--nb-z-overlay": "1000",
             "background-color": "var(--nb-canvas) !important",
             "font-family": "var(--nb-font-ui) !important"
         },
@@ -580,7 +570,7 @@
             "background-image": "none !important",
             "transition": "var(--nb-transition-ui) !important"
         },
-        ".part.activitybar .content": {
+        ".part:is(.activitybar, .auxiliarybar) .content": {
             "width": "100% !important"
         },
         ".part.activitybar .composite-bar": {
@@ -729,9 +719,6 @@
         ".part.auxiliarybar .composite.title": {
             "padding": "8px 0 0 8px !important"
         },
-        ".part.auxiliarybar .content": {
-            "width": "100% !important"
-        },
         ".part.auxiliarybar .split-view-view": {
             "max-height": "100% !important",
             "overflow": "hidden !important",
@@ -779,11 +766,13 @@
             "padding": "5px 8px 2px !important",
             "min-height": "40px !important"
         },
-        ".editor-actions, .tabs-container": {
+        ".editor-actions": {
             "background-image": "none !important",
             "border-bottom": "none !important"
         },
         ".tabs-container": {
+            "background-image": "none !important",
+            "border-bottom": "none !important",
             "gap": "6px !important",
             "align-items": "center !important",
             "padding": "0 2px !important"
@@ -899,10 +888,6 @@
         ".part.panel.bottom :is(.pane, .pane-body, .split-view-view, .composite, .monaco-pane-view, .output-view)": {
             "border-bottom": "none !important"
         },
-        ".part.panel.bottom .tabs-container": {
-            "border-bottom": "none !important",
-            "background-image": "none !important"
-        },
         ".part.panel.bottom .terminal-outer-container": {
             "border-left": "1px solid var(--nb-glass-w) !important",
             "border-radius": "0 0 0 18px !important",
@@ -932,7 +917,7 @@
             "border-radius": "var(--nb-radius-input) !important",
             "overflow": "hidden !important"
         },
-        ".search-widget .search-container, .search-widget .replace-container, .search-widget .query-details": {
+        ".search-widget :is(.search-container, .replace-container, .query-details)": {
             "display": "flex !important",
             "align-items": "center !important",
             "overflow": "visible !important"
@@ -1345,8 +1330,5 @@
     "workbench.editor.inlineSuggest.support.enabled": true,
     "diffEditor.overviewRulerBorder": true,
     "notebook.cell.border_width": 1,
-    "notebook.cell.border_radius": 4,
-    "terminal.integrated.darwin.borderStyle": "nil",
-    "scm.startUpdateNotifications": false,
-    "workbench.editor.tabActionLocation": "right"
+    "notebook.cell.border_radius": 4
 }
