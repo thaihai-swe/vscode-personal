@@ -3,7 +3,7 @@
     "window.zoomLevel": 1.15,
     "workbench.colorTheme": "Islands Dark",
     "workbench.preferredDarkColorTheme": "Islands Dark",
-    "workbench.preferredLightColorTheme": "Sage",
+    "workbench.preferredLightColorTheme": "Firefox NOVA Light",
     // ======================================================================
     // Tab management
     // ======================================================================
@@ -428,9 +428,10 @@
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
             "--nb-font-size-heading": "12px",
-            "--nb-radius-panel": "24px",
+            "--nb-radius-panel": "28px",
             "--nb-radius-widget": "14px",
             "--nb-radius-input": "12px",
+            "--nb-radius-tab": "22px",
             "--nb-radius-item": "8px",
             "--nb-radius-sm": "6px",
             "--nb-panel-gap": "6px",
@@ -449,7 +450,7 @@
             "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 62%, transparent)",
             "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 94%, var(--vscode-editor-background) 6%)",
             "--nb-tab-active-surface": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 48%, transparent)",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder))",
             "--nb-tab-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 26%, transparent)",
             "--nb-glass-n": "color-mix(in srgb, var(--vscode-foreground) 24%, transparent)",
@@ -500,6 +501,7 @@
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
             "--nb-tab-seam": "transparent",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 48%, transparent)",
             "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
             "--nb-glass-w": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
@@ -513,9 +515,6 @@
             "--nb-glass-blur": "blur(16px)",
             "--nb-blur-strong": "blur(22px)"
         },
-        ".part.sidebar": {
-            "font-family": "'Bear Sans UI', sans-serif !important"
-        },
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
             "font-family": "var(--nb-font-heading) !important",
             "font-weight": "700 !important",
@@ -523,12 +522,12 @@
         },
         ".part.sidebar .title-label h2": {
             "font-family": "var(--nb-font-heading) !important",
-            "font-size": "12px !important",
+            "font-size": "var(--nb-font-size-heading) !important",
             "font-weight": "700 !important",
             "text-transform": "uppercase !important",
             "letter-spacing": "1px !important"
         },
-        ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget .quick-input-header, .notifications-center, .notification-toast": {
+        ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .command-center-center, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget .quick-input-header, .notifications-center, .notification-toast": {
             "font-family": "var(--nb-font-ui) !important"
         },
         ".monaco-list-row, .monaco-menu .action-label, .quick-input-widget, .suggest-widget, .settings-editor": {
@@ -536,9 +535,6 @@
         },
         ".part.statusbar, .monaco-breadcrumbs, .tab .label-name": {
             "font-size": "var(--nb-font-size-small) !important"
-        },
-        ".part.statusbar, .command-center-center": {
-            "font-family": "'Bear Sans UI', sans-serif !important"
         },
         ".part.titlebar": {
             "background-color": "var(--nb-canvas) !important",
@@ -566,15 +562,15 @@
         ".part.statusbar .items-container": {
             "margin-top": "-2px !important"
         },
-        ".part.statusbar .statusbar-item-label, .part.statusbar .codicon": {
+        ".part.statusbar :is(.statusbar-item-label, .codicon)": {
             "opacity": "0.55 !important",
             "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft) !important"
         },
-        ".part.statusbar:hover .statusbar-item-label, .part.statusbar:hover .codicon, .part.statusbar:focus-within .statusbar-item-label, .part.statusbar:focus-within .codicon": {
+        ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
             "opacity": "1 !important"
         },
         ".part.activitybar": {
-            "background": "var(--vscode-activityBar-background, var(--nb-canvas)) !important",
+            "background-color": "var(--vscode-activityBar-background, var(--nb-canvas)) !important",
             "border": "1px solid var(--nb-border-subtle) !important",
             "border-radius": "18px !important",
             "margin": "5px 0 18px 5px !important",
@@ -662,14 +658,16 @@
             "transform": "scale(0.8) !important",
             "transform-origin": "top right !important"
         },
-        ".part.sidebar, .part.auxiliarybar": {
-            "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
+        ".part.sidebar, .part.auxiliarybar, .part.editor": {
             "margin": "var(--nb-panel-top) var(--nb-panel-gap) 0 var(--nb-panel-gap) !important",
             "border-radius": "var(--nb-radius-panel) !important",
-            "overflow": "hidden !important",
-            "max-height": "calc(100% - var(--nb-panel-top) - 2px) !important",
             "border": "1px solid var(--nb-border-soft) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
+            "overflow": "hidden !important",
+            "max-height": "calc(100% - var(--nb-panel-top) - 2px) !important"
+        },
+        ".part.sidebar, .part.auxiliarybar": {
+            "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
             "background-image": "none !important"
         },
         ".part.sidebar .composite.title": {
@@ -694,7 +692,7 @@
             "padding-right": "8px !important"
         },
         ".part.sidebar .label-name": {
-            "font-size": "13px !important"
+            "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.sidebar .pane-header .title": {
             "font-size": "10px !important"
@@ -710,13 +708,10 @@
             "margin-top": "0 !important"
         },
         ".explorer-folders-view .monaco-tl-row": {
-            "padding-top": "1px !important",
-            "padding-bottom": "1px !important"
+            "padding-block": "1px !important"
         },
         ".part.sidebar .monaco-list-row": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "margin-left": "4px !important",
-            "margin-right": "4px !important",
+            "margin": "0 4px !important",
             "width": "calc(100% - 8px) !important",
             "transition": "background var(--nb-motion-base) var(--nb-ease-soft), box-shadow var(--nb-motion-base) var(--nb-ease-soft) !important"
         },
@@ -729,8 +724,7 @@
             "box-shadow": "inset 0 0 0 1px color-mix(in srgb, #fff 10%, transparent) !important"
         },
         ".part.sidebar .monaco-list-row:hover": {
-            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 10%, transparent), color-mix(in srgb, var(--vscode-foreground) 5%, transparent)) !important",
-            "border-radius": "var(--nb-radius-item) !important"
+            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 10%, transparent), color-mix(in srgb, var(--vscode-foreground) 5%, transparent)) !important"
         },
         ".part.auxiliarybar .composite.title": {
             "padding": "8px 0 0 8px !important"
@@ -752,7 +746,7 @@
             "bottom": "0 !important",
             "z-index": "10 !important"
         },
-        ".part.auxiliarybar .interactive-input-part, .part.auxiliarybar .interactive-session": {
+        ".part.auxiliarybar :is(.interactive-input-part, .interactive-session)": {
             "display": "flex !important",
             "flex-direction": "column !important",
             "overflow": "hidden !important"
@@ -775,13 +769,7 @@
         },
         ".part.editor": {
             "background-color": "var(--vscode-editor-background) !important",
-            "margin": "var(--nb-panel-top) var(--nb-panel-gap) 0 var(--nb-panel-gap) !important",
             "transition": "var(--nb-transition-ui) !important",
-            "border-radius": "var(--nb-radius-panel) !important",
-            "overflow": "hidden !important",
-            "max-height": "calc(100% - var(--nb-panel-top) - 2px) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important",
             "isolation": "isolate",
             "contain": "paint"
         },
@@ -802,13 +790,12 @@
         },
         ".tab": {
             "position": "relative !important",
-            "font-family": "'Bear Sans UI', sans-serif !important",
-            "font-size": "13px !important",
+            "font-family": "var(--nb-font-ui) !important",
+            "font-size": "var(--nb-font-size-ui) !important",
             "height": "32px !important",
-            "margin": "0 !important",
-            "padding": "0 8px !important",
             "border": "1px solid var(--nb-tab-outline) !important",
-            "border-radius": "12px !important",
+            "border-radius": "var(--nb-radius-tab) !important",
+            "overflow": "hidden !important",
             "background-clip": "padding-box !important",
             "background-color": "var(--nb-tab-surface) !important",
             "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--vscode-foreground) 5%, transparent), transparent) !important",
@@ -816,7 +803,14 @@
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-soft), border-color var(--nb-motion-fast) var(--nb-ease-soft), box-shadow var(--nb-motion-fast) var(--nb-ease-soft), color var(--nb-motion-fast) var(--nb-ease-soft) !important"
+            "transition": "var(--nb-transition-ui) !important"
+        },
+        ".tab.active": {
+            "background-color": "var(--vscode-tab-activeBackground) !important"
+        },
+        ".tab :is(.tab-actions, .monaco-action-bar)": {
+            "background": "transparent !important",
+            "background-image": "none !important"
         },
         ".tab .tab-label": {
             "height": "100% !important",
@@ -824,33 +818,14 @@
             "align-items": "center !important",
             "gap": "7px !important"
         },
-        ".tab .tab-actions .action-label, .tab .tab-close-action": {
+        ".tab :is(.tab-actions .action-label, .tab-close-action)": {
             "border-radius": "7px !important",
             "transition": "background-color var(--nb-motion-xs) var(--nb-ease-soft), opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
         },
-        ".tab .tab-actions .action-label:hover, .tab .tab-close-action:hover": {
+        ".tab :is(.tab-actions .action-label, .tab-close-action):hover": {
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important"
         },
-        ".tab.active, .tab:has(.tab-label .codicon-modifier-modified)": {
-            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 62%, var(--nb-tab-outline)) !important",
-            "background-color": "var(--nb-tab-active-surface) !important",
-            "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--nb-tab-accent) 10%, transparent), transparent) !important",
-            "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--nb-tab-accent) 48%, transparent), 0 3px 10px color-mix(in srgb, var(--vscode-widget-shadow, #000) 34%, transparent) !important",
-            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important"
-        },
-        ".tab.active::after": {
-            "content": "\"\" !important",
-            "position": "absolute !important",
-            "left": "12px !important",
-            "right": "12px !important",
-            "bottom": "-1px !important",
-            "height": "2px !important",
-            "border-radius": "999px !important",
-            "background-color": "var(--nb-tab-accent) !important",
-            "opacity": "0.78 !important",
-            "pointer-events": "none !important"
-        },
-        ".tab .dirty, .tab .codicon-modifier-modified": {
+        ".tab :is(.dirty, .codicon-modifier-modified)": {
             "color": "var(--nb-tab-accent) !important"
         },
         ".tab:hover": {
@@ -858,37 +833,32 @@
             "border-color": "var(--nb-border-hover) !important",
             "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--vscode-foreground) 12%, transparent), var(--nb-tab-shadow) !important"
         },
-        ".tab.active:hover": {
-            "border-color": "var(--vscode-focusBorder) !important",
-            "background-color": "color-mix(in oklch, var(--nb-tab-active-surface) 92%, var(--vscode-foreground) 8%) !important"
-        },
         ".tab:focus-visible": {
             "outline": "none !important",
             "box-shadow": "var(--nb-ring) !important"
         },
         ".tab.pinned": {
-            "padding": "0 9px !important",
             "min-width": "34px !important"
         },
-        ".editor-group-container:not(.active) .tabs-container": {
+        ".editor-group-container .tabs-container": {
             "opacity": "0.78 !important",
             "transition": "opacity var(--nb-motion-base) var(--nb-ease-soft) !important"
         },
         ".editor-group-container.active .tabs-container": {
             "opacity": "1 !important"
         },
-        ".tab .tab-actions, .tab .tab-close-action": {
+        ".tab :is(.tab-actions, .tab-close-action)": {
             "opacity": "0 !important",
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
         },
-        ".tab:hover .tab-actions, .tab:focus-within .tab-actions, .tab.active .tab-actions, .tab:hover .tab-close-action, .tab:focus-within .tab-close-action, .tab.active .tab-close-action": {
+        ".tab:is(:hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
             "opacity": "1 !important"
         },
         ".minimap canvas": {
             "opacity": "0.6 !important",
             "transition": "opacity 0.4s ease !important"
         },
-        ".minimap:hover canvas, .minimap:focus-within canvas": {
+        ".minimap:is(:hover, :focus-within) canvas": {
             "opacity": "1 !important"
         },
         ".monaco-breadcrumbs": {
@@ -896,21 +866,19 @@
             "opacity": "0.4 !important",
             "transition": "opacity 0.4s var(--nb-ease-soft) !important"
         },
-        ".monaco-breadcrumbs:hover, .monaco-breadcrumbs:focus-within": {
+        ".monaco-breadcrumbs:is(:hover, :focus-within)": {
             "opacity": "1 !important"
         },
         ".part.panel.bottom": {
-            "border-radius": "var(--nb-radius-panel) !important",
-            "transition": "var(--nb-transition-ui) !important",
-            "overflow": "hidden !important",
-            "box-sizing": "border-box !important",
             "background-color": "var(--vscode-panel-background, var(--nb-surface)) !important",
-            "margin-top": "6px !important",
-            "border-left": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
-            "border-right": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
-            "border-bottom": "none !important",
-            "border-top": "none !important",
+            "margin-top": "var(--nb-panel-top) !important",
+            "border-inline": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
+            "border-block": "none !important",
+            "border-radius": "var(--nb-radius-panel) !important",
             "box-shadow": "var(--nb-glass-inset) !important",
+            "box-sizing": "border-box !important",
+            "overflow": "hidden !important",
+            "transition": "var(--nb-transition-ui) !important",
             "isolation": "isolate",
             "contain": "paint"
         },
@@ -928,7 +896,7 @@
         ".part.panel.bottom:has(.terminal-outer-container) > .content": {
             "margin-top": "-7px !important"
         },
-        ".part.panel.bottom .pane, .part.panel.bottom .pane-body, .part.panel.bottom .split-view-view, .part.panel.bottom .composite, .part.panel.bottom .monaco-pane-view, .part.panel.bottom .output-view": {
+        ".part.panel.bottom :is(.pane, .pane-body, .split-view-view, .composite, .monaco-pane-view, .output-view)": {
             "border-bottom": "none !important"
         },
         ".part.panel.bottom .tabs-container": {
@@ -946,7 +914,7 @@
         ".part.panel.bottom .terminal.xterm": {
             "border-radius": "0 0 0 18px !important"
         },
-        ".part.panel.bottom .message-box-container, .part.panel.bottom .welcome-view-content": {
+        ".part.panel.bottom :is(.message-box-container, .welcome-view-content)": {
             "border-radius": "10px !important",
             "margin": "4px !important",
             "width": "calc(100% - 8px) !important",
@@ -957,41 +925,28 @@
             "border-bottom": "none !important"
         },
         ".split-view-view:has(.terminal-tabs-entry) .monaco-list-row": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "margin-right": "4px !important",
+            "margin": "0 4px !important",
             "width": "calc(100% - 8px) !important"
         },
         ".viewpane-filter .monaco-inputbox, .search-widget .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
             "border-radius": "var(--nb-radius-input) !important",
             "overflow": "hidden !important"
         },
-        ".editor-widget.find-widget": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-widget-shadow) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "padding": "4px 8px !important",
-            "margin-top": "6px !important",
-            "margin-right": "8px !important",
-            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
-        },
-        ".search-widget .search-container, .search-widget .replace-container, .search-widget .query-details, .editor-widget.find-widget .find-part, .editor-widget.find-widget .replace-part": {
+        ".search-widget .search-container, .search-widget .replace-container, .search-widget .query-details": {
             "display": "flex !important",
             "align-items": "center !important",
             "overflow": "visible !important"
         },
-        ".search-widget .search-container > .search-input, .search-widget .replace-container > .replace-input, .editor-widget.find-widget .monaco-findInput, .editor-widget.find-widget .replace-input": {
+        ".search-widget .search-container > .search-input, .search-widget .replace-container > .replace-input": {
             "flex": "1 1 auto !important",
             "min-width": "0 !important"
         },
-        ".search-widget .search-container > .monaco-action-bar, .search-widget .replace-container > .monaco-action-bar, .editor-widget.find-widget .monaco-action-bar, .editor-widget.find-widget .replace-actions": {
+        ".search-widget .search-container > .monaco-action-bar, .search-widget .replace-container > .monaco-action-bar": {
             "flex": "0 0 auto !important",
             "overflow": "visible !important",
             "visibility": "visible !important"
         },
-        ".search-widget .replace-container .action-label, .editor-widget.find-widget .action-label": {
+        ".search-widget .replace-container .action-label": {
             "opacity": "1 !important",
             "visibility": "visible !important"
         },
@@ -1024,12 +979,11 @@
             "border-radius": "var(--nb-radius-item) !important",
             "animation": "none !important"
         },
-        ".monaco-workbench input:focus-visible, .monaco-workbench textarea:focus-visible, .monaco-workbench [role='textbox']:focus-visible": {
+        ".monaco-workbench :is(input, textarea, [role='textbox']):focus-visible": {
             "outline": "none !important",
             "box-shadow": "var(--nb-ring) !important"
         },
         ".command-center-center": {
-            "font-family": "'Bear Sans UI', sans-serif !important",
             "border-radius": "9999px !important",
             "overflow": "hidden !important",
             "border": "1px solid var(--nb-border-subtle) !important",
@@ -1051,14 +1005,11 @@
             "backdrop-filter": "var(--nb-glass-blur) !important",
             "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
         },
-        ".quick-input-widget": {
+        ".quick-input-widget, .monaco-dialog-box, .notifications-center, .monaco-menu": {
             "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
         },
         ".suggest-widget, .monaco-hover": {
             "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
-        },
-        ".monaco-dialog-box, .notifications-center, .monaco-menu": {
-            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
         },
         ".notification-toast": {
             "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
@@ -1077,9 +1028,7 @@
             "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
         },
         ".quick-input-widget .monaco-list-row": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "margin-left": "4px !important",
-            "margin-right": "4px !important",
+            "margin": "0 4px !important",
             "width": "calc(100% - 8px) !important",
             "transition": "background 0.15s var(--nb-ease-soft) !important"
         },
@@ -1087,9 +1036,6 @@
             "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 18%, transparent), color-mix(in srgb, var(--vscode-foreground) 10%, transparent)) !important",
             "box-shadow": "inset 0 0 0 1px var(--nb-border-hover), var(--nb-shadow-soft) !important",
             "transform": "translateX(2px) !important"
-        },
-        ".monaco-dialog-box .dialog-buttons .monaco-button": {
-            "border-radius": "var(--nb-radius-input) !important"
         },
         ".colorpicker-widget": {
             "border-radius": "var(--nb-radius-widget) !important",
@@ -1144,17 +1090,16 @@
         ".monaco-scrollable-element > .scrollbar.vertical": {
             "width": "14px !important"
         },
+        ".monaco-scrollable-element > .scrollbar > .slider": {
+            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important"
+        },
         ".monaco-scrollable-element > .scrollbar.vertical > .slider": {
             "width": "6px !important",
-            "margin-left": "4px !important",
-            "border-radius": "999px !important",
-            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important"
+            "margin-left": "4px !important"
         },
         ".monaco-scrollable-element > .scrollbar.horizontal > .slider": {
             "height": "6px !important",
-            "margin-top": "4px !important",
-            "border-radius": "999px !important",
-            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important"
+            "margin-top": "4px !important"
         },
         ".monaco-scrollable-element > .scrollbar > .slider:hover": {
             "background": "var(--vscode-scrollbarSlider-hoverBackground) !important",
@@ -1166,7 +1111,7 @@
         },
         ".monaco-count-badge": {
             "border-radius": "9999px !important",
-            "font-size": "12px !important",
+            "font-size": "var(--nb-font-size-small) !important",
             "font-weight": "600 !important",
             "padding": "1px 7px !important",
             "min-height": "16px !important",
@@ -1188,23 +1133,21 @@
             "filter": "none !important",
             "animation": "none !important"
         },
-        ".monaco-workbench.vs-dark .monaco-icon-label.file-icon::before, .vs-dark .monaco-icon-label.file-icon::before": {
+        ":is(.monaco-workbench.vs-dark, .vs-dark) .monaco-icon-label.file-icon::before": {
             "filter": "drop-shadow(0 0 2.5px currentColor)",
             "opacity": "1 !important"
         },
         ".letterpress": {
             "opacity": "0.4 !important"
         },
-        ".chat-input-container": {
-            "background-color": "var(--nb-surface) !important",
+        ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2": {
             "border-radius": "var(--nb-radius-widget) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important",
             "overflow": "visible !important"
         },
-        ".interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "overflow": "visible !important"
+        ".chat-input-container": {
+            "background-color": "var(--nb-surface) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-surface-shadow) !important"
         },
         ".notebookOverlay": {
             "border-radius": "0 0 var(--nb-radius-panel) var(--nb-radius-panel) !important",
@@ -1242,16 +1185,6 @@
                 "transform": "translateX(0)"
             }
         },
-        "@keyframes nb-tab-arrive": {
-            "from": {
-                "opacity": "0.7",
-                "transform": "translateY(2px)"
-            },
-            "to": {
-                "opacity": "1",
-                "transform": "translateY(0)"
-            }
-        },
         "@keyframes nb-progress-sweep": {
             "0%": {
                 "opacity": "0",
@@ -1279,9 +1212,6 @@
         "@media (prefers-reduced-motion: no-preference)": {
             ".tab:hover, .monaco-button:hover, .monaco-list-row:hover, .settings-editor .setting-item:hover, .part.activitybar .action-item:hover .action-label": {
                 "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
-            },
-            ".tab.active": {
-                "animation": "nb-tab-arrive var(--nb-motion-base) var(--nb-ease-out) both !important"
             }
         },
         "@media (prefers-reduced-motion: reduce)": {
@@ -1293,16 +1223,16 @@
             ".monaco-breadcrumbs": {
                 "opacity": "1 !important"
             },
-            ".part.statusbar .statusbar-item-label, .part.statusbar .codicon": {
+            ".part.statusbar :is(.statusbar-item-label, .codicon)": {
                 "opacity": "1 !important"
             },
-            ".tab .tab-actions, .tab .tab-close-action": {
+            ".tab :is(.tab-actions, .tab-close-action)": {
                 "opacity": "1 !important"
             },
             ".minimap canvas": {
                 "opacity": "1 !important"
             },
-            ".monaco-button:active, .action-label:active": {
+            ":is(.monaco-button, .action-label):active": {
                 "transform": "none !important"
             }
         },
@@ -1332,14 +1262,14 @@
                 "border-radius": "0 !important",
                 "filter": "none !important"
             },
-            ".monaco-workbench :focus-visible, .monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within": {
+            ".monaco-workbench :is(:focus-visible, input.focused, textarea.focused, .monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within)": {
                 "outline": "2px solid CanvasText !important",
                 "box-shadow": "none !important"
             },
-            ".part.sidebar, .part.auxiliarybar, .part.panel.bottom, .part.activitybar, .part.statusbar, .part.editor": {
+            ".part:is(.sidebar, .auxiliarybar, .activitybar, .statusbar, .editor), .part.panel.bottom, .tab": {
                 "border": "1px solid CanvasText !important"
             },
-            ".monaco-breadcrumbs, .part.statusbar .statusbar-item-label, .minimap canvas": {
+            ":is(.monaco-breadcrumbs, .part.statusbar .statusbar-item-label, .minimap canvas)": {
                 "opacity": "1 !important"
             }
         }
@@ -1417,5 +1347,6 @@
     "notebook.cell.border_width": 1,
     "notebook.cell.border_radius": 4,
     "terminal.integrated.darwin.borderStyle": "nil",
-    "scm.startUpdateNotifications": false
+    "scm.startUpdateNotifications": false,
+    "workbench.editor.tabActionLocation": "right"
 }
