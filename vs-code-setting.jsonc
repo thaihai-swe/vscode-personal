@@ -763,7 +763,6 @@
         ".tabs-and-actions-container": {
             "background-color": "transparent !important",
             "border-bottom": "none !important",
-            "padding": "5px 8px 2px !important",
             "min-height": "40px !important"
         },
         ".editor-actions": {
@@ -774,8 +773,7 @@
             "background-image": "none !important",
             "border-bottom": "none !important",
             "gap": "6px !important",
-            "align-items": "center !important",
-            "padding": "0 2px !important"
+            "align-items": "center !important"
         },
         ".tab": {
             "position": "relative !important",
