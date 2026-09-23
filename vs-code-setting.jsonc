@@ -421,24 +421,24 @@
     // ======================================================================
     // 13. Custom UI stylesheet — Glass Paper / Islands chrome
     // ----------------------------------------------------------------------
-    // Floating panels, directional glass borders, compact density, and subtle
-    // focus treatments. Requires Custom UI Style extension.
+    // Floating panels, restrained borders, and clear focus states. Requires
+    // Custom UI Style extension. Colors follow the active VS Code theme.
     // ======================================================================
     "custom-ui-style.stylesheet": {
         ".monaco-workbench": {
-            "--nb-font-ui": "'Bear Sans UI', sans-serif",
-            "--nb-font-heading": "'Bear Sans UI Heading', sans-serif",
+            "--nb-font-ui": "'Bear Sans UI',-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            "--nb-font-heading": "'Bear Sans UI Heading',-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
             "--nb-font-size-heading": "12px",
-            "--nb-radius-panel": "28px",
-            "--nb-radius-widget": "14px",
-            "--nb-radius-input": "12px",
-            "--nb-radius-tab": "22px",
+            "--nb-radius-panel": "18px",
+            "--nb-radius-widget": "12px",
+            "--nb-radius-input": "9px",
+            "--nb-radius-tab": "10px",
             "--nb-radius-item": "8px",
             "--nb-radius-sm": "6px",
-            "--nb-panel-gap": "6px",
-            "--nb-panel-top": "6px",
+            "--nb-panel-gap": "8px",
+            "--nb-panel-top": "8px",
             "--nb-canvas": "color-mix(in srgb, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
             "--nb-surface": "color-mix(in srgb, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in srgb, var(--vscode-editorWidget-background) 96%, transparent)",
@@ -449,11 +449,11 @@
             // Islands tab chrome: theme-aware surfaces, soft outlines, and the
             // selected theme's focus accent.
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
-            "--nb-border-hover": "color-mix(in oklch, var(--vscode-focusBorder) 62%, transparent)",
+            "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 62%, transparent)",
             "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 94%, var(--vscode-editor-background) 6%)",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 48%, transparent)",
-            "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-focusBorder))",
-            "--nb-tab-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 26%, transparent)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 20%, transparent)",
+            "--nb-tab-accent": "var(--nb-focus)",
+            "--nb-tab-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 20%, transparent)",
             "--nb-glass-n": "color-mix(in srgb, var(--vscode-foreground) 24%, transparent)",
             "--nb-glass-w": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
             "--nb-glass-s": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
@@ -475,7 +475,7 @@
             "--nb-ease-in": "cubic-bezier(0.7, 0, 0.84, 0)",
             "--nb-ease-in-out": "cubic-bezier(0.65, 0, 0.35, 1)",
             "--nb-ease-soft": "cubic-bezier(0.4, 0, 0.2, 1)",
-            "--nb-focus": "var(--vscode-focusBorder)",
+            "--nb-focus": "var(--vscode-button-background, var(--vscode-focusBorder))",
             "--nb-focus-ring": "0 0 0 3px color-mix(in oklch, var(--nb-focus) 30%, transparent)",
             "--nb-focus-ring-offset": "2px",
             "--nb-transition-ui": "background-color var(--nb-motion-fast) var(--nb-ease-soft), border-color var(--nb-motion-fast) var(--nb-ease-soft), box-shadow var(--nb-motion-fast) var(--nb-ease-soft), color var(--nb-motion-fast) var(--nb-ease-soft)",
@@ -491,7 +491,7 @@
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
             "--nb-tab-seam": "transparent",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 48%, transparent)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent)",
             "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
             "--nb-glass-w": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
@@ -533,7 +533,7 @@
             "transition": "var(--nb-transition-ui) !important"
         },
         ".part.titlebar .action-label": {
-            "border-radius": "30% !important"
+            "border-radius": "var(--nb-radius-item) !important"
         },
         ".part.statusbar": {
             "background-color": "var(--vscode-statusBar-background, var(--nb-canvas)) !important",
@@ -541,7 +541,7 @@
             "border-radius": "10px 10px 0 0 !important",
             "margin": "0 5px !important",
             "box-shadow": "var(--nb-shadow-soft) !important",
-            "font-family": "'Bear Sans UI', sans-serif !important",
+            "font-family": "var(--nb-font-ui) !important",
             "transition": "var(--nb-transition-ui) !important"
         },
         ".part.statusbar .statusbar-item:hover": {
@@ -553,7 +553,7 @@
             "margin-top": "-2px !important"
         },
         ".part.statusbar :is(.statusbar-item-label, .codicon)": {
-            "opacity": "0.55 !important",
+            "opacity": "0.82 !important",
             "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft) !important"
         },
         ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
@@ -610,6 +610,8 @@
         },
         ".part.activitybar .action-item .action-label": {
             "font-size": "22px !important",
+            "color": "var(--vscode-activityBar-inactiveForeground, var(--vscode-activityBar-foreground)) !important",
+            "opacity": "0.9 !important",
             "width": "34px !important",
             "height": "34px !important",
             "line-height": "34px !important",
@@ -633,19 +635,22 @@
         ".part.activitybar .action-item:hover .action-label": {
             "background": "var(--nb-surface-highlight) !important",
             "border-color": "var(--nb-border-hover) !important",
-            "transform": "translateY(-1px) !important"
+            "opacity": "1 !important"
         },
         ".part.activitybar .action-item.checked .action-label": {
-            "background": "linear-gradient(180deg, color-mix(in srgb, var(--vscode-foreground) 16%, transparent), color-mix(in srgb, var(--vscode-foreground) 8%, transparent)) !important",
-            "border-radius": "50% !important",
-            "width": "30px !important",
-            "height": "30px !important",
+            "color": "var(--vscode-activityBar-foreground, var(--vscode-foreground)) !important",
+            "opacity": "1 !important",
+            "background": "color-mix(in srgb, var(--nb-focus) 16%, var(--nb-pill)) !important",
+            "border-color": "color-mix(in srgb, var(--nb-focus) 38%, transparent) !important",
+            "border-radius": "var(--nb-radius-item) !important",
+            "width": "34px !important",
+            "height": "34px !important",
             "box-shadow": "var(--nb-glass-inset), inset 0 1px 2px color-mix(in srgb, #fff 8%, transparent), 0 1px 3px color-mix(in srgb, #000 24%, transparent) !important"
         },
         ".part.activitybar .badge": {
             "z-index": "10 !important",
             "overflow": "visible !important",
-            "transform": "scale(0.8) !important",
+            "transform": "scale(0.9) !important",
             "transform-origin": "top right !important"
         },
         ".part.sidebar, .part.auxiliarybar, .part.editor": {
@@ -653,8 +658,7 @@
             "border-radius": "var(--nb-radius-panel) !important",
             "border": "1px solid var(--nb-border-soft) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
-            "overflow": "hidden !important",
-            "max-height": "calc(100% - var(--nb-panel-top) - 2px) !important"
+            "overflow": "hidden !important"
         },
         ".part.sidebar, .part.auxiliarybar": {
             "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
@@ -706,15 +710,17 @@
             "transition": "background var(--nb-motion-base) var(--nb-ease-soft), box-shadow var(--nb-motion-base) var(--nb-ease-soft) !important"
         },
         ".part.sidebar .monaco-list-row.selected": {
-            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 12%, transparent), color-mix(in srgb, var(--vscode-foreground) 7%, transparent)) !important",
-            "box-shadow": "inset 0 0 0 1px color-mix(in srgb, #fff 8%, transparent) !important"
+            "background": "var(--vscode-list-inactiveSelectionBackground, var(--nb-surface-highlight)) !important",
+            "color": "var(--vscode-list-inactiveSelectionForeground, inherit) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
         },
         ".part.sidebar .monaco-list-row.focused": {
-            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 18%, transparent), color-mix(in srgb, var(--vscode-foreground) 10%, transparent)) !important",
-            "box-shadow": "inset 0 0 0 1px color-mix(in srgb, #fff 10%, transparent) !important"
+            "background": "var(--vscode-list-focusBackground, var(--nb-surface-highlight)) !important",
+            "color": "var(--vscode-list-focusForeground, inherit) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
         },
-        ".part.sidebar .monaco-list-row:hover": {
-            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 10%, transparent), color-mix(in srgb, var(--vscode-foreground) 5%, transparent)) !important"
+        ".part.sidebar .monaco-list-row:hover:not(.selected):not(.focused)": {
+            "background": "var(--vscode-list-hoverBackground, var(--nb-surface-highlight)) !important"
         },
         ".part.auxiliarybar .composite.title": {
             "padding": "8px 0 0 8px !important"
@@ -793,7 +799,10 @@
             "transition": "var(--nb-transition-ui) !important"
         },
         ".tab.active": {
-            "background-color": "var(--vscode-tab-activeBackground) !important"
+            "background-color": "var(--vscode-tab-activeBackground) !important",
+            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
+            "border-color": "color-mix(in srgb, var(--nb-tab-accent) 60%, transparent) !important",
+            "box-shadow": "inset 0 2px 0 var(--nb-tab-accent), var(--nb-tab-shadow) !important"
         },
         ".tab :is(.tab-actions, .monaco-action-bar)": {
             "background": "transparent !important",
@@ -820,6 +829,11 @@
             "border-color": "var(--nb-border-hover) !important",
             "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--vscode-foreground) 12%, transparent), var(--nb-tab-shadow) !important"
         },
+        ".tab.active:hover": {
+            "background-color": "var(--vscode-tab-activeBackground) !important",
+            "border-color": "color-mix(in srgb, var(--nb-tab-accent) 70%, transparent) !important",
+            "box-shadow": "inset 0 2px 0 var(--nb-tab-accent), var(--nb-tab-shadow) !important"
+        },
         ".tab:focus-visible": {
             "outline": "none !important",
             "box-shadow": "var(--nb-ring) !important"
@@ -835,14 +849,14 @@
             "opacity": "1 !important"
         },
         ".tab :is(.tab-actions, .tab-close-action)": {
-            "opacity": "0 !important",
+            "opacity": "0.7 !important",
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
         },
-        ".tab:is(:hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
+        ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
             "opacity": "1 !important"
         },
         ".minimap canvas": {
-            "opacity": "0.6 !important",
+            "opacity": "0.8 !important",
             "transition": "opacity 0.4s ease !important"
         },
         ".minimap:is(:hover, :focus-within) canvas": {
@@ -850,7 +864,7 @@
         },
         ".monaco-breadcrumbs": {
             "border-top": "none !important",
-            "opacity": "0.4 !important",
+            "opacity": "0.8 !important",
             "transition": "opacity 0.4s var(--nb-ease-soft) !important"
         },
         ".monaco-breadcrumbs:is(:hover, :focus-within)": {
@@ -1016,9 +1030,9 @@
             "transition": "background 0.15s var(--nb-ease-soft) !important"
         },
         ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
-            "background": "linear-gradient(135deg, color-mix(in srgb, var(--vscode-foreground) 18%, transparent), color-mix(in srgb, var(--vscode-foreground) 10%, transparent)) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover), var(--nb-shadow-soft) !important",
-            "transform": "translateX(2px) !important"
+            "background": "var(--vscode-list-focusBackground, var(--nb-surface-highlight)) !important",
+            "color": "var(--vscode-list-focusForeground, inherit) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
         },
         ".colorpicker-widget": {
             "border-radius": "var(--nb-radius-widget) !important",
@@ -1043,7 +1057,7 @@
             "box-shadow": "none !important"
         },
         ".settings-editor .setting-item:hover": {
-            "border-color": "var(--vscode-focusBorder) !important",
+            "border-color": "var(--nb-focus) !important",
             "background-color": "var(--nb-surface-highlight) !important",
             "box-shadow": "var(--nb-shadow-soft) !important",
             "transform": "translateY(-1px) !important"
@@ -1181,6 +1195,19 @@
                 "transform": "translateX(100%)"
             }
         },
+        "@media (max-width: 900px)": {
+            ".monaco-workbench": {
+                "--nb-panel-gap": "5px",
+                "--nb-panel-top": "5px",
+                "--nb-radius-panel": "12px"
+            },
+            ".part.activitybar": {
+                "margin-left": "3px !important"
+            },
+            ".tab": {
+                "height": "30px !important"
+            }
+        },
         "@media (prefers-reduced-transparency: reduce)": {
             ".monaco-workbench": {
                 "--nb-surface": "var(--vscode-sideBar-background)",
@@ -1216,6 +1243,9 @@
                 "opacity": "1 !important"
             },
             ":is(.monaco-button, .action-label):active": {
+                "transform": "none !important"
+            },
+            ":is(.part.activitybar .action-item:hover .action-label, .settings-editor .setting-item:hover, .quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused)": {
                 "transform": "none !important"
             }
         },
