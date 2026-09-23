@@ -533,12 +533,12 @@
             "transition": "var(--nb-transition-ui) !important"
         },
         ".part.titlebar .action-label": {
-            "border-radius": "50% !important"
+            "border-radius": "30% !important"
         },
         ".part.statusbar": {
             "background-color": "var(--vscode-statusBar-background, var(--nb-canvas)) !important",
             "border-top": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "14px 14px 0 0 !important",
+            "border-radius": "10px 10px 0 0 !important",
             "margin": "0 5px !important",
             "box-shadow": "var(--nb-shadow-soft) !important",
             "font-family": "'Bear Sans UI', sans-serif !important",
@@ -562,7 +562,7 @@
         ".part.activitybar": {
             "background-color": "var(--vscode-activityBar-background, var(--nb-canvas)) !important",
             "border": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "18px !important",
+            "border-radius": "10px !important",
             "margin": "5px 0 18px 5px !important",
             "box-shadow": "var(--nb-shadow-soft) !important",
             "overflow": "visible !important",
@@ -575,7 +575,7 @@
         },
         ".part.activitybar .composite-bar": {
             "background": "var(--nb-pill) !important",
-            "border-radius": "9999px !important",
+            "border-radius": "10px !important",
             "overflow": "hidden !important",
             "width": "40px !important",
             "margin": "0 auto !important",
@@ -967,7 +967,7 @@
             "box-shadow": "var(--nb-ring) !important"
         },
         ".command-center-center": {
-            "border-radius": "9999px !important",
+            "border-radius": "10px !important",
             "overflow": "hidden !important",
             "border": "1px solid var(--nb-border-subtle) !important",
             "background": "var(--nb-pill) !important",
@@ -975,7 +975,7 @@
             "transition": "box-shadow var(--nb-motion-base) var(--nb-ease-soft), background var(--nb-motion-base) var(--nb-ease-soft) !important"
         },
         ".command-center-center *": {
-            "border-radius": "9999px !important"
+            "border-radius": "10px !important"
         },
         ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
             "border-radius": "var(--nb-radius-widget) !important",
@@ -1067,7 +1067,7 @@
             "animation": "nb-progress-sweep 900ms var(--nb-ease-in-out) infinite !important"
         },
         ".scrollbar .slider": {
-            "border-radius": "9999px !important",
+            "border-radius": "10px !important",
             "transition": "opacity 0.3s var(--nb-ease-soft) !important"
         },
         ".monaco-scrollable-element > .scrollbar.vertical": {
@@ -1093,7 +1093,7 @@
             "box-shadow": "0 0 0 2px color-mix(in srgb, var(--nb-focus) 30%, transparent) !important"
         },
         ".monaco-count-badge": {
-            "border-radius": "9999px !important",
+            "border-radius": "10px !important",
             "font-size": "var(--nb-font-size-small) !important",
             "font-weight": "600 !important",
             "padding": "1px 7px !important",
