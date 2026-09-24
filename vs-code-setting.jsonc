@@ -1,4 +1,6 @@
 {
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.hideCondition": "never",
     // Glass Paper keeps the chrome compact while preserving a generous editor.
     "window.zoomLevel": 1.15,
     "workbench.colorTheme": "Islands Dark",
@@ -361,11 +363,8 @@
     "terminal.integrated.cursorWidth": 2,
     "terminal.integrated.customGlyphs": true,
     "terminal.integrated.gpuAcceleration": "on",
-    "terminal.integrated.tabs.enabled": true,
-    "terminal.integrated.tabs.hideCondition": "singleTerminal",
     "terminal.integrated.mouseWheelScrollSensitivity": 3,
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.darwin.borderStyle": "nil",
     // ======================================================================
     // 11. Git, diff, merge, AI tools
     // ======================================================================
@@ -419,189 +418,281 @@
     "problems.autoReveal": false,
     "problems.sortOrder": "severity",
     // ======================================================================
-    // 13. Custom UI stylesheet — Glass Paper / Islands chrome
+    // 13. Custom UI stylesheet — Glass Paper / Islands Next-Gen Chrome
     // ----------------------------------------------------------------------
-    // Floating panels, restrained borders, and clear focus states. Requires
-    // Custom UI Style extension. Colors follow the active VS Code theme.
+    // Floating island architecture, tactile specular glass reflections,
+    // Raycast/Spotlight modals, Firefox Nova floating pill tabs, and
+    // theme-adaptive OKLCH depth physics. Built for long-session ergonomics.
+    // Requires Custom UI Style extension.
     // ======================================================================
     "custom-ui-style.stylesheet": {
+        // ------------------------------------------------------------------
+        // A. Design tokens & CSS custom properties (Base / Light / Fallback)
+        // ------------------------------------------------------------------
         ".monaco-workbench": {
-            "--nb-font-ui": "'Bear Sans UI',-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-            "--nb-font-heading": "'Bear Sans UI Heading',-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            // Typography hierarchy
+            "--nb-font-ui": "'Bear Sans UI', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', system-ui, sans-serif",
+            "--nb-font-heading": "'Bear Sans UI Heading', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Inter', system-ui, sans-serif",
+            "--nb-font-mono": "'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', monospace",
             "--nb-font-size-ui": "13px",
-            "--nb-font-size-small": "12px",
-            "--nb-font-size-heading": "12px",
-            "--nb-radius-panel": "18px",
+            "--nb-font-size-sm": "12px",
+            "--nb-font-size-xs": "11px",
+            "--nb-font-size-heading": "11.5px",
+            "--nb-letter-spacing-heading": "0.06em",
+            // Radius system
+            "--nb-radius-panel": "14px",
+            "--nb-radius-card": "12px",
             "--nb-radius-widget": "12px",
-            "--nb-radius-input": "9px",
-            "--nb-radius-tab": "10px",
-            "--nb-radius-item": "8px",
-            "--nb-radius-sm": "6px",
-            "--nb-panel-gap": "8px",
-            "--nb-panel-top": "8px",
-            "--nb-canvas": "color-mix(in srgb, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
-            "--nb-surface": "color-mix(in srgb, var(--vscode-sideBar-background) 94%, transparent)",
-            "--nb-surface-raised": "color-mix(in srgb, var(--vscode-editorWidget-background) 96%, transparent)",
-            "--nb-surface-elevated": "color-mix(in srgb, var(--vscode-editorWidget-background) 90%, var(--vscode-foreground) 10%)",
-            "--nb-surface-highlight": "color-mix(in srgb, var(--vscode-foreground) 8%, transparent)",
-            "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
-            "--nb-tab-seam": "transparent",
-            // Islands tab chrome: theme-aware surfaces, soft outlines, and the
-            // selected theme's focus accent.
-            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
-            "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 62%, transparent)",
-            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 94%, var(--vscode-editor-background) 6%)",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 20%, transparent)",
-            "--nb-tab-accent": "var(--nb-focus)",
-            "--nb-tab-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 20%, transparent)",
-            "--nb-glass-n": "color-mix(in srgb, var(--vscode-foreground) 24%, transparent)",
-            "--nb-glass-w": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
-            "--nb-glass-s": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
-            "--nb-glass-e": "color-mix(in srgb, var(--vscode-foreground) 16%, transparent)",
-            "--nb-border": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 38%, transparent)",
-            "--nb-border-subtle": "color-mix(in srgb, var(--vscode-widget-border, var(--vscode-foreground)) 20%, transparent)",
-            "--nb-surface-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
-            "--nb-widget-shadow": "0 8px 24px color-mix(in srgb, var(--vscode-widget-shadow, #000) 40%, transparent)",
-            "--nb-shadow-soft": "0 4px 12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent)",
-            "--nb-pill-shadow": "inset 0 1px 3px color-mix(in srgb, #fff 10%, transparent), 0 1px 4px color-mix(in srgb, #000 18%, transparent)",
-            "--nb-glass-inset": "inset 0 1px 0 var(--nb-glass-n), inset 1px 0 0 var(--nb-glass-w), inset 0 -1px 0 var(--nb-glass-s), inset -1px 0 0 var(--nb-glass-e)",
-            "--nb-glass-blur": "blur(12px)",
-            "--nb-blur-strong": "blur(18px)",
-            "--nb-motion-xs": "80ms",
+            "--nb-radius-input": "8px",
+            "--nb-radius-tab": "8px",
+            "--nb-radius-item": "6px",
+            "--nb-radius-sm": "5px",
+            "--nb-radius-pill": "9999px",
+            // Spatial layout & Island gaps
+            "--nb-panel-gap": "7px",
+            "--nb-panel-top": "7px",
+            "--nb-panel-bottom": "7px",
+            // Base surfaces (Theme-adaptive via OKLCH)
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
+            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 95%, transparent)",
+            "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 96%, transparent)",
+            "--nb-surface-elevated": "color-mix(in oklch, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 90%, var(--vscode-foreground) 10%)",
+            "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
+            "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 14%, var(--nb-surface))",
+            "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 75%, var(--nb-surface) 25%)",
+            "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 60%, var(--nb-surface) 40%)",
+            // Directional specular glass reflections & borders
+            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 20%, transparent)",
+            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
+            "--nb-glass-inset": "inset 0 1px 0 var(--nb-glass-n), inset 0 -1px 0 var(--nb-glass-s)",
+            "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 30%, transparent)",
+            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
+            "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
+            "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
+            // Firefox Nova tab chrome tokens
+            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 80%, transparent)",
+            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-tab-hoverBackground, var(--nb-surface)) 88%, var(--vscode-foreground) 12%)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent)",
+            "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
+            "--nb-tab-accent-muted": "var(--vscode-tab-unfocusedActiveBorderTop, color-mix(in oklch, var(--nb-tab-accent) 45%, transparent))",
+            "--nb-tab-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 14%, transparent)",
+            "--nb-tab-active-shadow": "0 4px 12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent), 0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
+            // Shadow hierarchy (Multi-layer ambient + contact physics)
+            "--nb-shadow-xs": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
+            "--nb-shadow-sm": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent)",
+            "--nb-shadow-md": "0 6px 18px -3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
+            "--nb-shadow-lg": "0 12px 32px -4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 32%, transparent)",
+            "--nb-shadow-xl": "0 24px 60px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 42%, transparent), 0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 16%, transparent)",
+            "--nb-surface-shadow": "var(--nb-shadow-md)",
+            "--nb-widget-shadow": "var(--nb-shadow-xl)",
+            "--nb-shadow-soft": "var(--nb-shadow-sm)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, #fff 10%, transparent), 0 1px 4px color-mix(in srgb, #000 16%, transparent)",
+            // Blur & backdrop
+            "--nb-glass-blur": "blur(18px) saturate(180%)",
+            "--nb-blur-strong": "blur(24px) saturate(200%)",
+            // Motion & physics
+            "--nb-motion-instant": "60ms",
             "--nb-motion-fast": "120ms",
             "--nb-motion-base": "180ms",
-            "--nb-motion-slow": "260ms",
+            "--nb-motion-slow": "280ms",
             "--nb-ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
             "--nb-ease-in": "cubic-bezier(0.7, 0, 0.84, 0)",
-            "--nb-ease-in-out": "cubic-bezier(0.65, 0, 0.35, 1)",
-            "--nb-ease-soft": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "--nb-ease-spring": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+            "--nb-ease-soft": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+            "--nb-transition-ui": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)",
+            // Focus states
             "--nb-focus": "var(--vscode-button-background, var(--vscode-focusBorder))",
-            "--nb-focus-ring": "0 0 0 3px color-mix(in oklch, var(--nb-focus) 30%, transparent)",
+            "--nb-focus-ring": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 35%, transparent), 0 0 0 1px var(--nb-focus)",
+            "--nb-focus-glow": "0 0 12px color-mix(in oklch, var(--nb-focus) 45%, transparent)",
             "--nb-focus-ring-offset": "2px",
-            "--nb-transition-ui": "background-color var(--nb-motion-fast) var(--nb-ease-soft), border-color var(--nb-motion-fast) var(--nb-ease-soft), box-shadow var(--nb-motion-fast) var(--nb-ease-soft), color var(--nb-motion-fast) var(--nb-ease-soft)",
             "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
             "background-color": "var(--nb-canvas) !important",
             "font-family": "var(--nb-font-ui) !important"
         },
+        // ------------------------------------------------------------------
+        // B. Dark Theme Depth & Material Physics
+        // ------------------------------------------------------------------
         ".monaco-workbench.vs-dark, .vs-dark .monaco-workbench": {
-            "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 88%, var(--vscode-foreground) 12%)",
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 86%, #000 14%)",
             "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 94%, transparent)",
             "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background) 92%, transparent)",
             "--nb-surface-elevated": "color-mix(in oklch, var(--vscode-editorWidget-background) 86%, var(--vscode-foreground) 14%)",
-            "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
-            "--nb-pill": "color-mix(in srgb, var(--nb-canvas) 70%, var(--nb-surface) 30%)",
-            "--nb-tab-seam": "transparent",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent)",
-            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
-            "--nb-glass-w": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
-            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
-            "--nb-glass-e": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
-            "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 30%, transparent)",
-            "--nb-border-subtle": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 16%, transparent)",
-            "--nb-surface-shadow": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 34%, transparent)",
-            "--nb-widget-shadow": "0 8px 24px color-mix(in srgb, var(--vscode-widget-shadow, #000) 48%, transparent)",
-            "--nb-shadow-soft": "0 4px 12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 38%, transparent)",
-            "--nb-pill-shadow": "inset 0 1px 3px color-mix(in srgb, var(--vscode-foreground) 8%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 34%, transparent)",
-            "--nb-glass-blur": "blur(16px)",
-            "--nb-blur-strong": "blur(22px)"
+            "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
+            "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-surface))",
+            "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 72%, var(--nb-surface) 28%)",
+            "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 58%, var(--nb-surface) 42%)",
+            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
+            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
+            "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 26%, transparent)",
+            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 13%, transparent)",
+            "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
+            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 75%, transparent)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 28%, transparent)",
+            "--nb-tab-shadow": "0 2px 6px color-mix(in srgb, #000 32%, transparent)",
+            "--nb-tab-active-shadow": "0 4px 16px color-mix(in srgb, #000 48%, transparent), 0 1px 3px color-mix(in srgb, #000 24%, transparent)",
+            "--nb-surface-shadow": "0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 36%, transparent)",
+            "--nb-widget-shadow": "0 24px 64px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 52%, transparent), 0 4px 18px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
+            "--nb-shadow-soft": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, #000 32%, transparent)",
+            "--nb-glass-blur": "blur(20px) saturate(180%)",
+            "--nb-blur-strong": "blur(26px) saturate(200%)"
         },
-        ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
-            "font-family": "var(--nb-font-heading) !important",
-            "font-weight": "700 !important",
-            "font-size": "var(--nb-font-size-heading) !important"
+        // ------------------------------------------------------------------
+        // C. Light Theme Parchment & Porcelain Optics
+        // ------------------------------------------------------------------
+        ".monaco-workbench.vs, .vs .monaco-workbench": {
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-sideBar-background) 90%, #fff 10%)",
+            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 96%, #fff 4%)",
+            "--nb-surface-raised": "#ffffff",
+            "--nb-surface-elevated": "#ffffff",
+            "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
+            "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 12%, #fff)",
+            "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 80%, #fff 20%)",
+            "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 65%, #fff 35%)",
+            "--nb-glass-n": "color-mix(in oklch, #fff 80%, transparent)",
+            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
+            "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
+            "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
+            "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
+            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 80%, transparent)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
+            "--nb-tab-shadow": "0 1px 3px rgba(0, 0, 0, 0.05)",
+            "--nb-tab-active-shadow": "0 3px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04)",
+            "--nb-surface-shadow": "0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)",
+            "--nb-widget-shadow": "0 20px 48px -8px rgba(0, 0, 0, 0.14), 0 4px 14px rgba(0, 0, 0, 0.06)",
+            "--nb-shadow-soft": "0 2px 6px rgba(0, 0, 0, 0.05)",
+            "--nb-pill-shadow": "inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.06)"
         },
-        ".part.sidebar .title-label h2": {
-            "font-family": "var(--nb-font-heading) !important",
-            "font-size": "var(--nb-font-size-heading) !important",
-            "font-weight": "700 !important",
-            "text-transform": "uppercase !important",
-            "letter-spacing": "1px !important"
+        // ------------------------------------------------------------------
+        // D. High Contrast Mode
+        // ------------------------------------------------------------------
+        ".monaco-workbench.hc-black, .monaco-workbench.hc-light": {
+            "--nb-glass-blur": "none",
+            "--nb-blur-strong": "none",
+            "--nb-border": "1px solid var(--vscode-contrastBorder, CanvasText)",
+            "--nb-border-soft": "1px solid var(--vscode-contrastBorder, CanvasText)",
+            "--nb-border-subtle": "1px solid var(--vscode-contrastBorder, CanvasText)"
         },
-        ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .command-center-center, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget .quick-input-header, .notifications-center, .notification-toast": {
+        // ------------------------------------------------------------------
+        // E. Global Typography & Shell Chrome
+        // ------------------------------------------------------------------
+        ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .command-center-center, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget, .suggest-widget, .notifications-center, .notification-toast, .editor-widget.find-widget": {
             "font-family": "var(--nb-font-ui) !important"
         },
         ".monaco-list-row, .monaco-menu .action-label, .quick-input-widget, .suggest-widget, .settings-editor": {
             "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.statusbar, .monaco-breadcrumbs, .tab .label-name": {
-            "font-size": "var(--nb-font-size-small) !important"
+            "font-size": "var(--nb-font-size-sm) !important"
         },
+        ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
+            "font-family": "var(--nb-font-heading) !important",
+            "font-weight": "600 !important",
+            "font-size": "var(--nb-font-size-heading) !important",
+            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+        },
+        ".part.sidebar .title-label h2": {
+            "font-family": "var(--nb-font-heading) !important",
+            "font-size": "var(--nb-font-size-heading) !important",
+            "font-weight": "700 !important",
+            "text-transform": "uppercase !important",
+            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+        },
+        // ------------------------------------------------------------------
+        // F. Window Titlebar & Command Center Spotlight Pill
+        // ------------------------------------------------------------------
         ".part.titlebar": {
             "background-color": "var(--nb-canvas) !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important",
-            "box-shadow": "0 1px 0 color-mix(in srgb, var(--vscode-foreground) 5%, transparent) !important",
+            "box-shadow": "none !important",
             "transition": "var(--nb-transition-ui) !important"
         },
         ".part.titlebar .action-label": {
-            "border-radius": "var(--nb-radius-item) !important"
-        },
-        ".part.statusbar": {
-            "background-color": "var(--vscode-statusBar-background, var(--nb-canvas)) !important",
-            "border-top": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "10px 10px 0 0 !important",
-            "margin": "0 5px !important",
-            "box-shadow": "var(--nb-shadow-soft) !important",
-            "font-family": "var(--nb-font-ui) !important",
+            "border-radius": "var(--nb-radius-item) !important",
             "transition": "var(--nb-transition-ui) !important"
         },
-        ".part.statusbar .statusbar-item:hover": {
-            "background-color": "var(--nb-surface-highlight) !important",
-            "border-radius": "var(--nb-radius-sm) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
-        },
-        ".part.statusbar .items-container": {
-            "margin-top": "-2px !important"
-        },
-        ".part.statusbar :is(.statusbar-item-label, .codicon)": {
-            "opacity": "0.82 !important",
-            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft) !important"
-        },
-        ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
-            "opacity": "1 !important"
-        },
-        ".part.activitybar": {
-            "background-color": "var(--vscode-activityBar-background, var(--nb-canvas)) !important",
+        ".command-center-center": {
+            "border-radius": "var(--nb-radius-input) !important",
+            "overflow": "hidden !important",
             "border": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "10px !important",
-            "margin": "5px 0 18px 5px !important",
-            "box-shadow": "var(--nb-shadow-soft) !important",
-            "overflow": "visible !important",
-            "width": "48px !important",
+            "background": "var(--nb-pill) !important",
+            "box-shadow": "var(--nb-glass-inset), var(--nb-pill-shadow) !important",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".command-center-center:hover": {
+            "background": "var(--nb-pill-hover) !important",
+            "border-color": "var(--nb-border-hover) !important",
+            "box-shadow": "var(--nb-glass-inset), var(--nb-shadow-xs) !important"
+        },
+        ".command-center-center *": {
+            "border-radius": "var(--nb-radius-input) !important"
+        },
+        // ------------------------------------------------------------------
+        // G. Activity Bar (Unified Floating Dock Rail)
+        // ------------------------------------------------------------------
+        ".part.activitybar": {
+            "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "border-radius": "var(--nb-radius-panel) !important",
+            "margin": "var(--nb-panel-top) 0 var(--nb-panel-bottom) var(--nb-panel-gap) !important",
+            "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
+            "width": "calc(100% - var(--nb-panel-gap)) !important",
+            "box-shadow": "var(--nb-surface-shadow) !important",
+            "box-sizing": "border-box !important",
+            "overflow": "hidden !important",
             "background-image": "none !important",
             "transition": "var(--nb-transition-ui) !important"
         },
         ".part:is(.activitybar, .auxiliarybar) .content": {
-            "width": "100% !important"
+            "width": "100% !important",
+            "height": "100% !important",
+            "display": "flex !important",
+            "flex-direction": "column !important",
+            "justify-content": "space-between !important",
+            "align-items": "center !important",
+            "box-sizing": "border-box !important"
         },
         ".part.activitybar .composite-bar": {
-            "background": "var(--nb-pill) !important",
-            "border-radius": "10px !important",
-            "overflow": "hidden !important",
-            "width": "40px !important",
-            "margin": "0 auto !important",
-            "padding": "8px 0 !important",
+            "background": "transparent !important",
+            "border": "none !important",
+            "border-radius": "0 !important",
+            "box-shadow": "none !important",
+            "width": "100% !important",
+            "margin": "0 !important",
+            "padding": "4px 0 !important",
             "box-sizing": "border-box !important",
             "display": "flex !important",
             "flex-direction": "column !important",
-            "align-items": "center !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-pill-shadow) !important"
+            "align-items": "center !important"
         },
-        ".part.activitybar .content > div:last-child": {
-            "transform": "translateY(-10px) !important"
+        ".part.activitybar .global-actions": {
+            "background": "transparent !important",
+            "border": "none !important",
+            "box-shadow": "none !important",
+            "width": "100% !important",
+            "margin": "0 !important",
+            "padding": "4px 0 6px 0 !important",
+            "box-sizing": "border-box !important",
+            "display": "flex !important",
+            "flex-direction": "column !important",
+            "align-items": "center !important"
         },
         ".part.activitybar .actions-container": {
             "align-items": "center !important",
             "justify-content": "center !important",
             "width": "100% !important",
-            "overflow": "visible !important"
+            "overflow": "visible !important",
+            "gap": "3px !important"
         },
         ".part.activitybar .action-item": {
             "display": "flex !important",
             "justify-content": "center !important",
             "align-items": "center !important",
             "width": "100% !important",
-            "margin": "0 auto !important",
+            "margin": "1px auto !important",
             "padding": "0 !important",
             "overflow": "visible !important",
             "border-radius": "0 !important",
@@ -609,67 +700,85 @@
             "box-shadow": "none !important"
         },
         ".part.activitybar .action-item .action-label": {
-            "font-size": "22px !important",
+            "font-size": "20px !important",
             "color": "var(--vscode-activityBar-inactiveForeground, var(--vscode-activityBar-foreground)) !important",
-            "opacity": "0.9 !important",
-            "width": "34px !important",
-            "height": "34px !important",
-            "line-height": "34px !important",
+            "opacity": "0.85 !important",
+            "width": "32px !important",
+            "height": "32px !important",
+            "line-height": "32px !important",
             "border": "1px solid transparent !important",
+            "border-radius": "var(--nb-radius-item) !important",
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
             "overflow": "visible !important",
-            "transition": "filter var(--nb-motion-base) var(--nb-ease-soft), background var(--nb-motion-base) var(--nb-ease-soft), box-shadow var(--nb-motion-base) var(--nb-ease-soft) !important"
+            "transition": "color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".part.activitybar .action-item .action-label .codicon": {
-            "font-size": "22px !important"
+            "font-size": "20px !important"
         },
         ".part.activitybar .action-item .action-label img": {
-            "max-width": "22px !important",
-            "max-height": "22px !important"
+            "max-width": "20px !important",
+            "max-height": "20px !important"
         },
         ".part.activitybar .action-item .active-item-indicator": {
             "display": "none !important"
         },
         ".part.activitybar .action-item:hover .action-label": {
-            "background": "var(--nb-surface-highlight) !important",
+            "background-color": "var(--nb-surface-highlight) !important",
             "border-color": "var(--nb-border-hover) !important",
             "opacity": "1 !important"
         },
         ".part.activitybar .action-item.checked .action-label": {
             "color": "var(--vscode-activityBar-foreground, var(--vscode-foreground)) !important",
             "opacity": "1 !important",
-            "background": "color-mix(in srgb, var(--nb-focus) 16%, var(--nb-pill)) !important",
-            "border-color": "color-mix(in srgb, var(--nb-focus) 38%, transparent) !important",
+            "background-color": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-surface-raised)) !important",
+            "border-color": "color-mix(in oklch, var(--nb-focus) 42%, transparent) !important",
             "border-radius": "var(--nb-radius-item) !important",
-            "width": "34px !important",
-            "height": "34px !important",
-            "box-shadow": "var(--nb-glass-inset), inset 0 1px 2px color-mix(in srgb, #fff 8%, transparent), 0 1px 3px color-mix(in srgb, #000 24%, transparent) !important"
+            "width": "32px !important",
+            "height": "32px !important",
+            "box-shadow": "var(--nb-glass-inset), var(--nb-shadow-xs) !important"
         },
         ".part.activitybar .badge": {
             "z-index": "10 !important",
             "overflow": "visible !important",
-            "transform": "scale(0.9) !important",
+            "transform": "scale(0.85) translate(2px, -2px) !important",
             "transform-origin": "top right !important"
         },
+        // ------------------------------------------------------------------
+        // H. Floating Island Containers (Sidebar, Auxiliary Bar, Editor)
+        // ------------------------------------------------------------------
         ".part.sidebar, .part.auxiliarybar, .part.editor": {
-            "margin": "var(--nb-panel-top) var(--nb-panel-gap) 0 var(--nb-panel-gap) !important",
+            "margin": "var(--nb-panel-top) var(--nb-panel-gap) var(--nb-panel-bottom) var(--nb-panel-gap) !important",
+            "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
             "border-radius": "var(--nb-radius-panel) !important",
             "border": "1px solid var(--nb-border-soft) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
+            "box-sizing": "border-box !important",
             "overflow": "hidden !important"
         },
         ".part.sidebar, .part.auxiliarybar": {
             "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
             "background-image": "none !important"
         },
+        ".part.editor": {
+            "background-color": "var(--vscode-editor-background) !important",
+            "transition": "var(--nb-transition-ui) !important",
+            "isolation": "isolate",
+            "contain": "paint"
+        },
+        ".monaco-workbench.linux .part.editor > .content": {
+            "padding-top": "14px !important"
+        },
+        // ------------------------------------------------------------------
+        // I. Explorer Tree, Lists & Sidebar Panes
+        // ------------------------------------------------------------------
         ".part.sidebar .composite.title": {
-            "padding": "8px 8px 0 0 !important"
+            "padding": "8px 10px 0 2px !important"
         },
         ".part.sidebar .content": {
             "width": "100% !important",
-            "padding-left": "10px !important",
+            "padding-left": "8px !important",
             "padding-right": "8px !important",
             "margin-left": "0 !important",
             "box-sizing": "border-box !important"
@@ -680,7 +789,12 @@
         },
         ".part.sidebar .pane-header": {
             "border-radius": "var(--nb-radius-item) !important",
-            "outline-offset": "-1px !important"
+            "outline-offset": "-1px !important",
+            "padding": "4px 8px !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".part.sidebar .pane-header:hover": {
+            "background-color": "var(--nb-surface-highlight) !important"
         },
         ".part.sidebar .header": {
             "padding-right": "8px !important"
@@ -689,14 +803,16 @@
             "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.sidebar .pane-header .title": {
-            "font-size": "10px !important"
+            "font-size": "var(--nb-font-size-heading) !important",
+            "font-weight": "600 !important",
+            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
         },
         ".extensions-search-container .suggest-input-container": {
-            "font-size": "11px !important",
-            "--editor-font-size": "11px !important"
+            "font-size": "11.5px !important",
+            "--editor-font-size": "11.5px !important"
         },
         ".extensions-search-container .suggest-input-placeholder": {
-            "font-size": "11px !important"
+            "font-size": "11.5px !important"
         },
         ".explorer-viewlet .split-view-container": {
             "margin-top": "0 !important"
@@ -705,23 +821,27 @@
             "padding-block": "1px !important"
         },
         ".part.sidebar .monaco-list-row": {
-            "margin": "0 4px !important",
+            "margin": "1px 4px !important",
             "width": "calc(100% - 8px) !important",
-            "transition": "background var(--nb-motion-base) var(--nb-ease-soft), box-shadow var(--nb-motion-base) var(--nb-ease-soft) !important"
+            "border-radius": "var(--nb-radius-item) !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".part.sidebar .monaco-list-row.selected": {
-            "background": "var(--vscode-list-inactiveSelectionBackground, var(--nb-surface-highlight)) !important",
+            "background-color": "var(--vscode-list-inactiveSelectionBackground, var(--nb-surface-highlight)) !important",
             "color": "var(--vscode-list-inactiveSelectionForeground, inherit) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-soft) !important"
         },
         ".part.sidebar .monaco-list-row.focused": {
-            "background": "var(--vscode-list-focusBackground, var(--nb-surface-highlight)) !important",
+            "background-color": "var(--vscode-list-focusBackground, var(--nb-surface-highlight)) !important",
             "color": "var(--vscode-list-focusForeground, inherit) !important",
             "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
         },
         ".part.sidebar .monaco-list-row:hover:not(.selected):not(.focused)": {
-            "background": "var(--vscode-list-hoverBackground, var(--nb-surface-highlight)) !important"
+            "background-color": "var(--vscode-list-hoverBackground, var(--nb-surface-highlight)) !important"
         },
+        // ------------------------------------------------------------------
+        // J. Auxiliary Bar (Copilot, Chat & Secondary Panes)
+        // ------------------------------------------------------------------
         ".part.auxiliarybar .composite.title": {
             "padding": "8px 0 0 8px !important"
         },
@@ -757,126 +877,275 @@
             "overflow": "visible !important",
             "min-height": "fit-content !important"
         },
-        ".monaco-workbench.linux .part.editor > .content": {
-            "padding-top": "20px !important"
-        },
-        ".part.editor": {
-            "background-color": "var(--vscode-editor-background) !important",
-            "transition": "var(--nb-transition-ui) !important",
-            "isolation": "isolate",
-            "contain": "paint"
+        // ------------------------------------------------------------------
+        // K. Tabs & Tab Strip (Firefox Nova)
+        // ------------------------------------------------------------------
+        ".editor-group-header": {
+            "background-color": "var(--vscode-editorGroupHeader-tabsBackground, transparent) !important",
+            "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
         ".tabs-and-actions-container": {
             "background-color": "transparent !important",
             "border-bottom": "none !important",
-            "min-height": "40px !important"
+            "min-height": "40px !important",
+            "height": "40px !important",
+            "padding": "4px 8px !important",
+            "box-sizing": "border-box !important",
+            "align-items": "center !important"
         },
         ".editor-actions": {
             "background-image": "none !important",
-            "border-bottom": "none !important"
+            "border-bottom": "none !important",
+            "display": "flex !important",
+            "align-items": "center !important",
+            "gap": "3px !important",
+            "padding-right": "4px !important"
+        },
+        ".editor-actions .action-label": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "padding": "3px 5px !important",
+            "opacity": "0.75 !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".editor-actions .action-label:hover": {
+            "opacity": "1 !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important"
+        },
+        ".editor-actions .action-label:active": {
+            "transform": "scale(0.92) !important"
         },
         ".tabs-container": {
             "background-image": "none !important",
             "border-bottom": "none !important",
-            "gap": "6px !important",
-            "align-items": "center !important"
+            "display": "flex !important",
+            "align-items": "center !important",
+            "gap": "5px !important",
+            "padding": "0 !important",
+            "height": "100% !important",
+            "scrollbar-width": "none !important"
+        },
+        ".tabs-container::-webkit-scrollbar": {
+            "display": "none !important"
         },
         ".tab": {
             "position": "relative !important",
             "font-family": "var(--nb-font-ui) !important",
             "font-size": "var(--nb-font-size-ui) !important",
             "height": "32px !important",
-            "border": "1px solid var(--nb-tab-outline) !important",
+            "box-sizing": "border-box !important",
+            "border": "1px solid transparent !important",
             "border-radius": "var(--nb-radius-tab) !important",
             "overflow": "hidden !important",
             "background-clip": "padding-box !important",
             "background-color": "var(--nb-tab-surface) !important",
-            "background-image": "linear-gradient(180deg, color-mix(in oklch, var(--vscode-foreground) 5%, transparent), transparent) !important",
-            "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--vscode-foreground) 8%, transparent), var(--nb-tab-shadow) !important",
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "padding": "0 10px 0 12px !important",
+            "box-shadow": "none !important",
+            "cursor": "pointer !important",
+            "user-select": "none !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".tab::before": {
+            "content": "\"\" !important",
+            "position": "absolute !important",
+            "left": "-3px !important",
+            "top": "50% !important",
+            "transform": "translateY(-50%) !important",
+            "width": "1px !important",
+            "height": "14px !important",
+            "background-color": "var(--nb-border-subtle) !important",
+            "opacity": "0.75 !important",
+            "pointer-events": "none !important",
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".tab:first-child::before, .tab.active::before, .tab:hover::before, .tab.active + .tab::before, .tab:hover + .tab::before, .tab.pinned::before, .tab.pinned + .tab::before": {
+            "opacity": "0 !important"
+        },
+        ".tab:hover:not(.active)": {
+            "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface-hover)) !important",
+            "border-color": "var(--nb-tab-outline-hover, var(--nb-tab-outline)) !important",
+            "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground)) !important",
+            "box-shadow": "var(--nb-tab-shadow) !important"
+        },
+        ".tab :is(.tab-border-top-container, .tab-border-bottom-container)": {
+            "display": "none !important"
         },
         ".tab.active": {
-            "background-color": "var(--vscode-tab-activeBackground) !important",
+            "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
-            "border-color": "color-mix(in srgb, var(--nb-tab-accent) 60%, transparent) !important",
-            "box-shadow": "inset 0 2px 0 var(--nb-tab-accent), var(--nb-tab-shadow) !important"
+            "font-weight": "550 !important",
+            "border": "1px solid color-mix(in oklch, var(--nb-tab-accent) 40%, var(--nb-tab-outline)) !important",
+            "box-shadow": "var(--nb-tab-active-shadow) !important"
         },
-        ".tab :is(.tab-actions, .monaco-action-bar)": {
-            "background": "transparent !important",
-            "background-image": "none !important"
+        ".tab.active:hover": {
+            "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
+            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 60%, var(--nb-tab-outline)) !important",
+            "box-shadow": "var(--nb-tab-active-shadow) !important"
+        },
+        ".editor-group-container:not(.active) .tab.active": {
+            "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground)) !important",
+            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-tab-inactiveForeground)) !important",
+            "border": "1px solid var(--nb-tab-outline) !important",
+            "box-shadow": "var(--nb-tab-shadow) !important"
         },
         ".tab .tab-label": {
             "height": "100% !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "gap": "7px !important"
+            "gap": "7px !important",
+            "min-width": "0 !important",
+            "overflow": "hidden !important"
+        },
+        ".tab .label-name": {
+            "font-size": "var(--nb-font-size-ui) !important",
+            "white-space": "nowrap !important",
+            "overflow": "hidden !important",
+            "text-overflow": "ellipsis !important",
+            "line-height": "normal !important"
+        },
+        ".tab .label-description": {
+            "font-size": "var(--nb-font-size-xs) !important",
+            "opacity": "0.6 !important",
+            "margin-left": "2px !important"
+        },
+        ".tab .monaco-icon-label.file-icon::before": {
+            "font-size": "15px !important",
+            "width": "16px !important",
+            "height": "16px !important",
+            "display": "inline-flex !important",
+            "align-items": "center !important",
+            "justify-content": "center !important"
+        },
+        ".tab :is(.tab-actions, .monaco-action-bar)": {
+            "background": "transparent !important",
+            "background-image": "none !important",
+            "display": "flex !important",
+            "align-items": "center !important",
+            "justify-content": "center !important",
+            "margin-left": "4px !important"
+        },
+        ".tab :is(.tab-actions, .tab-close-action)": {
+            "opacity": "0 !important",
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
+            "opacity": "0.75 !important"
+        },
+        ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action):hover": {
+            "opacity": "1 !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action)": {
-            "border-radius": "7px !important",
-            "transition": "background-color var(--nb-motion-xs) var(--nb-ease-soft), opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
+            "width": "20px !important",
+            "height": "20px !important",
+            "display": "flex !important",
+            "align-items": "center !important",
+            "justify-content": "center !important",
+            "border-radius": "var(--nb-radius-pill) !important",
+            "padding": "0 !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action):hover": {
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important"
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent) !important"
+        },
+        ".tab :is(.tab-actions .action-label, .tab-close-action):active": {
+            "transform": "scale(0.88) !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent) !important"
         },
         ".tab :is(.dirty, .codicon-modifier-modified)": {
-            "color": "var(--nb-tab-accent) !important"
+            "color": "var(--nb-tab-accent) !important",
+            "filter": "drop-shadow(0 0 3px color-mix(in oklch, var(--nb-tab-accent) 65%, transparent)) !important",
+            "opacity": "1 !important"
         },
-        ".tab:hover": {
-            "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface)) !important",
-            "border-color": "var(--nb-border-hover) !important",
-            "box-shadow": "inset 0 1px 0 color-mix(in oklch, var(--vscode-foreground) 12%, transparent), var(--nb-tab-shadow) !important"
-        },
-        ".tab.active:hover": {
-            "background-color": "var(--vscode-tab-activeBackground) !important",
-            "border-color": "color-mix(in srgb, var(--nb-tab-accent) 70%, transparent) !important",
-            "box-shadow": "inset 0 2px 0 var(--nb-tab-accent), var(--nb-tab-shadow) !important"
+        ".tab:has(.dirty), .tab:has(.codicon-modifier-modified)": {
+            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 35%, var(--nb-tab-outline)) !important"
         },
         ".tab:focus-visible": {
             "outline": "none !important",
-            "box-shadow": "var(--nb-ring) !important"
+            "box-shadow": "var(--nb-ring) !important",
+            "border-color": "var(--nb-focus) !important"
         },
         ".tab.pinned": {
-            "min-width": "34px !important"
+            "min-width": "38px !important",
+            "max-width": "38px !important",
+            "padding": "0 !important",
+            "justify-content": "center !important"
+        },
+        ".tab.pinned .tab-label": {
+            "justify-content": "center !important",
+            "gap": "0 !important",
+            "padding": "0 !important"
+        },
+        ".tab.pinned .label-name, .tab.pinned .label-description, .tab.pinned .tab-actions": {
+            "display": "none !important"
+        },
+        ".tab.last-pinned-tab": {
+            "margin-right": "8px !important",
+            "position": "relative !important"
+        },
+        ".tab.last-pinned-tab::after": {
+            "content": "\"\" !important",
+            "position": "absolute !important",
+            "right": "-5px !important",
+            "top": "50% !important",
+            "transform": "translateY(-50%) !important",
+            "width": "1px !important",
+            "height": "18px !important",
+            "background-color": "var(--vscode-tab-lastPinnedBorder, var(--nb-border-soft)) !important",
+            "pointer-events": "none !important"
         },
         ".editor-group-container .tabs-container": {
-            "opacity": "0.78 !important",
-            "transition": "opacity var(--nb-motion-base) var(--nb-ease-soft) !important"
+            "opacity": "0.82 !important",
+            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out) !important"
         },
         ".editor-group-container.active .tabs-container": {
             "opacity": "1 !important"
         },
-        ".tab :is(.tab-actions, .tab-close-action)": {
-            "opacity": "0.7 !important",
-            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-soft) !important"
-        },
-        ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
-            "opacity": "1 !important"
-        },
+        // ------------------------------------------------------------------
+        // L. Breadcrumbs, Minimap & Sticky Scroll
+        // ------------------------------------------------------------------
         ".minimap canvas": {
             "opacity": "0.8 !important",
-            "transition": "opacity 0.4s ease !important"
+            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-out) !important"
         },
         ".minimap:is(:hover, :focus-within) canvas": {
             "opacity": "1 !important"
         },
         ".monaco-breadcrumbs": {
             "border-top": "none !important",
-            "opacity": "0.8 !important",
-            "transition": "opacity 0.4s var(--nb-ease-soft) !important"
+            "border-bottom": "1px solid var(--nb-border-subtle) !important",
+            "padding": "0 8px !important",
+            "opacity": "0.82 !important",
+            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out) !important"
         },
         ".monaco-breadcrumbs:is(:hover, :focus-within)": {
             "opacity": "1 !important"
         },
+        ".monaco-breadcrumbs .monaco-breadcrumb-item": {
+            "border-radius": "var(--nb-radius-sm) !important",
+            "padding": "1px 4px !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".monaco-breadcrumbs .monaco-breadcrumb-item:hover": {
+            "background-color": "var(--nb-surface-highlight) !important"
+        },
+        ".sticky-widget": {
+            "backdrop-filter": "var(--nb-glass-blur) !important",
+            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
+            "border-bottom": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-shadow-md) !important"
+        },
+        // ------------------------------------------------------------------
+        // M. Bottom Panel & Integrated Terminal
+        // ------------------------------------------------------------------
         ".part.panel.bottom": {
             "background-color": "var(--vscode-panel-background, var(--nb-surface)) !important",
             "margin-top": "var(--nb-panel-top) !important",
             "border-inline": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
             "border-block": "none !important",
             "border-radius": "var(--nb-radius-panel) !important",
-            "box-shadow": "var(--nb-glass-inset) !important",
+            "box-shadow": "var(--nb-glass-inset), var(--nb-surface-shadow) !important",
             "box-sizing": "border-box !important",
             "overflow": "hidden !important",
             "transition": "var(--nb-transition-ui) !important",
@@ -885,7 +1154,9 @@
         },
         ".part.panel.bottom > .composite.title": {
             "position": "relative !important",
-            "z-index": "1 !important"
+            "z-index": "1 !important",
+            "padding": "4px 8px !important",
+            "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
         ".part.panel.bottom > .content": {
             "margin-top": "0 !important",
@@ -894,64 +1165,199 @@
             "overflow": "hidden !important",
             "contain": "paint"
         },
-        ".part.panel.bottom:has(.terminal-outer-container) > .content": {
-            "margin-top": "-7px !important"
-        },
         ".part.panel.bottom :is(.pane, .pane-body, .split-view-view, .composite, .monaco-pane-view, .output-view)": {
             "border-bottom": "none !important"
         },
         ".part.panel.bottom .terminal-outer-container": {
-            "border-left": "1px solid var(--nb-glass-w) !important",
-            "border-radius": "0 0 0 18px !important",
+            "border-left": "1px solid var(--nb-border-subtle) !important",
+            "border-radius": "0 0 0 var(--nb-radius-panel) !important",
             "box-sizing": "border-box !important",
             "overflow": "hidden !important",
             "isolation": "isolate",
             "contain": "paint"
         },
         ".part.panel.bottom .terminal.xterm": {
-            "border-radius": "0 0 0 18px !important"
+            "border-radius": "0 0 0 var(--nb-radius-panel) !important",
+            "padding": "4px 6px !important"
         },
         ".part.panel.bottom :is(.message-box-container, .welcome-view-content)": {
-            "border-radius": "10px !important",
+            "border-radius": "var(--nb-radius-item) !important",
             "margin": "4px !important",
             "width": "calc(100% - 8px) !important",
             "box-sizing": "border-box !important"
         },
-        ".split-view-view:has(.terminal-tabs-entry)": {
-            "min-width": "220px !important",
-            "border-bottom": "none !important"
+        // ------------------------------------------------------------------
+        // N. Command Palette, Quick Pick & Frosted Glass Modals
+        // ------------------------------------------------------------------
+        ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .editor-widget.find-widget": {
+            "border-radius": "var(--nb-radius-widget) !important",
+            "background-color": "var(--nb-surface-raised) !important",
+            "overflow": "hidden !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important"
         },
-        ".split-view-view:has(.terminal-tabs-entry) .monaco-list-row": {
-            "margin": "0 4px !important",
-            "width": "calc(100% - 8px) !important"
+        ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .suggest-widget, .monaco-hover, .editor-widget.find-widget": {
+            "backdrop-filter": "var(--nb-glass-blur) !important",
+            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
         },
+        ".quick-input-widget, .monaco-dialog-box, .notifications-center, .monaco-menu": {
+            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+        },
+        ".suggest-widget, .monaco-hover, .editor-widget.find-widget": {
+            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
+        },
+        ".quick-input-widget": {
+            "padding": "4px !important"
+        },
+        ".quick-input-widget .quick-input-header": {
+            "padding": "4px 6px !important",
+            "border-bottom": "1px solid var(--nb-border-subtle) !important"
+        },
+        ".quick-input-widget .monaco-inputbox": {
+            "border": "none !important",
+            "box-shadow": "none !important",
+            "background": "transparent !important",
+            "font-size": "14px !important",
+            "padding": "6px 8px !important"
+        },
+        ".quick-input-widget .monaco-list-row": {
+            "margin": "1px 4px !important",
+            "width": "calc(100% - 8px) !important",
+            "border-radius": "var(--nb-radius-item) !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
+            "background": "var(--vscode-list-focusBackground, var(--nb-surface-active)) !important",
+            "color": "var(--vscode-list-focusForeground, inherit) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
+        },
+        ".quick-input-widget .monaco-keybinding, .monaco-menu .monaco-keybinding": {
+            "border-radius": "var(--nb-radius-sm) !important",
+            "padding": "1px 5px !important",
+            "font-size": "10.5px !important",
+            "font-family": "var(--nb-font-mono) !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
+            "border": "1px solid var(--nb-border-subtle) !important"
+        },
+        // ------------------------------------------------------------------
+        // O. Suggestion Details, Hover Cards & Documentation
+        // ------------------------------------------------------------------
+        ".suggest-widget .suggest-details": {
+            "border-radius": "var(--nb-radius-widget) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "background-color": "var(--nb-surface-raised) !important",
+            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
+            "padding": "8px 12px !important"
+        },
+        ".monaco-hover": {
+            "border-radius": "var(--nb-radius-widget) !important",
+            "padding": "6px 10px !important"
+        },
+        ".monaco-hover :is(pre, code)": {
+            "border-radius": "var(--nb-radius-sm) !important",
+            "font-family": "var(--nb-font-mono) !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
+            "padding": "2px 5px !important"
+        },
+        ".monaco-hover a": {
+            "color": "var(--nb-focus) !important",
+            "text-decoration": "none !important"
+        },
+        ".monaco-hover a:hover": {
+            "text-decoration": "underline !important"
+        },
+        // ------------------------------------------------------------------
+        // P. Find & Replace Floating Island Widget
+        // ------------------------------------------------------------------
+        ".editor-widget.find-widget": {
+            "border-radius": "var(--nb-radius-card) !important",
+            "padding": "6px 8px !important",
+            "margin-top": "6px !important",
+            "margin-right": "12px !important",
+            "gap": "6px !important"
+        },
+        ".editor-widget.find-widget .monaco-inputbox": {
+            "border-radius": "var(--nb-radius-input) !important"
+        },
+        ".editor-widget.find-widget .button": {
+            "border-radius": "var(--nb-radius-sm) !important",
+            "padding": "2px 4px !important",
+            "transition": "var(--nb-transition-ui) !important"
+        },
+        ".editor-widget.find-widget .button:hover": {
+            "background-color": "var(--nb-surface-highlight) !important"
+        },
+        ".editor-widget.find-widget .button.checked": {
+            "background-color": "color-mix(in oklch, var(--nb-focus) 24%, transparent) !important",
+            "border": "1px solid var(--nb-border-hover) !important",
+            "color": "var(--nb-focus) !important"
+        },
+        // ------------------------------------------------------------------
+        // Q. Notification Toasts & Notification Center
+        // ------------------------------------------------------------------
+        ".notification-toast": {
+            "border-radius": "var(--nb-radius-card) !important",
+            "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important"
+        },
+        ".notifications-toasts": {
+            "margin-right": "var(--nb-panel-gap) !important",
+            "margin-bottom": "var(--nb-panel-gap) !important"
+        },
+        ".notification-toast .notification-toast-content": {
+            "padding": "10px 14px !important"
+        },
+        // ------------------------------------------------------------------
+        // R. Context Menus & Popups
+        // ------------------------------------------------------------------
+        ".monaco-menu .monaco-action-bar .action-item": {
+            "border-radius": "var(--nb-radius-sm) !important",
+            "margin": "2px 4px !important",
+            "transition": "var(--nb-transition-ui) !important"
+        },
+        ".monaco-menu .monaco-action-bar .action-item.focused": {
+            "background-color": "var(--nb-surface-highlight) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
+        },
+        // ------------------------------------------------------------------
+        // S. Settings Editor Card Architecture
+        // ------------------------------------------------------------------
+        ".settings-editor .setting-item": {
+            "border-radius": "var(--nb-radius-card) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "background-color": "var(--nb-surface) !important",
+            "padding": "14px 18px !important",
+            "margin-bottom": "8px !important",
+            "box-shadow": "var(--nb-shadow-xs) !important",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".settings-editor .setting-item-contents": {
+            "border": "0 !important",
+            "background-color": "transparent !important",
+            "padding": "0 !important",
+            "box-shadow": "none !important"
+        },
+        ".settings-editor .setting-item:hover": {
+            "border-color": "var(--nb-focus) !important",
+            "background-color": "var(--nb-surface-highlight) !important",
+            "box-shadow": "var(--nb-shadow-md) !important"
+        },
+        ".settings-editor .setting-item.setting-item-modified .setting-item-contents": {
+            "border-left": "3px solid var(--vscode-settings-modifiedItemIndicator) !important"
+        },
+        // ------------------------------------------------------------------
+        // T. Form Controls, Inputs & Button States
+        // ------------------------------------------------------------------
         ".viewpane-filter .monaco-inputbox, .search-widget .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
             "border-radius": "var(--nb-radius-input) !important",
             "overflow": "hidden !important"
-        },
-        ".search-widget :is(.search-container, .replace-container, .query-details)": {
-            "display": "flex !important",
-            "align-items": "center !important",
-            "overflow": "visible !important"
-        },
-        ".search-widget .search-container > .search-input, .search-widget .replace-container > .replace-input": {
-            "flex": "1 1 auto !important",
-            "min-width": "0 !important"
-        },
-        ".search-widget .search-container > .monaco-action-bar, .search-widget .replace-container > .monaco-action-bar": {
-            "flex": "0 0 auto !important",
-            "overflow": "visible !important",
-            "visibility": "visible !important"
-        },
-        ".search-widget .replace-container .action-label": {
-            "opacity": "1 !important",
-            "visibility": "visible !important"
         },
         ".monaco-inputbox, .monaco-findInput": {
             "border-radius": "var(--nb-radius-input) !important",
             "border": "1px solid var(--nb-border-soft) !important",
             "background-color": "var(--vscode-input-background) !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within": {
             "border-color": "var(--nb-focus) !important",
@@ -980,94 +1386,9 @@
             "outline": "none !important",
             "box-shadow": "var(--nb-ring) !important"
         },
-        ".command-center-center": {
-            "border-radius": "10px !important",
-            "overflow": "hidden !important",
-            "border": "1px solid var(--nb-border-subtle) !important",
-            "background": "var(--nb-pill) !important",
-            "box-shadow": "var(--nb-glass-inset), var(--nb-pill-shadow) !important",
-            "transition": "box-shadow var(--nb-motion-base) var(--nb-ease-soft), background var(--nb-motion-base) var(--nb-ease-soft) !important"
-        },
-        ".command-center-center *": {
-            "border-radius": "10px !important"
-        },
-        ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "overflow": "hidden !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important"
-        },
-        ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
-        },
-        ".quick-input-widget, .monaco-dialog-box, .notifications-center, .monaco-menu": {
-            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".suggest-widget, .monaco-hover": {
-            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
-        },
-        ".notification-toast": {
-            "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".notifications-toasts": {
-            "margin-right": "var(--nb-panel-gap) !important",
-            "margin-bottom": "var(--nb-panel-gap) !important"
-        },
-        ".monaco-menu .monaco-action-bar .action-item": {
-            "border-radius": "var(--nb-radius-sm) !important",
-            "margin": "2px 4px !important",
-            "transition": "var(--nb-transition-ui) !important"
-        },
-        ".monaco-menu .monaco-action-bar .action-item.focused": {
-            "background-color": "var(--nb-surface-highlight) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
-        },
-        ".quick-input-widget .monaco-list-row": {
-            "margin": "0 4px !important",
-            "width": "calc(100% - 8px) !important",
-            "transition": "background 0.15s var(--nb-ease-soft) !important"
-        },
-        ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
-            "background": "var(--vscode-list-focusBackground, var(--nb-surface-highlight)) !important",
-            "color": "var(--vscode-list-focusForeground, inherit) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
-        },
-        ".colorpicker-widget": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important",
-            "overflow": "hidden !important"
-        },
-        ".settings-editor .setting-item": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "border": "1px solid var(--nb-border) !important",
-            "background-color": "var(--nb-surface) !important",
-            "padding": "14px 18px !important",
-            "margin-bottom": "8px !important",
-            "box-shadow": "none !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
-        },
-        ".settings-editor .setting-item-contents": {
-            "border": "0 !important",
-            "background-color": "transparent !important",
-            "padding": "0 !important",
-            "box-shadow": "none !important"
-        },
-        ".settings-editor .setting-item:hover": {
-            "border-color": "var(--nb-focus) !important",
-            "background-color": "var(--nb-surface-highlight) !important",
-            "box-shadow": "var(--nb-shadow-soft) !important",
-            "transform": "translateY(-1px) !important"
-        },
-        ".settings-editor .setting-item.setting-item-modified .setting-item-contents": {
-            "border-left": "3px solid var(--vscode-settings-modifiedItemIndicator) !important"
-        },
         ".monaco-list-row": {
             "border-radius": "var(--nb-radius-item) !important",
-            "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".monaco-list-row:hover": {
             "background-color": "var(--nb-surface-highlight) !important",
@@ -1077,18 +1398,45 @@
             "outline": "2px solid var(--nb-focus) !important",
             "outline-offset": "-2px !important"
         },
-        ".monaco-progress-container .progress-bit": {
-            "animation": "nb-progress-sweep 900ms var(--nb-ease-in-out) infinite !important"
+        // ------------------------------------------------------------------
+        // U. Status Bar Dock & System Micro-Badges
+        // ------------------------------------------------------------------
+        ".part.statusbar": {
+            "background-color": "var(--vscode-statusBar-background, var(--nb-canvas)) !important",
+            "border-top": "1px solid var(--nb-border-subtle) !important",
+            "border-radius": "10px 10px 0 0 !important",
+            "margin": "0 var(--nb-panel-gap) !important",
+            "box-shadow": "var(--nb-shadow-soft) !important",
+            "font-family": "var(--nb-font-ui) !important",
+            "transition": "var(--nb-transition-ui) !important"
         },
+        ".part.statusbar .statusbar-item:hover": {
+            "background-color": "var(--nb-surface-highlight) !important",
+            "border-radius": "var(--nb-radius-sm) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
+        },
+        ".part.statusbar .items-container": {
+            "margin-top": "-2px !important"
+        },
+        ".part.statusbar :is(.statusbar-item-label, .codicon)": {
+            "opacity": "0.85 !important",
+            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft) !important"
+        },
+        ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
+            "opacity": "1 !important"
+        },
+        // ------------------------------------------------------------------
+        // V. Scrollbars, Sashes, Badges & Minimap
+        // ------------------------------------------------------------------
         ".scrollbar .slider": {
-            "border-radius": "10px !important",
-            "transition": "opacity 0.3s var(--nb-ease-soft) !important"
+            "border-radius": "var(--nb-radius-pill) !important",
+            "transition": "opacity 0.25s var(--nb-ease-soft), width 0.2s var(--nb-ease-out), height 0.2s var(--nb-ease-out), background-color 0.2s var(--nb-ease-out) !important"
         },
         ".monaco-scrollable-element > .scrollbar.vertical": {
             "width": "14px !important"
         },
         ".monaco-scrollable-element > .scrollbar > .slider": {
-            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 72%, var(--nb-focus)) !important"
+            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 75%, var(--nb-focus) 25%) !important"
         },
         ".monaco-scrollable-element > .scrollbar.vertical > .slider": {
             "width": "6px !important",
@@ -1100,24 +1448,21 @@
         },
         ".monaco-scrollable-element > .scrollbar > .slider:hover": {
             "background": "var(--vscode-scrollbarSlider-hoverBackground) !important",
-            "box-shadow": "0 0 0 2px color-mix(in srgb, var(--nb-focus) 18%, transparent) !important"
+            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 25%, transparent) !important"
         },
         ".monaco-scrollable-element > .scrollbar > .slider:active": {
             "background": "var(--vscode-scrollbarSlider-activeBackground) !important",
-            "box-shadow": "0 0 0 2px color-mix(in srgb, var(--nb-focus) 30%, transparent) !important"
+            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 40%, transparent) !important"
         },
         ".monaco-count-badge": {
-            "border-radius": "10px !important",
-            "font-size": "var(--nb-font-size-small) !important",
+            "border-radius": "var(--nb-radius-pill) !important",
+            "font-size": "var(--nb-font-size-xs) !important",
             "font-weight": "600 !important",
             "padding": "1px 7px !important",
             "min-height": "16px !important",
             "line-height": "16px !important",
             "border": "1px solid var(--nb-border-subtle) !important",
-            "box-shadow": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent) !important"
-        },
-        ".sticky-widget": {
-            "box-shadow": "0 4px 8px -2px color-mix(in srgb, #000 28%, transparent) !important"
+            "box-shadow": "var(--nb-shadow-xs) !important"
         },
         ".monaco-sash:hover": {
             "background-color": "var(--vscode-sash-hoverBorder) !important",
@@ -1131,55 +1476,48 @@
             "animation": "none !important"
         },
         ":is(.monaco-workbench.vs-dark, .vs-dark) .monaco-icon-label.file-icon::before": {
-            "filter": "drop-shadow(0 0 2.5px currentColor)",
+            "filter": "drop-shadow(0 0 2px currentColor)",
             "opacity": "1 !important"
         },
-        ".letterpress": {
-            "opacity": "0.4 !important"
-        },
+        // ------------------------------------------------------------------
+        // W. Chat Input & AI Assistant Elements
+        // ------------------------------------------------------------------
         ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2": {
-            "border-radius": "var(--nb-radius-widget) !important",
+            "border-radius": "var(--nb-radius-card) !important",
             "overflow": "visible !important"
         },
         ".chat-input-container": {
             "background-color": "var(--nb-surface) !important",
             "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important"
+            "box-shadow": "var(--nb-surface-shadow) !important",
+            "padding": "4px !important",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
-        ".notebookOverlay": {
-            "border-radius": "0 0 var(--nb-radius-panel) var(--nb-radius-panel) !important",
-            "clip-path": "inset(0 18px var(--nb-panel-gap) var(--nb-panel-gap) round 0 0 var(--nb-radius-panel) var(--nb-radius-panel)) !important",
-            "isolation": "isolate",
-            "contain": "paint"
+        ".chat-input-container:focus-within": {
+            "border-color": "var(--nb-focus) !important",
+            "box-shadow": "var(--nb-focus-ring) !important"
         },
-        ".monaco-button-dropdown-separator": {
-            "display": "none !important",
-            "width": "0 !important",
-            "opacity": "0 !important"
-        },
-        "@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)))": {
-            ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
-                "background-color": "var(--vscode-editorWidget-background) !important"
-            }
-        },
+        // ------------------------------------------------------------------
+        // X. Keyframe Animations & Easing Curves
+        // ------------------------------------------------------------------
         "@keyframes nb-settle-in": {
             "from": {
                 "opacity": "0",
-                "transform": "translateY(5px)"
+                "transform": "translateY(4px) scale(0.995)"
             },
             "to": {
                 "opacity": "1",
-                "transform": "translateY(0)"
+                "transform": "translateY(0) scale(1)"
             }
         },
         "@keyframes nb-toast-in": {
             "from": {
                 "opacity": "0",
-                "transform": "translateX(8px)"
+                "transform": "translateX(10px) scale(0.98)"
             },
             "to": {
                 "opacity": "1",
-                "transform": "translateX(0)"
+                "transform": "translateX(0) scale(1)"
             }
         },
         "@keyframes nb-progress-sweep": {
@@ -1195,88 +1533,76 @@
                 "transform": "translateX(100%)"
             }
         },
+        // ------------------------------------------------------------------
+        // Y. Media Queries & Accessibility Adaptations
+        // ------------------------------------------------------------------
         "@media (max-width: 900px)": {
             ".monaco-workbench": {
-                "--nb-panel-gap": "5px",
-                "--nb-panel-top": "5px",
-                "--nb-radius-panel": "12px"
+                "--nb-panel-gap": "4px",
+                "--nb-panel-top": "4px",
+                "--nb-panel-bottom": "4px",
+                "--nb-radius-panel": "10px",
+                "--nb-radius-card": "8px",
+                "--nb-radius-widget": "8px",
+                "--nb-radius-tab": "6px"
             },
             ".part.activitybar": {
-                "margin-left": "3px !important"
+                "width": "calc(100% - var(--nb-panel-gap)) !important"
+            },
+            ".tabs-and-actions-container": {
+                "min-height": "34px !important",
+                "height": "34px !important",
+                "padding": "2px 4px !important"
             },
             ".tab": {
-                "height": "30px !important"
+                "height": "28px !important",
+                "padding": "0 8px !important"
             }
         },
         "@media (prefers-reduced-transparency: reduce)": {
             ".monaco-workbench": {
-                "--nb-surface": "var(--vscode-sideBar-background)",
-                "--nb-surface-raised": "var(--vscode-editorWidget-background)",
-                "--nb-pill": "var(--vscode-sideBar-background)"
+                "--nb-glass-blur": "none !important",
+                "--nb-blur-strong": "none !important",
+                "--nb-surface": "var(--vscode-sideBar-background) !important",
+                "--nb-surface-raised": "var(--vscode-editorWidget-background) !important",
+                "--nb-surface-elevated": "var(--vscode-editorWidget-background) !important"
             },
-            ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
+            ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .editor-widget.find-widget, .sticky-widget": {
                 "backdrop-filter": "none !important",
                 "-webkit-backdrop-filter": "none !important"
             }
         },
         "@media (prefers-reduced-motion: no-preference)": {
-            ".tab:hover, .monaco-button:hover, .monaco-list-row:hover, .settings-editor .setting-item:hover, .part.activitybar .action-item:hover .action-label": {
-                "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            ".quick-input-widget, .monaco-dialog-box": {
+                "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+            },
+            ".notification-toast": {
+                "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+            },
+            ".monaco-progress-container.active .progress-bit": {
+                "animation": "nb-progress-sweep 1.4s var(--nb-ease-out) infinite !important"
             }
         },
         "@media (prefers-reduced-motion: reduce)": {
-            ".monaco-workbench, .monaco-workbench *": {
-                "transition-duration": "0ms !important",
-                "animation": "none !important",
+            "*, *::before, *::after": {
+                "animation-duration": "0.01ms !important",
+                "animation-iteration-count": "1 !important",
+                "transition-duration": "0.01ms !important",
                 "scroll-behavior": "auto !important"
-            },
-            ".monaco-breadcrumbs": {
-                "opacity": "1 !important"
-            },
-            ".part.statusbar :is(.statusbar-item-label, .codicon)": {
-                "opacity": "1 !important"
-            },
-            ".tab :is(.tab-actions, .tab-close-action)": {
-                "opacity": "1 !important"
-            },
-            ".minimap canvas": {
-                "opacity": "1 !important"
-            },
-            ":is(.monaco-button, .action-label):active": {
-                "transform": "none !important"
-            },
-            ":is(.part.activitybar .action-item:hover .action-label, .settings-editor .setting-item:hover, .quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused)": {
-                "transform": "none !important"
             }
         },
         "@media (prefers-contrast: more)": {
-            ".monaco-workbench": {
-                "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
-                "--nb-glass-w": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)",
-                "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)",
-                "--nb-glass-e": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)",
-                "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 52%, transparent)",
-                "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 40%, transparent)"
-            },
-            ".monaco-breadcrumbs": {
-                "opacity": "1 !important"
+            ".part:is(.sidebar, .auxiliarybar, .activitybar, .statusbar, .editor), .part.panel.bottom, .tab, .quick-input-widget, .suggest-widget, .monaco-hover, .notification-toast": {
+                "border": "1.5px solid var(--vscode-contrastBorder, CanvasText) !important",
+                "box-shadow": "none !important"
             },
             ".monaco-workbench :focus-visible": {
-                "outline-width": "3px !important",
-                "outline-offset": "3px !important"
+                "outline": "2px solid CanvasText !important",
+                "outline-offset": "2px !important"
             }
         },
         "@media (forced-colors: active)": {
-            ".monaco-workbench, .monaco-workbench *": {
-                "backdrop-filter": "none !important",
-                "-webkit-backdrop-filter": "none !important",
-                "box-shadow": "none !important",
-                "background-image": "none !important",
-                "border-radius": "0 !important",
-                "filter": "none !important"
-            },
-            ".monaco-workbench :is(:focus-visible, input.focused, textarea.focused, .monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within)": {
-                "outline": "2px solid CanvasText !important",
+            "*, *::before, *::after": {
                 "box-shadow": "none !important"
             },
             ".part:is(.sidebar, .auxiliarybar, .activitybar, .statusbar, .editor), .part.panel.bottom, .tab": {
@@ -1357,6 +1683,4 @@
     "editor.ghostText.enabled": true,
     "workbench.editor.inlineSuggest.support.enabled": true,
     "diffEditor.overviewRulerBorder": true,
-    "notebook.cell.border_width": 1,
-    "notebook.cell.border_radius": 4
 }
