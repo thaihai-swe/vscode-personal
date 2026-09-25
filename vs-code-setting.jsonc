@@ -1,41 +1,28 @@
 {
-    "terminal.integrated.tabs.enabled": true,
-    "terminal.integrated.tabs.hideCondition": "never",
-    // Glass Paper keeps the chrome compact while preserving a generous editor.
+    // ======================================================================
+    // 1. Window, themes, startup, and focus behavior
+    // ----------------------------------------------------------------------
+    // Glass Paper shell: floating islands, soft geometry, and compact density.
+    // Theme colors and typography adapt to the selected VS Code theme.
+    // ======================================================================
     "window.zoomLevel": 1.15,
     "workbench.colorTheme": "Islands Dark",
     "workbench.preferredDarkColorTheme": "Islands Dark",
     "workbench.preferredLightColorTheme": "Firefox NOVA Light",
-    // ======================================================================
-    // Tab management
-    // ======================================================================
-    "workbench.editor.tabActionCloseVisibility": true,
-    "workbench.editor.tabActionUnpinVisibility": true,
-    // ======================================================================
-    // Quick navigation
-    // ======================================================================
-    "workbench.quickOpen.closeOnFocusLost": true,
-    "workbench.quickOpen.preserveInput": true,
-    // ======================================================================
-    // 1. Window, startup, and focus behavior
-    // ----------------------------------------------------------------------
-    // Glass Paper shell: floating islands, soft geometry, and compact density.
-    // Theme colors remain controlled by the selected VS Code theme.
-    // ======================================================================
+    "window.autoDetectColorScheme": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "welcomePage",
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": true,
+    "workbench.layoutControl.enabled": false,
+    "window.restoreWindows": "all",
+    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
     "zenMode.centerLayout": false,
     "zenMode.fullScreen": false,
     "zenMode.hideActivityBar": false,
     "zenMode.hideLineNumbers": false,
     "zenMode.hideStatusBar": false,
     "zenMode.restore": true,
-    "workbench.startupEditor": "welcomePage",
-    "workbench.iconTheme": "material-icon-theme",
-    "window.autoDetectColorScheme": true,
-    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
-    "window.titleBarStyle": "custom",
-    "window.commandCenter": true,
-    "workbench.layoutControl.enabled": false,
-    "window.restoreWindows": "all",
     // ======================================================================
     // 2. Editor scrollbar and minimap
     // ----------------------------------------------------------------------
@@ -111,7 +98,11 @@
     "editor.unicodeHighlight.nonBasicASCII": false,
     // ======================================================================
     // 4. Suggestions, hints, hover, and code navigation
+    // ----------------------------------------------------------------------
+    // Instant IntelliSense, unobtrusive hover delays, parameter hints.
     // ======================================================================
+    "workbench.quickOpen.closeOnFocusLost": true,
+    "workbench.quickOpen.preserveInput": true,
     "editor.suggest.preview": true,
     "editor.suggest.previewMode": "prefix",
     "editor.suggest.insertMode": "replace",
@@ -202,6 +193,8 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.wrapTabs": false,
     "workbench.editor.tabCloseButton": "right",
+    "workbench.editor.tabActionCloseVisibility": true,
+    "workbench.editor.tabActionUnpinVisibility": true,
     "workbench.editor.tabActionLocation": "right",
     "workbench.editor.alwaysShowEditorActions": false,
     "workbench.editor.showIcons": true,
@@ -344,7 +337,11 @@
     },
     // ======================================================================
     // 10. Terminal
+    // ----------------------------------------------------------------------
+    // Integrated GPU rendering, persistent sessions, and ergonomic tabs.
     // ======================================================================
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.minimumContrastRatio": 7,
     "terminal.integrated.smoothScrolling": false,
     "terminal.integrated.scrollback": 20000,
@@ -418,7 +415,7 @@
     "problems.autoReveal": false,
     "problems.sortOrder": "severity",
     // ======================================================================
-    // 13. Custom UI stylesheet — Glass Paper / Islands Next-Gen Chrome
+    // 13. Custom UI stylesheet — Glass Paper / Islands Next-Gen UI
     // ----------------------------------------------------------------------
     // Floating island architecture, tactile specular glass reflections,
     // Raycast/Spotlight modals, Firefox Nova floating pill tabs, and
@@ -469,7 +466,7 @@
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
-            // Firefox Nova tab chrome tokens
+            // Firefox Nova tab tokens
             "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 80%, transparent)",
             "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-tab-hoverBackground, var(--nb-surface)) 88%, var(--vscode-foreground) 12%)",
             "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
@@ -577,7 +574,7 @@
             "--nb-border-subtle": "1px solid var(--vscode-contrastBorder, CanvasText)"
         },
         // ------------------------------------------------------------------
-        // E. Global Typography & Shell Chrome
+        // E. Global Typography & Shell UI
         // ------------------------------------------------------------------
         ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .command-center-center, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget, .suggest-widget, .notifications-center, .notification-toast, .editor-widget.find-widget": {
             "font-family": "var(--nb-font-ui) !important"
@@ -655,30 +652,23 @@
             "align-items": "center !important",
             "box-sizing": "border-box !important"
         },
-        ".part.activitybar .composite-bar": {
+        ".part.activitybar :is(.composite-bar, .global-actions)": {
             "background": "transparent !important",
             "border": "none !important",
-            "border-radius": "0 !important",
             "box-shadow": "none !important",
             "width": "100% !important",
             "margin": "0 !important",
-            "padding": "4px 0 !important",
             "box-sizing": "border-box !important",
             "display": "flex !important",
             "flex-direction": "column !important",
             "align-items": "center !important"
         },
+        ".part.activitybar .composite-bar": {
+            "border-radius": "0 !important",
+            "padding": "4px 0 !important"
+        },
         ".part.activitybar .global-actions": {
-            "background": "transparent !important",
-            "border": "none !important",
-            "box-shadow": "none !important",
-            "width": "100% !important",
-            "margin": "0 !important",
-            "padding": "4px 0 6px 0 !important",
-            "box-sizing": "border-box !important",
-            "display": "flex !important",
-            "flex-direction": "column !important",
-            "align-items": "center !important"
+            "padding": "4px 0 6px 0 !important"
         },
         ".part.activitybar .actions-container": {
             "align-items": "center !important",
@@ -764,8 +754,8 @@
         ".part.editor": {
             "background-color": "var(--vscode-editor-background) !important",
             "transition": "var(--nb-transition-ui) !important",
-            "isolation": "isolate",
-            "contain": "paint"
+            "isolation": "isolate !important",
+            "contain": "paint !important"
         },
         ".monaco-workbench.linux .part.editor > .content": {
             "padding-top": "14px !important"
@@ -1194,9 +1184,7 @@
             "background-color": "var(--nb-surface-raised) !important",
             "overflow": "hidden !important",
             "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important"
-        },
-        ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .suggest-widget, .monaco-hover, .editor-widget.find-widget": {
+            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
             "backdrop-filter": "var(--nb-glass-blur) !important",
             "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
         },
