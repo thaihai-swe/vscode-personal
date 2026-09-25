@@ -432,10 +432,8 @@
             "--nb-font-heading": "'Bear Sans UI Heading', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Inter', system-ui, sans-serif",
             "--nb-font-mono": "'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', monospace",
             "--nb-font-size-ui": "13px",
-            "--nb-font-size-sm": "12px",
-            "--nb-font-size-xs": "11px",
-            "--nb-font-size-heading": "11.5px",
-            "--nb-letter-spacing-heading": "0.06em",
+            "--nb-font-size-small": "12px",
+            "--nb-font-size-heading": "12px",
             // Radius system
             "--nb-radius-panel": "14px",
             "--nb-radius-card": "12px",
@@ -583,20 +581,19 @@
             "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.statusbar, .monaco-breadcrumbs, .tab .label-name": {
-            "font-size": "var(--nb-font-size-sm) !important"
+            "font-size": "var(--nb-font-size-small) !important"
         },
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
             "font-family": "var(--nb-font-heading) !important",
-            "font-weight": "600 !important",
-            "font-size": "var(--nb-font-size-heading) !important",
-            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+            "font-weight": "700 !important",
+            "font-size": "var(--nb-font-size-heading) !important"
         },
         ".part.sidebar .title-label h2": {
             "font-family": "var(--nb-font-heading) !important",
             "font-size": "var(--nb-font-size-heading) !important",
             "font-weight": "700 !important",
             "text-transform": "uppercase !important",
-            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+            "letter-spacing": "1px !important"
         },
         // ------------------------------------------------------------------
         // F. Window Titlebar & Command Center Spotlight Pill
@@ -690,7 +687,7 @@
             "box-shadow": "none !important"
         },
         ".part.activitybar .action-item .action-label": {
-            "font-size": "20px !important",
+            "font-size": "22px !important",
             "color": "var(--vscode-activityBar-inactiveForeground, var(--vscode-activityBar-foreground)) !important",
             "opacity": "0.85 !important",
             "width": "32px !important",
@@ -705,7 +702,7 @@
             "transition": "color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".part.activitybar .action-item .action-label .codicon": {
-            "font-size": "20px !important"
+            "font-size": "22px !important"
         },
         ".part.activitybar .action-item .action-label img": {
             "max-width": "20px !important",
@@ -793,16 +790,14 @@
             "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.sidebar .pane-header .title": {
-            "font-size": "var(--nb-font-size-heading) !important",
-            "font-weight": "600 !important",
-            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+            "font-size": "10px !important"
         },
         ".extensions-search-container .suggest-input-container": {
-            "font-size": "11.5px !important",
-            "--editor-font-size": "11.5px !important"
+            "font-size": "11px !important",
+            "--editor-font-size": "11px !important"
         },
         ".extensions-search-container .suggest-input-placeholder": {
-            "font-size": "11.5px !important"
+            "font-size": "11px !important"
         },
         ".explorer-viewlet .split-view-container": {
             "margin-top": "0 !important"
@@ -965,7 +960,6 @@
         ".tab.active": {
             "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
-            "font-weight": "550 !important",
             "border": "1px solid color-mix(in oklch, var(--nb-tab-accent) 40%, var(--nb-tab-outline)) !important",
             "box-shadow": "var(--nb-tab-active-shadow) !important"
         },
@@ -989,14 +983,14 @@
             "overflow": "hidden !important"
         },
         ".tab .label-name": {
-            "font-size": "var(--nb-font-size-ui) !important",
+            "font-size": "var(--nb-font-size-small) !important",
             "white-space": "nowrap !important",
             "overflow": "hidden !important",
             "text-overflow": "ellipsis !important",
             "line-height": "normal !important"
         },
         ".tab .label-description": {
-            "font-size": "var(--nb-font-size-xs) !important",
+            "font-size": "var(--nb-font-size-small) !important",
             "opacity": "0.6 !important",
             "margin-left": "2px !important"
         },
@@ -1223,7 +1217,6 @@
             "border-radius": "var(--nb-radius-sm) !important",
             "padding": "1px 5px !important",
             "font-size": "10.5px !important",
-            "font-family": "var(--nb-font-mono) !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
             "border": "1px solid var(--nb-border-subtle) !important"
         },
@@ -1243,7 +1236,6 @@
         },
         ".monaco-hover :is(pre, code)": {
             "border-radius": "var(--nb-radius-sm) !important",
-            "font-family": "var(--nb-font-mono) !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
             "padding": "2px 5px !important"
         },
@@ -1444,7 +1436,7 @@
         },
         ".monaco-count-badge": {
             "border-radius": "var(--nb-radius-pill) !important",
-            "font-size": "var(--nb-font-size-xs) !important",
+            "font-size": "var(--nb-font-size-small) !important",
             "font-weight": "600 !important",
             "padding": "1px 7px !important",
             "min-height": "16px !important",
