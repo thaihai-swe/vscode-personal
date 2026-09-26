@@ -473,18 +473,13 @@
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
-            // Floating squircle tab tokens
-            "--nb-tab-surface": "color-mix(in srgb, var(--vscode-foreground) 5%, transparent)",
-            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 5%, transparent)",
-            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 30%, transparent)",
-            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-tab-hoverBackground, var(--nb-surface)) 92%, var(--vscode-foreground) 8%)",
-            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
-            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 48%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in srgb, var(--vscode-foreground) 65%, transparent)",
-            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
+            // Floating rounded capsule tab tokens
+            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 4%, transparent)",
+            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 20%, transparent)",
+            "--nb-tab-border-hover": "color-mix(in srgb, var(--nb-focus) 65%, transparent)",
+            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 40%, transparent)",
+            "--nb-tab-border": "var(--vscode-tab-border, var(--nb-border-subtle))",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
-            "--nb-tab-shadow": "none",
-            "--nb-tab-active-shadow": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 8%, transparent), 0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent)",
             // Shadow hierarchy (Multi-layer ambient + contact physics)
             "--nb-shadow-xs": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
             "--nb-shadow-sm": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent)",
@@ -531,21 +526,16 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 26%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 13%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
-            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 70%, transparent)",
-            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-sideBar-background) 70%, transparent)",
-            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 26%, transparent)",
-            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
-            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 45%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in srgb, var(--vscode-foreground) 60%, transparent)",
-            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
-            "--nb-tab-shadow": "none",
-            "--nb-tab-active-shadow": "0 1px 3px rgba(0, 0, 0, 0.24), 0 3px 10px rgba(0, 0, 0, 0.16)",
             "--nb-surface-shadow": "0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 36%, transparent)",
             "--nb-widget-shadow": "0 24px 64px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 52%, transparent), 0 4px 18px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
             "--nb-shadow-soft": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
             "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, #000 32%, transparent)",
             "--nb-glass-blur": "blur(20px) saturate(180%)",
-            "--nb-blur-strong": "blur(26px) saturate(200%)"
+            "--nb-blur-strong": "blur(26px) saturate(200%)",
+            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-sideBar-background) 80%, transparent)",
+            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 22%, transparent)",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
+            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 45%, transparent)"
         },
         // ------------------------------------------------------------------
         // C. Light Theme Parchment & Porcelain Optics
@@ -564,20 +554,14 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            "--nb-tab-surface": "color-mix(in srgb, var(--vscode-foreground) 5%, #fff)",
-            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 5%, #fff)",
-            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 32%, transparent)",
-            "--nb-tab-surface-hover": "color-mix(in srgb, var(--vscode-foreground) 8%, #fff)",
-            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
-            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 50%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in srgb, var(--vscode-foreground) 70%, transparent)",
-            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
-            "--nb-tab-shadow": "none",
-            "--nb-tab-active-shadow": "0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04)",
             "--nb-surface-shadow": "0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)",
             "--nb-widget-shadow": "0 20px 48px -8px rgba(0, 0, 0, 0.14), 0 4px 14px rgba(0, 0, 0, 0.06)",
             "--nb-shadow-soft": "0 2px 6px rgba(0, 0, 0, 0.05)",
-            "--nb-pill-shadow": "inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.06)"
+            "--nb-pill-shadow": "inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.06)",
+            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 4%, #fff)",
+            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 25%, transparent)",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
+            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 50%, transparent)"
         },
         // ------------------------------------------------------------------
         // D. High Contrast Mode
@@ -603,16 +587,16 @@
         },
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
             "font-family": "var(--nb-font-heading) !important",
-            "font-weight": "700 !important",
+            "font-weight": "700",
             "font-size": "var(--nb-font-size-heading) !important",
-            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+            "letter-spacing": "var(--nb-letter-spacing-heading)"
         },
         ".part.sidebar .title-label h2": {
             "font-family": "var(--nb-font-heading) !important",
             "font-size": "var(--nb-font-size-heading) !important",
-            "font-weight": "700 !important",
-            "text-transform": "uppercase !important",
-            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
+            "font-weight": "700",
+            "text-transform": "uppercase",
+            "letter-spacing": "var(--nb-letter-spacing-heading)"
         },
         // ------------------------------------------------------------------
         // F. Window Titlebar & Command Center Spotlight Pill
@@ -622,33 +606,33 @@
             "border-bottom": "1px solid var(--nb-border-subtle) !important",
             "height": "34px !important",
             "min-height": "34px !important",
-            "box-shadow": "none !important",
-            "transition": "none !important"
+            "box-shadow": "none",
+            "transition": "none"
         },
         ".part.titlebar .action-label": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "transition": "var(--nb-transition-ui)"
         },
         ".command-center-center": {
-            "border-radius": "var(--nb-radius-input) !important",
-            "overflow": "hidden !important",
-            "border": "1px solid transparent !important",
-            "background": "transparent !important",
-            "box-shadow": "none !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-input)",
+            "overflow": "hidden",
+            "border": "1px solid transparent",
+            "background": "transparent",
+            "box-shadow": "none",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".command-center-center:hover": {
             "background": "var(--nb-surface-highlight) !important",
             "border-color": "var(--nb-border-subtle) !important",
-            "box-shadow": "none !important"
+            "box-shadow": "none"
         },
         ".command-center-center :is(button, .action-item)": {
-            "border-radius": "var(--nb-radius-sm) !important"
+            "border-radius": "var(--nb-radius-sm)"
         },
         ".command-center-center .codicon-search": {
             "opacity": "0.75 !important",
             "font-size": "var(--nb-font-size-ui) !important",
-            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".command-center-center:hover .codicon-search": {
             "opacity": "1 !important"
@@ -659,15 +643,15 @@
         ".part.activitybar": {
             "margin": "var(--nb-panel-top) 0 var(--nb-panel-bottom) var(--nb-panel-gap) !important",
             "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
-            "border-radius": "var(--nb-radius-panel) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important",
+            "border-radius": "var(--nb-radius-panel)",
+            "border": "1px solid var(--nb-border-soft)",
+            "box-shadow": "var(--nb-surface-shadow)",
             "background-color": "var(--vscode-activityBar-background, var(--nb-surface)) !important",
             "width": "42px !important",
-            "box-sizing": "border-box !important",
-            "overflow": "hidden !important",
+            "box-sizing": "border-box",
+            "overflow": "hidden",
             "background-image": "none !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "transition": "var(--nb-transition-ui)"
         },
         ".part:is(.activitybar, .auxiliarybar) .content": {
             "width": "100% !important",
@@ -676,21 +660,21 @@
             "flex-direction": "column !important",
             "justify-content": "space-between !important",
             "align-items": "center !important",
-            "box-sizing": "border-box !important"
+            "box-sizing": "border-box"
         },
         ".part.activitybar :is(.composite-bar, .global-actions)": {
             "background": "transparent !important",
-            "border": "none !important",
-            "box-shadow": "none !important",
+            "border": "none",
+            "box-shadow": "none",
             "width": "100% !important",
-            "margin": "0 !important",
-            "box-sizing": "border-box !important",
+            "margin": "0",
+            "box-sizing": "border-box",
             "display": "flex !important",
             "flex-direction": "column !important",
             "align-items": "center !important"
         },
         ".part.activitybar .composite-bar": {
-            "border-radius": "0 !important",
+            "border-radius": "0",
             "padding": "4px 0 !important"
         },
         ".part.activitybar .global-actions": {
@@ -711,9 +695,9 @@
             "margin": "1px auto !important",
             "padding": "0 !important",
             "overflow": "visible !important",
-            "border-radius": "0 !important",
-            "background": "transparent !important",
-            "box-shadow": "none !important"
+            "border-radius": "0",
+            "background": "transparent",
+            "box-shadow": "none"
         },
         ".part.activitybar .action-item .action-label": {
             "font-size": "20px !important",
@@ -722,13 +706,13 @@
             "width": "30px !important",
             "height": "30px !important",
             "line-height": "30px !important",
-            "border": "1px solid transparent !important",
-            "border-radius": "var(--nb-radius-item) !important",
+            "border": "1px solid transparent",
+            "border-radius": "var(--nb-radius-item)",
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
             "overflow": "visible !important",
-            "transition": "color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.activitybar .action-item .action-label .codicon": {
             "font-size": "20px !important"
@@ -748,11 +732,11 @@
             "color": "var(--vscode-activityBar-foreground, var(--vscode-foreground)) !important",
             "opacity": "1 !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent) !important",
-            "border-color": "transparent !important",
-            "border-radius": "var(--nb-radius-item) !important",
+            "border-color": "transparent",
+            "border-radius": "var(--nb-radius-item)",
             "width": "30px !important",
             "height": "30px !important",
-            "box-shadow": "none !important"
+            "box-shadow": "none"
         },
         ".part.activitybar .badge": {
             "z-index": "10 !important",
@@ -766,11 +750,11 @@
         ".part.sidebar, .part.auxiliarybar, .part.editor": {
             "margin": "var(--nb-panel-top) var(--nb-panel-gap) var(--nb-panel-bottom) var(--nb-panel-gap) !important",
             "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
-            "border-radius": "var(--nb-radius-panel) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important",
-            "box-sizing": "border-box !important",
-            "overflow": "hidden !important"
+            "border-radius": "var(--nb-radius-panel)",
+            "border": "1px solid var(--nb-border-soft)",
+            "box-shadow": "var(--nb-surface-shadow)",
+            "box-sizing": "border-box",
+            "overflow": "hidden"
         },
         ".part.sidebar, .part.auxiliarybar": {
             "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
@@ -779,8 +763,8 @@
         ".part.editor": {
             "background-color": "var(--vscode-editor-background) !important",
             "background-image": "none !important",
-            "transition": "none !important",
-            "isolation": "isolate !important"
+            "transition": "none",
+            "isolation": "isolate"
         },
         ".monaco-workbench.linux .part.editor > .content": {
             "padding-top": "0 !important"
@@ -796,17 +780,17 @@
             "padding-left": "8px !important",
             "padding-right": "8px !important",
             "margin-left": "0 !important",
-            "box-sizing": "border-box !important"
+            "box-sizing": "border-box"
         },
         ".part.sidebar .welcome-view-content": {
             "max-width": "100% !important",
-            "box-sizing": "border-box !important"
+            "box-sizing": "border-box"
         },
         ".part.sidebar .pane-header": {
-            "border-radius": "var(--nb-radius-item) !important",
+            "border-radius": "var(--nb-radius-item)",
             "outline-offset": "-1px !important",
             "padding": "4px 8px !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.sidebar .pane-header:hover": {
             "background-color": "var(--nb-surface-highlight) !important"
@@ -819,9 +803,9 @@
         },
         ".part.sidebar .pane-header .title": {
             "font-size": "var(--nb-font-size-heading) !important",
-            "font-weight": "600 !important",
-            "letter-spacing": "var(--nb-letter-spacing-heading) !important",
-            "text-transform": "uppercase !important"
+            "font-weight": "600",
+            "letter-spacing": "var(--nb-letter-spacing-heading)",
+            "text-transform": "uppercase"
         },
         ".extensions-search-container .suggest-input-container": {
             "font-size": "var(--nb-font-size-heading) !important",
@@ -839,8 +823,8 @@
         ".part.sidebar .monaco-list-row": {
             "margin": "0 4px !important",
             "width": "calc(100% - 8px) !important",
-            "border-radius": "var(--nb-radius-item) !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.sidebar .monaco-list-row.selected": {
             "background-color": "var(--vscode-list-inactiveSelectionBackground, var(--nb-surface-highlight)) !important",
@@ -856,8 +840,8 @@
             "background-color": "var(--vscode-list-hoverBackground, var(--nb-surface-highlight)) !important"
         },
         ".monaco-tl-twistie": {
-            "transition": "transform var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important",
-            "opacity": "0.6 !important"
+            "transition": "transform var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)",
+            "opacity": "0.6"
         },
         ".monaco-list-row:hover .monaco-tl-twistie": {
             "opacity": "1 !important"
@@ -904,122 +888,114 @@
             "min-height": "fit-content !important"
         },
         // ------------------------------------------------------------------
-        // K. Tabs & Tab Strip (Zed Seamless Editor Integration)
+        // K. Tabs & Tab Strip (Floating Rounded Capsule Cards)
         // ------------------------------------------------------------------
         ".editor-group-header": {
-            "background-color": "var(--nb-canvas) !important",
-            "border-bottom": "1px solid var(--nb-border-subtle) !important"
+            "background-color": "var(--vscode-editorGroupHeader-tabsBackground, var(--nb-canvas)) !important",
+            "border-bottom": "1px solid var(--vscode-editorGroupHeader-tabsBorder, var(--nb-border-subtle)) !important"
         },
         ".editor-group-header .scroll-decoration": {
             "display": "none !important"
         },
         ".tabs-and-actions-container": {
-            "background-color": "var(--nb-canvas) !important",
-            "border-bottom": "none !important",
-            "min-height": "38px !important",
-            "height": "38px !important",
-            "padding": "3px 6px !important",
-            "box-sizing": "border-box !important",
-            "align-items": "center !important"
+            "background-color": "transparent",
+            "border-bottom": "none",
+            "min-height": "36px !important",
+            "height": "36px !important",
+            "padding": "0 6px",
+            "box-sizing": "border-box",
+            "display": "flex",
+            "align-items": "center"
         },
         ".editor-actions": {
-            "background-image": "none !important",
-            "border-bottom": "none !important",
-            "display": "flex !important",
-            "align-items": "center !important",
-            "gap": "2px !important",
-            "padding-right": "6px !important"
+            "background-image": "none",
+            "border-bottom": "none",
+            "display": "flex",
+            "align-items": "center",
+            "gap": "2px",
+            "padding-right": "8px"
         },
         ".editor-actions .action-label": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "padding": "2px 4px !important",
-            "opacity": "0.75 !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "padding": "3px 5px",
+            "opacity": "0.75",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".editor-actions .action-label:hover": {
-            "opacity": "1 !important",
-            "background-color": "var(--nb-surface-highlight) !important"
+            "opacity": "1",
+            "background-color": "var(--nb-surface-highlight)"
         },
         ".editor-actions .action-label:active": {
-            "transform": "scale(0.94) !important"
+            "transform": "scale(0.94)"
         },
         ".tabs-container": {
-            "background-image": "none !important",
-            "border-bottom": "none !important",
-            "display": "flex !important",
-            "align-items": "center !important",
-            "gap": "6px !important",
-            "padding": "0 2px !important",
-            "height": "100% !important",
-            "scrollbar-width": "none !important"
+            "background-image": "none",
+            "border-bottom": "none",
+            "scrollbar-width": "none",
+            "display": "flex",
+            "align-items": "center",
+            "gap": "4px"
         },
         ".tabs-container::-webkit-scrollbar": {
-            "display": "none !important"
+            "display": "none"
         },
         ".tab": {
-            "position": "relative !important",
-            "font-family": "var(--nb-font-ui) !important",
-            "font-size": "var(--nb-font-size-ui) !important",
+            "position": "relative",
+            "font-family": "var(--nb-font-ui)",
+            "font-size": "var(--nb-font-size-ui)",
             "height": "28px !important",
             "min-height": "28px !important",
             "max-height": "28px !important",
-            "margin": "2px 2px !important",
-            "box-sizing": "border-box !important",
-            "border": "1.5px solid var(--nb-tab-border-inactive) !important",
-            "border-radius": "var(--nb-radius-tab) !important",
-            "overflow": "visible !important",
-            "background-clip": "padding-box !important",
-            "background-color": "var(--nb-tab-surface-inactive) !important",
-            "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
-            "opacity": "0.85 !important",
-            "display": "flex !important",
-            "align-items": "center !important",
-            "padding": "0 10px !important",
-            "box-shadow": "var(--nb-shadow-xs) !important",
-            "cursor": "pointer !important",
-            "user-select": "none !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "margin": "0 2px",
+            "box-sizing": "border-box",
+            "border": "1px solid var(--nb-tab-border-inactive)",
+            "border-radius": "var(--nb-radius-tab)",
+            "box-shadow": "none",
+            "background-color": "var(--nb-tab-surface-inactive, var(--vscode-tab-inactiveBackground))",
+            "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground))",
+            "opacity": "0.88",
+            "display": "flex",
+            "align-items": "center",
+            "padding": "0 10px",
+            "cursor": "pointer",
+            "user-select": "none",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
-        ".tab::before": {
+        ".tab::before, .tab::after, .tab-border-top-container, .tab-border-bottom-container": {
             "display": "none !important"
         },
         ".tab:first-child::before, .tab.active::before, .tab:hover::before, .tab.active + .tab::before, .tab:hover + .tab::before": {
             "display": "none !important"
         },
         ".tab:hover:not(.active)": {
-            "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface-hover)) !important",
-            "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground)) !important",
-            "border-color": "var(--nb-tab-border-hover) !important",
-            "box-shadow": "var(--nb-shadow-xs) !important",
-            "opacity": "1 !important"
-        },
-        ".tab :is(.tab-border-top-container, .tab-border-bottom-container)": {
-            "display": "none !important"
+            "background-color": "var(--vscode-tab-hoverBackground, var(--nb-surface-highlight))",
+            "border-color": "var(--nb-tab-border-hover)",
+            "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground))",
+            "opacity": "1"
         },
         ".tab.active": {
-            "position": "relative !important",
-            "z-index": "2 !important",
-            "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
-            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
-            "font-weight": "600 !important",
-            "opacity": "1 !important",
-            "border": "1.5px solid var(--nb-tab-outline) !important",
-            "border-radius": "var(--nb-radius-tab) !important",
-            "box-shadow": "var(--nb-tab-active-shadow) !important"
+            "position": "relative",
+            "z-index": "2",
+            "background-color": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))",
+            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground))",
+            "font-weight": "500",
+            "opacity": "1",
+            "border": "1px solid var(--nb-tab-outline)",
+            "border-radius": "var(--nb-radius-tab)",
+            "box-shadow": "var(--nb-shadow-xs)"
         },
         ".tab.active:hover": {
-            "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
-            "border-color": "var(--nb-tab-outline-hover) !important",
-            "box-shadow": "var(--nb-tab-active-shadow) !important"
+            "border-color": "var(--nb-tab-border-hover)",
+            "background-color": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))"
         },
         ".editor-group-container:not(.active) .tab.active": {
-            "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground)) !important",
-            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-foreground)) !important",
-            "font-weight": "500 !important",
-            "border": "1.5px solid var(--nb-tab-outline) !important",
-            "border-radius": "var(--nb-radius-tab) !important",
-            "box-shadow": "var(--nb-tab-shadow) !important",
-            "transform": "none !important"
+            "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground))",
+            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-foreground))",
+            "font-weight": "500",
+            "border": "1px solid var(--nb-tab-border-inactive)",
+            "border-radius": "var(--nb-radius-tab)",
+            "box-shadow": "none",
+            "transform": "none"
         },
         ".tab .tab-label": {
             "height": "100% !important",
@@ -1039,8 +1015,8 @@
         },
         ".tab .label-description": {
             "font-size": "var(--nb-font-size-small) !important",
-            "opacity": "0.6 !important",
-            "margin-left": "2px !important"
+            "opacity": "0.6",
+            "margin-left": "2px"
         },
         ".tab .monaco-icon-label.file-icon::before": {
             "font-size": "15px !important",
@@ -1058,55 +1034,47 @@
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
-            "margin-left": "2px !important"
+            "margin-left": "4px !important"
         },
         ".tab :is(.tab-actions, .tab-close-action)": {
             "opacity": "0 !important",
-            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
-            "opacity": "0.75 !important"
+            "opacity": "0.7 !important"
         },
         ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action):hover": {
             "opacity": "1 !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action)": {
-            "width": "22px !important",
-            "height": "22px !important",
+            "width": "20px !important",
+            "height": "20px !important",
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
-            "border-radius": "var(--nb-radius-pill) !important",
-            "border": "1px solid transparent !important",
-            "padding": "0 !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-pill)",
+            "border": "none",
+            "padding": "0",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action):hover": {
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent) !important",
-            "border-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important",
-            "transform": "scale(1.06) !important"
+            "background-color": "var(--nb-surface-highlight) !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action):active": {
-            "transform": "scale(0.92) !important",
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent) !important"
+            "transform": "scale(0.92) !important"
         },
         ".tab :is(.dirty, .codicon-modifier-modified)": {
-            "color": "var(--nb-tab-accent) !important",
-            "filter": "drop-shadow(0 0 4px color-mix(in oklch, var(--nb-tab-accent) 75%, transparent)) !important",
+            "color": "var(--vscode-tab-activeModifiedBorder, #e5c07b) !important",
             "opacity": "1 !important"
-        },
-        ".tab:is(:has(.dirty), :has(.codicon-modifier-modified))": {
-            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 45%, var(--nb-tab-outline)) !important"
         },
         ".tab:focus-visible": {
             "outline": "none !important",
-            "box-shadow": "var(--nb-ring) !important",
-            "border-color": "var(--nb-focus) !important"
+            "box-shadow": "inset 0 0 0 1px var(--nb-focus) !important"
         },
         ".tab.pinned": {
-            "min-width": "34px !important",
-            "max-width": "34px !important",
-            "width": "34px !important",
+            "min-width": "35px !important",
+            "max-width": "35px !important",
+            "width": "35px !important",
             "padding": "0 !important",
             "justify-content": "center !important"
         },
@@ -1126,16 +1094,16 @@
             "opacity": "1 !important"
         },
         ".tab.last-pinned-tab": {
-            "margin-right": "6px !important",
+            "margin-right": "0",
             "position": "relative !important",
-            "border-right": "1px solid var(--vscode-tab-lastPinnedBorder, var(--nb-tab-outline)) !important"
+            "border-right": "1px solid var(--vscode-tab-lastPinnedBorder, var(--vscode-tab-border, var(--nb-border-subtle))) !important"
         },
         ".tab.last-pinned-tab::after": {
             "display": "none !important"
         },
         ".editor-group-container .tabs-container": {
-            "opacity": "0.82 !important",
-            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out) !important"
+            "opacity": "0.85 !important",
+            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out)"
         },
         ".editor-group-container.active .tabs-container": {
             "opacity": "1 !important"
@@ -1145,7 +1113,7 @@
         // ------------------------------------------------------------------
         ".minimap canvas": {
             "opacity": "0.8 !important",
-            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-out) !important"
+            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-out)"
         },
         ".minimap:is(:hover, :focus-within) canvas": {
             "opacity": "1 !important"
@@ -1155,15 +1123,15 @@
             "border-bottom": "1px solid var(--nb-border-subtle) !important",
             "padding": "0 8px !important",
             "opacity": "0.82 !important",
-            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out) !important"
+            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out)"
         },
         ".monaco-breadcrumbs:is(:hover, :focus-within)": {
             "opacity": "1 !important"
         },
         ".monaco-breadcrumbs .monaco-breadcrumb-item": {
-            "border-radius": "var(--nb-radius-sm) !important",
-            "padding": "1px 4px !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-sm)",
+            "padding": "1px 4px",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-breadcrumbs .monaco-breadcrumb-item:hover": {
             "background-color": "var(--nb-surface-highlight) !important"
@@ -1181,12 +1149,12 @@
             "margin-top": "var(--nb-panel-top) !important",
             "border-inline": "var(--nb-panel-gap) solid var(--nb-canvas) !important",
             "border-block": "none !important",
-            "border-radius": "var(--nb-radius-panel) !important",
+            "border-radius": "var(--nb-radius-panel)",
             "box-shadow": "var(--nb-glass-inset), var(--nb-surface-shadow) !important",
-            "box-sizing": "border-box !important",
-            "overflow": "hidden !important",
-            "transition": "var(--nb-transition-ui) !important",
-            "isolation": "isolate !important"
+            "box-sizing": "border-box",
+            "overflow": "hidden",
+            "transition": "var(--nb-transition-ui)",
+            "isolation": "isolate"
         },
         ".part.panel.bottom > .composite.title": {
             "position": "relative !important",
@@ -1195,35 +1163,35 @@
             "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
         ".part.panel.bottom > .composite.title .action-label": {
-            "border-radius": "var(--nb-radius-item) !important",
+            "border-radius": "var(--nb-radius-item)",
             "padding": "2px 6px !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.panel.bottom > .content": {
             "margin-top": "0 !important",
             "position": "relative !important",
-            "border-radius": "0 0 calc(var(--nb-radius-panel) - var(--nb-panel-gap)) calc(var(--nb-radius-panel) - var(--nb-panel-gap)) !important",
-            "overflow": "hidden !important"
+            "border-radius": "0 0 calc(var(--nb-radius-panel) - var(--nb-panel-gap)) calc(var(--nb-radius-panel) - var(--nb-panel-gap))",
+            "overflow": "hidden"
         },
         ".part.panel.bottom :is(.pane, .pane-body, .split-view-view, .composite, .monaco-pane-view, .output-view)": {
             "border-bottom": "none !important"
         },
         ".part.panel.bottom .terminal-outer-container": {
             "border-left": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "0 0 0 var(--nb-radius-panel) !important",
-            "box-sizing": "border-box !important",
-            "overflow": "hidden !important",
-            "isolation": "isolate !important"
+            "border-radius": "0 0 0 var(--nb-radius-panel)",
+            "box-sizing": "border-box",
+            "overflow": "hidden",
+            "isolation": "isolate"
         },
         ".part.panel.bottom .terminal.xterm": {
-            "border-radius": "0 0 0 var(--nb-radius-panel) !important",
+            "border-radius": "0 0 0 var(--nb-radius-panel)",
             "padding": "4px 6px !important"
         },
         ".part.panel.bottom .terminal-tabs-entry": {
-            "border-radius": "var(--nb-radius-item) !important",
+            "border-radius": "var(--nb-radius-item)",
             "margin": "2px 4px !important",
             "padding": "4px 8px !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.panel.bottom .terminal-tabs-entry:hover": {
             "background-color": "var(--nb-surface-highlight) !important"
@@ -1236,33 +1204,33 @@
             "background-color": "var(--nb-border-subtle) !important"
         },
         ".part.panel.bottom :is(.message-box-container, .welcome-view-content)": {
-            "border-radius": "var(--nb-radius-item) !important",
+            "border-radius": "var(--nb-radius-item)",
             "margin": "4px !important",
             "width": "calc(100% - 8px) !important",
-            "box-sizing": "border-box !important"
+            "box-sizing": "border-box"
         },
         // ------------------------------------------------------------------
         // N. Command Palette, Quick Pick & Frosted Glass Modals
         // ------------------------------------------------------------------
         ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
-            "border-radius": "var(--nb-radius-widget) !important",
+            "border-radius": "var(--nb-radius-widget)",
             "background-color": "var(--nb-surface-raised) !important",
-            "overflow": "hidden !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "overflow": "hidden",
+            "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
             "backdrop-filter": "var(--nb-glass-blur) !important",
             "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
         },
         // Solid high-speed surfaces for zero-latency IntelliSense and code inspection hovers
         ".suggest-widget, .monaco-hover": {
-            "border-radius": "var(--nb-radius-widget) !important",
+            "border-radius": "var(--nb-radius-widget)",
             "background-color": "var(--vscode-editorWidget-background, var(--nb-surface-raised)) !important",
-            "overflow": "hidden !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "overflow": "hidden",
+            "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow) !important"
         },
         ".quick-input-widget, .monaco-dialog-box, .notifications-center, .monaco-menu": {
-            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+            "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both"
         },
         ".quick-input-widget": {
             "padding": "4px !important"
@@ -1282,8 +1250,8 @@
         ".quick-input-widget .monaco-list-row": {
             "margin": "1px 4px !important",
             "width": "calc(100% - 8px) !important",
-            "border-radius": "var(--nb-radius-item) !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
             "background": "var(--vscode-list-focusBackground, var(--nb-surface-active)) !important",
@@ -1291,81 +1259,81 @@
             "box-shadow": "inset 0 0 0 1px var(--nb-border-hover), 0 1px 3px var(--nb-shadow-xs) !important"
         },
         ".monaco-keybinding, .keybinding, .command-center-keybinding": {
-            "border-radius": "var(--nb-radius-sm) !important",
+            "border-radius": "var(--nb-radius-sm)",
             "padding": "2px 6px !important",
             "font-size": "10.5px !important",
-            "font-weight": "500 !important",
+            "font-weight": "500",
             "line-height": "12px !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, var(--nb-surface-raised)) !important",
-            "border": "1px solid var(--nb-border-subtle) !important",
-            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, #000) 25%, transparent), 0 2px 3px rgba(0, 0, 0, 0.12) !important",
-            "display": "inline-flex !important",
-            "align-items": "center !important"
+            "border": "1px solid var(--nb-border-subtle)",
+            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, #000) 25%, transparent), 0 2px 3px rgba(0, 0, 0, 0.12)",
+            "display": "inline-flex",
+            "align-items": "center"
         },
         ".monaco-keybinding .monaco-keybinding-key, .keybinding .monaco-keybinding-key": {
-            "padding": "0 1px !important"
+            "padding": "0 1px"
         },
         // ------------------------------------------------------------------
         // O. Suggestion Details, Hover Cards & Documentation
         // ------------------------------------------------------------------
         ".suggest-widget .suggest-details": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "border-radius": "var(--nb-radius-widget)",
+            "border": "1px solid var(--nb-border-soft)",
             "background-color": "var(--nb-surface-raised) !important",
             "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
-            "padding": "8px 12px !important"
+            "padding": "8px 12px"
         },
         ".monaco-hover": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "padding": "6px 10px !important"
+            "border-radius": "var(--nb-radius-widget)",
+            "padding": "6px 10px"
         },
         ".monaco-hover :is(pre, code)": {
-            "border-radius": "var(--nb-radius-sm) !important",
+            "border-radius": "var(--nb-radius-sm)",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
-            "padding": "2px 5px !important",
+            "padding": "2px 5px",
             "font-family": "var(--nb-font-mono) !important",
             "font-size": "var(--nb-font-size-small) !important"
         },
         ".monaco-hover a": {
             "color": "var(--nb-focus) !important",
-            "text-decoration": "none !important"
+            "text-decoration": "none"
         },
         ".monaco-hover a:hover": {
-            "text-decoration": "underline !important"
+            "text-decoration": "underline"
         },
         // ------------------------------------------------------------------
         // P. Find & Replace Floating Island Widget
         // ------------------------------------------------------------------
         ".editor-widget.find-widget": {
-            "border-radius": "var(--nb-radius-card) !important",
-            "padding": "6px 8px !important",
+            "border-radius": "var(--nb-radius-card)",
+            "padding": "6px 8px",
             "margin-top": "6px !important",
             "margin-right": "calc(var(--nb-panel-gap) + 12px) !important",
             "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
             "backdrop-filter": "var(--nb-glass-blur) !important",
             "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "gap": "5px !important",
-            "overflow": "hidden !important",
-            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
+            "gap": "5px",
+            "overflow": "hidden",
+            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both"
         },
         ".editor-widget.find-widget .monaco-inputbox": {
-            "border-radius": "var(--nb-radius-input) !important",
-            "border": "1px solid var(--nb-border-subtle) !important",
-            "padding": "2px 6px !important"
+            "border-radius": "var(--nb-radius-input)",
+            "border": "1px solid var(--nb-border-subtle)",
+            "padding": "2px 6px"
         },
         ".editor-widget.find-widget .matchesCount": {
             "font-size": "var(--nb-font-size-small) !important",
             "opacity": "0.75 !important",
-            "padding": "0 6px !important",
-            "font-feature-settings": "\"tnum\" on !important"
+            "padding": "0 6px",
+            "font-feature-settings": "\"tnum\" on"
         },
         ".editor-widget.find-widget .button": {
-            "border-radius": "var(--nb-radius-sm) !important",
-            "border": "1px solid transparent !important",
-            "padding": "2px 4px !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-sm)",
+            "border": "1px solid transparent",
+            "padding": "2px 4px",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".editor-widget.find-widget .button:hover": {
             "background-color": "var(--nb-surface-highlight) !important"
@@ -1374,15 +1342,15 @@
             "background-color": "color-mix(in oklch, var(--nb-focus) 24%, transparent) !important",
             "border": "1px solid var(--nb-focus) !important",
             "color": "var(--nb-focus) !important",
-            "box-shadow": "0 0 6px color-mix(in oklch, var(--nb-focus) 30%, transparent) !important"
+            "box-shadow": "0 0 6px color-mix(in oklch, var(--nb-focus) 30%, transparent)"
         },
         // ------------------------------------------------------------------
         // Q. Notification Toasts & Notification Center
         // ------------------------------------------------------------------
         ".notification-toast": {
-            "border-radius": "var(--nb-radius-card) !important",
-            "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "border-radius": "var(--nb-radius-card)",
+            "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both",
+            "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important"
         },
         ".notifications-toasts": {
@@ -1390,24 +1358,24 @@
             "margin-bottom": "var(--nb-panel-gap) !important"
         },
         ".notification-toast .notification-toast-content": {
-            "padding": "10px 14px !important"
+            "padding": "10px 14px"
         },
         ".notifications-center": {
-            "border-radius": "var(--nb-radius-widget) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "border-radius": "var(--nb-radius-widget)",
+            "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
-            "overflow": "hidden !important"
+            "overflow": "hidden"
         },
         ".notifications-center .notifications-center-header": {
-            "padding": "8px 12px !important",
-            "border-bottom": "1px solid var(--nb-border-subtle) !important",
+            "padding": "8px 12px",
+            "border-bottom": "1px solid var(--nb-border-subtle)",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 4%, transparent) !important"
         },
         ".notifications-center .notification-list-item": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "margin": "2px 6px !important",
-            "border-bottom": "1px solid var(--nb-border-subtle) !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "margin": "2px 6px",
+            "border-bottom": "1px solid var(--nb-border-subtle)",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".notifications-center .notification-list-item:hover": {
             "background-color": "var(--nb-surface-highlight) !important"
@@ -1416,9 +1384,9 @@
         // R. Context Menus & Popups
         // ------------------------------------------------------------------
         ".monaco-menu .monaco-action-bar .action-item": {
-            "border-radius": "var(--nb-radius-sm) !important",
-            "margin": "2px 4px !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "border-radius": "var(--nb-radius-sm)",
+            "margin": "2px 4px",
+            "transition": "var(--nb-transition-ui)"
         },
         ".monaco-menu .monaco-action-bar .action-item.focused": {
             "background-color": "var(--nb-surface-highlight) !important",
@@ -1428,24 +1396,24 @@
         // S. Settings Editor Card Architecture
         // ------------------------------------------------------------------
         ".settings-editor .setting-item": {
-            "border-radius": "var(--nb-radius-card) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
+            "border-radius": "var(--nb-radius-card)",
+            "border": "1px solid var(--nb-border-soft)",
             "background-color": "var(--nb-surface) !important",
-            "padding": "14px 18px !important",
-            "margin-bottom": "8px !important",
-            "box-shadow": "var(--nb-shadow-xs) !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "padding": "14px 18px",
+            "margin-bottom": "8px",
+            "box-shadow": "var(--nb-shadow-xs)",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".settings-editor .setting-item-contents": {
-            "border": "0 !important",
-            "background-color": "transparent !important",
-            "padding": "0 !important",
-            "box-shadow": "none !important"
+            "border": "0",
+            "background-color": "transparent",
+            "padding": "0",
+            "box-shadow": "none"
         },
         ".settings-editor .setting-item:hover": {
             "border-color": "var(--nb-focus) !important",
             "background-color": "var(--nb-surface-highlight) !important",
-            "box-shadow": "var(--nb-shadow-md) !important"
+            "box-shadow": "var(--nb-shadow-md)"
         },
         ".settings-editor .setting-item.setting-item-modified .setting-item-contents": {
             "border-left": "3px solid var(--vscode-settings-modifiedItemIndicator) !important"
@@ -1454,123 +1422,123 @@
         // T. Form Controls, Inputs & Button States
         // ------------------------------------------------------------------
         ".viewpane-filter .monaco-inputbox, .search-widget .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
-            "border-radius": "var(--nb-radius-input) !important",
-            "overflow": "hidden !important"
+            "border-radius": "var(--nb-radius-input)",
+            "overflow": "hidden"
         },
         ".monaco-inputbox, .monaco-findInput": {
-            "border-radius": "var(--nb-radius-input) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "background-color": "var(--vscode-input-background) !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-input)",
+            "border": "1px solid var(--nb-border-soft)",
+            "background-color": "var(--vscode-input-background)",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within": {
-            "border-color": "var(--nb-focus) !important",
-            "box-shadow": "var(--nb-focus-ring) !important"
+            "border-color": "var(--nb-focus)",
+            "box-shadow": "var(--nb-focus-ring)"
         },
         ".monaco-button": {
-            "border-radius": "var(--nb-radius-input) !important",
-            "border": "1px solid transparent !important",
-            "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-input)",
+            "border": "1px solid transparent",
+            "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-button:hover": {
-            "border-color": "var(--nb-border-hover) !important",
-            "box-shadow": "var(--nb-shadow-soft) !important"
+            "border-color": "var(--nb-border-hover)",
+            "box-shadow": "var(--nb-shadow-soft)"
         },
         ".monaco-button:active, .action-label:active": {
-            "transform": "scale(0.98) !important"
+            "transform": "scale(0.98)"
         },
         ".monaco-workbench :focus-visible": {
-            "outline": "2px solid var(--nb-focus) !important",
-            "outline-offset": "var(--nb-focus-ring-offset) !important",
-            "box-shadow": "var(--nb-focus-ring) !important",
-            "border-radius": "var(--nb-radius-item) !important",
-            "animation": "none !important"
+            "outline": "2px solid var(--nb-focus)",
+            "outline-offset": "var(--nb-focus-ring-offset)",
+            "box-shadow": "var(--nb-focus-ring)",
+            "border-radius": "var(--nb-radius-item)",
+            "animation": "none"
         },
         ".monaco-workbench :is(input, textarea, [role='textbox']):focus-visible": {
-            "outline": "none !important",
-            "box-shadow": "var(--nb-ring) !important"
+            "outline": "none",
+            "box-shadow": "var(--nb-ring)"
         },
         ".monaco-list-row": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-list-row:hover": {
-            "background-color": "var(--nb-surface-highlight) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
+            "background-color": "var(--nb-surface-highlight)",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle)"
         },
         ".monaco-workbench :focus-visible.monaco-list-row, .monaco-list-row:focus-visible": {
-            "outline": "2px solid var(--nb-focus) !important",
-            "outline-offset": "-2px !important"
+            "outline": "2px solid var(--nb-focus)",
+            "outline-offset": "-2px"
         },
         // ------------------------------------------------------------------
         // U. Status Bar Dock & System Micro-Badges
         // ------------------------------------------------------------------
         ".part.statusbar": {
-            "background-color": "var(--vscode-statusBar-background, var(--nb-canvas)) !important",
-            "border-top": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "var(--nb-radius-widget) var(--nb-radius-widget) 0 0 !important",
+            "background-color": "var(--vscode-statusBar-background, var(--nb-canvas))",
+            "border-top": "1px solid var(--nb-border-subtle)",
+            "border-radius": "var(--nb-radius-widget) var(--nb-radius-widget) 0 0",
             "margin": "0 var(--nb-panel-gap) !important",
             "width": "calc(100% - (var(--nb-panel-gap) * 2)) !important",
             "height": "26px !important",
             "min-height": "26px !important",
             "max-height": "26px !important",
-            "box-sizing": "border-box !important",
-            "box-shadow": "var(--nb-shadow-soft) !important",
-            "font-family": "var(--nb-font-ui) !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "box-sizing": "border-box",
+            "box-shadow": "var(--nb-shadow-soft)",
+            "font-family": "var(--nb-font-ui)",
+            "transition": "var(--nb-transition-ui)"
         },
         ".part.statusbar .items-container": {
-            "display": "flex !important",
-            "align-items": "center !important",
-            "height": "100% !important"
+            "display": "flex",
+            "align-items": "center",
+            "height": "100%"
         },
         ".part.statusbar .statusbar-item": {
-            "border-radius": "var(--nb-radius-item) !important",
-            "padding": "0 6px !important",
-            "margin": "2px 1px !important",
-            "height": "calc(100% - 4px) !important",
-            "font-size": "var(--nb-font-size-heading) !important",
-            "display": "inline-flex !important",
-            "align-items": "center !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-item)",
+            "padding": "0 6px",
+            "margin": "2px 1px",
+            "height": "calc(100% - 4px)",
+            "font-size": "var(--nb-font-size-heading)",
+            "display": "inline-flex",
+            "align-items": "center",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.statusbar .statusbar-item:hover": {
-            "background-color": "var(--nb-surface-highlight) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
+            "background-color": "var(--nb-surface-highlight)",
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle)"
         },
         ".part.statusbar .statusbar-item:active": {
-            "background-color": "var(--nb-surface-active) !important",
-            "transform": "scale(0.97) !important"
+            "background-color": "var(--nb-surface-active)",
+            "transform": "scale(0.97)"
         },
         ".part.statusbar :is(.statusbar-item-label, .codicon)": {
-            "opacity": "0.85 !important",
-            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft) !important"
+            "opacity": "0.85",
+            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft)"
         },
         ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
-            "opacity": "1 !important"
+            "opacity": "1"
         },
         ".part.statusbar .statusbar-item:has(.codicon-error)": {
-            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 22%, transparent) !important",
-            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 45%, transparent) !important",
-            "color": "var(--vscode-statusBarItem-errorForeground, inherit) !important"
+            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 22%, transparent)",
+            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 45%, transparent)",
+            "color": "var(--vscode-statusBarItem-errorForeground, inherit)"
         },
         ".part.statusbar .statusbar-item:has(.codicon-warning)": {
-            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 20%, transparent) !important",
-            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 40%, transparent) !important",
-            "color": "var(--vscode-statusBarItem-warningForeground, inherit) !important"
+            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 20%, transparent)",
+            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 40%, transparent)",
+            "color": "var(--vscode-statusBarItem-warningForeground, inherit)"
         },
         // ------------------------------------------------------------------
         // V. Scrollbars, Sashes, Badges & Minimap
         // ------------------------------------------------------------------
         ".scrollbar .slider": {
-            "border-radius": "var(--nb-radius-pill) !important",
-            "transition": "opacity 0.25s var(--nb-ease-soft), width 0.2s var(--nb-ease-out), height 0.2s var(--nb-ease-out), background-color 0.2s var(--nb-ease-out) !important"
+            "border-radius": "var(--nb-radius-pill)",
+            "transition": "opacity 0.25s var(--nb-ease-soft), width 0.2s var(--nb-ease-out), height 0.2s var(--nb-ease-out), background-color 0.2s var(--nb-ease-out)"
         },
         ".monaco-scrollable-element > .scrollbar.vertical": {
             "width": "14px !important"
         },
         ".monaco-scrollable-element > .scrollbar > .slider": {
-            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 75%, var(--nb-focus) 25%) !important"
+            "background": "color-mix(in oklch, var(--vscode-scrollbarSlider-background) 75%, var(--nb-focus) 25%)"
         },
         ".monaco-scrollable-element > .scrollbar.vertical > .slider": {
             "width": "6px !important",
@@ -1585,26 +1553,26 @@
             "margin-top": "4px !important"
         },
         ".monaco-scrollable-element > .scrollbar > .slider:hover": {
-            "background": "var(--vscode-scrollbarSlider-hoverBackground) !important",
-            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 25%, transparent) !important"
+            "background": "var(--vscode-scrollbarSlider-hoverBackground)",
+            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 25%, transparent)"
         },
         ".monaco-scrollable-element > .scrollbar > .slider:active": {
-            "background": "var(--vscode-scrollbarSlider-activeBackground) !important",
-            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 40%, transparent) !important"
+            "background": "var(--vscode-scrollbarSlider-activeBackground)",
+            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 40%, transparent)"
         },
         ".monaco-count-badge": {
-            "border-radius": "var(--nb-radius-pill) !important",
-            "font-size": "var(--nb-font-size-small) !important",
-            "font-weight": "600 !important",
-            "padding": "1px 7px !important",
-            "min-height": "16px !important",
-            "line-height": "16px !important",
-            "border": "1px solid var(--nb-border-subtle) !important",
-            "box-shadow": "var(--nb-shadow-xs) !important"
+            "border-radius": "var(--nb-radius-pill)",
+            "font-size": "var(--nb-font-size-small)",
+            "font-weight": "600",
+            "padding": "1px 7px",
+            "min-height": "16px",
+            "line-height": "16px",
+            "border": "1px solid var(--nb-border-subtle)",
+            "box-shadow": "var(--nb-shadow-xs)"
         },
         ".monaco-sash": {
-            "z-index": "40 !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "z-index": "40",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-sash.vertical": {
             "width": "12px !important",
@@ -1615,47 +1583,47 @@
             "margin-top": "-6px !important"
         },
         ".monaco-sash:hover": {
-            "background-color": "color-mix(in oklch, var(--nb-focus) 35%, transparent) !important",
-            "box-shadow": "none !important"
+            "background-color": "color-mix(in oklch, var(--nb-focus) 35%, transparent)",
+            "box-shadow": "none"
         },
         ".monaco-sash.active, .monaco-sash:active": {
-            "background-color": "var(--nb-focus) !important",
-            "box-shadow": "0 0 8px var(--nb-focus) !important"
+            "background-color": "var(--nb-focus)",
+            "box-shadow": "0 0 8px var(--nb-focus)"
         },
         ".monaco-editor .margin": {
-            "border-right": "1px solid var(--nb-border-subtle) !important"
+            "border-right": "1px solid var(--nb-border-subtle)"
         },
         ".monaco-editor .cursor": {
-            "filter": "none !important",
-            "animation": "none !important"
+            "filter": "none",
+            "animation": "none"
         },
         ":is(.monaco-workbench.vs-dark, .vs-dark) .monaco-icon-label.file-icon::before": {
             "filter": "drop-shadow(0 0 2px currentColor)",
-            "opacity": "1 !important"
+            "opacity": "1"
         },
         // ------------------------------------------------------------------
         // W. Chat Input & AI Assistant Elements
         // ------------------------------------------------------------------
         ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2, .inline-chat-widget": {
-            "border-radius": "var(--nb-radius-card) !important",
-            "overflow": "visible !important"
+            "border-radius": "var(--nb-radius-card)",
+            "overflow": "visible"
         },
         ".chat-input-container": {
-            "background-color": "var(--nb-surface) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-surface-shadow) !important",
-            "padding": "4px !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "background-color": "var(--nb-surface)",
+            "border": "1px solid var(--nb-border-soft)",
+            "box-shadow": "var(--nb-surface-shadow)",
+            "padding": "4px",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".chat-input-container:focus-within": {
-            "border-color": "var(--nb-focus) !important",
-            "box-shadow": "var(--nb-focus-ring) !important"
+            "border-color": "var(--nb-focus)",
+            "box-shadow": "var(--nb-focus-ring)"
         },
         ".interactive-session .monaco-list-row": {
-            "border-radius": "var(--nb-radius-item) !important"
+            "border-radius": "var(--nb-radius-item)"
         },
         ".interactive-session pre, .interactive-session code": {
-            "border-radius": "var(--nb-radius-input) !important"
+            "border-radius": "var(--nb-radius-input)"
         },
         // ------------------------------------------------------------------
         // X. Keyframe Animations & Easing Curves
@@ -1712,38 +1680,36 @@
                 "width": "calc(100% - var(--nb-panel-gap)) !important"
             },
             ".tabs-and-actions-container": {
-                "min-height": "36px !important",
                 "height": "36px !important",
-                "padding": "2px 4px !important"
+                "padding": "0 4px"
             },
             ".tab": {
-                "height": "26px !important",
-                "min-height": "26px !important",
-                "padding": "0 8px !important"
+                "height": "28px !important",
+                "padding": "0 8px"
             }
         },
         "@media (prefers-reduced-transparency: reduce)": {
             ".monaco-workbench": {
-                "--nb-glass-blur": "none !important",
-                "--nb-blur-strong": "none !important",
-                "--nb-surface": "var(--vscode-sideBar-background) !important",
-                "--nb-surface-raised": "var(--vscode-editorWidget-background) !important",
-                "--nb-surface-elevated": "var(--vscode-editorWidget-background) !important"
+                "--nb-glass-blur": "none",
+                "--nb-blur-strong": "none",
+                "--nb-surface": "var(--vscode-sideBar-background)",
+                "--nb-surface-raised": "var(--vscode-editorWidget-background)",
+                "--nb-surface-elevated": "var(--vscode-editorWidget-background)"
             },
             ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .editor-widget.find-widget, .sticky-widget": {
-                "backdrop-filter": "none !important",
-                "-webkit-backdrop-filter": "none !important"
+                "backdrop-filter": "none",
+                "-webkit-backdrop-filter": "none"
             }
         },
         "@media (prefers-reduced-motion: no-preference)": {
             ".quick-input-widget, .monaco-dialog-box": {
-                "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+                "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both"
             },
             ".notification-toast": {
-                "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
+                "animation": "nb-toast-in var(--nb-motion-slow) var(--nb-ease-out) both"
             },
             ".monaco-progress-container.active .progress-bit": {
-                "animation": "nb-progress-sweep 1.4s var(--nb-ease-out) infinite !important"
+                "animation": "nb-progress-sweep 1.4s var(--nb-ease-out) infinite"
             }
         },
         "@media (prefers-reduced-motion: reduce)": {
