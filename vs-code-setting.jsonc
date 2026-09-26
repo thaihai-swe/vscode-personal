@@ -5,7 +5,8 @@
     // Glass Paper shell: floating islands, soft geometry, and compact density.
     // Theme colors and typography adapt to the selected VS Code theme.
     // ======================================================================
-    "window.zoomLevel": 1.15,
+    // Set zoomLevel to 0 for crisp 1:1 physical pixel rendering on Retina/4K displays.
+    "window.zoomLevel": 1.1,
     "workbench.colorTheme": "Islands Dark",
     "workbench.preferredDarkColorTheme": "Islands Dark",
     "workbench.preferredLightColorTheme": "Firefox NOVA Light",
@@ -47,17 +48,18 @@
     "editor.fontFamily": "'IBM Plex Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
     "editor.fontSize": 16,
     "editor.fontWeight": "400",
-    "editor.lineHeight": 1.8,
+    // Integer 28px line height eliminates subpixel font baseline blur and cursor jitter (1.75x ratio).
+    "editor.lineHeight": 28,
     "editor.letterSpacing": 0.15,
     "editor.fontLigatures": "'calt', 'liga'",
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
-    "editor.cursorSmoothCaretAnimation": "off",
+    "editor.cursorSmoothCaretAnimation": "explicit",
     "editor.cursorWidth": 2,
     "editor.mouseWheelZoom": false,
     "editor.padding.top": 16,
     "editor.padding.bottom": 20,
-    "editor.smoothScrolling": false,
+    "editor.smoothScrolling": true,
     "editor.scrollBeyondLastColumn": 3,
     "editor.scrollPredominantAxis": true,
     "editor.fastScrollSensitivity": 5,
@@ -199,7 +201,7 @@
     "workbench.editor.alwaysShowEditorActions": false,
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.labelFormat": "short",
+    "workbench.editor.labelFormat": "default",
     "workbench.editor.restoreViewState": true,
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.decorations.colors": true,
@@ -354,7 +356,7 @@
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "450",
-    "terminal.integrated.lineHeight": 1.55,
+    "terminal.integrated.lineHeight": 1.5,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": false,
     "terminal.integrated.cursorWidth": 2,
@@ -433,7 +435,8 @@
             "--nb-font-mono": "'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', monospace",
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
-            "--nb-font-size-heading": "12px",
+            "--nb-font-size-heading": "11px",
+            "--nb-letter-spacing-heading": "0.06em",
             // Radius system
             "--nb-radius-panel": "14px",
             "--nb-radius-card": "12px",
@@ -457,27 +460,26 @@
             "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 75%, var(--nb-surface) 25%)",
             "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 60%, var(--nb-surface) 40%)",
             // Directional specular glass reflections & borders
-            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 20%, transparent)",
-            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
+            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
+            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
             "--nb-glass-inset": "inset 0 1px 0 var(--nb-glass-n), inset 0 -1px 0 var(--nb-glass-s)",
             "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 30%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
-            // Firefox Nova tab tokens
-            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 80%, transparent)",
-            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-tab-hoverBackground, var(--nb-surface)) 88%, var(--vscode-foreground) 12%)",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent)",
+            // Floating squircle tab tokens
+            "--nb-tab-surface": "transparent",
+            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-tab-hoverBackground, var(--nb-surface)) 92%, var(--vscode-foreground) 8%)",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 28%, transparent)",
+            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
-            "--nb-tab-accent-muted": "var(--vscode-tab-unfocusedActiveBorderTop, color-mix(in oklch, var(--nb-tab-accent) 45%, transparent))",
-            "--nb-tab-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 14%, transparent)",
-            "--nb-tab-active-shadow": "0 4px 12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent), 0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
+            "--nb-tab-shadow": "none",
+            "--nb-tab-active-shadow": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 8%, transparent), 0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent)",
             // Shadow hierarchy (Multi-layer ambient + contact physics)
             "--nb-shadow-xs": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
             "--nb-shadow-sm": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent)",
             "--nb-shadow-md": "0 6px 18px -3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
-            "--nb-shadow-lg": "0 12px 32px -4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 32%, transparent)",
             "--nb-shadow-xl": "0 24px 60px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 42%, transparent), 0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 16%, transparent)",
             "--nb-surface-shadow": "var(--nb-shadow-md)",
             "--nb-widget-shadow": "var(--nb-shadow-xl)",
@@ -487,19 +489,15 @@
             "--nb-glass-blur": "blur(18px) saturate(180%)",
             "--nb-blur-strong": "blur(24px) saturate(200%)",
             // Motion & physics
-            "--nb-motion-instant": "60ms",
             "--nb-motion-fast": "120ms",
             "--nb-motion-base": "180ms",
             "--nb-motion-slow": "280ms",
             "--nb-ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
-            "--nb-ease-in": "cubic-bezier(0.7, 0, 0.84, 0)",
-            "--nb-ease-spring": "cubic-bezier(0.34, 1.56, 0.64, 1)",
             "--nb-ease-soft": "cubic-bezier(0.25, 0.1, 0.25, 1)",
             "--nb-transition-ui": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)",
             // Focus states
             "--nb-focus": "var(--vscode-button-background, var(--vscode-focusBorder))",
             "--nb-focus-ring": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 35%, transparent), 0 0 0 1px var(--nb-focus)",
-            "--nb-focus-glow": "0 0 12px color-mix(in oklch, var(--nb-focus) 45%, transparent)",
             "--nb-focus-ring-offset": "2px",
             "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
             "background-color": "var(--nb-canvas) !important",
@@ -517,16 +515,17 @@
             "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-surface))",
             "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 72%, var(--nb-surface) 28%)",
             "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 58%, var(--nb-surface) 42%)",
-            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
+            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
             "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 26%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 13%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
-            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 75%, transparent)",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 15%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 28%, transparent)",
-            "--nb-tab-shadow": "0 2px 6px color-mix(in srgb, #000 32%, transparent)",
-            "--nb-tab-active-shadow": "0 4px 16px color-mix(in srgb, #000 48%, transparent), 0 1px 3px color-mix(in srgb, #000 24%, transparent)",
+            "--nb-tab-surface": "transparent",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 34%, transparent)",
+            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
+            "--nb-tab-shadow": "none",
+            "--nb-tab-active-shadow": "0 1px 3px rgba(0, 0, 0, 0.24), 0 3px 10px rgba(0, 0, 0, 0.16)",
             "--nb-surface-shadow": "0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 36%, transparent)",
             "--nb-widget-shadow": "0 24px 64px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 52%, transparent), 0 4px 18px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
             "--nb-shadow-soft": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
@@ -546,16 +545,17 @@
             "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 12%, #fff)",
             "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 80%, #fff 20%)",
             "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 65%, #fff 35%)",
-            "--nb-glass-n": "color-mix(in oklch, #fff 80%, transparent)",
-            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
+            "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
+            "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
             "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-tab-inactiveBackground, var(--nb-surface)) 80%, transparent)",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
-            "--nb-tab-shadow": "0 1px 3px rgba(0, 0, 0, 0.05)",
-            "--nb-tab-active-shadow": "0 3px 10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04)",
+            "--nb-tab-surface": "transparent",
+            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 26%, transparent)",
+            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
+            "--nb-tab-shadow": "none",
+            "--nb-tab-active-shadow": "0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.04)",
             "--nb-surface-shadow": "0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)",
             "--nb-widget-shadow": "0 20px 48px -8px rgba(0, 0, 0, 0.14), 0 4px 14px rgba(0, 0, 0, 0.06)",
             "--nb-shadow-soft": "0 2px 6px rgba(0, 0, 0, 0.05)",
@@ -586,14 +586,15 @@
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
             "font-family": "var(--nb-font-heading) !important",
             "font-weight": "700 !important",
-            "font-size": "var(--nb-font-size-heading) !important"
+            "font-size": "var(--nb-font-size-heading) !important",
+            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
         },
         ".part.sidebar .title-label h2": {
             "font-family": "var(--nb-font-heading) !important",
             "font-size": "var(--nb-font-size-heading) !important",
             "font-weight": "700 !important",
             "text-transform": "uppercase !important",
-            "letter-spacing": "1px !important"
+            "letter-spacing": "var(--nb-letter-spacing-heading) !important"
         },
         // ------------------------------------------------------------------
         // F. Window Titlebar & Command Center Spotlight Pill
@@ -621,8 +622,16 @@
             "border-color": "var(--nb-border-hover) !important",
             "box-shadow": "var(--nb-glass-inset), var(--nb-shadow-xs) !important"
         },
-        ".command-center-center *": {
+        ".command-center-center :is(button, .action-item)": {
             "border-radius": "var(--nb-radius-input) !important"
+        },
+        ".command-center-center .codicon-search": {
+            "opacity": "0.75 !important",
+            "font-size": "13px !important",
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".command-center-center:hover .codicon-search": {
+            "opacity": "1 !important"
         },
         // ------------------------------------------------------------------
         // G. Activity Bar (Unified Floating Dock Rail)
@@ -751,8 +760,7 @@
         ".part.editor": {
             "background-color": "var(--vscode-editor-background) !important",
             "transition": "var(--nb-transition-ui) !important",
-            "isolation": "isolate !important",
-            "contain": "paint !important"
+            "isolation": "isolate !important"
         },
         ".monaco-workbench.linux .part.editor > .content": {
             "padding-top": "14px !important"
@@ -790,7 +798,10 @@
             "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.sidebar .pane-header .title": {
-            "font-size": "10px !important"
+            "font-size": "11px !important",
+            "font-weight": "600 !important",
+            "letter-spacing": "0.05em !important",
+            "text-transform": "uppercase !important"
         },
         ".extensions-search-container .suggest-input-container": {
             "font-size": "11px !important",
@@ -823,6 +834,16 @@
         },
         ".part.sidebar .monaco-list-row:hover:not(.selected):not(.focused)": {
             "background-color": "var(--vscode-list-hoverBackground, var(--nb-surface-highlight)) !important"
+        },
+        ".monaco-tl-twistie": {
+            "transition": "transform var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important",
+            "opacity": "0.75 !important"
+        },
+        ".monaco-list-row:hover .monaco-tl-twistie": {
+            "opacity": "1 !important"
+        },
+        ".monaco-tl-indent": {
+            "opacity": "0.6 !important"
         },
         // ------------------------------------------------------------------
         // J. Auxiliary Bar (Copilot, Chat & Secondary Panes)
@@ -869,12 +890,17 @@
             "background-color": "var(--vscode-editorGroupHeader-tabsBackground, transparent) !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
+        ".editor-group-header .scroll-decoration": {
+            "box-shadow": "none !important",
+            "background": "linear-gradient(to right, var(--vscode-editorGroupHeader-tabsBackground, var(--nb-canvas)), transparent) !important",
+            "pointer-events": "none !important"
+        },
         ".tabs-and-actions-container": {
             "background-color": "transparent !important",
             "border-bottom": "none !important",
-            "min-height": "40px !important",
-            "height": "40px !important",
-            "padding": "4px 8px !important",
+            "min-height": "38px !important",
+            "height": "38px !important",
+            "padding": "3px 6px !important",
             "box-sizing": "border-box !important",
             "align-items": "center !important"
         },
@@ -904,7 +930,7 @@
             "border-bottom": "none !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "gap": "5px !important",
+            "gap": "4px !important",
             "padding": "0 !important",
             "height": "100% !important",
             "scrollbar-width": "none !important"
@@ -920,65 +946,72 @@
             "box-sizing": "border-box !important",
             "border": "1px solid transparent !important",
             "border-radius": "var(--nb-radius-tab) !important",
-            "overflow": "hidden !important",
+            "overflow": "visible !important",
             "background-clip": "padding-box !important",
-            "background-color": "var(--nb-tab-surface) !important",
+            "background-color": "transparent !important",
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "padding": "0 10px 0 12px !important",
+            "padding": "0 10px !important",
             "box-shadow": "none !important",
             "cursor": "pointer !important",
             "user-select": "none !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".tab::before": {
             "content": "\"\" !important",
             "position": "absolute !important",
-            "left": "-3px !important",
-            "top": "50% !important",
-            "transform": "translateY(-50%) !important",
+            "left": "-2.5px !important",
+            "top": "28% !important",
+            "height": "44% !important",
             "width": "1px !important",
-            "height": "14px !important",
-            "background-color": "var(--nb-border-subtle) !important",
+            "background-color": "var(--nb-tab-divider) !important",
             "opacity": "0.75 !important",
             "pointer-events": "none !important",
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
-        ".tab:first-child::before, .tab.active::before, .tab:hover::before, .tab.active + .tab::before, .tab:hover + .tab::before, .tab.pinned::before, .tab.pinned + .tab::before": {
+        ".tab:first-child::before, .tab.active::before, .tab:hover::before, .tab.active + .tab::before, .tab:hover + .tab::before": {
             "opacity": "0 !important"
         },
         ".tab:hover:not(.active)": {
             "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface-hover)) !important",
-            "border-color": "var(--nb-tab-outline-hover, var(--nb-tab-outline)) !important",
             "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground)) !important",
-            "box-shadow": "var(--nb-tab-shadow) !important"
+            "border-color": "var(--nb-border-subtle) !important",
+            "box-shadow": "var(--nb-shadow-xs) !important"
         },
         ".tab :is(.tab-border-top-container, .tab-border-bottom-container)": {
             "display": "none !important"
         },
         ".tab.active": {
+            "position": "relative !important",
+            "z-index": "2 !important",
             "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
-            "border": "1px solid color-mix(in oklch, var(--nb-tab-accent) 40%, var(--nb-tab-outline)) !important",
+            "font-weight": "600 !important",
+            "border": "1px solid var(--nb-tab-outline) !important",
             "box-shadow": "var(--nb-tab-active-shadow) !important"
+        },
+        ".tab:first-child.active": {
+            "margin-left": "0 !important"
         },
         ".tab.active:hover": {
             "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
-            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 60%, var(--nb-tab-outline)) !important",
+            "border-color": "var(--nb-tab-outline-hover) !important",
             "box-shadow": "var(--nb-tab-active-shadow) !important"
         },
         ".editor-group-container:not(.active) .tab.active": {
             "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground)) !important",
-            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-tab-inactiveForeground)) !important",
+            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-foreground)) !important",
+            "font-weight": "500 !important",
             "border": "1px solid var(--nb-tab-outline) !important",
-            "box-shadow": "var(--nb-tab-shadow) !important"
+            "box-shadow": "var(--nb-tab-shadow) !important",
+            "transform": "none !important"
         },
         ".tab .tab-label": {
             "height": "100% !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "gap": "7px !important",
+            "gap": "6px !important",
             "min-width": "0 !important",
             "overflow": "hidden !important"
         },
@@ -987,7 +1020,8 @@
             "white-space": "nowrap !important",
             "overflow": "hidden !important",
             "text-overflow": "ellipsis !important",
-            "line-height": "normal !important"
+            "line-height": "normal !important",
+            "letter-spacing": "0.01em !important"
         },
         ".tab .label-description": {
             "font-size": "var(--nb-font-size-small) !important",
@@ -1000,7 +1034,9 @@
             "height": "16px !important",
             "display": "inline-flex !important",
             "align-items": "center !important",
-            "justify-content": "center !important"
+            "justify-content": "center !important",
+            "vertical-align": "middle !important",
+            "transform": "translateY(-0.5px) !important"
         },
         ".tab :is(.tab-actions, .monaco-action-bar)": {
             "background": "transparent !important",
@@ -1008,7 +1044,7 @@
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
-            "margin-left": "4px !important"
+            "margin-left": "2px !important"
         },
         ".tab :is(.tab-actions, .tab-close-action)": {
             "opacity": "0 !important",
@@ -1021,29 +1057,32 @@
             "opacity": "1 !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action)": {
-            "width": "20px !important",
-            "height": "20px !important",
+            "width": "22px !important",
+            "height": "22px !important",
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
             "border-radius": "var(--nb-radius-pill) !important",
+            "border": "1px solid transparent !important",
             "padding": "0 !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action):hover": {
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 14%, transparent) !important"
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent) !important",
+            "border-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important",
+            "transform": "scale(1.06) !important"
         },
         ".tab :is(.tab-actions .action-label, .tab-close-action):active": {
-            "transform": "scale(0.88) !important",
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent) !important"
+            "transform": "scale(0.92) !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent) !important"
         },
         ".tab :is(.dirty, .codicon-modifier-modified)": {
             "color": "var(--nb-tab-accent) !important",
-            "filter": "drop-shadow(0 0 3px color-mix(in oklch, var(--nb-tab-accent) 65%, transparent)) !important",
+            "filter": "drop-shadow(0 0 4px color-mix(in oklch, var(--nb-tab-accent) 75%, transparent)) !important",
             "opacity": "1 !important"
         },
-        ".tab:has(.dirty), .tab:has(.codicon-modifier-modified)": {
-            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 35%, var(--nb-tab-outline)) !important"
+        ".tab:is(:has(.dirty), :has(.codicon-modifier-modified))": {
+            "border-color": "color-mix(in oklch, var(--nb-tab-accent) 45%, var(--nb-tab-outline)) !important"
         },
         ".tab:focus-visible": {
             "outline": "none !important",
@@ -1051,8 +1090,9 @@
             "border-color": "var(--nb-focus) !important"
         },
         ".tab.pinned": {
-            "min-width": "38px !important",
-            "max-width": "38px !important",
+            "min-width": "34px !important",
+            "max-width": "34px !important",
+            "width": "34px !important",
             "padding": "0 !important",
             "justify-content": "center !important"
         },
@@ -1061,23 +1101,23 @@
             "gap": "0 !important",
             "padding": "0 !important"
         },
-        ".tab.pinned .label-name, .tab.pinned .label-description, .tab.pinned .tab-actions": {
+        ".tab.pinned .label-name, .tab.pinned .label-description": {
             "display": "none !important"
         },
+        ".tab.pinned:not(:has(.dirty)):not(:has(.codicon-modifier-modified)) :is(.tab-actions, .tab-close-action)": {
+            "display": "none !important"
+        },
+        ".tab.pinned:is(:has(.dirty), :has(.codicon-modifier-modified)) :is(.tab-actions, .tab-close-action)": {
+            "display": "flex !important",
+            "opacity": "1 !important"
+        },
         ".tab.last-pinned-tab": {
-            "margin-right": "8px !important",
-            "position": "relative !important"
+            "margin-right": "6px !important",
+            "position": "relative !important",
+            "border-right": "1px solid var(--vscode-tab-lastPinnedBorder, var(--nb-tab-outline)) !important"
         },
         ".tab.last-pinned-tab::after": {
-            "content": "\"\" !important",
-            "position": "absolute !important",
-            "right": "-5px !important",
-            "top": "50% !important",
-            "transform": "translateY(-50%) !important",
-            "width": "1px !important",
-            "height": "18px !important",
-            "background-color": "var(--vscode-tab-lastPinnedBorder, var(--nb-border-soft)) !important",
-            "pointer-events": "none !important"
+            "display": "none !important"
         },
         ".editor-group-container .tabs-container": {
             "opacity": "0.82 !important",
@@ -1115,10 +1155,9 @@
             "background-color": "var(--nb-surface-highlight) !important"
         },
         ".sticky-widget": {
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
+            "background-color": "var(--vscode-editor-background) !important",
             "border-bottom": "1px solid var(--nb-border-soft) !important",
-            "box-shadow": "var(--nb-shadow-md) !important"
+            "box-shadow": "var(--nb-shadow-sm) !important"
         },
         // ------------------------------------------------------------------
         // M. Bottom Panel & Integrated Terminal
@@ -1133,8 +1172,7 @@
             "box-sizing": "border-box !important",
             "overflow": "hidden !important",
             "transition": "var(--nb-transition-ui) !important",
-            "isolation": "isolate",
-            "contain": "paint"
+            "isolation": "isolate !important"
         },
         ".part.panel.bottom > .composite.title": {
             "position": "relative !important",
@@ -1142,12 +1180,16 @@
             "padding": "4px 8px !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
+        ".part.panel.bottom > .composite.title .action-label": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "padding": "2px 6px !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
         ".part.panel.bottom > .content": {
             "margin-top": "0 !important",
             "position": "relative !important",
             "border-radius": "0 0 calc(var(--nb-radius-panel) - var(--nb-panel-gap)) calc(var(--nb-radius-panel) - var(--nb-panel-gap)) !important",
-            "overflow": "hidden !important",
-            "contain": "paint"
+            "overflow": "hidden !important"
         },
         ".part.panel.bottom :is(.pane, .pane-body, .split-view-view, .composite, .monaco-pane-view, .output-view)": {
             "border-bottom": "none !important"
@@ -1157,12 +1199,27 @@
             "border-radius": "0 0 0 var(--nb-radius-panel) !important",
             "box-sizing": "border-box !important",
             "overflow": "hidden !important",
-            "isolation": "isolate",
-            "contain": "paint"
+            "isolation": "isolate !important"
         },
         ".part.panel.bottom .terminal.xterm": {
             "border-radius": "0 0 0 var(--nb-radius-panel) !important",
             "padding": "4px 6px !important"
+        },
+        ".part.panel.bottom .terminal-tabs-entry": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "margin": "2px 4px !important",
+            "padding": "4px 8px !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".part.panel.bottom .terminal-tabs-entry:hover": {
+            "background-color": "var(--nb-surface-highlight) !important"
+        },
+        ".part.panel.bottom .terminal-tabs-entry.has-focus, .part.panel.bottom .terminal-tabs-entry:focus": {
+            "background-color": "var(--vscode-list-focusBackground, var(--nb-surface-active)) !important",
+            "box-shadow": "inset 0 0 0 1px var(--nb-focus) !important"
+        },
+        ".part.panel.bottom .terminal-split-pane-divider": {
+            "background-color": "var(--nb-border-subtle) !important"
         },
         ".part.panel.bottom :is(.message-box-container, .welcome-view-content)": {
             "border-radius": "var(--nb-radius-item) !important",
@@ -1173,7 +1230,7 @@
         // ------------------------------------------------------------------
         // N. Command Palette, Quick Pick & Frosted Glass Modals
         // ------------------------------------------------------------------
-        ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .editor-widget.find-widget": {
+        ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
             "border-radius": "var(--nb-radius-widget) !important",
             "background-color": "var(--nb-surface-raised) !important",
             "overflow": "hidden !important",
@@ -1182,22 +1239,28 @@
             "backdrop-filter": "var(--nb-glass-blur) !important",
             "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
         },
+        // Solid high-speed surfaces for zero-latency IntelliSense and code inspection hovers
+        ".suggest-widget, .monaco-hover": {
+            "border-radius": "var(--nb-radius-widget) !important",
+            "background-color": "var(--vscode-editorWidget-background, var(--nb-surface-raised)) !important",
+            "overflow": "hidden !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-widget-shadow) !important"
+        },
         ".quick-input-widget, .monaco-dialog-box, .notifications-center, .monaco-menu": {
             "animation": "nb-settle-in var(--nb-motion-slow) var(--nb-ease-out) both !important"
-        },
-        ".suggest-widget, .monaco-hover, .editor-widget.find-widget": {
-            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
         },
         ".quick-input-widget": {
             "padding": "4px !important"
         },
         ".quick-input-widget .quick-input-header": {
-            "padding": "4px 6px !important",
+            "padding": "6px 8px !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
-        ".quick-input-widget .monaco-inputbox": {
+        ".quick-input-widget .monaco-inputbox, .quick-input-widget .monaco-inputbox.focused": {
             "border": "none !important",
             "box-shadow": "none !important",
+            "outline": "none !important",
             "background": "transparent !important",
             "font-size": "14px !important",
             "padding": "6px 8px !important"
@@ -1211,14 +1274,22 @@
         ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
             "background": "var(--vscode-list-focusBackground, var(--nb-surface-active)) !important",
             "color": "var(--vscode-list-focusForeground, inherit) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
+            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover), 0 1px 3px var(--nb-shadow-xs) !important"
         },
-        ".quick-input-widget .monaco-keybinding, .monaco-menu .monaco-keybinding": {
-            "border-radius": "var(--nb-radius-sm) !important",
-            "padding": "1px 5px !important",
+        ".monaco-keybinding, .keybinding, .command-center-keybinding": {
+            "border-radius": "4px !important",
+            "padding": "2px 6px !important",
             "font-size": "10.5px !important",
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
-            "border": "1px solid var(--nb-border-subtle) !important"
+            "font-weight": "500 !important",
+            "line-height": "12px !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, var(--nb-surface-raised)) !important",
+            "border": "1px solid var(--nb-border-subtle) !important",
+            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, #000) 25%, transparent), 0 2px 3px rgba(0, 0, 0, 0.12) !important",
+            "display": "inline-flex !important",
+            "align-items": "center !important"
+        },
+        ".monaco-keybinding .monaco-keybinding-key, .keybinding .monaco-keybinding-key": {
+            "padding": "0 1px !important"
         },
         // ------------------------------------------------------------------
         // O. Suggestion Details, Hover Cards & Documentation
@@ -1237,7 +1308,9 @@
         ".monaco-hover :is(pre, code)": {
             "border-radius": "var(--nb-radius-sm) !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
-            "padding": "2px 5px !important"
+            "padding": "2px 5px !important",
+            "font-family": "var(--nb-font-mono) !important",
+            "font-size": "12px !important"
         },
         ".monaco-hover a": {
             "color": "var(--nb-focus) !important",
@@ -1253,24 +1326,41 @@
             "border-radius": "var(--nb-radius-card) !important",
             "padding": "6px 8px !important",
             "margin-top": "6px !important",
-            "margin-right": "12px !important",
-            "gap": "6px !important"
+            "margin-right": "calc(var(--nb-panel-gap) + 12px) !important",
+            "background-color": "var(--nb-surface-raised) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
+            "backdrop-filter": "var(--nb-glass-blur) !important",
+            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
+            "gap": "5px !important",
+            "overflow": "hidden !important",
+            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both !important"
         },
         ".editor-widget.find-widget .monaco-inputbox": {
-            "border-radius": "var(--nb-radius-input) !important"
+            "border-radius": "var(--nb-radius-input) !important",
+            "border": "1px solid var(--nb-border-subtle) !important",
+            "padding": "2px 6px !important"
+        },
+        ".editor-widget.find-widget .matchesCount": {
+            "font-size": "var(--nb-font-size-small) !important",
+            "opacity": "0.75 !important",
+            "padding": "0 6px !important",
+            "font-feature-settings": "\"tnum\" on !important"
         },
         ".editor-widget.find-widget .button": {
             "border-radius": "var(--nb-radius-sm) !important",
+            "border": "1px solid transparent !important",
             "padding": "2px 4px !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".editor-widget.find-widget .button:hover": {
             "background-color": "var(--nb-surface-highlight) !important"
         },
         ".editor-widget.find-widget .button.checked": {
             "background-color": "color-mix(in oklch, var(--nb-focus) 24%, transparent) !important",
-            "border": "1px solid var(--nb-border-hover) !important",
-            "color": "var(--nb-focus) !important"
+            "border": "1px solid var(--nb-focus) !important",
+            "color": "var(--nb-focus) !important",
+            "box-shadow": "0 0 6px color-mix(in oklch, var(--nb-focus) 30%, transparent) !important"
         },
         // ------------------------------------------------------------------
         // Q. Notification Toasts & Notification Center
@@ -1287,6 +1377,26 @@
         },
         ".notification-toast .notification-toast-content": {
             "padding": "10px 14px !important"
+        },
+        ".notifications-center": {
+            "border-radius": "var(--nb-radius-widget) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
+            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
+            "overflow": "hidden !important"
+        },
+        ".notifications-center .notifications-center-header": {
+            "padding": "8px 12px !important",
+            "border-bottom": "1px solid var(--nb-border-subtle) !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 4%, transparent) !important"
+        },
+        ".notifications-center .notification-list-item": {
+            "border-radius": "var(--nb-radius-item) !important",
+            "margin": "2px 6px !important",
+            "border-bottom": "1px solid var(--nb-border-subtle) !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
+        ".notifications-center .notification-list-item:hover": {
+            "background-color": "var(--nb-surface-highlight) !important"
         },
         // ------------------------------------------------------------------
         // R. Context Menus & Popups
@@ -1386,17 +1496,33 @@
             "border-top": "1px solid var(--nb-border-subtle) !important",
             "border-radius": "10px 10px 0 0 !important",
             "margin": "0 var(--nb-panel-gap) !important",
+            "width": "calc(100% - (var(--nb-panel-gap) * 2)) !important",
+            "box-sizing": "border-box !important",
             "box-shadow": "var(--nb-shadow-soft) !important",
             "font-family": "var(--nb-font-ui) !important",
             "transition": "var(--nb-transition-ui) !important"
         },
+        ".part.statusbar .items-container": {
+            "display": "flex !important",
+            "align-items": "center !important",
+            "height": "100% !important"
+        },
+        ".part.statusbar .statusbar-item": {
+            "border-radius": "6px !important",
+            "padding": "0 6px !important",
+            "margin": "2px 1px !important",
+            "height": "calc(100% - 4px) !important",
+            "display": "inline-flex !important",
+            "align-items": "center !important",
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+        },
         ".part.statusbar .statusbar-item:hover": {
             "background-color": "var(--nb-surface-highlight) !important",
-            "border-radius": "var(--nb-radius-sm) !important",
             "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle) !important"
         },
-        ".part.statusbar .items-container": {
-            "margin-top": "-2px !important"
+        ".part.statusbar .statusbar-item:active": {
+            "background-color": "var(--nb-surface-active) !important",
+            "transform": "scale(0.97) !important"
         },
         ".part.statusbar :is(.statusbar-item-label, .codicon)": {
             "opacity": "0.85 !important",
@@ -1404,6 +1530,16 @@
         },
         ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
             "opacity": "1 !important"
+        },
+        ".part.statusbar .statusbar-item:has(.codicon-error)": {
+            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 22%, transparent) !important",
+            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 45%, transparent) !important",
+            "color": "var(--vscode-statusBarItem-errorForeground, inherit) !important"
+        },
+        ".part.statusbar .statusbar-item:has(.codicon-warning)": {
+            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 20%, transparent) !important",
+            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 40%, transparent) !important",
+            "color": "var(--vscode-statusBarItem-warningForeground, inherit) !important"
         },
         // ------------------------------------------------------------------
         // V. Scrollbars, Sashes, Badges & Minimap
@@ -1421,6 +1557,10 @@
         ".monaco-scrollable-element > .scrollbar.vertical > .slider": {
             "width": "6px !important",
             "margin-left": "4px !important"
+        },
+        ".monaco-scrollable-element > .scrollbar.vertical:hover > .slider": {
+            "width": "8px !important",
+            "margin-left": "3px !important"
         },
         ".monaco-scrollable-element > .scrollbar.horizontal > .slider": {
             "height": "6px !important",
@@ -1444,9 +1584,25 @@
             "border": "1px solid var(--nb-border-subtle) !important",
             "box-shadow": "var(--nb-shadow-xs) !important"
         },
+        ".monaco-sash": {
+            "z-index": "40 !important",
+            "transition": "background-color 80ms ease-out, box-shadow 80ms ease-out !important"
+        },
+        ".monaco-sash.vertical": {
+            "width": "12px !important",
+            "margin-left": "-6px !important"
+        },
+        ".monaco-sash.horizontal": {
+            "height": "12px !important",
+            "margin-top": "-6px !important"
+        },
         ".monaco-sash:hover": {
-            "background-color": "var(--vscode-sash-hoverBorder) !important",
+            "background-color": "color-mix(in oklch, var(--nb-focus) 35%, transparent) !important",
             "box-shadow": "none !important"
+        },
+        ".monaco-sash.active, .monaco-sash:active": {
+            "background-color": "var(--nb-focus) !important",
+            "box-shadow": "0 0 8px var(--nb-focus) !important"
         },
         ".monaco-editor .margin": {
             "border-right": "1px solid var(--nb-border-subtle) !important"
@@ -1462,7 +1618,7 @@
         // ------------------------------------------------------------------
         // W. Chat Input & AI Assistant Elements
         // ------------------------------------------------------------------
-        ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2": {
+        ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2, .inline-chat-widget": {
             "border-radius": "var(--nb-radius-card) !important",
             "overflow": "visible !important"
         },
@@ -1476,6 +1632,12 @@
         ".chat-input-container:focus-within": {
             "border-color": "var(--nb-focus) !important",
             "box-shadow": "var(--nb-focus-ring) !important"
+        },
+        ".interactive-session .monaco-list-row": {
+            "border-radius": "var(--nb-radius-item) !important"
+        },
+        ".interactive-session pre, .interactive-session code": {
+            "border-radius": "var(--nb-radius-input) !important"
         },
         // ------------------------------------------------------------------
         // X. Keyframe Animations & Easing Curves
@@ -1524,7 +1686,7 @@
                 "--nb-radius-panel": "10px",
                 "--nb-radius-card": "8px",
                 "--nb-radius-widget": "8px",
-                "--nb-radius-tab": "6px"
+                "--nb-radius-tab": "7px"
             },
             ".part.activitybar": {
                 "width": "calc(100% - var(--nb-panel-gap)) !important"
@@ -1535,7 +1697,7 @@
                 "padding": "2px 4px !important"
             },
             ".tab": {
-                "height": "28px !important",
+                "height": "30px !important",
                 "padding": "0 8px !important"
             }
         },
@@ -1662,5 +1824,5 @@
     // ======================================================================
     "editor.ghostText.enabled": true,
     "workbench.editor.inlineSuggest.support.enabled": true,
-    "diffEditor.overviewRulerBorder": true,
+    "diffEditor.overviewRulerBorder": true
 }
