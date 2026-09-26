@@ -847,7 +847,38 @@
             "opacity": "1 !important"
         },
         ".monaco-tl-indent": {
-            "opacity": "0.25 !important"
+            "opacity": "1 !important"
+        },
+        ".monaco-tl-indent > .indent-guide": {
+            "border-left-width": "1px !important",
+            "border-left-style": "solid !important",
+            "opacity": "0.55",
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out)"
+        },
+        ".monaco-tl-indent > .indent-guide:nth-child(6n + 1)": {
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground1, var(--vscode-editorBracketHighlight-foreground1, #73ade9)) !important"
+        },
+        ".monaco-tl-indent > .indent-guide:nth-child(6n + 2)": {
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground2, var(--vscode-editorBracketHighlight-foreground2, #b477cf)) !important"
+        },
+        ".monaco-tl-indent > .indent-guide:nth-child(6n + 3)": {
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground3, var(--vscode-editorBracketHighlight-foreground3, #dfc184)) !important"
+        },
+        ".monaco-tl-indent > .indent-guide:nth-child(6n + 4)": {
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground4, var(--vscode-editorBracketHighlight-foreground4, #a1c181)) !important"
+        },
+        ".monaco-tl-indent > .indent-guide:nth-child(6n + 5)": {
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground5, var(--vscode-editorBracketHighlight-foreground5, #6eb4bf)) !important"
+        },
+        ".monaco-tl-indent > .indent-guide:nth-child(6n + 6)": {
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground6, var(--vscode-editorBracketHighlight-foreground6, #d07277)) !important"
+        },
+        ".part.sidebar .monaco-list-row:is(:hover, .focused, .selected) .monaco-tl-indent > .indent-guide": {
+            "opacity": "0.9 !important"
+        },
+        ".part.sidebar .monaco-list-row:is(:hover, .focused, .selected) .monaco-tl-indent > .indent-guide:last-child": {
+            "opacity": "1 !important",
+            "border-left-width": "1.5px !important"
         },
         // ------------------------------------------------------------------
         // J. Auxiliary Bar (Copilot, Chat & Secondary Panes)

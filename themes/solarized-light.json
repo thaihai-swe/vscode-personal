@@ -286,7 +286,6 @@
         "settings.focusedRowBackground": "#93a1a130",
         "settings.focusedRowBorder": "#147c78",
         "tree.indentGuidesStroke": "#657b8380",
-        "tree.activeIndentGuidesStroke": "#147c78",
         "editor.rangeHighlightBackground": "#ea9d3422",
         "editorGhostText.foreground": "#657b83",
         "editorHoverWidget.foreground": "#56676d",

@@ -50,6 +50,8 @@
         "list.inactiveSelectionBackground": "#180f0715",
         "list.filterMatchBackground": "#26966a30",
         "list.filterMatchBorder": "#26966a",
+        "tree.indentGuidesStroke": "#180f0730",
+        "tree.inactiveIndentGuidesStroke": "#180f0718",
         // Activity Bar
         "activityBar.background": "#faf3ed",
         "activityBar.activeBackground": "#00000000",
