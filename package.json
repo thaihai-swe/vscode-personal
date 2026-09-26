@@ -95,6 +95,21 @@
         "label": "Firefox NOVA Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/firefox-nova-dark.json"
+      },
+      {
+        "label": "Zed Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zed-dark.json"
+      },
+      {
+        "label": "Zed Light",
+        "uiTheme": "vs",
+        "path": "./themes/zed-light.json"
+      },
+      {
+        "label": "Zed OLED",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zed-oled.json"
       }
     ]
   },

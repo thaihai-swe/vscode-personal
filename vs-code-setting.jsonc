@@ -7,9 +7,9 @@
     // ======================================================================
     // Set zoomLevel to 0 for crisp 1:1 physical pixel rendering on Retina/4K displays.
     "window.zoomLevel": 1.1,
-    "workbench.colorTheme": "Islands Dark",
-    "workbench.preferredDarkColorTheme": "Islands Dark",
-    "workbench.preferredLightColorTheme": "Firefox NOVA Light",
+    "workbench.colorTheme": "Zed Dark",
+    "workbench.preferredDarkColorTheme": "Zed Dark",
+    "workbench.preferredLightColorTheme": "Zed Light",
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
@@ -45,13 +45,16 @@
     // ----------------------------------------------------------------------
     // Long-session comfort. Clear text, generous leading, and low motion.
     // ======================================================================
-    "editor.fontFamily": "'IBM Plex Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
-    "editor.fontSize": 16,
+    "editor.fontFamily": "'Lilex', 'Zed Mono', 'IBM Plex Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
+    "editor.fontSize": 15,
     "editor.fontWeight": "400",
-    // Integer 28px line height eliminates subpixel font baseline blur and cursor jitter (1.75x ratio).
-    "editor.lineHeight": 28,
-    "editor.letterSpacing": 0.15,
-    "editor.fontLigatures": "'calt', 'liga'",
+    // 24px line height matches Zed's exact 1.6x buffer ratio for crisp, comfortable vertical density.
+    "editor.lineHeight": 24,
+    "editor.letterSpacing": 0,
+    "editor.fontLigatures": "'calt', 'liga', 'zero'",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.find.addExtraSpaceOnTop": true,
+    "editor.find.autoFindInSelection": "multiline",
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": "explicit",
@@ -217,12 +220,13 @@
     // ======================================================================
     // 8. Explorer / solution-view behavior
     // ======================================================================
-    "workbench.tree.indent": 16,
+    "workbench.tree.indent": 14,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.enableStickyScroll": true,
     "workbench.tree.expandMode": "singleClick",
     "workbench.list.smoothScrolling": true,
     "workbench.list.keyboardNavigation": "highlight",
+    "explorer.openEditors.visible": 0,
     "explorer.autoReveal": "focusNoScroll",
     "explorer.incrementalNaming": "smart",
     "explorer.confirmDragAndDrop": true,
@@ -235,7 +239,7 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock, bun.lockb, .npmrc, .yarnrc.yml",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock, bun.lockb, .npmrc, .yarnrc.yml, pnpm-workspace.yaml",
         "tsconfig.json": "tsconfig.*.json",
         "vite.config.*": "vitest.config.*, playwright.config.*, cypress.config.*",
         "next.config.*": "next-env.d.ts, middleware.*, instrumentation.*",
@@ -244,7 +248,7 @@
         "prettier.config.*": ".prettierignore",
         "README.md": "CHANGELOG.md, LICENSE, SECURITY.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md",
         "Dockerfile": ".dockerignore, docker-compose*.yml, compose*.yml",
-        ".env": ".env.*, !.env.example"
+        ".env": ".env.*, !.env.example, .envrc"
     },
     // ======================================================================
     // 9. Search, files, excludes, and performance
@@ -345,7 +349,11 @@
     "terminal.integrated.tabs.enabled": true,
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.minimumContrastRatio": 7,
-    "terminal.integrated.smoothScrolling": false,
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "terminal.integrated.stickyScroll.maxLineCount": 5,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.scrollback": 20000,
     "terminal.integrated.defaultProfile.linux": "bash",
     "terminal.integrated.defaultProfile.osx": "zsh",
@@ -353,7 +361,7 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.enablePersistentSessions": true,
     "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
-    "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
+    "terminal.integrated.fontFamily": "'Lilex', 'ZedMono Nerd Font', 'Zed Mono', 'FiraCode Nerd Font Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "450",
     "terminal.integrated.lineHeight": 1.5,
@@ -430,26 +438,24 @@
         // ------------------------------------------------------------------
         ".monaco-workbench": {
             // Typography hierarchy
-            "--nb-font-ui": "'Bear Sans UI', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', system-ui, sans-serif",
-            "--nb-font-heading": "'Bear Sans UI Heading', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Inter', system-ui, sans-serif",
-            "--nb-font-mono": "'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', monospace",
+            "--nb-font-ui": "'IBM Plex Sans', 'Zed Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', system-ui, sans-serif",
+            "--nb-font-heading": "'IBM Plex Sans', 'Zed Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Inter', system-ui, sans-serif",
+            "--nb-font-mono": "'Lilex', 'Zed Mono', 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Menlo', 'Monaco', monospace",
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
             "--nb-font-size-heading": "11px",
-            "--nb-letter-spacing-heading": "0.06em",
-            // Radius system
-            "--nb-radius-panel": "14px",
-            "--nb-radius-card": "12px",
-            "--nb-radius-widget": "12px",
-            "--nb-radius-input": "8px",
-            "--nb-radius-tab": "8px",
-            "--nb-radius-item": "6px",
-            "--nb-radius-sm": "5px",
+            "--nb-letter-spacing-heading": "0.05em",
+            "--nb-radius-panel": "12px",
+            "--nb-radius-card": "10px",
+            "--nb-radius-widget": "10px",
+            "--nb-radius-input": "5px",
+            "--nb-radius-tab": "11px",
+            "--nb-radius-item": "4px",
+            "--nb-radius-sm": "4px",
             "--nb-radius-pill": "9999px",
-            // Spatial layout & Island gaps
-            "--nb-panel-gap": "7px",
-            "--nb-panel-top": "7px",
-            "--nb-panel-bottom": "7px",
+            "--nb-panel-gap": "6px",
+            "--nb-panel-top": "6px",
+            "--nb-panel-bottom": "6px",
             // Base surfaces (Theme-adaptive via OKLCH)
             "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
             "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 95%, transparent)",
@@ -468,10 +474,13 @@
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
             // Floating squircle tab tokens
-            "--nb-tab-surface": "transparent",
+            "--nb-tab-surface": "color-mix(in srgb, var(--vscode-foreground) 5%, transparent)",
+            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 5%, transparent)",
+            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 30%, transparent)",
             "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-tab-hoverBackground, var(--nb-surface)) 92%, var(--vscode-foreground) 8%)",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 18%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 28%, transparent)",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
+            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 48%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in srgb, var(--vscode-foreground) 65%, transparent)",
             "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
             "--nb-tab-shadow": "none",
@@ -501,7 +510,9 @@
             "--nb-focus-ring-offset": "2px",
             "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
             "background-color": "var(--nb-canvas) !important",
-            "font-family": "var(--nb-font-ui) !important"
+            "font-family": "var(--nb-font-ui) !important",
+            "-webkit-font-smoothing": "antialiased !important",
+            "-moz-osx-font-smoothing": "grayscale !important"
         },
         // ------------------------------------------------------------------
         // B. Dark Theme Depth & Material Physics
@@ -520,9 +531,12 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 26%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 13%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
-            "--nb-tab-surface": "transparent",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 22%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 34%, transparent)",
+            "--nb-tab-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 70%, transparent)",
+            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-sideBar-background) 70%, transparent)",
+            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 26%, transparent)",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
+            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 45%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in srgb, var(--vscode-foreground) 60%, transparent)",
             "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-tab-shadow": "none",
             "--nb-tab-active-shadow": "0 1px 3px rgba(0, 0, 0, 0.24), 0 3px 10px rgba(0, 0, 0, 0.16)",
@@ -550,12 +564,16 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            "--nb-tab-surface": "transparent",
-            "--nb-tab-outline": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
-            "--nb-tab-outline-hover": "color-mix(in oklch, var(--vscode-foreground) 26%, transparent)",
-            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
+            "--nb-tab-surface": "color-mix(in srgb, var(--vscode-foreground) 5%, #fff)",
+            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 5%, #fff)",
+            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 32%, transparent)",
+            "--nb-tab-surface-hover": "color-mix(in srgb, var(--vscode-foreground) 8%, #fff)",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
+            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 50%, transparent)",
+            "--nb-tab-outline-hover": "color-mix(in srgb, var(--vscode-foreground) 70%, transparent)",
+            "--nb-tab-divider": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-tab-shadow": "none",
-            "--nb-tab-active-shadow": "0 1px 2px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.04)",
+            "--nb-tab-active-shadow": "0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04)",
             "--nb-surface-shadow": "0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)",
             "--nb-widget-shadow": "0 20px 48px -8px rgba(0, 0, 0, 0.14), 0 4px 14px rgba(0, 0, 0, 0.06)",
             "--nb-shadow-soft": "0 2px 6px rgba(0, 0, 0, 0.05)",
@@ -602,8 +620,10 @@
         ".part.titlebar": {
             "background-color": "var(--nb-canvas) !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important",
+            "height": "34px !important",
+            "min-height": "34px !important",
             "box-shadow": "none !important",
-            "transition": "var(--nb-transition-ui) !important"
+            "transition": "none !important"
         },
         ".part.titlebar .action-label": {
             "border-radius": "var(--nb-radius-item) !important",
@@ -612,38 +632,38 @@
         ".command-center-center": {
             "border-radius": "var(--nb-radius-input) !important",
             "overflow": "hidden !important",
-            "border": "1px solid var(--nb-border-subtle) !important",
-            "background": "var(--nb-pill) !important",
-            "box-shadow": "var(--nb-glass-inset), var(--nb-pill-shadow) !important",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "border": "1px solid transparent !important",
+            "background": "transparent !important",
+            "box-shadow": "none !important",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".command-center-center:hover": {
-            "background": "var(--nb-pill-hover) !important",
-            "border-color": "var(--nb-border-hover) !important",
-            "box-shadow": "var(--nb-glass-inset), var(--nb-shadow-xs) !important"
+            "background": "var(--nb-surface-highlight) !important",
+            "border-color": "var(--nb-border-subtle) !important",
+            "box-shadow": "none !important"
         },
         ".command-center-center :is(button, .action-item)": {
-            "border-radius": "var(--nb-radius-input) !important"
+            "border-radius": "var(--nb-radius-sm) !important"
         },
         ".command-center-center .codicon-search": {
             "opacity": "0.75 !important",
-            "font-size": "13px !important",
+            "font-size": "var(--nb-font-size-ui) !important",
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".command-center-center:hover .codicon-search": {
             "opacity": "1 !important"
         },
         // ------------------------------------------------------------------
-        // G. Activity Bar (Unified Floating Dock Rail)
+        // G. Activity Bar (Zed Minimal Dock Rail)
         // ------------------------------------------------------------------
         ".part.activitybar": {
-            "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
-            "border": "1px solid var(--nb-border-soft) !important",
-            "border-radius": "var(--nb-radius-panel) !important",
             "margin": "var(--nb-panel-top) 0 var(--nb-panel-bottom) var(--nb-panel-gap) !important",
             "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
-            "width": "calc(100% - var(--nb-panel-gap)) !important",
+            "border-radius": "var(--nb-radius-panel) !important",
+            "border": "1px solid var(--nb-border-soft) !important",
             "box-shadow": "var(--nb-surface-shadow) !important",
+            "background-color": "var(--vscode-activityBar-background, var(--nb-surface)) !important",
+            "width": "42px !important",
             "box-sizing": "border-box !important",
             "overflow": "hidden !important",
             "background-image": "none !important",
@@ -696,44 +716,43 @@
             "box-shadow": "none !important"
         },
         ".part.activitybar .action-item .action-label": {
-            "font-size": "22px !important",
+            "font-size": "20px !important",
             "color": "var(--vscode-activityBar-inactiveForeground, var(--vscode-activityBar-foreground)) !important",
-            "opacity": "0.85 !important",
-            "width": "32px !important",
-            "height": "32px !important",
-            "line-height": "32px !important",
+            "opacity": "0.75 !important",
+            "width": "30px !important",
+            "height": "30px !important",
+            "line-height": "30px !important",
             "border": "1px solid transparent !important",
             "border-radius": "var(--nb-radius-item) !important",
             "display": "flex !important",
             "align-items": "center !important",
             "justify-content": "center !important",
             "overflow": "visible !important",
-            "transition": "color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "color var(--nb-motion-fast) var(--nb-ease-out), background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".part.activitybar .action-item .action-label .codicon": {
-            "font-size": "22px !important"
+            "font-size": "20px !important"
         },
         ".part.activitybar .action-item .action-label img": {
-            "max-width": "20px !important",
-            "max-height": "20px !important"
+            "max-width": "18px !important",
+            "max-height": "18px !important"
         },
         ".part.activitybar .action-item .active-item-indicator": {
             "display": "none !important"
         },
         ".part.activitybar .action-item:hover .action-label": {
             "background-color": "var(--nb-surface-highlight) !important",
-            "border-color": "var(--nb-border-hover) !important",
             "opacity": "1 !important"
         },
         ".part.activitybar .action-item.checked .action-label": {
             "color": "var(--vscode-activityBar-foreground, var(--vscode-foreground)) !important",
             "opacity": "1 !important",
-            "background-color": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-surface-raised)) !important",
-            "border-color": "color-mix(in oklch, var(--nb-focus) 42%, transparent) !important",
+            "background-color": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent) !important",
+            "border-color": "transparent !important",
             "border-radius": "var(--nb-radius-item) !important",
-            "width": "32px !important",
-            "height": "32px !important",
-            "box-shadow": "var(--nb-glass-inset), var(--nb-shadow-xs) !important"
+            "width": "30px !important",
+            "height": "30px !important",
+            "box-shadow": "none !important"
         },
         ".part.activitybar .badge": {
             "z-index": "10 !important",
@@ -759,11 +778,12 @@
         },
         ".part.editor": {
             "background-color": "var(--vscode-editor-background) !important",
-            "transition": "var(--nb-transition-ui) !important",
+            "background-image": "none !important",
+            "transition": "none !important",
             "isolation": "isolate !important"
         },
         ".monaco-workbench.linux .part.editor > .content": {
-            "padding-top": "14px !important"
+            "padding-top": "0 !important"
         },
         // ------------------------------------------------------------------
         // I. Explorer Tree, Lists & Sidebar Panes
@@ -798,26 +818,26 @@
             "font-size": "var(--nb-font-size-ui) !important"
         },
         ".part.sidebar .pane-header .title": {
-            "font-size": "11px !important",
+            "font-size": "var(--nb-font-size-heading) !important",
             "font-weight": "600 !important",
-            "letter-spacing": "0.05em !important",
+            "letter-spacing": "var(--nb-letter-spacing-heading) !important",
             "text-transform": "uppercase !important"
         },
         ".extensions-search-container .suggest-input-container": {
-            "font-size": "11px !important",
+            "font-size": "var(--nb-font-size-heading) !important",
             "--editor-font-size": "11px !important"
         },
         ".extensions-search-container .suggest-input-placeholder": {
-            "font-size": "11px !important"
+            "font-size": "var(--nb-font-size-heading) !important"
         },
         ".explorer-viewlet .split-view-container": {
             "margin-top": "0 !important"
         },
         ".explorer-folders-view .monaco-tl-row": {
-            "padding-block": "1px !important"
+            "padding-block": "0 !important"
         },
         ".part.sidebar .monaco-list-row": {
-            "margin": "1px 4px !important",
+            "margin": "0 4px !important",
             "width": "calc(100% - 8px) !important",
             "border-radius": "var(--nb-radius-item) !important",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out) !important"
@@ -837,13 +857,13 @@
         },
         ".monaco-tl-twistie": {
             "transition": "transform var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important",
-            "opacity": "0.75 !important"
+            "opacity": "0.6 !important"
         },
         ".monaco-list-row:hover .monaco-tl-twistie": {
             "opacity": "1 !important"
         },
         ".monaco-tl-indent": {
-            "opacity": "0.6 !important"
+            "opacity": "0.25 !important"
         },
         // ------------------------------------------------------------------
         // J. Auxiliary Bar (Copilot, Chat & Secondary Panes)
@@ -884,19 +904,17 @@
             "min-height": "fit-content !important"
         },
         // ------------------------------------------------------------------
-        // K. Tabs & Tab Strip (Firefox Nova)
+        // K. Tabs & Tab Strip (Zed Seamless Editor Integration)
         // ------------------------------------------------------------------
         ".editor-group-header": {
-            "background-color": "var(--vscode-editorGroupHeader-tabsBackground, transparent) !important",
+            "background-color": "var(--nb-canvas) !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
         ".editor-group-header .scroll-decoration": {
-            "box-shadow": "none !important",
-            "background": "linear-gradient(to right, var(--vscode-editorGroupHeader-tabsBackground, var(--nb-canvas)), transparent) !important",
-            "pointer-events": "none !important"
+            "display": "none !important"
         },
         ".tabs-and-actions-container": {
-            "background-color": "transparent !important",
+            "background-color": "var(--nb-canvas) !important",
             "border-bottom": "none !important",
             "min-height": "38px !important",
             "height": "38px !important",
@@ -909,29 +927,29 @@
             "border-bottom": "none !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "gap": "3px !important",
-            "padding-right": "4px !important"
+            "gap": "2px !important",
+            "padding-right": "6px !important"
         },
         ".editor-actions .action-label": {
             "border-radius": "var(--nb-radius-item) !important",
-            "padding": "3px 5px !important",
+            "padding": "2px 4px !important",
             "opacity": "0.75 !important",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".editor-actions .action-label:hover": {
             "opacity": "1 !important",
-            "background-color": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent) !important"
+            "background-color": "var(--nb-surface-highlight) !important"
         },
         ".editor-actions .action-label:active": {
-            "transform": "scale(0.92) !important"
+            "transform": "scale(0.94) !important"
         },
         ".tabs-container": {
             "background-image": "none !important",
             "border-bottom": "none !important",
             "display": "flex !important",
             "align-items": "center !important",
-            "gap": "4px !important",
-            "padding": "0 !important",
+            "gap": "6px !important",
+            "padding": "0 2px !important",
             "height": "100% !important",
             "scrollbar-width": "none !important"
         },
@@ -942,42 +960,38 @@
             "position": "relative !important",
             "font-family": "var(--nb-font-ui) !important",
             "font-size": "var(--nb-font-size-ui) !important",
-            "height": "32px !important",
+            "height": "28px !important",
+            "min-height": "28px !important",
+            "max-height": "28px !important",
+            "margin": "2px 2px !important",
             "box-sizing": "border-box !important",
-            "border": "1px solid transparent !important",
+            "border": "1.5px solid var(--nb-tab-border-inactive) !important",
             "border-radius": "var(--nb-radius-tab) !important",
             "overflow": "visible !important",
             "background-clip": "padding-box !important",
-            "background-color": "transparent !important",
+            "background-color": "var(--nb-tab-surface-inactive) !important",
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground)) !important",
+            "opacity": "0.85 !important",
             "display": "flex !important",
             "align-items": "center !important",
             "padding": "0 10px !important",
-            "box-shadow": "none !important",
+            "box-shadow": "var(--nb-shadow-xs) !important",
             "cursor": "pointer !important",
             "user-select": "none !important",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".tab::before": {
-            "content": "\"\" !important",
-            "position": "absolute !important",
-            "left": "-2.5px !important",
-            "top": "28% !important",
-            "height": "44% !important",
-            "width": "1px !important",
-            "background-color": "var(--nb-tab-divider) !important",
-            "opacity": "0.75 !important",
-            "pointer-events": "none !important",
-            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out) !important"
+            "display": "none !important"
         },
         ".tab:first-child::before, .tab.active::before, .tab:hover::before, .tab.active + .tab::before, .tab:hover + .tab::before": {
-            "opacity": "0 !important"
+            "display": "none !important"
         },
         ".tab:hover:not(.active)": {
             "background-color": "var(--vscode-tab-hoverBackground, var(--nb-tab-surface-hover)) !important",
             "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground)) !important",
-            "border-color": "var(--nb-border-subtle) !important",
-            "box-shadow": "var(--nb-shadow-xs) !important"
+            "border-color": "var(--nb-tab-border-hover) !important",
+            "box-shadow": "var(--nb-shadow-xs) !important",
+            "opacity": "1 !important"
         },
         ".tab :is(.tab-border-top-container, .tab-border-bottom-container)": {
             "display": "none !important"
@@ -988,11 +1002,10 @@
             "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
             "font-weight": "600 !important",
-            "border": "1px solid var(--nb-tab-outline) !important",
+            "opacity": "1 !important",
+            "border": "1.5px solid var(--nb-tab-outline) !important",
+            "border-radius": "var(--nb-radius-tab) !important",
             "box-shadow": "var(--nb-tab-active-shadow) !important"
-        },
-        ".tab:first-child.active": {
-            "margin-left": "0 !important"
         },
         ".tab.active:hover": {
             "background-color": "var(--vscode-tab-activeBackground, var(--nb-surface-raised)) !important",
@@ -1003,7 +1016,8 @@
             "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground)) !important",
             "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-foreground)) !important",
             "font-weight": "500 !important",
-            "border": "1px solid var(--nb-tab-outline) !important",
+            "border": "1.5px solid var(--nb-tab-outline) !important",
+            "border-radius": "var(--nb-radius-tab) !important",
             "box-shadow": "var(--nb-tab-shadow) !important",
             "transform": "none !important"
         },
@@ -1277,7 +1291,7 @@
             "box-shadow": "inset 0 0 0 1px var(--nb-border-hover), 0 1px 3px var(--nb-shadow-xs) !important"
         },
         ".monaco-keybinding, .keybinding, .command-center-keybinding": {
-            "border-radius": "4px !important",
+            "border-radius": "var(--nb-radius-sm) !important",
             "padding": "2px 6px !important",
             "font-size": "10.5px !important",
             "font-weight": "500 !important",
@@ -1310,7 +1324,7 @@
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent) !important",
             "padding": "2px 5px !important",
             "font-family": "var(--nb-font-mono) !important",
-            "font-size": "12px !important"
+            "font-size": "var(--nb-font-size-small) !important"
         },
         ".monaco-hover a": {
             "color": "var(--nb-focus) !important",
@@ -1494,9 +1508,12 @@
         ".part.statusbar": {
             "background-color": "var(--vscode-statusBar-background, var(--nb-canvas)) !important",
             "border-top": "1px solid var(--nb-border-subtle) !important",
-            "border-radius": "10px 10px 0 0 !important",
+            "border-radius": "var(--nb-radius-widget) var(--nb-radius-widget) 0 0 !important",
             "margin": "0 var(--nb-panel-gap) !important",
             "width": "calc(100% - (var(--nb-panel-gap) * 2)) !important",
+            "height": "26px !important",
+            "min-height": "26px !important",
+            "max-height": "26px !important",
             "box-sizing": "border-box !important",
             "box-shadow": "var(--nb-shadow-soft) !important",
             "font-family": "var(--nb-font-ui) !important",
@@ -1508,10 +1525,11 @@
             "height": "100% !important"
         },
         ".part.statusbar .statusbar-item": {
-            "border-radius": "6px !important",
+            "border-radius": "var(--nb-radius-item) !important",
             "padding": "0 6px !important",
             "margin": "2px 1px !important",
             "height": "calc(100% - 4px) !important",
+            "font-size": "var(--nb-font-size-heading) !important",
             "display": "inline-flex !important",
             "align-items": "center !important",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), transform var(--nb-motion-fast) var(--nb-ease-out) !important"
@@ -1586,7 +1604,7 @@
         },
         ".monaco-sash": {
             "z-index": "40 !important",
-            "transition": "background-color 80ms ease-out, box-shadow 80ms ease-out !important"
+            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out) !important"
         },
         ".monaco-sash.vertical": {
             "width": "12px !important",
@@ -1686,18 +1704,21 @@
                 "--nb-radius-panel": "10px",
                 "--nb-radius-card": "8px",
                 "--nb-radius-widget": "8px",
-                "--nb-radius-tab": "7px"
+                "--nb-radius-tab": "9px",
+                "--nb-radius-input": "4px",
+                "--nb-radius-item": "3px"
             },
             ".part.activitybar": {
                 "width": "calc(100% - var(--nb-panel-gap)) !important"
             },
             ".tabs-and-actions-container": {
-                "min-height": "34px !important",
-                "height": "34px !important",
+                "min-height": "36px !important",
+                "height": "36px !important",
                 "padding": "2px 4px !important"
             },
             ".tab": {
-                "height": "30px !important",
+                "height": "26px !important",
+                "min-height": "26px !important",
                 "padding": "0 8px !important"
             }
         },
@@ -1814,6 +1835,14 @@
     "[jsonc]": {
         "editor.tabSize": 4
     },
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false
+    },
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
     // ======================================================================
     // 16. Modern VS Code features — AI assistance, diff, testing, notebooks
     // ----------------------------------------------------------------------
@@ -1824,5 +1853,6 @@
     // ======================================================================
     "editor.ghostText.enabled": true,
     "workbench.editor.inlineSuggest.support.enabled": true,
-    "diffEditor.overviewRulerBorder": true
+    "diffEditor.overviewRulerBorder": true,
+    "notebook.stickyScroll.enabled": true
 }
