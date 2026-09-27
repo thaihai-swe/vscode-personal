@@ -183,8 +183,6 @@
         "editor.selectionHighlightBackground": "#e2dcd555",
         "editor.findMatchBackground": "#c1840166",
         "editor.findMatchHighlightBackground": "#c1840133",
-        "editorIndentGuide.background": "#4078f238",
-        "editorIndentGuide.activeBackground": "#4078f2cc",
         "editorCodeLens.foreground": "#a0a1a7",
         "editor.inactiveSelectionBackground": "#c8bfb566",
         "editor.wordHighlightBackground": "#6e6a8622",

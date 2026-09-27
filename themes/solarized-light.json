@@ -44,8 +44,6 @@
         "editor.lineHighlightBackground": "#eee8d5",
         "editor.lineHighlightBorder": "#00000000",
         "editorWhitespace.foreground": "#93a1a180",
-        "editorIndentGuide.background": "#268bd238",
-        "editorIndentGuide.activeBackground": "#268bd2cc",
         "editor.selectionBackground": "#2aa19844",
         "editor.selectionHighlightBackground": "#2aa19833",
         "editor.inactiveSelectionBackground": "#2aa19822",
