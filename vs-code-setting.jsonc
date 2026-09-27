@@ -755,20 +755,17 @@
             "box-shadow": "var(--nb-surface-shadow)",
             "box-sizing": "border-box"
         },
-        // Sidebar and auxiliary bar can clip content safely
+        // Sidebar and auxiliary bar can clip content safely (overflow hidden for border-radius)
         ".part.sidebar, .part.auxiliarybar": {
-            "overflow": "hidden"
-        },
-        // Editor uses overflow: clip so rounded corners are respected but
-        // the find-replace widget (which overflows upward) is NOT clipped.
-        ".part.editor": {
-            "overflow": "clip"
-        },
-        ".part.sidebar, .part.auxiliarybar": {
+            "overflow": "hidden",
             "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
             "background-image": "none !important"
         },
+        // Editor uses overflow: visible so Peek Definition, Peek References,
+        // and the Find widget are never clipped at the editor boundary.
+        // Rounded corners are handled by inner .editor-group-container.
         ".part.editor": {
+            "overflow": "visible",
             "background-color": "var(--vscode-editor-background) !important",
             "background-image": "none !important",
             "transition": "none",
@@ -795,10 +792,11 @@
             "margin-left": "0 !important",
             "box-sizing": "border-box"
         },
-        // Remove extra side padding when content panel is the search viewlet.
+        // Fix #10: restore 4px side padding for search view so inputs don't
+        // render flush to the sidebar border (was 0, now 4px each side).
         ".part.sidebar .content:has(.search-view)": {
-            "padding-left": "0 !important",
-            "padding-right": "0 !important"
+            "padding-left": "4px !important",
+            "padding-right": "4px !important"
         },
         // Fix: VS Code's .replace-container uses inline-flex which sizes to content
         // rather than filling the parent width. The ActionBar then sees a narrow
@@ -856,8 +854,10 @@
             "padding-block": "0 !important"
         },
         ".part.sidebar .monaco-list-row": {
-            "margin": "0 4px !important",
-            "width": "calc(100% - 8px) !important",
+            // Fix #11: reduced from 0 4px / calc(100% - 8px) to 0 2px / calc(100% - 4px)
+            // so long paths in SCM, Extensions, and Search aren't over-truncated.
+            "margin": "0 2px !important",
+            "width": "calc(100% - 4px) !important",
             "border-radius": "var(--nb-radius-item)",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out)"
         },
@@ -960,8 +960,14 @@
             "background-color": "var(--vscode-editorGroupHeader-tabsBackground, var(--nb-canvas)) !important",
             "border-bottom": "1px solid var(--vscode-editorGroupHeader-tabsBorder, var(--nb-border-subtle)) !important"
         },
+        // Scroll decoration restored — it's the only visual cue that tabs
+        // have scrolled and more exist to the left. Dimmed to be subtle.
         ".editor-group-header .scroll-decoration": {
-            "display": "none !important"
+            "opacity": "0.4",
+            "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out)"
+        },
+        ".editor-group-header:hover .scroll-decoration": {
+            "opacity": "1"
         },
         ".tabs-and-actions-container": {
             "background-color": "transparent",
@@ -1002,8 +1008,14 @@
             "align-items": "center",
             "gap": "4px"
         },
+        // Hidden at rest for aesthetics, thin bar appears on hover so users
+        // know tabs overflow and can scroll to find hidden files.
         ".tabs-container::-webkit-scrollbar": {
+            "height": "3px",
             "display": "none"
+        },
+        ".tabs-container:hover::-webkit-scrollbar": {
+            "display": "block"
         },
         ".tab": {
             "position": "relative",
@@ -1109,6 +1121,10 @@
         ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action)": {
             "opacity": "0.7 !important"
         },
+        // Fix #7: keyboard focus on a tab also reveals the close button
+        ".tab:focus-visible :is(.tab-actions, .tab-close-action)": {
+            "opacity": "0.7 !important"
+        },
         ".tab:is(.active, :hover, :focus-within) :is(.tab-actions, .tab-close-action):hover": {
             "opacity": "1 !important"
         },
@@ -1174,6 +1190,11 @@
         ".editor-group-container.active .tabs-container": {
             "opacity": "1 !important"
         },
+        // Fix #8: dirty dot (unsaved indicator) always renders at full opacity
+        // even when inactive group tab bar is dimmed to 0.85.
+        ".editor-group-container .tabs-container .tab :is(.dirty, .codicon-modifier-modified)": {
+            "opacity": "1 !important"
+        },
         // ------------------------------------------------------------------
         // L. Breadcrumbs, Minimap & Sticky Scroll
         // ------------------------------------------------------------------
@@ -1219,8 +1240,9 @@
             "box-shadow": "var(--nb-glass-inset), var(--nb-surface-shadow) !important",
             "box-sizing": "border-box",
             "overflow": "hidden",
-            "transition": "var(--nb-transition-ui)",
-            "isolation": "isolate"
+            "transition": "var(--nb-transition-ui)"
+            // isolation: isolate removed — it trapped terminal overlay z-index
+            // within the panel stacking context, hiding autocomplete above editor.
         },
         ".part.panel.bottom > .composite.title": {
             "position": "relative !important",
@@ -1278,20 +1300,23 @@
         // ------------------------------------------------------------------
         // N. Command Palette, Quick Pick & Frosted Glass Modals
         // ------------------------------------------------------------------
+        // overflow:clip provides visual border-radius clipping without creating
+        // a scroll container or BFC — inner sub-menus and dropdowns can escape.
         ".quick-input-widget, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu": {
             "border-radius": "var(--nb-radius-widget)",
             "background-color": "var(--nb-surface-raised) !important",
-            "overflow": "hidden",
+            "overflow": "clip",
             "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
             "backdrop-filter": "var(--nb-glass-blur) !important",
             "-webkit-backdrop-filter": "var(--nb-glass-blur) !important"
         },
-        // Solid high-speed surfaces for zero-latency IntelliSense and code inspection hovers
+        // overflow:clip here too — hover cards with wide code blocks are
+        // no longer silently truncated. VS Code manages internal scroll itself.
         ".suggest-widget, .monaco-hover": {
             "border-radius": "var(--nb-radius-widget)",
             "background-color": "var(--vscode-editorWidget-background, var(--nb-surface-raised)) !important",
-            "overflow": "hidden",
+            "overflow": "clip",
             "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow) !important"
         },
@@ -1470,10 +1495,13 @@
         ".monaco-button:active, .action-label:active": {
             "transform": "scale(0.98)"
         },
+        // Fix #15: dual-ring focus indicator — the separator ring (editor background)
+        // sits between the element and the focus ring, guaranteeing visual contrast
+        // on any theme regardless of the theme's button/accent color.
         ".monaco-workbench :focus-visible": {
             "outline": "2px solid var(--nb-focus)",
             "outline-offset": "var(--nb-focus-ring-offset)",
-            "box-shadow": "var(--nb-focus-ring)",
+            "box-shadow": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background, transparent), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
             "border-radius": "var(--nb-radius-item)",
             "animation": "none"
         },
@@ -1597,13 +1625,15 @@
             "z-index": "40",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
+        // Fix #13: reduced from 12px to 6px — still easy to grab but no longer
+        // intercepts clicks near panel edges intended for nearby content.
         ".monaco-sash.vertical": {
-            "width": "12px !important",
-            "margin-left": "-6px !important"
+            "width": "6px !important",
+            "margin-left": "-3px !important"
         },
         ".monaco-sash.horizontal": {
-            "height": "12px !important",
-            "margin-top": "-6px !important"
+            "height": "6px !important",
+            "margin-top": "-3px !important"
         },
         ".monaco-sash:hover": {
             "background-color": "color-mix(in oklch, var(--nb-focus) 35%, transparent)",
@@ -1616,9 +1646,11 @@
         ".monaco-editor .margin": {
             "border-right": "1px solid var(--nb-border-subtle)"
         },
+        // Fix #14: animation: none removed — cursor animation is controlled by
+        // editor.cursorBlinking in settings ("solid" = no animation). Keeping
+        // animation: none here would silently override any future setting change.
         ".monaco-editor .cursor": {
-            "filter": "none",
-            "animation": "none"
+            "filter": "none"
         },
         ":is(.monaco-workbench.vs-dark, .vs-dark) .monaco-icon-label.file-icon::before": {
             "filter": "drop-shadow(0 0 2px currentColor)",
