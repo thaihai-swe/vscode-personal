@@ -576,7 +576,7 @@
         // ------------------------------------------------------------------
         // E. Global Typography & Shell UI
         // ------------------------------------------------------------------
-        ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .command-center-center, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget, .suggest-widget, .notifications-center, .notification-toast, .editor-widget.find-widget": {
+        ".part.sidebar, .part.auxiliarybar, .part.panel, .part.activitybar, .part.statusbar, .command-center-center, .tabs-and-actions-container, .monaco-breadcrumbs, .monaco-menu, .quick-input-widget, .suggest-widget, .notifications-center, .notification-toast": {
             "font-family": "var(--nb-font-ui) !important"
         },
         ".monaco-list-row, .monaco-menu .action-label, .quick-input-widget, .suggest-widget, .settings-editor": {
@@ -753,8 +753,16 @@
             "border-radius": "var(--nb-radius-panel)",
             "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-surface-shadow)",
-            "box-sizing": "border-box",
+            "box-sizing": "border-box"
+        },
+        // Sidebar and auxiliary bar can clip content safely
+        ".part.sidebar, .part.auxiliarybar": {
             "overflow": "hidden"
+        },
+        // Editor uses overflow: clip so rounded corners are respected but
+        // the find-replace widget (which overflows upward) is NOT clipped.
+        ".part.editor": {
+            "overflow": "clip"
         },
         ".part.sidebar, .part.auxiliarybar": {
             "background-color": "var(--vscode-sideBar-background, var(--nb-surface)) !important",
@@ -775,12 +783,39 @@
         ".part.sidebar .composite.title": {
             "padding": "8px 10px 0 2px !important"
         },
+        // Sidebar padding for all panes.
+        // The search viewlet's replace-row action buttons collapse into "..."
+        // when horizontal space is too tight — removing the 8px side padding
+        // when the content hosts the search view fixes it. The search view
+        // already manages its own internal margins via .search-widgets-container.
         ".part.sidebar .content": {
             "width": "100% !important",
             "padding-left": "8px !important",
             "padding-right": "8px !important",
             "margin-left": "0 !important",
             "box-sizing": "border-box"
+        },
+        // Remove extra side padding when content panel is the search viewlet.
+        ".part.sidebar .content:has(.search-view)": {
+            "padding-left": "0 !important",
+            "padding-right": "0 !important"
+        },
+        // Fix: VS Code's .replace-container uses inline-flex which sizes to content
+        // rather than filling the parent width. The ActionBar then sees a narrow
+        // container and collapses Replace + Replace All into the "..." overflow menu.
+        // Switching to flex + width:100% (minus the 18px left margin) ensures the
+        // replace row spans the full widget width and the action buttons always show.
+        ".search-view .search-widget .replace-container": {
+            "display": "flex !important",
+            "width": "calc(100% - 18px) !important",
+            "align-items": "center"
+        },
+        ".search-view .search-widget .replace-input": {
+            "flex": "1 1 auto !important",
+            "min-width": "0 !important"
+        },
+        ".search-view .search-widget .replace-container .monaco-action-bar": {
+            "flex-shrink": "0 !important"
         },
         ".part.sidebar .welcome-view-content": {
             "max-width": "100% !important",
@@ -1333,50 +1368,7 @@
             "text-decoration": "underline"
         },
         // ------------------------------------------------------------------
-        // P. Find & Replace Floating Island Widget
-        // ------------------------------------------------------------------
-        ".editor-widget.find-widget": {
-            "border-radius": "var(--nb-radius-card)",
-            "padding": "6px 8px",
-            "margin-top": "6px !important",
-            "margin-right": "calc(var(--nb-panel-gap) + 12px) !important",
-            "background-color": "var(--nb-surface-raised) !important",
-            "border": "1px solid var(--nb-border-soft)",
-            "box-shadow": "var(--nb-widget-shadow), var(--nb-glass-inset) !important",
-            "backdrop-filter": "var(--nb-glass-blur) !important",
-            "-webkit-backdrop-filter": "var(--nb-glass-blur) !important",
-            "gap": "5px",
-            "overflow": "hidden",
-            "animation": "nb-settle-in var(--nb-motion-base) var(--nb-ease-out) both"
-        },
-        ".editor-widget.find-widget .monaco-inputbox": {
-            "border-radius": "var(--nb-radius-input)",
-            "border": "1px solid var(--nb-border-subtle)",
-            "padding": "2px 6px"
-        },
-        ".editor-widget.find-widget .matchesCount": {
-            "font-size": "var(--nb-font-size-small) !important",
-            "opacity": "0.75 !important",
-            "padding": "0 6px",
-            "font-feature-settings": "\"tnum\" on"
-        },
-        ".editor-widget.find-widget .button": {
-            "border-radius": "var(--nb-radius-sm)",
-            "border": "1px solid transparent",
-            "padding": "2px 4px",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out)"
-        },
-        ".editor-widget.find-widget .button:hover": {
-            "background-color": "var(--nb-surface-highlight) !important"
-        },
-        ".editor-widget.find-widget .button.checked": {
-            "background-color": "color-mix(in oklch, var(--nb-focus) 24%, transparent) !important",
-            "border": "1px solid var(--nb-focus) !important",
-            "color": "var(--nb-focus) !important",
-            "box-shadow": "0 0 6px color-mix(in oklch, var(--nb-focus) 30%, transparent)"
-        },
-        // ------------------------------------------------------------------
-        // Q. Notification Toasts & Notification Center
+        // P. Notification Toasts & Notification Center
         // ------------------------------------------------------------------
         ".notification-toast": {
             "border-radius": "var(--nb-radius-card)",
@@ -1412,7 +1404,7 @@
             "background-color": "var(--nb-surface-highlight) !important"
         },
         // ------------------------------------------------------------------
-        // R. Context Menus & Popups
+        // Q. Context Menus & Popups
         // ------------------------------------------------------------------
         ".monaco-menu .monaco-action-bar .action-item": {
             "border-radius": "var(--nb-radius-sm)",
@@ -1424,7 +1416,7 @@
             "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
         },
         // ------------------------------------------------------------------
-        // S. Settings Editor Card Architecture
+        // R. Settings Editor Card Architecture
         // ------------------------------------------------------------------
         ".settings-editor .setting-item": {
             "border-radius": "var(--nb-radius-card)",
@@ -1450,19 +1442,19 @@
             "border-left": "3px solid var(--vscode-settings-modifiedItemIndicator) !important"
         },
         // ------------------------------------------------------------------
-        // T. Form Controls, Inputs & Button States
+        // S. Form Controls, Inputs & Button States
         // ------------------------------------------------------------------
-        ".viewpane-filter .monaco-inputbox, .search-widget .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
+        ".viewpane-filter .monaco-inputbox, .scm-editor, .scm-input, .part.sidebar .monaco-button": {
             "border-radius": "var(--nb-radius-input)",
             "overflow": "hidden"
         },
-        ".monaco-inputbox, .monaco-findInput": {
+        ".monaco-inputbox": {
             "border-radius": "var(--nb-radius-input)",
             "border": "1px solid var(--nb-border-soft)",
             "background-color": "var(--vscode-input-background)",
             "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
         },
-        ".monaco-inputbox.focused, .monaco-findInput.focused, .scm-input:focus-within, .scm-editor:focus-within": {
+        ".monaco-inputbox.focused, .scm-input:focus-within, .scm-editor:focus-within": {
             "border-color": "var(--nb-focus)",
             "box-shadow": "var(--nb-focus-ring)"
         },
@@ -1502,7 +1494,7 @@
             "outline-offset": "-2px"
         },
         // ------------------------------------------------------------------
-        // U. Status Bar Dock & System Micro-Badges
+        // T. Status Bar Dock & System Micro-Badges
         // ------------------------------------------------------------------
         ".part.statusbar": {
             "background-color": "var(--vscode-statusBar-background, var(--nb-canvas))",
@@ -1559,7 +1551,7 @@
             "color": "var(--vscode-statusBarItem-warningForeground, inherit)"
         },
         // ------------------------------------------------------------------
-        // V. Scrollbars, Sashes, Badges & Minimap
+        // U. Scrollbars, Sashes, Badges & Minimap
         // ------------------------------------------------------------------
         ".scrollbar .slider": {
             "border-radius": "var(--nb-radius-pill)",
@@ -1633,7 +1625,7 @@
             "opacity": "1"
         },
         // ------------------------------------------------------------------
-        // W. Chat Input & AI Assistant Elements
+        // V. Chat Input & AI Assistant Elements
         // ------------------------------------------------------------------
         ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2, .inline-chat-widget": {
             "border-radius": "var(--nb-radius-card)",
@@ -1657,7 +1649,7 @@
             "border-radius": "var(--nb-radius-input)"
         },
         // ------------------------------------------------------------------
-        // X. Keyframe Animations & Easing Curves
+        // W. Keyframe Animations & Easing Curves
         // ------------------------------------------------------------------
         "@keyframes nb-settle-in": {
             "from": {
@@ -1693,7 +1685,7 @@
             }
         },
         // ------------------------------------------------------------------
-        // Y. Media Queries & Accessibility Adaptations
+        // X. Media Queries & Accessibility Adaptations
         // ------------------------------------------------------------------
         "@media (max-width: 900px)": {
             ".monaco-workbench": {
@@ -1727,7 +1719,7 @@
                 "--nb-surface-raised": "var(--vscode-editorWidget-background)",
                 "--nb-surface-elevated": "var(--vscode-editorWidget-background)"
             },
-            ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .editor-widget.find-widget, .sticky-widget": {
+            ".quick-input-widget, .suggest-widget, .monaco-hover, .monaco-dialog-box, .notification-toast, .notifications-center, .monaco-menu, .sticky-widget": {
                 "backdrop-filter": "none",
                 "-webkit-backdrop-filter": "none"
             }
