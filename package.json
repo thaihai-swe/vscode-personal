@@ -32,59 +32,34 @@
   "contributes": {
     "themes": [
       {
-        "label": "Nord",
+        "label": "Islands Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/nord.json"
+        "path": "./themes/islands-dark.json"
       },
       {
-        "label": "Solarized Light",
-        "uiTheme": "vs",
-        "path": "./themes/solarized-light.json"
-      },
-      {
-        "label": "Solarized Dark",
+        "label": "Nord Arctic",
         "uiTheme": "vs-dark",
-        "path": "./themes/solarized-dark.json"
+        "path": "./themes/nord-arctic.json"
       },
       {
-        "label": "Farmhouse",
-        "uiTheme": "vs",
-        "path": "./themes/farmhouse.json"
+        "label": "Midnight OLED",
+        "uiTheme": "vs-dark",
+        "path": "./themes/midnight-oled.json"
       },
       {
-        "label": "Minimal",
+        "label": "Warm Editorial",
         "uiTheme": "vs",
-        "path": "./themes/minimal.json"
+        "path": "./themes/warm-editorial.json"
+      },
+      {
+        "label": "Sage Botanic",
+        "uiTheme": "vs",
+        "path": "./themes/sage-botanic.json"
       },
       {
         "label": "Rosé Pine Dawn",
         "uiTheme": "vs",
         "path": "./themes/rose-pine-dawn.json"
-      },
-      {
-        "label": "Ghostty Rosé Pine Dawn",
-        "uiTheme": "vs",
-        "path": "./themes/ghostty-rose-pine-dawn.json"
-      },
-      {
-        "label": "Parchment",
-        "uiTheme": "vs",
-        "path": "./themes/parchment.json"
-      },
-      {
-        "label": "Sage",
-        "uiTheme": "vs",
-        "path": "./themes/sage.json"
-      },
-      {
-        "label": "Islands Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/glass-paper-islands-dark.json"
-      },
-      {
-        "label": "Moegi Dawn",
-        "uiTheme": "vs",
-        "path": "./themes/moegi-dawn-color-theme.json"
       },
       {
         "label": "Firefox NOVA Light",
@@ -95,6 +70,16 @@
         "label": "Firefox NOVA Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/firefox-nova-dark.json"
+      },
+      {
+        "label": "Solarized Light",
+        "uiTheme": "vs",
+        "path": "./themes/solarized-light.json"
+      },
+      {
+        "label": "Solarized Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/solarized-dark.json"
       },
       {
         "label": "Zed Dark",

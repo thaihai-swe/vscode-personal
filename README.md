@@ -10,21 +10,20 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 
 ## Included themes
 
-### Light variants
+### Unique Consolidated Variants
 
-- **Minimal** — neutral high-clarity default with Nord-role syntax and frost/aurora guides
-- **Solarized Light** — warm cream and teal with frost structure and aurora semantics
-- **Farmhouse** — warm gray editorial surface with deep frost structure and aurora accents
-- **Parchment** — warm paper surface with deep pine/frost structure and warm aurora accents
-- **Rosé Pine Dawn** — soft low-stimulation palette with 6-hue structural bracket guides
-- **Ghostty Rosé Pine Dawn** — Ghostty's Dawn palette 1:1 (base `#faf4ed`, text `#575279`, selection `#dfdad9`)
-- **Sage** — calm green surface with cool teal/frost structure and amber aurora accents
+- **Islands Dark** — dark canvas (`#121216`) with floating elevated island surfaces (`#181a1d`), warm slate text, and 6-hue rainbow bracket guides.
+- **Nord Arctic** — authentic Polar Night slate (`#2e3440`) with matching dark panels and terminal, Snow Storm text, Frost cyan/blue structural syntax, and Aurora semantic highlights.
+- **Midnight OLED** — pitch-black canvas (`#000000`) with elevated graphite chrome (`#090a0c`), crisp `#d4d7dd` text, and vibrant rainbow bracket guides.
+- **Warm Editorial** — warm paper surface (`#fbf7eb`) with high-contrast ink (`#2c2b27`), deep pine, terracotta, and berry syntax accents, and 6-hue warm bracket guides.
+- **Sage Botanic** — serene mint-tinted paper (`#f5f8f5`) with crisp slate text (`#242d38`), forest green, teal, and amber syntax.
 
-### Dark variants
+### Classic Preserved Suites
 
-- **Nord** — Arctic Nord palette 1:1 (`#2E3440` Polar Night, Snow Storm text, Frost structure, Aurora semantics) + Glass Paper rainbow guides
-- **Solarized Dark** — canonical dark default aligned with Nord structural/semantic roles and 6-step rainbow guides
-- **Islands Dark** — the upstream Islands Dark palette and syntax definition, paired with the Glass Paper settings profile
+- **Rosé Pine Dawn** — soft low-stimulation palette (`#faf4ed`) with 6-hue structural bracket guides.
+- **Firefox NOVA** — NOVA Light (`#ffffff`) and NOVA Dark (`#161326`) with vivid purple and cyan accents.
+- **Solarized** — Solarized Light (`#fdf6e3`) and Solarized Dark (`#002b36`) canonical palettes.
+- **Zed** — Zed Light (`#fafafa`), Zed Dark (`#282c33`), and Zed OLED (`#000000`).
 
 ## Installation & setup
 
