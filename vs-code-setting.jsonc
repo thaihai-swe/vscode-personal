@@ -7,9 +7,9 @@
     // ======================================================================
     // Set zoomLevel to 0 for crisp 1:1 physical pixel rendering on Retina/4K displays.
     "window.zoomLevel": 1.1,
-    "workbench.colorTheme": "Zed Dark",
-    "workbench.preferredDarkColorTheme": "Zed Dark",
-    "workbench.preferredLightColorTheme": "Zed Light",
+    "workbench.colorTheme": "Islands Dark",
+    "workbench.preferredDarkColorTheme": "Islands Dark",
+    "workbench.preferredLightColorTheme": "Sage Botanic",
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
@@ -74,7 +74,7 @@
     "editor.wrappingIndent": "same",
     "editor.renderLineHighlight": "line",
     "editor.renderFinalNewline": "dimmed",
-    "editor.renderWhitespace": "selection",
+    "editor.renderWhitespace": "boundary",
     "editor.renderControlCharacters": false,
     "editor.copyWithSyntaxHighlighting": false,
     "editor.dragAndDrop": true,
@@ -155,6 +155,7 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.stickyScroll.enabled": true,
     "editor.stickyScroll.maxLineCount": 3,
+    "editor.stickyScroll.scrollWithEditor": true,
     // ======================================================================
     // 6. Breadcrumbs
     // ======================================================================
@@ -239,7 +240,7 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock, bun.lockb, .npmrc, .yarnrc.yml, pnpm-workspace.yaml",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock, bun.lockb, .npmrc, .yarnrc.yml, pnpm-workspace.yaml, biome.json, biome.jsonc",
         "tsconfig.json": "tsconfig.*.json",
         "vite.config.*": "vitest.config.*, playwright.config.*, cypress.config.*",
         "next.config.*": "next-env.d.ts, middleware.*, instrumentation.*",
@@ -248,7 +249,10 @@
         "prettier.config.*": ".prettierignore",
         "README.md": "CHANGELOG.md, LICENSE, SECURITY.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md",
         "Dockerfile": ".dockerignore, docker-compose*.yml, compose*.yml",
-        ".env": ".env.*, !.env.example, .envrc"
+        ".env": ".env.*, !.env.example, .envrc",
+        "Cargo.toml": "Cargo.lock, Cross.toml",
+        "pyproject.toml": "poetry.lock, uv.lock, pdm.lock, requirements*.txt",
+        "go.mod": "go.sum, go.work, go.work.sum"
     },
     // ======================================================================
     // 9. Search, files, excludes, and performance
@@ -1066,6 +1070,12 @@
             "border-color": "var(--nb-tab-border-hover)",
             "background-color": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))"
         },
+        ".tab.selected:not(.active)": {
+            "background-color": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-tab-surface-inactive)) !important",
+            "border-color": "color-mix(in oklch, var(--nb-focus) 45%, transparent) !important",
+            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
+            "opacity": "0.95"
+        },
         ".editor-group-container:not(.active) .tab.active": {
             "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground))",
             "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-foreground))",
@@ -1653,15 +1663,21 @@
             "filter": "none"
         },
         ":is(.monaco-workbench.vs-dark, .vs-dark) .monaco-icon-label.file-icon::before": {
-            "filter": "drop-shadow(0 0 2px currentColor)",
             "opacity": "1"
         },
         // ------------------------------------------------------------------
         // V. Chat Input & AI Assistant Elements
         // ------------------------------------------------------------------
-        ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2, .inline-chat-widget": {
+        ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2, .inline-chat-widget, .terminal-find-widget": {
             "border-radius": "var(--nb-radius-card)",
             "overflow": "visible"
+        },
+        ".terminal-find-widget": {
+            "border-radius": "var(--nb-radius-widget)",
+            "background-color": "var(--nb-surface-raised) !important",
+            "border": "1px solid var(--nb-border-soft)",
+            "box-shadow": "var(--nb-widget-shadow)",
+            "padding": "4px 8px !important"
         },
         ".chat-input-container": {
             "background-color": "var(--nb-surface)",
@@ -1732,7 +1748,7 @@
                 "--nb-radius-item": "3px"
             },
             ".part.activitybar": {
-                "width": "calc(100% - var(--nb-panel-gap)) !important"
+                "width": "38px !important"
             },
             ".tabs-and-actions-container": {
                 "height": "36px !important",
