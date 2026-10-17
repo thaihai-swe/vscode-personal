@@ -1363,12 +1363,21 @@
             "font-family": "var(--nb-font-mono) !important",
             "font-size": "var(--nb-font-size-small) !important"
         },
-        ".monaco-hover a": {
-            "color": "var(--nb-focus) !important",
+        ".monaco-hover a:not(.monaco-button):not([role='button'])": {
+            "color": "var(--vscode-textLink-foreground, var(--nb-focus)) !important",
             "text-decoration": "none"
         },
-        ".monaco-hover a:hover": {
+        ".monaco-hover a:not(.monaco-button):not([role='button']):hover": {
+            "color": "var(--vscode-textLink-activeForeground, var(--nb-focus)) !important",
             "text-decoration": "underline"
+        },
+        ".monaco-hover :is(.monaco-button, a.monaco-button, [role='button'])": {
+            "color": "var(--vscode-button-foreground) !important",
+            "background-color": "var(--vscode-button-background) !important"
+        },
+        ".monaco-hover :is(.monaco-button.secondary, a.monaco-button.secondary)": {
+            "color": "var(--vscode-button-secondaryForeground) !important",
+            "background-color": "var(--vscode-button-secondaryBackground) !important"
         },
         // ------------------------------------------------------------------
         // P. Notification Toasts & Notification Center
@@ -1461,14 +1470,21 @@
             "border-color": "var(--nb-focus)",
             "box-shadow": "var(--nb-focus-ring)"
         },
-        ".monaco-button": {
+        ".monaco-button, a.monaco-button, .monaco-text-button": {
             "border-radius": "var(--nb-radius-input)",
             "border": "1px solid transparent",
+            "color": "var(--vscode-button-foreground) !important",
+            "background-color": "var(--vscode-button-background) !important",
             "transition": "var(--nb-transition-ui), transform var(--nb-motion-fast) var(--nb-ease-out)"
         },
-        ".monaco-button:hover": {
+        ".monaco-button:hover, a.monaco-button:hover, .monaco-text-button:hover": {
             "border-color": "var(--nb-border-hover)",
-            "box-shadow": "var(--nb-shadow-soft)"
+            "box-shadow": "var(--nb-shadow-soft)",
+            "color": "var(--vscode-button-foreground) !important"
+        },
+        ".monaco-button.secondary, a.monaco-button.secondary": {
+            "color": "var(--vscode-button-secondaryForeground) !important",
+            "background-color": "var(--vscode-button-secondaryBackground) !important"
         },
         ".monaco-button:active, .action-label:active": {
             "transform": "scale(0.98)"
