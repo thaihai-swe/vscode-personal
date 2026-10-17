@@ -1876,6 +1876,9 @@
         "editor.wordWrap": "on",
         "editor.quickSuggestions": true
     },
+    "markdown.preview.fontFamily": "'Lilex', 'Zed Mono', 'IBM Plex Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
+    "markdown.preview.fontSize": 15,
+    "markdown.preview.lineHeight": 1.6,
     "[yaml]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true

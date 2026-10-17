@@ -17,6 +17,7 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 - **Midnight OLED** — pitch-black canvas (`#000000`) with elevated graphite chrome (`#090a0c`), crisp `#d4d7dd` text, and vibrant rainbow bracket guides.
 - **Warm Editorial** — warm paper surface (`#fbf7eb`) with high-contrast ink (`#2c2b27`), deep pine, terracotta, and berry syntax accents, and 6-hue warm bracket guides.
 - **Sage Botanic** — serene mint-tinted paper (`#f5f8f5`) with crisp slate text (`#242d38`), forest green, teal, and amber syntax.
+- **Proof** — warm paper surface (`#f5f3ed`) with dark olive-charcoal ink (`#2f312d`), restrained forest green (`#3d755d`) and slate-blue (`#365f7c`) accents, inspired by ChatGPT & Codex Proof aesthetics.
 
 ### Classic Preserved Suites
 

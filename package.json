@@ -57,6 +57,11 @@
         "path": "./themes/sage-botanic.json"
       },
       {
+        "label": "Proof",
+        "uiTheme": "vs",
+        "path": "./themes/proof.json"
+      },
+      {
         "label": "Rosé Pine Dawn",
         "uiTheme": "vs",
         "path": "./themes/rose-pine-dawn.json"
