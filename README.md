@@ -36,6 +36,25 @@ OR CTRL + SHIFT + P => **Preferences: Open Settings (JSON)** and paste the conte
 5. Install Custom UI Style extension
 6. Reload
 
+## Theme compatibility
+
+The optional Custom UI Style chrome is theme-agnostic: it reads only VS Code theme
+tokens (`--vscode-*`) and never hardcodes palette colors, so any installed theme —
+not just the bundled Glass Paper themes — gets coherent surfaces, borders, and
+contrast.
+
+- **Focus rings** use a two-layer indicator: an opaque foreground ring plus an
+  accent halo. Themes that ship a fully transparent `focusBorder` (common in
+  minimal dark themes) stay keyboard-navigable.
+- **Active states** get an accent rail and inset highlight derived from the theme's
+  focus color, so selection is legible even on low-contrast palettes.
+- **High contrast** (`hc-black` / `hc-light`) and `prefers-contrast: more` fall back
+  to system `CanvasText` borders and drop glass blur and shadows.
+- **Reduced transparency and motion** are honored via media queries.
+- **Older VS Code builds** that predate `color-mix()` (Chromium 111 / VS Code ~1.82)
+  are covered by an `@supports not (...)` fallback layer that maps every derived
+  token to a plain theme token instead of rendering transparent blocks.
+
 
 ## Installation
 

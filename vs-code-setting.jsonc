@@ -503,7 +503,7 @@
             "--nb-surface-shadow": "var(--nb-shadow-md)",
             "--nb-widget-shadow": "var(--nb-shadow-xl)",
             "--nb-shadow-soft": "var(--nb-shadow-sm)",
-            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, #fff 10%, transparent), 0 1px 4px color-mix(in srgb, #000 16%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 16%, transparent)",
             // Blur & backdrop
             "--nb-glass-blur": "blur(18px) saturate(180%)",
             "--nb-blur-strong": "blur(24px) saturate(200%)",
@@ -514,11 +514,24 @@
             "--nb-ease-out": "cubic-bezier(0.16, 1, 0.3, 1)",
             "--nb-ease-soft": "cubic-bezier(0.25, 0.1, 0.25, 1)",
             "--nb-transition-ui": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)",
-            // Focus states
-            "--nb-focus": "var(--vscode-button-background, var(--vscode-focusBorder))",
-            "--nb-focus-ring": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 35%, transparent), 0 0 0 1px var(--nb-focus)",
+            // Focus states — deliberately dual-layer so the ring survives every theme.
+            // Some themes ship a fully transparent focusBorder (and a transparent
+            // button background); an accent-only ring would then be invisible.
+            // Layer 1 is the always-opaque theme foreground, layer 2 adds the
+            // accent tint on top, so the ring is visible on any palette.
+            // Note the fallback order: some themes (e.g. Islands Dark) ship a fully
+            // transparent focusBorder, so the opaque button accent is preferred and
+            // the theme foreground is the last-resort final fallback.
+            "--nb-focus": "var(--vscode-button-background, var(--vscode-focusBorder, var(--vscode-foreground)))",
+            "--nb-focus-contrast": "var(--vscode-foreground)",
+            "--nb-focus-ring": "0 0 0 1px var(--nb-focus-contrast), 0 0 0 3px color-mix(in oklch, var(--nb-focus) 45%, transparent)",
             "--nb-focus-ring-offset": "2px",
-            "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
+            "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background), 0 0 0 calc(var(--nb-focus-ring-offset) + 1px) var(--nb-focus-contrast), 0 0 0 calc(var(--nb-focus-ring-offset) + 3px) color-mix(in oklch, var(--nb-focus) 45%, transparent)",
+            // Active-state accent, used by tabs, selected rows, and badges. Tinted
+            // toward the foreground so it never disappears on low-contrast palettes.
+            "--nb-accent": "color-mix(in oklch, var(--nb-focus) 70%, var(--vscode-foreground) 30%)",
+            "--nb-accent-soft": "color-mix(in oklch, var(--nb-focus) 16%, transparent)",
+            "--nb-accent-ring": "color-mix(in oklch, var(--nb-focus) 55%, var(--vscode-foreground) 45%)",
             "background-color": "var(--nb-canvas) !important",
             "font-family": "var(--nb-font-ui) !important",
             "-webkit-font-smoothing": "antialiased !important",
@@ -569,11 +582,17 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            "--nb-surface-shadow": "0 2px 10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)",
-            "--nb-widget-shadow": "0 20px 48px -8px rgba(0, 0, 0, 0.14), 0 4px 14px rgba(0, 0, 0, 0.06)",
-            "--nb-shadow-soft": "0 2px 6px rgba(0, 0, 0, 0.05)",
-            "--nb-pill-shadow": "inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.06)",
-            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 4%, #fff)",
+            // Light-theme depth stays anchored to black at low alpha: shadows are
+            // always dark in a light palette, and some light themes define
+            // widget.shadow as a light halo (Rosé Pine Dawn: #fffaf34d) which
+            // would erase depth if used here. The gloss highlight is instead
+            // derived from the theme's own raised surface, so warm palettes
+            // (Solarized Light, Rosé Pine Dawn) keep their hue.
+            "--nb-surface-shadow": "0 2px 10px color-mix(in srgb, #000 6%, transparent), 0 1px 3px color-mix(in srgb, #000 4%, transparent)",
+            "--nb-widget-shadow": "0 20px 48px -8px color-mix(in srgb, #000 14%, transparent), 0 4px 14px color-mix(in srgb, #000 6%, transparent)",
+            "--nb-shadow-soft": "0 2px 6px color-mix(in srgb, #000 5%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--nb-surface-raised) 80%, transparent), 0 1px 3px color-mix(in srgb, #000 6%, transparent)",
+            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-foreground) 4%, var(--nb-surface-raised))",
             "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 25%, transparent)",
             "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
             "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 50%, transparent)"
@@ -879,12 +898,12 @@
         ".part.sidebar .monaco-list-row.selected": {
             "background-color": "var(--vscode-list-inactiveSelectionBackground, var(--nb-surface-highlight)) !important",
             "color": "var(--vscode-list-inactiveSelectionForeground, inherit) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-soft) !important"
+            "box-shadow": "inset 2px 0 0 var(--nb-accent), inset 0 0 0 1px var(--nb-accent-soft) !important"
         },
         ".part.sidebar .monaco-list-row.focused": {
             "background-color": "var(--vscode-list-focusBackground, var(--nb-surface-highlight)) !important",
             "color": "var(--vscode-list-focusForeground, inherit) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover) !important"
+            "box-shadow": "inset 2px 0 0 var(--nb-accent-ring), inset 0 0 0 1px var(--nb-focus-contrast) !important"
         },
         ".part.sidebar .monaco-list-row:hover:not(.selected):not(.focused)": {
             "background-color": "var(--vscode-list-hoverBackground, var(--nb-surface-highlight)) !important"
@@ -1046,17 +1065,21 @@
             "opacity": "1",
             "border": "1px solid var(--nb-tab-outline)",
             "border-radius": "var(--nb-radius-tab)",
-            "box-shadow": "var(--nb-shadow-xs)"
+            "box-shadow": "var(--nb-shadow-xs), inset 0 1px 0 var(--nb-glass-n), inset 0 2px 0 var(--nb-accent)"
         },
         ".tab.active:hover": {
             "border-color": "var(--nb-tab-border-hover)",
             "background-color": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))"
         },
+        ".tab.active.focused": {
+            "border-color": "var(--nb-accent-ring)",
+            "box-shadow": "var(--nb-shadow-sm), inset 0 2px 0 var(--nb-accent)"
+        },
         ".tab.selected:not(.active)": {
             "background-color": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-tab-surface-inactive)) !important",
-            "border-color": "color-mix(in oklch, var(--nb-focus) 45%, transparent) !important",
+            "border-color": "var(--nb-accent-ring) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
-            "opacity": "0.95"
+            "opacity": "1"
         },
         ".editor-group-container:not(.active) .tab.active": {
             "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground))",
@@ -1143,7 +1166,7 @@
         },
         ".tab:focus-visible": {
             "outline": "none !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-focus) !important"
+            "box-shadow": "inset 0 0 0 1px var(--nb-focus-contrast) !important"
         },
         ".tab.pinned": {
             "min-width": "35px !important",
@@ -1335,7 +1358,7 @@
         ".quick-input-widget .monaco-list-row.focused, .suggest-widget .monaco-list-row.focused": {
             "background": "var(--vscode-list-focusBackground, var(--nb-surface-active)) !important",
             "color": "var(--vscode-list-focusForeground, inherit) !important",
-            "box-shadow": "inset 0 0 0 1px var(--nb-border-hover), 0 1px 3px var(--nb-shadow-xs) !important"
+            "box-shadow": "inset 2px 0 0 var(--nb-accent), inset 0 0 0 1px var(--nb-accent-soft), 0 1px 3px var(--nb-shadow-xs) !important"
         },
         ".monaco-keybinding, .keybinding, .command-center-keybinding": {
             "border-radius": "var(--nb-radius-sm)",
@@ -1345,7 +1368,7 @@
             "line-height": "12px !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, var(--nb-surface-raised)) !important",
             "border": "1px solid var(--nb-border-subtle)",
-            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, #000) 25%, transparent), 0 2px 3px rgba(0, 0, 0, 0.12)",
+            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 25%, transparent), 0 2px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
             "display": "inline-flex",
             "align-items": "center"
         },
@@ -1499,13 +1522,12 @@
         ".monaco-button:active, .action-label:active": {
             "transform": "scale(0.98)"
         },
-        // Theme-aware keyboard focus for interactive controls only. Use VS Code's
-        // focusBorder token (not the button accent) and a thin editor-background
-        // separator so the ring remains distinct on light and dark themes.
+        // Theme-aware keyboard focus for interactive controls only. The dual-ring
+        // token keeps the indicator visible even when a theme defines a fully
+        // transparent focusBorder or button background.
         ".monaco-workbench :is(button, [role='button'], [role='tab'], input, textarea, select, [tabindex]:not([tabindex='-1'])):focus-visible": {
-            "outline": "2px solid var(--vscode-focusBorder, var(--nb-focus)) !important",
-            "outline-offset": "2px",
-            "box-shadow": "0 0 0 1px var(--vscode-editor-background, transparent) !important",
+            "box-shadow": "var(--nb-ring) !important",
+            "outline": "none !important",
             "border-radius": "var(--nb-radius-item)"
         },
         ".monaco-workbench :is(input, textarea, [role='textbox']):focus-visible": {
@@ -1521,8 +1543,9 @@
             "box-shadow": "inset 0 0 0 1px var(--nb-border-subtle)"
         },
         ".monaco-workbench :focus-visible.monaco-list-row, .monaco-list-row:focus-visible": {
-            "outline": "2px solid var(--nb-focus)",
-            "outline-offset": "-2px"
+            "box-shadow": "inset 0 0 0 1px var(--nb-focus-contrast) !important",
+            "outline": "1px solid var(--nb-focus-contrast) !important",
+            "outline-offset": "-1px"
         },
         // ------------------------------------------------------------------
         // T. Status Bar Dock & System Micro-Badges
@@ -1702,6 +1725,73 @@
         // ------------------------------------------------------------------
         // X. Media Queries & Accessibility Adaptations
         // ------------------------------------------------------------------
+        // X0. color-mix() fallback for older VS Code builds.
+        // The declared engine range (^1.60) predates color-mix() support
+        // (Chromium 111 / VS Code ~1.82). Without this, every surface token
+        // derived from color-mix() would resolve to nothing and the chrome
+        // would render as transparent blocks. These are plain-token
+        // equivalents of the base layer, so the UI stays coherent.
+        "@supports not (color: color-mix(in srgb, red 50%, blue))": {
+            // Selector repeats the theme variants so the fallback outranks the
+            // higher-specificity .vs-dark / .vs / .hc-* token blocks above.
+            // Both the element-class and ancestor-class forms are covered,
+            // because VS Code has used each across versions.
+            ".monaco-workbench, .monaco-workbench.vs-dark, .monaco-workbench.vs, .monaco-workbench.hc-black, .monaco-workbench.hc-light, .vs-dark .monaco-workbench, .vs .monaco-workbench": {
+                "--nb-canvas": "var(--vscode-activityBar-background, var(--vscode-sideBar-background))",
+                "--nb-surface": "var(--vscode-sideBar-background)",
+                "--nb-surface-raised": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
+                "--nb-surface-elevated": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
+                "--nb-surface-highlight": "var(--vscode-list-hoverBackground, var(--vscode-toolbar-hoverBackground))",
+                "--nb-surface-active": "var(--vscode-list-activeSelectionBackground, var(--vscode-list-focusBackground))",
+                "--nb-pill": "var(--vscode-sideBar-background)",
+                "--nb-pill-hover": "var(--vscode-list-hoverBackground, var(--vscode-sideBar-background))",
+                "--nb-glass-n": "var(--vscode-widget-border, transparent)",
+                "--nb-glass-s": "transparent",
+                "--nb-glass-inset": "none",
+                "--nb-border": "var(--vscode-widget-border, var(--vscode-panel-border, transparent))",
+                "--nb-border-soft": "var(--vscode-widget-border, var(--vscode-panel-border, transparent))",
+                "--nb-border-subtle": "var(--vscode-widget-border, var(--vscode-panel-border, transparent))",
+                "--nb-border-hover": "var(--vscode-focusBorder, var(--vscode-foreground))",
+                "--nb-tab-surface-inactive": "transparent",
+                "--nb-tab-border-inactive": "var(--vscode-tab-border, transparent)",
+                "--nb-tab-border-hover": "var(--vscode-focusBorder, var(--vscode-foreground))",
+                "--nb-tab-outline": "var(--vscode-tab-border, transparent)",
+                "--nb-shadow-xs": "none",
+                "--nb-shadow-sm": "none",
+                "--nb-shadow-md": "none",
+                "--nb-shadow-xl": "none",
+                "--nb-surface-shadow": "none",
+                "--nb-widget-shadow": "none",
+                "--nb-shadow-soft": "none",
+                "--nb-pill-shadow": "none",
+                "--nb-glass-blur": "none",
+                "--nb-blur-strong": "none",
+                "--nb-focus": "var(--vscode-focusBorder, var(--vscode-button-background, var(--vscode-foreground)))",
+                "--nb-focus-contrast": "var(--vscode-foreground)",
+                "--nb-focus-ring": "0 0 0 1px var(--nb-focus-contrast)",
+                "--nb-ring": "0 0 0 var(--nb-focus-ring-offset) var(--nb-focus-contrast)",
+                "--nb-accent": "var(--vscode-focusBorder, var(--vscode-foreground))",
+                "--nb-accent-soft": "var(--vscode-focusBorder, transparent)",
+                "--nb-accent-ring": "var(--vscode-focusBorder, var(--vscode-foreground))"
+            },
+            // Keybindings and status badges also tint with color-mix().
+            ".monaco-keybinding, .keybinding, .command-center-keybinding": {
+                "background-color": "var(--vscode-keybindingLabel-background) !important",
+                "border": "1px solid var(--vscode-keybindingLabel-border, transparent)",
+                "box-shadow": "none"
+            },
+            ".part.statusbar .statusbar-item:has(.codicon-error)": {
+                "background-color": "var(--vscode-statusBarItem-errorBackground, transparent) !important",
+                "border": "none"
+            },
+            ".part.statusbar .statusbar-item:has(.codicon-warning)": {
+                "background-color": "var(--vscode-statusBarItem-warningBackground, transparent) !important",
+                "border": "none"
+            },
+            ".tab.selected:not(.active)": {
+                "background-color": "var(--vscode-tab-activeBackground, transparent) !important"
+            }
+        },
         "@media (max-width: 900px)": {
             ".monaco-workbench": {
                 "--nb-panel-gap": "4px",
@@ -1763,9 +1853,12 @@
                 "border": "1.5px solid var(--vscode-contrastBorder, CanvasText) !important",
                 "box-shadow": "none !important"
             },
-            ".monaco-workbench :focus-visible": {
+            // Mirrors the base focus selector; the box-shadow ring is dropped in
+            // favour of a hard outline because the rules above remove shadows.
+            ".monaco-workbench :is(button, [role='button'], [role='tab'], input, textarea, select, [tabindex]:not([tabindex='-1'])):focus-visible": {
                 "outline": "2px solid CanvasText !important",
-                "outline-offset": "2px !important"
+                "outline-offset": "2px !important",
+                "box-shadow": "none !important"
             }
         },
         "@media (forced-colors: active)": {
@@ -1777,6 +1870,21 @@
             },
             ":is(.monaco-breadcrumbs, .part.statusbar .statusbar-item-label, .minimap canvas)": {
                 "opacity": "1 !important"
+            },
+            // The universal box-shadow reset above would delete the shadow-based
+            // focus ring, so restore an outline-based indicator in this mode.
+            ":is(.monaco-workbench) :is(button, [role='button'], [role='tab'], input, textarea, select, [tabindex]:not([tabindex='-1'])):focus-visible": {
+                "outline": "2px solid Highlight !important",
+                "outline-offset": "1px !important",
+                "box-shadow": "none !important"
+            },
+            ".monaco-list-row.focused, .monaco-list-row.selected": {
+                "outline": "1px solid Highlight !important",
+                "outline-offset": "-1px !important"
+            },
+            ".tab.active": {
+                "border": "1px solid Highlight !important",
+                "box-shadow": "none !important"
             }
         }
     },
