@@ -30,7 +30,7 @@
     "number": "#ad6e25",
     "keyword": "#a449ab",
     "comment": {
-      "foreground": "#a2a3a7",
+      "foreground": "#737376",
       "fontStyle": "italic"
     },
     "regexp": "#ad6e26",
@@ -47,16 +47,16 @@
     "activityBar.foreground": "#242529",
     "activityBar.inactiveForeground": "#58585a",
     "activityBarBadge.background": "#5c78e2",
-    "activityBarBadge.foreground": "#ffffff",
+    "activityBarBadge.foreground": "#161616",
     "badge.background": "#5c78e2",
-    "badge.foreground": "#ffffff",
+    "badge.foreground": "#161616",
     "breadcrumb.activeSelectionForeground": "#111111",
     "breadcrumb.background": "#fafafa",
     "breadcrumb.focusForeground": "#242529",
     "breadcrumb.foreground": "#58585a",
     "breadcrumbPicker.background": "#f0f0f0",
     "button.background": "#5c78e2",
-    "button.foreground": "#ffffff",
+    "button.foreground": "#161616",
     "button.hoverBackground": "#4c68d2",
     "button.secondaryBackground": "#ebebec",
     "button.secondaryForeground": "#242529",
@@ -79,9 +79,9 @@
     "descriptionForeground": "#58585a",
     "diffEditor.border": "#d0d0d0",
     "diffEditor.insertedLineBackground": "#50a14f18",
-    "diffEditor.insertedTextBackground": "#50a14f25",
+    "diffEditor.insertedTextBackground": "#50a14f38",
     "diffEditor.removedLineBackground": "#e4564918",
-    "diffEditor.removedTextBackground": "#e4564925",
+    "diffEditor.removedTextBackground": "#e4564938",
     "disabledForeground": "#7e8086",
     "dropdown.background": "#fafafa",
     "dropdown.border": "#d0d0d0",
@@ -160,7 +160,7 @@
     "editorInlayHint.typeBackground": "#eaeaea80",
     "editorInlayHint.typeForeground": "#4078f2",
     "editorLineNumber.activeForeground": "#44454b",
-    "editorLineNumber.foreground": "#b4b4bb",
+    "editorLineNumber.foreground": "#919197",
     "editorRuler.foreground": "#383a410d",
     "editorStickyScroll.background": "#fafafa",
     "editorStickyScroll.border": "#dcdcdc60",
@@ -354,7 +354,8 @@
     "titleBar.inactiveForeground": "#58585a",
     "tree.inactiveIndentGuidesStroke": "#383a4126",
     "tree.indentGuidesStroke": "#383a4150",
-    "widget.shadow": "#00000018"
+    "widget.shadow": "#00000018",
+    "list.focusOutline": "#5c78e2"
   },
   "tokenColors": [
     {
@@ -364,7 +365,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#a2a3a7",
+        "foreground": "#737376",
         "fontStyle": "italic"
       }
     },

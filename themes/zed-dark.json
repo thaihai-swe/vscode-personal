@@ -30,7 +30,7 @@
     "number": "#bf956a",
     "keyword": "#b477cf",
     "comment": {
-      "foreground": "#5d636f",
+      "foreground": "#8e939b",
       "fontStyle": "italic"
     },
     "regexp": "#bf956a",
@@ -76,12 +76,12 @@
     "commandCenter.background": "#2e343e",
     "commandCenter.border": "#363c46",
     "commandCenter.foreground": "#dce0e5",
-    "descriptionForeground": "#878a98",
+    "descriptionForeground": "#8f929f",
     "diffEditor.border": "#3e4451",
     "diffEditor.insertedLineBackground": "#98c37915",
-    "diffEditor.insertedTextBackground": "#98c37920",
+    "diffEditor.insertedTextBackground": "#98c37938",
     "diffEditor.removedLineBackground": "#e06c7518",
-    "diffEditor.removedTextBackground": "#e06c7525",
+    "diffEditor.removedTextBackground": "#e06c7538",
     "disabledForeground": "#878a98",
     "dropdown.background": "#282c33",
     "dropdown.border": "#3e4451",
@@ -160,7 +160,7 @@
     "editorInlayHint.typeBackground": "#353b4580",
     "editorInlayHint.typeForeground": "#61afef",
     "editorLineNumber.activeForeground": "#d0d4da",
-    "editorLineNumber.foreground": "#4e5a5f",
+    "editorLineNumber.foreground": "#6c767a",
     "editorRuler.foreground": "#c8ccd40d",
     "editorStickyScroll.background": "#282c33",
     "editorStickyScroll.border": "#3e445160",
@@ -354,7 +354,8 @@
     "titleBar.inactiveForeground": "#a9afbc",
     "tree.inactiveIndentGuidesStroke": "#c8ccd426",
     "tree.indentGuidesStroke": "#c8ccd450",
-    "widget.shadow": "#00000040"
+    "widget.shadow": "#00000040",
+    "list.focusOutline": "#47679e"
   },
   "tokenColors": [
     {
@@ -364,7 +365,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#5d636f",
+        "foreground": "#8e939b",
         "fontStyle": "italic"
       }
     },

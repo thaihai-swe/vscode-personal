@@ -29,7 +29,7 @@
     "number": "#c2410c",
     "keyword": "#6d28d9",
     "comment": {
-      "foreground": "#887e9c",
+      "foreground": "#7c728e",
       "fontStyle": "italic"
     },
     "regexp": "#be185d",
@@ -51,7 +51,7 @@
     "breadcrumb.activeSelectionForeground": "#7c52e8",
     "breadcrumb.background": "#ffffff",
     "breadcrumb.focusForeground": "#241e33",
-    "breadcrumb.foreground": "#8c82a2",
+    "breadcrumb.foreground": "#7b728f",
     "breadcrumbPicker.background": "#ffffff",
     "button.background": "#7c52e8",
     "button.foreground": "#ffffff",
@@ -74,9 +74,9 @@
     "descriptionForeground": "#6b6280",
     "diffEditor.border": "#e5def0",
     "diffEditor.insertedLineBackground": "#05966910",
-    "diffEditor.insertedTextBackground": "#05966918",
+    "diffEditor.insertedTextBackground": "#05966938",
     "diffEditor.removedLineBackground": "#dc262610",
-    "diffEditor.removedTextBackground": "#dc262618",
+    "diffEditor.removedTextBackground": "#dc262638",
     "disabledForeground": "#9f96b2",
     "dropdown.background": "#ffffff",
     "dropdown.border": "#d8cee6",
@@ -180,7 +180,7 @@
     "editorLightBulb.foreground": "#d97706",
     "editorLightBulbAutoFix.foreground": "#7c52e8",
     "editorLineNumber.activeForeground": "#574488",
-    "editorLineNumber.foreground": "#9f96b2",
+    "editorLineNumber.foreground": "#9991ab",
     "editorLink.activeForeground": "#7c52e8",
     "editorOverviewRuler.addedForeground": "#059669aa",
     "editorOverviewRuler.border": "#e5def0",
@@ -293,7 +293,7 @@
     "sideBarSectionHeader.foreground": "#241e33",
     "sideBarTitle.foreground": "#241e33",
     "statusBar.background": "#ebe5f5",
-    "statusBar.border": "#00000000",
+    "statusBar.border": "#00000040",
     "statusBar.debuggingBackground": "#7c52e8",
     "statusBar.debuggingForeground": "#ffffff",
     "statusBar.foreground": "#453b5c",
@@ -351,7 +351,7 @@
     "tab.hoverBorder": "#00000000",
     "tab.hoverForeground": "#241e33",
     "tab.inactiveBackground": "#f2eff9",
-    "tab.inactiveForeground": "#746b88",
+    "tab.inactiveForeground": "#726986",
     "tab.lastPinnedBorder": "#dcd3e9",
     "tab.selectedBackground": "#f1ecfd90",
     "tab.selectedForeground": "#1b1730",
@@ -402,7 +402,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#887e9c",
+        "foreground": "#7c728e",
         "fontStyle": "italic"
       }
     },

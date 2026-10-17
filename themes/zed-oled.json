@@ -30,7 +30,7 @@
     "number": "#bf956a",
     "keyword": "#b477cf",
     "comment": {
-      "foreground": "#5d636f",
+      "foreground": "#6f757f",
       "fontStyle": "italic"
     },
     "regexp": "#bf956a",
@@ -79,9 +79,9 @@
     "descriptionForeground": "#878a98",
     "diffEditor.border": "#262a33",
     "diffEditor.insertedLineBackground": "#98c37915",
-    "diffEditor.insertedTextBackground": "#98c37920",
+    "diffEditor.insertedTextBackground": "#98c37938",
     "diffEditor.removedLineBackground": "#e06c7518",
-    "diffEditor.removedTextBackground": "#e06c7525",
+    "diffEditor.removedTextBackground": "#e06c7538",
     "disabledForeground": "#878a98",
     "dropdown.background": "#000000",
     "dropdown.border": "#262a33",
@@ -160,7 +160,7 @@
     "editorInlayHint.typeBackground": "#15181d80",
     "editorInlayHint.typeForeground": "#61afef",
     "editorLineNumber.activeForeground": "#d0d4da",
-    "editorLineNumber.foreground": "#4e5a5f",
+    "editorLineNumber.foreground": "#505b60",
     "editorRuler.foreground": "#c8ccd40d",
     "editorStickyScroll.background": "#000000",
     "editorStickyScroll.border": "#262a3360",
@@ -364,7 +364,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#5d636f",
+        "foreground": "#6f757f",
         "fontStyle": "italic"
       }
     },

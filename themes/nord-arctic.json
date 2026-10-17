@@ -50,14 +50,14 @@
     "debugExceptionWidget.border": "#2e3440",
     "debugToolBar.background": "#3b4252",
     "descriptionForeground": "#d8dee9e6",
-    "diffEditor.insertedTextBackground": "#22C55E20",
-    "diffEditor.removedTextBackground": "#EF444420",
+    "diffEditor.insertedTextBackground": "#22C55E38",
+    "diffEditor.removedTextBackground": "#EF444438",
     "dropdown.background": "#3b4252",
     "dropdown.border": "#3b4252",
     "dropdown.foreground": "#d8dee9",
     "editor.background": "#2e3440",
     "editor.findMatchBackground": "#88c0d066",
-    "editor.findMatchHighlightBackground": "#88c0d033",
+    "editor.findMatchHighlightBackground": "#88c0d044",
     "editor.findRangeHighlightBackground": "#88c0d033",
     "editor.focusedStackFrameHighlightBackground": "#5e81ac",
     "editor.foreground": "#d8dee9",
@@ -103,9 +103,9 @@
     "editorGhostText.background": "#00000000",
     "editorGhostText.foreground": "#616e88",
     "editorGroup.background": "#2e3440",
-    "editorGroup.border": "#3b425201",
+    "editorGroup.border": "#3b425240",
     "editorGroup.dropBackground": "#3b425299",
-    "editorGroupHeader.border": "#3b425200",
+    "editorGroupHeader.border": "#3b425240",
     "editorGroupHeader.noTabsBackground": "#353c4a",
     "editorGroupHeader.tabsBackground": "#353c4a",
     "editorGroupHeader.tabsBorder": "#00000000",
@@ -136,7 +136,7 @@
     "editorInlayHint.typeBackground": "#3b425280",
     "editorInlayHint.typeForeground": "#88c0d0",
     "editorLineNumber.activeForeground": "#d8dee9",
-    "editorLineNumber.foreground": "#4c566a",
+    "editorLineNumber.foreground": "#757d8c",
     "editorLink.activeForeground": "#88c0d0",
     "editorMarkerNavigation.background": "#5e81acc0",
     "editorMarkerNavigationError.background": "#bf616ac0",
@@ -203,7 +203,7 @@
     "keybindingLabel.border": "#4c566a",
     "keybindingLabel.bottomBorder": "#4c566a",
     "keybindingLabel.foreground": "#d8dee9",
-    "list.activeSelectionBackground": "#eceff418",
+    "list.activeSelectionBackground": "#434c5e",
     "list.activeSelectionForeground": "#eceff4",
     "list.activeSelectionIconForeground": "#eceff4",
     "list.dropBackground": "#88c0d033",
@@ -215,10 +215,10 @@
     "list.focusHighlightForeground": "#88c0d0",
     "list.focusOutline": "#4c566a",
     "list.highlightForeground": "#88c0d0",
-    "list.hoverBackground": "#eceff40a",
+    "list.hoverBackground": "#eceff440",
     "list.hoverForeground": "#eceff4",
     "list.inactiveFocusBackground": "#eceff410",
-    "list.inactiveSelectionBackground": "#eceff412",
+    "list.inactiveSelectionBackground": "#eceff455",
     "list.inactiveSelectionForeground": "#d8dee9",
     "list.inactiveSelectionIconForeground": "#d8dee9",
     "list.warningForeground": "#ebcb8b",
@@ -295,7 +295,7 @@
     "sideBarSectionHeader.foreground": "#eceff4",
     "sideBarTitle.foreground": "#eceff4",
     "statusBar.background": "#353c4a",
-    "statusBar.border": "#00000000",
+    "statusBar.border": "#00000040",
     "statusBar.debuggingBackground": "#5e81ac",
     "statusBar.debuggingForeground": "#d8dee9",
     "statusBar.foreground": "#d8dee9",
@@ -350,7 +350,7 @@
     "tab.hoverBackground": "#3b4252cc",
     "tab.hoverBorder": "#00000000",
     "tab.inactiveBackground": "#00000000",
-    "tab.inactiveForeground": "#d8dee966",
+    "tab.inactiveForeground": "#d8dee9",
     "tab.lastPinnedBorder": "#4c566a",
     "tab.selectedBackground": "#3b425290",
     "tab.selectedForeground": "#eceff4",
@@ -427,7 +427,7 @@
       "name": "Comment",
       "scope": "comment",
       "settings": {
-        "foreground": "#616E88"
+        "foreground": "#939cad"
       }
     },
     {
@@ -655,7 +655,7 @@
         "punctuation.start.definition.comment"
       ],
       "settings": {
-        "foreground": "#616E88"
+        "foreground": "#939cad"
       }
     },
     {
@@ -1589,7 +1589,7 @@
     "keyword": "#81a1c1",
     "constant": "#b48ead",
     "comment": {
-      "foreground": "#616e88",
+      "foreground": "#939cad",
       "fontStyle": "italic"
     },
     "operator": "#81a1c1"
