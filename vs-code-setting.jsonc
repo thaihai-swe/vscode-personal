@@ -1,4 +1,18 @@
 {
+    // Paste screenshots and images
+    // Other useful notebook settings
+    "markdown.validate.enabled": true,
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "editor.pasteAs.enabled": true,
+    "markdown.editor.filePaste.enabled": "always",
+    "markdown.editor.filePaste.copyIntoWorkspace": "mediaFiles",
+    "markdown.copyFiles.destination": {
+        "**/*.md": "assets/${documentBaseName}/"
+    },
+    "markdown.copyFiles.overwriteBehavior": "nameIncrementally",
+    "markdown.preview.breaks": false,
+    "markdown.preview.linkify": true,
+    "markdown.preview.doubleClickToSwitchToEditor": true,
     // ======================================================================
     // 1. Window, themes, startup, and focus behavior
     // ----------------------------------------------------------------------
