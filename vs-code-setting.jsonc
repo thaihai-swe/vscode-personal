@@ -23,7 +23,7 @@
     "window.zoomLevel": 1.1,
     "workbench.colorTheme": "Islands Dark",
     "workbench.preferredDarkColorTheme": "Islands Dark",
-    "workbench.preferredLightColorTheme": "Zed Light",
+    "workbench.preferredLightColorTheme": "Sage Botanic",
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
@@ -556,14 +556,14 @@
         // C. Light Theme Parchment & Porcelain Optics
         // ------------------------------------------------------------------
         ".monaco-workbench.vs, .vs .monaco-workbench": {
-            "--nb-canvas": "color-mix(in oklch, var(--vscode-sideBar-background) 90%, #fff 10%)",
-            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 96%, #fff 4%)",
-            "--nb-surface-raised": "#ffffff",
-            "--nb-surface-elevated": "#ffffff",
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-sideBar-background) 92%, var(--vscode-foreground) 8%)",
+            "--nb-surface": "var(--vscode-sideBar-background)",
+            "--nb-surface-raised": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
+            "--nb-surface-elevated": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 12%, #fff)",
-            "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 80%, #fff 20%)",
-            "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 65%, #fff 35%)",
+            "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 12%, var(--nb-surface))",
+            "--nb-pill": "color-mix(in oklch, var(--nb-canvas) 80%, var(--nb-surface) 20%)",
+            "--nb-pill-hover": "color-mix(in oklch, var(--nb-canvas) 65%, var(--nb-surface) 35%)",
             "--nb-glass-n": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-glass-s": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
             "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
@@ -584,9 +584,9 @@
         ".monaco-workbench.hc-black, .monaco-workbench.hc-light": {
             "--nb-glass-blur": "none",
             "--nb-blur-strong": "none",
-            "--nb-border": "1px solid var(--vscode-contrastBorder, CanvasText)",
-            "--nb-border-soft": "1px solid var(--vscode-contrastBorder, CanvasText)",
-            "--nb-border-subtle": "1px solid var(--vscode-contrastBorder, CanvasText)"
+            "--nb-border": "var(--vscode-contrastBorder, CanvasText)",
+            "--nb-border-soft": "var(--vscode-contrastBorder, CanvasText)",
+            "--nb-border-subtle": "var(--vscode-contrastBorder, CanvasText)"
         },
         // ------------------------------------------------------------------
         // E. Global Typography & Shell UI
@@ -657,12 +657,12 @@
         // ------------------------------------------------------------------
         ".part.activitybar": {
             "margin": "var(--nb-panel-top) 0 var(--nb-panel-bottom) var(--nb-panel-gap) !important",
-            "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
             "border-radius": "var(--nb-radius-panel)",
             "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-surface-shadow)",
             "background-color": "var(--vscode-activityBar-background, var(--nb-surface)) !important",
             "width": "42px !important",
+            "min-width": "38px !important",
             "box-sizing": "border-box",
             "overflow": "hidden",
             "background-image": "none !important",
@@ -764,7 +764,7 @@
         // ------------------------------------------------------------------
         ".part.sidebar, .part.auxiliarybar, .part.editor": {
             "margin": "var(--nb-panel-top) var(--nb-panel-gap) var(--nb-panel-bottom) var(--nb-panel-gap) !important",
-            "height": "calc(100% - var(--nb-panel-top) - var(--nb-panel-bottom)) !important",
+            "min-height": "0",
             "border-radius": "var(--nb-radius-panel)",
             "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-surface-shadow)",
@@ -1017,7 +1017,7 @@
             "box-shadow": "none",
             "background-color": "var(--nb-tab-surface-inactive, var(--vscode-tab-inactiveBackground))",
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground))",
-            "opacity": "0.88",
+            "opacity": "1",
             "display": "flex",
             "align-items": "center",
             "padding": "0 10px",
@@ -1176,10 +1176,6 @@
             "display": "none !important"
         },
         ".editor-group-container .tabs-container": {
-            "opacity": "0.85 !important",
-            "transition": "opacity var(--nb-motion-base) var(--nb-ease-out)"
-        },
-        ".editor-group-container.active .tabs-container": {
             "opacity": "1 !important"
         },
         // Fix #8: dirty dot (unsaved indicator) always renders at full opacity
@@ -1503,15 +1499,14 @@
         ".monaco-button:active, .action-label:active": {
             "transform": "scale(0.98)"
         },
-        // Fix #15: dual-ring focus indicator — the separator ring (editor background)
-        // sits between the element and the focus ring, guaranteeing visual contrast
-        // on any theme regardless of the theme's button/accent color.
-        ".monaco-workbench :focus-visible": {
-            "outline": "2px solid var(--nb-focus)",
-            "outline-offset": "var(--nb-focus-ring-offset)",
-            "box-shadow": "0 0 0 var(--nb-focus-ring-offset) var(--vscode-editor-background, transparent), 0 0 0 calc(var(--nb-focus-ring-offset) + 2px) var(--nb-focus)",
-            "border-radius": "var(--nb-radius-item)",
-            "animation": "none"
+        // Theme-aware keyboard focus for interactive controls only. Use VS Code's
+        // focusBorder token (not the button accent) and a thin editor-background
+        // separator so the ring remains distinct on light and dark themes.
+        ".monaco-workbench :is(button, [role='button'], [role='tab'], input, textarea, select, [tabindex]:not([tabindex='-1'])):focus-visible": {
+            "outline": "2px solid var(--vscode-focusBorder, var(--nb-focus)) !important",
+            "outline-offset": "2px",
+            "box-shadow": "0 0 0 1px var(--vscode-editor-background, transparent) !important",
+            "border-radius": "var(--nb-radius-item)"
         },
         ".monaco-workbench :is(input, textarea, [role='textbox']):focus-visible": {
             "outline": "none",
@@ -1536,11 +1531,6 @@
             "background-color": "var(--vscode-statusBar-background, var(--nb-canvas))",
             "border-top": "1px solid var(--nb-border-subtle)",
             "border-radius": "var(--nb-radius-widget) var(--nb-radius-widget) 0 0",
-            "margin": "0 var(--nb-panel-gap) !important",
-            "width": "calc(100% - (var(--nb-panel-gap) * 2)) !important",
-            "height": "26px !important",
-            "min-height": "26px !important",
-            "max-height": "26px !important",
             "box-sizing": "border-box",
             "box-shadow": "var(--nb-shadow-soft)",
             "font-family": "var(--nb-font-ui)",

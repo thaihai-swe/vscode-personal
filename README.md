@@ -30,7 +30,7 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 
 1. Install or update the extension in VS Code.
 2. Open **Preferences: Color Theme** and choose a Glass Paper theme.
-3. Copy `vs-code-setting.jsonc` into your VS Code User `settings.json` for matching editor ergonomics and optional Custom UI Style chrome. It now prefers **Islands Dark** in dark mode and **Sage** in light mode.
+3. Copy `vs-code-setting.jsonc` into your VS Code User `settings.json` for matching editor ergonomics and optional Custom UI Style chrome. It prefers **Islands Dark** in dark mode and **Sage Botanic** in light mode; you can replace either preference or select any installed theme. The optional custom chrome derives its colors from VS Code theme tokens.
 OR CTRL + SHIFT + P => **Preferences: Open Settings (JSON)** and paste the contents of `vs-code-setting.jsonc` into your `settings.json` file.
 4. Install Material Icon Theme and set it as your icon theme in VS Code settings.
 5. Install Custom UI Style extension
