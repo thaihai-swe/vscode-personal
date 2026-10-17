@@ -92,6 +92,7 @@
     "editor.findMatchHighlightBackground": "#e8af7466",
     "editor.findRangeHighlightBackground": "#3e445140",
     "editor.foreground": "#acb2be",
+    "editor.gutter.background": "#000000",
     "editor.hoverHighlightBackground": "#2e343e80",
     "editor.inactiveSelectionBackground": "#363c4680",
     "editor.lineHighlightBackground": "#16181d80",

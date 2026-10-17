@@ -6,7 +6,7 @@
     "activityBar.activeBackground": "#00000000",
     "activityBar.activeBorder": "#00000000",
     "activityBar.background": "#353c4a",
-    "activityBar.border": "#00000000",
+    "activityBar.border": "#3b4252",
     "activityBar.dropBackground": "#88c0d033",
     "activityBar.foreground": "#eceff4",
     "activityBar.inactiveForeground": "#7e889b",
@@ -36,6 +36,7 @@
     "chat.slashCommandBackground": "#434c5e",
     "chat.slashCommandForeground": "#88c0d0",
     "commandCenter.activeBackground": "#3b4252",
+    "commandCenter.activeBorder": "#88c0d080",
     "commandCenter.activeForeground": "#eceff4",
     "commandCenter.background": "#2e3440",
     "commandCenter.border": "#434c5e",
@@ -60,6 +61,7 @@
     "editor.findRangeHighlightBackground": "#88c0d033",
     "editor.focusedStackFrameHighlightBackground": "#5e81ac",
     "editor.foreground": "#d8dee9",
+    "editor.gutter.background": "#2e3440",
     "editor.hoverHighlightBackground": "#3b4252",
     "editor.inactiveSelectionBackground": "#434c5ecc",
     "editor.inlineValuesBackground": "#4c566a",
@@ -257,6 +259,7 @@
     "notifications.foreground": "#d8dee9",
     "panel.background": "#2e3440",
     "panel.border": "#3b4252",
+    "panelSection.border": "#3b4252",
     "panelTitle.activeBorder": "#88c0d000",
     "panelTitle.activeForeground": "#88c0d0",
     "panelTitle.inactiveForeground": "#d8dee9",
@@ -356,6 +359,7 @@
     "tab.unfocusedActiveForeground": "#d8dee999",
     "tab.unfocusedHoverBackground": "#3b4252b3",
     "tab.unfocusedHoverBorder": "#00000000",
+    "tab.unfocusedHoverForeground": "#d8dee9",
     "tab.unfocusedInactiveBackground": "#00000000",
     "tab.unfocusedInactiveForeground": "#d8dee966",
     "terminal.ansiBlack": "#3b4252",
@@ -389,7 +393,7 @@
     "textSeparator.foreground": "#eceff4",
     "titleBar.activeBackground": "#353c4a",
     "titleBar.activeForeground": "#d8dee9",
-    "titleBar.border": "#00000000",
+    "titleBar.border": "#3b4252",
     "titleBar.inactiveBackground": "#353c4a",
     "titleBar.inactiveForeground": "#d8dee966",
     "toolbar.hoverBackground": "#eceff410",
@@ -1587,6 +1591,7 @@
     "comment": {
       "foreground": "#616e88",
       "fontStyle": "italic"
-    }
+    },
+    "operator": "#81a1c1"
   }
 }

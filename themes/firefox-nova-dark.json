@@ -33,7 +33,8 @@
       "fontStyle": "italic"
     },
     "regexp": "#f472b6",
-    "constant": "#fb923c"
+    "constant": "#fb923c",
+    "operator": "#a7f3d0"
   },
   "colors": {
     "activityBar.activeBackground": "#00000000",
@@ -65,6 +66,7 @@
     "chat.slashCommandBackground": "#2f2854",
     "chat.slashCommandForeground": "#7c52e8",
     "commandCenter.activeBackground": "#231f3d",
+    "commandCenter.activeBorder": "#a7f3d080",
     "commandCenter.activeForeground": "#ffffff",
     "commandCenter.background": "#161326",
     "commandCenter.border": "#342e59",
@@ -90,6 +92,7 @@
     "editor.findRangeHighlightBackground": "#35275c40",
     "editor.findRangeHighlightBorder": "#00000000",
     "editor.foreground": "#ece7f4",
+    "editor.gutter.background": "#161326",
     "editor.hoverHighlightBackground": "#29204480",
     "editor.inactiveSelectionBackground": "#32255288",
     "editor.lineHighlightBackground": "#1f1935",
@@ -355,6 +358,7 @@
     "tab.unfocusedActiveBackground": "#2c214d",
     "tab.unfocusedActiveBorderTop": "#8b75be",
     "tab.unfocusedActiveForeground": "#d5cbe4",
+    "tab.unfocusedHoverForeground": "#ffffff",
     "tab.unfocusedInactiveBackground": "#1b1730",
     "tab.unfocusedInactiveForeground": "#8a7d9f",
     "terminal.ansiBlack": "#161326",

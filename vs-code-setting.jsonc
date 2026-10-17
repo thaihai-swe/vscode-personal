@@ -414,9 +414,6 @@
     "github.copilot.nextEditSuggestions.enabled": true,
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-    "chat.agent.maxRequests": 50,
-    "chat.detectParticipant.enabled": false,
-    "chat.viewSessions.orientation": "stacked",
     "claudeCode.preferredLocation": "panel",
     "scm.startUpdateNotifications": false,
     // ======================================================================
@@ -657,7 +654,7 @@
             "background-image": "none !important",
             "transition": "var(--nb-transition-ui)"
         },
-        ".part:is(.activitybar, .auxiliarybar) .content": {
+        ".part.activitybar .content": {
             "width": "100% !important",
             "height": "100% !important",
             "display": "flex !important",
@@ -920,42 +917,13 @@
             "border-left-width": "1.5px !important"
         },
         // ------------------------------------------------------------------
-        // J. Auxiliary Bar (Copilot, Chat & Secondary Panes)
+        // J. Auxiliary Bar (Secondary Panes)
         // ------------------------------------------------------------------
         ".part.auxiliarybar .composite.title": {
             "padding": "8px 0 0 8px !important"
         },
-        ".part.auxiliarybar .split-view-view": {
-            "max-height": "100% !important",
-            "overflow": "hidden !important",
-            "display": "flex !important",
-            "flex-direction": "column !important"
-        },
         ".part.auxiliarybar .header": {
             "padding-left": "8px !important"
-        },
-        ".part.auxiliarybar .chat-input-part": {
-            "position": "sticky !important",
-            "bottom": "0 !important",
-            "z-index": "10 !important"
-        },
-        ".part.auxiliarybar :is(.interactive-input-part, .interactive-session)": {
-            "display": "flex !important",
-            "flex-direction": "column !important",
-            "overflow": "hidden !important"
-        },
-        ".part.auxiliarybar .interactive-session": {
-            "height": "100% !important"
-        },
-        ".part.auxiliarybar .interactive-list": {
-            "flex": "1 1 auto !important",
-            "overflow-y": "auto !important",
-            "min-height": "0 !important"
-        },
-        ".part.auxiliarybar .chat-input-container": {
-            "flex-shrink": "0 !important",
-            "overflow": "visible !important",
-            "min-height": "fit-content !important"
         },
         // ------------------------------------------------------------------
         // K. Tabs & Tab Strip (Floating Rounded Capsule Cards)
@@ -1666,35 +1634,14 @@
             "opacity": "1"
         },
         // ------------------------------------------------------------------
-        // V. Chat Input & AI Assistant Elements
+        // V. Terminal Find Widget
         // ------------------------------------------------------------------
-        ".chat-input-container, .interactive-input-part, .chat-editing-session-container, .chat-confirmation-widget2, .inline-chat-widget, .terminal-find-widget": {
-            "border-radius": "var(--nb-radius-card)",
-            "overflow": "visible"
-        },
         ".terminal-find-widget": {
             "border-radius": "var(--nb-radius-widget)",
             "background-color": "var(--nb-surface-raised) !important",
             "border": "1px solid var(--nb-border-soft)",
             "box-shadow": "var(--nb-widget-shadow)",
             "padding": "4px 8px !important"
-        },
-        ".chat-input-container": {
-            "background-color": "var(--nb-surface)",
-            "border": "1px solid var(--nb-border-soft)",
-            "box-shadow": "var(--nb-surface-shadow)",
-            "padding": "4px",
-            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
-        },
-        ".chat-input-container:focus-within": {
-            "border-color": "var(--nb-focus)",
-            "box-shadow": "var(--nb-focus-ring)"
-        },
-        ".interactive-session .monaco-list-row": {
-            "border-radius": "var(--nb-radius-item)"
-        },
-        ".interactive-session pre, .interactive-session code": {
-            "border-radius": "var(--nb-radius-input)"
         },
         // ------------------------------------------------------------------
         // W. Keyframe Animations & Easing Curves

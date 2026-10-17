@@ -35,6 +35,7 @@
     "checkbox.border": "#3c3f41",
     "checkbox.foreground": "#bcbec4",
     "commandCenter.activeBackground": "#25324d",
+    "commandCenter.activeBorder": "#5b79e380",
     "commandCenter.activeForeground": "#bcbec4",
     "commandCenter.background": "#181a1d",
     "commandCenter.border": "#2b2d30",
@@ -69,6 +70,7 @@
     "editor.findMatchHighlightBackground": "#54575b50",
     "editor.foldBackground": "#25324d20",
     "editor.foreground": "#d4d7dd",
+    "editor.gutter.background": "#000000",
     "editor.hoverHighlightBackground": "#25324d30",
     "editor.inactiveSelectionBackground": "#373b3950",
     "editor.lineHighlightBackground": "#252629",
@@ -367,6 +369,7 @@
     "tab.unfocusedActiveBackground": "#181a1d",
     "tab.unfocusedActiveBorderTop": "#548af700",
     "tab.unfocusedActiveForeground": "#7a7e85",
+    "tab.unfocusedHoverForeground": "#b0b2b8",
     "tab.unfocusedInactiveBackground": "#161619",
     "tab.unfocusedInactiveForeground": "#6f737a",
     "terminal.ansiBlack": "#181a1d",
@@ -1138,6 +1141,7 @@
       "foreground": "#7a7e85",
       "fontStyle": "italic"
     },
-    "regexp": "#2aacb8"
+    "regexp": "#2aacb8",
+    "operator": "#5b79e3"
   }
 }
