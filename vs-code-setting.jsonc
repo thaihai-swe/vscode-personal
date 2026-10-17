@@ -9,7 +9,7 @@
     "window.zoomLevel": 1.1,
     "workbench.colorTheme": "Islands Dark",
     "workbench.preferredDarkColorTheme": "Islands Dark",
-    "workbench.preferredLightColorTheme": "Sage Botanic",
+    "workbench.preferredLightColorTheme": "Zed Light",
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
@@ -350,7 +350,7 @@
     // ----------------------------------------------------------------------
     // Integrated GPU rendering, persistent sessions, and ergonomic tabs.
     // ======================================================================
-    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.enabled": false,
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.minimumContrastRatio": 7,
     "terminal.integrated.smoothScrolling": true,
@@ -1874,7 +1874,7 @@
     },
     "[markdown]": {
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": false
+        "editor.quickSuggestions": true
     },
     "[yaml]": {
         "editor.tabSize": 2,
