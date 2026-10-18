@@ -1,6 +1,6 @@
-# Glass Paper Theme & VS Code Settings Redesign
+# Islands Studio Theme & VS Code Settings Redesign
 
-A Solarized, Nord, Rosé Pine, Sage, and Islands-inspired suite for VS Code, designed as one Glass Paper system for long coding sessions, stable focus states, and predictable workspace ergonomics.
+A Solarized, Nord, Rosé Pine, Sage, and Islands-inspired suite for VS Code, designed as an Islands Studio system for long coding sessions, stable focus states, and predictable workspace ergonomics with floating island panels and tactile specular glass reflections.
 
 The **Islands Dark** variant is synced directly from [vscode-dark-islands](https://github.com/bwya77/vscode-dark-islands), including its workbench palette and syntax colors. Its companion settings keep the same darker canvas, lighter floating surfaces, rounded panels, pill activity bar, quieter inactive chrome, and subtle motion from that reference.
 
@@ -29,8 +29,8 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 ## Installation & setup
 
 1. Install or update the extension in VS Code.
-2. Open **Preferences: Color Theme** and choose a Glass Paper theme.
-3. Copy `vs-code-setting.jsonc` into your VS Code User `settings.json` for matching editor ergonomics and optional Custom UI Style chrome. It prefers **Islands Dark** in dark mode and **Sage Botanic** in light mode; you can replace either preference or select any installed theme. The optional custom chrome derives its colors from VS Code theme tokens.
+2. Open **Preferences: Color Theme** and choose an Islands Studio theme.
+3. Copy `vs-code-setting.jsonc` into your VS Code User `settings.json` for matching editor ergonomics and optional Custom UI Style chrome. It prefers **Islands Dark** in dark mode and **Warm Editorial** in light mode; you can replace either preference or select any installed theme. The optional custom chrome derives its colors from VS Code theme tokens.
 OR CTRL + SHIFT + P => **Preferences: Open Settings (JSON)** and paste the contents of `vs-code-setting.jsonc` into your `settings.json` file.
 4. Install Material Icon Theme and set it as your icon theme in VS Code settings.
 5. Install Custom UI Style extension
@@ -40,7 +40,7 @@ OR CTRL + SHIFT + P => **Preferences: Open Settings (JSON)** and paste the conte
 
 The optional Custom UI Style chrome is theme-agnostic: it reads only VS Code theme
 tokens (`--vscode-*`) and never hardcodes palette colors, so any installed theme —
-not just the bundled Glass Paper themes — gets coherent surfaces, borders, and
+not just the bundled Islands Studio themes — gets coherent surfaces, borders, and
 contrast.
 
 - **Focus rings** use a two-layer indicator: an opaque foreground ring plus an
@@ -60,5 +60,5 @@ contrast.
 
 ```bash
 npx vsce package
-code --install-extension glass-paper-theme-0.0.1.vsix
+code --install-extension islands-studio-theme-0.0.1.vsix
 ```
