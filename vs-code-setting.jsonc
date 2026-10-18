@@ -1,7 +1,8 @@
 {
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": false,
     // Paste screenshots and images
     // Other useful notebook settings
-    "markdown.validate.enabled": true,
     "markdown.updateLinksOnFileMove.enabled": "always",
     "editor.pasteAs.enabled": true,
     "markdown.editor.filePaste.enabled": "always",
@@ -23,7 +24,7 @@
     "window.zoomLevel": 1.1,
     "workbench.colorTheme": "Islands Dark",
     "workbench.preferredDarkColorTheme": "Islands Dark",
-    "workbench.preferredLightColorTheme": "Sage Botanic",
+    "workbench.preferredLightColorTheme": "Warm Editorial",
     "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "welcomePage",
@@ -282,8 +283,6 @@
     "search.searchEditor.doubleClickBehaviour": "goToLocation",
     "files.autoSave": "onFocusChange",
     "files.autoSaveDelay": 1000,
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
     "files.eol": "\n",
     "files.simpleDialog.enable": false,
@@ -503,7 +502,7 @@
             "--nb-surface-shadow": "var(--nb-shadow-md)",
             "--nb-widget-shadow": "var(--nb-shadow-xl)",
             "--nb-shadow-soft": "var(--nb-shadow-sm)",
-            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 16%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, #fff 10%, transparent), 0 1px 4px color-mix(in srgb, #000 16%, transparent)",
             // Blur & backdrop
             "--nb-glass-blur": "blur(18px) saturate(180%)",
             "--nb-blur-strong": "blur(24px) saturate(200%)",
@@ -582,16 +581,13 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 12%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
-            // Light-theme depth stays anchored to black at low alpha: shadows are
-            // always dark in a light palette, and some light themes define
-            // widget.shadow as a light halo (Rosé Pine Dawn: #fffaf34d) which
-            // would erase depth if used here. The gloss highlight is instead
-            // derived from the theme's own raised surface, so warm palettes
-            // (Solarized Light, Rosé Pine Dawn) keep their hue.
-            "--nb-surface-shadow": "0 2px 10px color-mix(in srgb, #000 6%, transparent), 0 1px 3px color-mix(in srgb, #000 4%, transparent)",
-            "--nb-widget-shadow": "0 20px 48px -8px color-mix(in srgb, #000 14%, transparent), 0 4px 14px color-mix(in srgb, #000 6%, transparent)",
-            "--nb-shadow-soft": "0 2px 6px color-mix(in srgb, #000 5%, transparent)",
-            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--nb-surface-raised) 80%, transparent), 0 1px 3px color-mix(in srgb, #000 6%, transparent)",
+            // Shadows and gloss are derived from theme tokens rather than pure
+            // black/white, so warm light palettes (Solarized Light, Rosé Pine
+            // Dawn) keep their hue instead of picking up a neutral white streak.
+            "--nb-surface-shadow": "0 2px 10px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 4%, transparent)",
+            "--nb-widget-shadow": "0 20px 48px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 14%, transparent), 0 4px 14px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent)",
+            "--nb-shadow-soft": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 5%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 80%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent)",
             "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-foreground) 4%, var(--nb-surface-raised))",
             "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 25%, transparent)",
             "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
@@ -1368,7 +1364,7 @@
             "line-height": "12px !important",
             "background-color": "color-mix(in oklch, var(--vscode-foreground) 8%, var(--nb-surface-raised)) !important",
             "border": "1px solid var(--nb-border-subtle)",
-            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 25%, transparent), 0 2px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
+            "box-shadow": "0 1px 0 1px color-mix(in oklch, var(--vscode-widget-border, #000) 25%, transparent), 0 2px 3px rgba(0, 0, 0, 0.12)",
             "display": "inline-flex",
             "align-items": "center"
         },
@@ -1948,8 +1944,15 @@
         "editor.tabSize": 4
     },
     "[markdown]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": false,
+        "editor.formatOnPaste": false,
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": true
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "on",
+            "other": "off"
+        }
     },
     "markdown.preview.fontFamily": "'Lilex', 'Zed Mono', 'IBM Plex Mono', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
     "markdown.preview.fontSize": 15,
@@ -1969,5 +1972,5 @@
     "editor.ghostText.enabled": true,
     "workbench.editor.inlineSuggest.support.enabled": true,
     "diffEditor.overviewRulerBorder": true,
-    "notebook.stickyScroll.enabled": true
+    "notebook.stickyScroll.enabled": true,
 }
