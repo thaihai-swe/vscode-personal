@@ -238,6 +238,13 @@
     "minimapSlider.activeBackground": "#434c5eaa",
     "minimapSlider.background": "#434c5e99",
     "minimapSlider.hoverBackground": "#434c5eaa",
+    "notebook.cellBorderColor": "#434c5e",
+    "notebook.cellEditorBackground": "#3b4252",
+    "notebook.cellHoverStatsAddressBackground": "#353c4a",
+    "notebook.editorBackground": "#2e3440",
+    "notebook.focusedCellBorder": "#88c0d0",
+    "notebook.focusedEditorBorder": "#88c0d0",
+    "notebookScrollbarSlider.background": "#4c566a80",
     "notification.background": "#3b4252",
     "notification.buttonBackground": "#434c5e",
     "notification.buttonForeground": "#d8dee9",
@@ -402,6 +409,7 @@
     "walkThrough.embeddedEditorBackground": "#2e3440",
     "welcomePage.buttonBackground": "#434c5e",
     "welcomePage.buttonHoverBackground": "#4c566a",
+    "widget.border": "#3b4252",
     "widget.shadow": "#00000066"
   },
   "tokenColors": [

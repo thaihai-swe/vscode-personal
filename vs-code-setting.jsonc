@@ -232,7 +232,7 @@
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.value": 10,
     "workbench.editor.limit.perEditorGroup": true,
-    "editor.dimUnfocusedEditors": true,
+    "editor.dimUnfocusedEditors": false,
     // ======================================================================
     // 8. Explorer / solution-view behavior
     // ======================================================================
@@ -475,10 +475,10 @@
             "--nb-panel-gap": "6px",
             "--nb-panel-top": "6px",
             "--nb-panel-bottom": "6px",
-            // Base surfaces (Theme-adaptive via OKLCH)
+            // Base surfaces (Theme-adaptive via OKLCH, solid and high-contrast)
             "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 92%, var(--vscode-foreground) 8%)",
-            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 95%, transparent)",
-            "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 96%, transparent)",
+            "--nb-surface": "var(--vscode-sideBar-background)",
+            "--nb-surface-raised": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
             "--nb-surface-elevated": "color-mix(in oklch, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 90%, var(--vscode-foreground) 10%)",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 14%, var(--nb-surface))",
@@ -540,16 +540,16 @@
             "--nb-accent-ring": "color-mix(in oklch, var(--nb-focus) 55%, var(--vscode-foreground) 45%)",
             "background-color": "var(--nb-canvas) !important",
             "font-family": "var(--nb-font-ui) !important",
-            "-webkit-font-smoothing": "antialiased !important",
-            "-moz-osx-font-smoothing": "grayscale !important"
+            "-webkit-font-smoothing": "antialiased",
+            "text-rendering": "optimizeLegibility"
         },
         // ------------------------------------------------------------------
         // B. Dark Theme Depth & Material Physics
         // ------------------------------------------------------------------
         ".monaco-workbench.vs-dark, .vs-dark .monaco-workbench": {
             "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 86%, #000 14%)",
-            "--nb-surface": "color-mix(in oklch, var(--vscode-sideBar-background) 94%, transparent)",
-            "--nb-surface-raised": "color-mix(in oklch, var(--vscode-editorWidget-background) 92%, transparent)",
+            "--nb-surface": "var(--vscode-sideBar-background)",
+            "--nb-surface-raised": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
             "--nb-surface-elevated": "color-mix(in oklch, var(--vscode-editorWidget-background) 86%, var(--vscode-foreground) 14%)",
             "--nb-surface-highlight": "color-mix(in oklch, var(--vscode-foreground) 10%, transparent)",
             "--nb-surface-active": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-surface))",
@@ -621,7 +621,7 @@
         ".monaco-list-row, .monaco-menu .action-label, .quick-input-widget, .suggest-widget, .settings-editor": {
             "font-size": "var(--nb-font-size-ui) !important"
         },
-        ".part.statusbar, .monaco-breadcrumbs, .tab .label-name": {
+        ".part.statusbar, .monaco-breadcrumbs": {
             "font-size": "var(--nb-font-size-small) !important"
         },
         ".part.sidebar .title-label, .part.auxiliarybar .title-label, .part.panel.bottom .title-label": {
@@ -670,7 +670,7 @@
             "border-radius": "var(--nb-radius-sm)"
         },
         ".command-center-center .codicon-search": {
-            "opacity": "0.75 !important",
+            "opacity": "0.9 !important",
             "font-size": "var(--nb-font-size-ui) !important",
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
@@ -742,7 +742,7 @@
         ".part.activitybar .action-item .action-label": {
             "font-size": "20px !important",
             "color": "var(--vscode-activityBar-inactiveForeground, var(--vscode-activityBar-foreground)) !important",
-            "opacity": "0.75 !important",
+            "opacity": "0.88 !important",
             "width": "30px !important",
             "height": "30px !important",
             "line-height": "30px !important",
@@ -916,7 +916,7 @@
         },
         ".monaco-tl-twistie": {
             "transition": "transform var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)",
-            "opacity": "0.6"
+            "opacity": "0.8"
         },
         ".monaco-list-row:hover .monaco-tl-twistie": {
             "opacity": "1 !important"
@@ -927,7 +927,7 @@
         ".monaco-tl-indent > .indent-guide": {
             "border-left-width": "1px !important",
             "border-left-style": "solid !important",
-            "opacity": "0.55",
+            "opacity": "0.75",
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 1)": {
@@ -1001,7 +1001,7 @@
         ".editor-actions .action-label": {
             "border-radius": "var(--nb-radius-item)",
             "padding": "3px 5px",
-            "opacity": "0.75",
+            "opacity": "0.88",
             "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), opacity var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".editor-actions .action-label:hover": {
@@ -1216,7 +1216,7 @@
         // L. Breadcrumbs, Minimap & Sticky Scroll
         // ------------------------------------------------------------------
         ".minimap canvas": {
-            "opacity": "0.8 !important",
+            "opacity": "1 !important",
             "transition": "opacity var(--nb-motion-slow) var(--nb-ease-out)"
         },
         ".minimap:is(:hover, :focus-within) canvas": {
@@ -1226,7 +1226,7 @@
             "border-top": "none !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important",
             "padding": "0 8px !important",
-            "opacity": "0.82 !important",
+            "opacity": "1 !important",
             "transition": "opacity var(--nb-motion-base) var(--nb-ease-out)"
         },
         ".monaco-breadcrumbs:is(:hover, :focus-within)": {
@@ -1347,14 +1347,19 @@
             "padding": "6px 8px !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important"
         },
-        ".quick-input-widget .monaco-inputbox, .quick-input-widget .monaco-inputbox.focused": {
+        ".quick-input-widget .monaco-inputbox": {
             "border": "1px solid var(--nb-border-subtle) !important",
             "border-radius": "var(--nb-radius-card) !important",
             "box-shadow": "inset 0 1px 2px color-mix(in srgb, #000 8%, transparent) !important",
             "outline": "none !important",
-            "background": "color-mix(in oklch, var(--vscode-foreground) 4%, transparent) !important",
+            "background": "color-mix(in oklch, var(--vscode-input-background, var(--vscode-editor-background)) 92%, var(--vscode-foreground) 8%) !important",
             "font-size": "14px !important",
-            "padding": "7px 10px !important"
+            "padding": "7px 10px !important",
+            "transition": "border-color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
+        },
+        ".quick-input-widget .monaco-inputbox.focused": {
+            "border-color": "var(--nb-focus) !important",
+            "box-shadow": "var(--nb-focus-ring) !important"
         },
         ".quick-input-widget .monaco-list-row": {
             "margin": "1px 4px !important",
@@ -1583,7 +1588,7 @@
             "border": "1px solid var(--nb-border) !important",
             "box-shadow": "inset 0 1px 0 color-mix(in srgb, #fff 12%, transparent), 0 1px 2px color-mix(in srgb, #000 16%, transparent) !important",
             "color": "var(--vscode-statusBar-foreground, var(--vscode-foreground)) !important",
-            "font-size": "var(--nb-font-size-heading)",
+            "font-size": "var(--nb-font-size-small)",
             "font-weight": "500",
             "display": "inline-flex",
             "align-items": "center",
@@ -1600,11 +1605,8 @@
             "transform": "scale(0.96)"
         },
         ".part.statusbar :is(.statusbar-item-label, .codicon)": {
-            "opacity": "0.85",
-            "transition": "opacity var(--nb-motion-slow) var(--nb-ease-soft), color var(--nb-motion-slow) var(--nb-ease-soft)"
-        },
-        ".part.statusbar:is(:hover, :focus-within) :is(.statusbar-item-label, .codicon)": {
-            "opacity": "1"
+            "opacity": "1 !important",
+            "transition": "color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.statusbar .statusbar-item:has(.codicon-error)": {
             "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 22%, transparent)",

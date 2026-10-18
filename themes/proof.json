@@ -291,7 +291,7 @@
     "editorSuggestWidget.selectedForeground": "#1a1c19",
     "editorSuggestWidget.selectedIconForeground": "#2f312d",
     "editorUnnecessaryCode.border": "#2f312d33",
-    "editorUnnecessaryCode.opacity": "0.8",
+    "editorUnnecessaryCode.opacity": "#2f312d80",
     "editorWarning.border": "#a25d23",
     "editorWarning.foreground": "#a25d23",
     "editorWhitespace.foreground": "#cfcbc0",

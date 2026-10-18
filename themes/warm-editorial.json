@@ -280,7 +280,7 @@
     "editorSuggestWidget.selectedForeground": "#111111",
     "editorSuggestWidget.selectedIconForeground": "#2e2d29",
     "editorUnnecessaryCode.border": "#302f2a33",
-    "editorUnnecessaryCode.opacity": "0.8",
+    "editorUnnecessaryCode.opacity": "#2c2b2780",
     "editorWarning.border": "#ea9d34",
     "editorWarning.foreground": "#ea9d34",
     "editorWhitespace.foreground": "#bcb8b5",

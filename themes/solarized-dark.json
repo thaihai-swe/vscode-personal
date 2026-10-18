@@ -280,7 +280,7 @@
     "editorSuggestWidget.selectedForeground": "#fdf6e3",
     "editorSuggestWidget.selectedIconForeground": "#839496",
     "editorUnnecessaryCode.border": "#83949633",
-    "editorUnnecessaryCode.opacity": "0.8",
+    "editorUnnecessaryCode.opacity": "#83949680",
     "editorWarning.border": "#b58900",
     "editorWarning.foreground": "#b58900",
     "editorWhitespace.foreground": "#93a1a180",
@@ -771,7 +771,9 @@
     {
       "name": "Function argument",
       "scope": "variable.parameter",
-      "settings": {}
+      "settings": {
+        "foreground": "#839496"
+      }
     },
     {
       "name": "Tag name",
@@ -814,7 +816,9 @@
         "support.constant",
         "support.variable"
       ],
-      "settings": {}
+      "settings": {
+        "foreground": "#2aa198"
+      }
     },
     {
       "name": "Library class/type",
@@ -836,7 +840,9 @@
     {
       "name": "Library variable",
       "scope": "support.other.variable",
-      "settings": {}
+      "settings": {
+        "foreground": "#b58900"
+      }
     },
     {
       "name": "Invalid",
