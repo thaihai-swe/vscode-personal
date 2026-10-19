@@ -4,7 +4,7 @@ A Solarized, Nord, Rosé Pine, Sage, and Islands-inspired suite for VS Code, des
 
 The **Islands Dark** variant is synced directly from [vscode-dark-islands](https://github.com/bwya77/vscode-dark-islands), including its workbench palette and syntax colors. Its companion settings keep the same darker canvas, lighter floating surfaces, rounded panels, pill activity bar, quieter inactive chrome, and subtle motion from that reference.
 
-Indentation is treated like Indent Rainbow: each theme cycles six distinct hues across indent guides, bracket pair guides, and bracket colorization so nesting depth is readable at a glance. Paste `vs-code-setting.jsonc` to keep those native guides always on.
+Indentation is treated like Indent Rainbow: each theme cycles six distinct hues across indent guides, bracket pair guides, and bracket colorization so nesting depth is readable at a glance. Paste `vs-code-setting.jsonc` to keep those native guides always on. The settings also include a dedicated long-form writing and knowledge-work profile: prose typography and wrapping for Markdown, clearer previews, and calmer notebook cell/output controls for notes, research, and brain documents.
 
 Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfaces, Frost for structure (functions, types, focus, active chrome), Aurora for meaning (strings, numbers, errors, warnings). Palettes stay per-theme; roles stay the same.
 
@@ -16,6 +16,8 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 - **Nord Arctic** — authentic Polar Night slate (`#2e3440`) with matching dark panels and terminal, Snow Storm text, Frost cyan/blue structural syntax, and Aurora semantic highlights.
 - **Midnight OLED** — pitch-black canvas (`#000000`) with elevated graphite chrome (`#090a0c`), crisp `#d4d7dd` text, and vibrant rainbow bracket guides.
 - **Warm Editorial** — warm paper surface (`#fbf7eb`) with high-contrast ink (`#2c2b27`), deep pine, terracotta, and berry syntax accents, and 6-hue warm bracket guides.
+- **Reading / Research** — warm, low-glare paper (`#f5f3ec`) and deep ink (`#29312d`) with high-contrast, restrained botanical syntax colors, coordinated six-hue bracket guides, and complete notebook/Markdown surfaces. Designed for long reading sessions without sacrificing code distinction.
+- **Reading / Research Dark** — deep botanical charcoal (`#171c1a`) and soft sage-gray text (`#d9e1d8`) with bright but controlled syntax accents, matching six-hue guides, and notebook surfaces tuned for dark mode. The paired theme for research and coding at night.
 - **Sage Botanic** — serene mint-tinted paper (`#f5f8f5`) with crisp slate text (`#242d38`), forest green, teal, and amber syntax.
 - **Proof** — warm paper surface (`#f5f3ed`) with dark olive-charcoal ink (`#2f312d`), restrained forest green (`#3d755d`) and slate-blue (`#365f7c`) accents, inspired by ChatGPT & Codex Proof aesthetics.
 
@@ -30,7 +32,7 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 
 1. Install or update the extension in VS Code.
 2. Open **Preferences: Color Theme** and choose an Islands Studio theme.
-3. Copy `vs-code-setting.jsonc` into your VS Code User `settings.json` for matching editor ergonomics and optional Custom UI Style chrome. It prefers **Islands Dark** in dark mode and **Warm Editorial** in light mode; you can replace either preference or select any installed theme. The optional custom chrome derives its colors from VS Code theme tokens.
+3. Copy `vs-code-setting.jsonc` into your VS Code User `settings.json` for matching editor ergonomics and optional Custom UI Style chrome. It prefers **Islands Dark** in dark mode and **Reading / Research** in light mode; you can replace either preference or select any installed theme. The optional custom chrome derives its colors from VS Code theme tokens.
 OR CTRL + SHIFT + P => **Preferences: Open Settings (JSON)** and paste the contents of `vs-code-setting.jsonc` into your `settings.json` file.
 4. Install Material Icon Theme and set it as your icon theme in VS Code settings.
 5. Install Custom UI Style extension

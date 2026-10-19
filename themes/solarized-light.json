@@ -446,7 +446,7 @@
     "quickInput.background": "#eee8d5",
     "quickInput.foreground": "#657b83",
     "quickInputList.focusBackground": "#ddd6c1",
-    "quickInputList.focusForeground": "#657b83",
+    "quickInputList.focusForeground": "#002b36",
     "quickInputList.focusIconForeground": "#657b83",
     "sash.hoverBorder": "#2aa198",
     "scrollbar.background": "#fdf6e366",

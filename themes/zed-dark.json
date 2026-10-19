@@ -175,6 +175,7 @@
     "editorWidget.background": "#21252b",
     "editorWidget.border": "#363c46",
     "editorWidget.foreground": "#acb2be",
+    "editorWarning.foreground": "#e5c07b",
     "errorForeground": "#d07277",
     "focusBorder": "#47679e",
     "foreground": "#acb2be",

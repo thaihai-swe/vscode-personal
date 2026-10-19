@@ -54,6 +54,16 @@
         "path": "./themes/warm-editorial.json"
       },
       {
+        "label": "Reading / Research",
+        "uiTheme": "vs",
+        "path": "./themes/reading-research.json"
+      },
+      {
+        "label": "Reading / Research Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/reading-research-dark.json"
+      },
+      {
         "label": "Sage Botanic",
         "uiTheme": "vs",
         "path": "./themes/sage-botanic.json"

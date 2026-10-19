@@ -500,15 +500,15 @@
             "--nb-tab-border": "var(--vscode-tab-border, var(--nb-border-subtle))",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
             // Shadow hierarchy (Multi-layer ambient + contact physics)
-            "--nb-shadow-xs": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow, #000) 12%, transparent)",
-            "--nb-shadow-sm": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent)",
-            "--nb-shadow-md": "0 6px 18px -3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
-            "--nb-shadow-xl": "0 24px 60px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 42%, transparent), 0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 16%, transparent)",
-            "--nb-shadow-spotlight": "0 32px 72px -12px color-mix(in srgb, var(--vscode-widget-shadow, #000) 56%, transparent), 0 8px 24px -4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 22%, transparent)",
+            "--nb-shadow-xs": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow) 12%, transparent)",
+            "--nb-shadow-sm": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow) 18%, transparent)",
+            "--nb-shadow-md": "0 6px 18px -3px color-mix(in srgb, var(--vscode-widget-shadow) 24%, transparent)",
+            "--nb-shadow-xl": "0 24px 60px -8px color-mix(in srgb, var(--vscode-widget-shadow) 42%, transparent), 0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow) 16%, transparent)",
+            "--nb-shadow-spotlight": "0 32px 72px -12px color-mix(in srgb, var(--vscode-widget-shadow) 56%, transparent), 0 8px 24px -4px color-mix(in srgb, var(--vscode-widget-shadow) 22%, transparent)",
             "--nb-surface-shadow": "var(--nb-shadow-md)",
             "--nb-widget-shadow": "var(--nb-shadow-xl)",
             "--nb-shadow-soft": "var(--nb-shadow-sm)",
-            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, #fff 10%, transparent), 0 1px 4px color-mix(in srgb, #000 16%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-editor-background, transparent) 10%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow) 16%, transparent)",
             // Blur & backdrop
             // Keep backdrop effects subtle; opaque surfaces preserve text clarity.
             "--nb-glass-blur": "blur(8px) saturate(125%)",
@@ -547,7 +547,7 @@
         // B. Dark Theme Depth & Material Physics
         // ------------------------------------------------------------------
         ".monaco-workbench.vs-dark, .vs-dark .monaco-workbench": {
-            "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 86%, #000 14%)",
+            "--nb-canvas": "color-mix(in oklch, var(--vscode-activityBar-background, var(--vscode-sideBar-background)) 86%, var(--vscode-widget-shadow) 14%)",
             "--nb-surface": "var(--vscode-sideBar-background)",
             "--nb-surface-raised": "var(--vscode-editorWidget-background, var(--vscode-sideBar-background))",
             "--nb-surface-elevated": "color-mix(in oklch, var(--vscode-editorWidget-background) 86%, var(--vscode-foreground) 14%)",
@@ -560,11 +560,11 @@
             "--nb-border": "color-mix(in oklch, var(--vscode-widget-border, var(--vscode-foreground)) 26%, transparent)",
             "--nb-border-soft": "color-mix(in oklch, var(--vscode-foreground) 13%, transparent)",
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 7%, transparent)",
-            "--nb-surface-shadow": "0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow, #000) 36%, transparent)",
-            "--nb-widget-shadow": "0 24px 64px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 52%, transparent), 0 4px 18px color-mix(in srgb, var(--vscode-widget-shadow, #000) 24%, transparent)",
-            "--nb-shadow-spotlight": "0 32px 72px -10px color-mix(in srgb, var(--vscode-widget-shadow, #000) 65%, transparent), 0 8px 24px -4px color-mix(in srgb, var(--vscode-widget-shadow, #000) 30%, transparent)",
-            "--nb-shadow-soft": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 28%, transparent)",
-            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, #000 32%, transparent)",
+            "--nb-surface-shadow": "0 4px 16px color-mix(in srgb, var(--vscode-widget-shadow) 36%, transparent)",
+            "--nb-widget-shadow": "0 24px 64px -8px color-mix(in srgb, var(--vscode-widget-shadow) 52%, transparent), 0 4px 18px color-mix(in srgb, var(--vscode-widget-shadow) 24%, transparent)",
+            "--nb-shadow-spotlight": "0 32px 72px -10px color-mix(in srgb, var(--vscode-widget-shadow) 65%, transparent), 0 8px 24px -4px color-mix(in srgb, var(--vscode-widget-shadow) 30%, transparent)",
+            "--nb-shadow-soft": "0 2px 8px color-mix(in srgb, var(--vscode-widget-shadow) 28%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-foreground) 10%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow) 32%, transparent)",
             "--nb-glass-blur": "blur(8px) saturate(125%)",
             "--nb-blur-strong": "blur(12px) saturate(135%)",
             "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-sideBar-background) 80%, transparent)",
@@ -592,11 +592,11 @@
             // Shadows and gloss are derived from theme tokens rather than pure
             // black/white, so warm light palettes (Solarized Light, Rosé Pine
             // Dawn) keep their hue instead of picking up a neutral white streak.
-            "--nb-surface-shadow": "0 2px 10px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 4%, transparent)",
-            "--nb-widget-shadow": "0 20px 48px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 14%, transparent), 0 4px 14px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent)",
-            "--nb-shadow-spotlight": "0 24px 54px -8px color-mix(in srgb, var(--vscode-widget-shadow, #000) 18%, transparent), 0 6px 18px color-mix(in srgb, var(--vscode-widget-shadow, #000) 8%, transparent)",
-            "--nb-shadow-soft": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow, #000) 5%, transparent)",
-            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 80%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow, #000) 6%, transparent)",
+            "--nb-surface-shadow": "0 2px 10px color-mix(in srgb, var(--vscode-widget-shadow) 6%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow) 4%, transparent)",
+            "--nb-widget-shadow": "0 20px 48px -8px color-mix(in srgb, var(--vscode-widget-shadow) 14%, transparent), 0 4px 14px color-mix(in srgb, var(--vscode-widget-shadow) 6%, transparent)",
+            "--nb-shadow-spotlight": "0 24px 54px -8px color-mix(in srgb, var(--vscode-widget-shadow) 18%, transparent), 0 6px 18px color-mix(in srgb, var(--vscode-widget-shadow) 8%, transparent)",
+            "--nb-shadow-soft": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow) 5%, transparent)",
+            "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 80%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow) 6%, transparent)",
             "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-foreground) 4%, var(--nb-surface-raised))",
             "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 25%, transparent)",
             "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
@@ -931,22 +931,22 @@
             "transition": "opacity var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 1)": {
-            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground1, var(--vscode-editorBracketHighlight-foreground1, #73ade9)) !important"
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground1, var(--vscode-editorBracketHighlight-foreground1, var(--vscode-foreground))) !important"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 2)": {
-            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground2, var(--vscode-editorBracketHighlight-foreground2, #b477cf)) !important"
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground2, var(--vscode-editorBracketHighlight-foreground2, var(--vscode-foreground))) !important"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 3)": {
-            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground3, var(--vscode-editorBracketHighlight-foreground3, #dfc184)) !important"
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground3, var(--vscode-editorBracketHighlight-foreground3, var(--vscode-foreground))) !important"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 4)": {
-            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground4, var(--vscode-editorBracketHighlight-foreground4, #a1c181)) !important"
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground4, var(--vscode-editorBracketHighlight-foreground4, var(--vscode-foreground))) !important"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 5)": {
-            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground5, var(--vscode-editorBracketHighlight-foreground5, #6eb4bf)) !important"
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground5, var(--vscode-editorBracketHighlight-foreground5, var(--vscode-foreground))) !important"
         },
         ".monaco-tl-indent > .indent-guide:nth-child(6n + 6)": {
-            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground6, var(--vscode-editorBracketHighlight-foreground6, #d07277)) !important"
+            "border-left-color": "var(--vscode-editorBracketPairGuide-activeBackground6, var(--vscode-editorBracketHighlight-foreground6, var(--vscode-foreground))) !important"
         },
         ".part.sidebar .monaco-list-row:is(:hover, .focused, .selected) .monaco-tl-indent > .indent-guide": {
             "opacity": "0.9 !important"
@@ -1167,7 +1167,7 @@
             "transform": "scale(0.92) !important"
         },
         ".tab :is(.dirty, .codicon-modifier-modified)": {
-            "color": "var(--vscode-tab-activeModifiedBorder, #e5c07b) !important",
+            "color": "var(--vscode-tab-activeModifiedBorder, var(--vscode-editor-foreground)) !important",
             "opacity": "1 !important"
         },
         ".tab:focus-visible": {
@@ -1350,7 +1350,7 @@
         ".quick-input-widget .monaco-inputbox": {
             "border": "1px solid var(--nb-border-subtle) !important",
             "border-radius": "var(--nb-radius-card) !important",
-            "box-shadow": "inset 0 1px 2px color-mix(in srgb, #000 8%, transparent) !important",
+            "box-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow) 8%, transparent) !important",
             "outline": "none !important",
             "background": "color-mix(in oklch, var(--vscode-input-background, var(--vscode-editor-background)) 92%, var(--vscode-foreground) 8%) !important",
             "font-size": "14px !important",
@@ -1381,7 +1381,7 @@
             "background": "color-mix(in oklch, var(--vscode-foreground) 7%, var(--nb-surface-raised)) !important",
             "border": "1px solid var(--nb-border-soft) !important",
             "border-bottom": "2px solid color-mix(in oklch, var(--vscode-foreground) 24%, transparent) !important",
-            "box-shadow": "0 1px 2px color-mix(in srgb, #000 15%, transparent) !important",
+            "box-shadow": "0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow) 15%, transparent) !important",
             "display": "inline-flex",
             "align-items": "center"
         },
@@ -1586,7 +1586,7 @@
             "height": "calc(100% - 6px) !important",
             "background-color": "color-mix(in oklch, var(--vscode-statusBar-background, var(--nb-canvas)) 88%, var(--vscode-foreground) 12%) !important",
             "border": "1px solid var(--nb-border) !important",
-            "box-shadow": "inset 0 1px 0 color-mix(in srgb, #fff 12%, transparent), 0 1px 2px color-mix(in srgb, #000 16%, transparent) !important",
+            "box-shadow": "inset 0 1px 0 color-mix(in srgb, var(--vscode-editor-background, transparent) 12%, transparent), 0 1px 2px color-mix(in srgb, var(--vscode-widget-shadow) 16%, transparent) !important",
             "color": "var(--vscode-statusBar-foreground, var(--vscode-foreground)) !important",
             "font-size": "var(--nb-font-size-small)",
             "font-weight": "500",
@@ -1609,13 +1609,13 @@
             "transition": "color var(--nb-motion-fast) var(--nb-ease-out)"
         },
         ".part.statusbar .statusbar-item:has(.codicon-error)": {
-            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 22%, transparent)",
-            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, #e51400) 45%, transparent)",
+            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, var(--vscode-errorForeground, var(--vscode-foreground))) 22%, transparent)",
+            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-errorBackground, var(--vscode-errorForeground, var(--vscode-foreground))) 45%, transparent)",
             "color": "var(--vscode-statusBarItem-errorForeground, inherit)"
         },
         ".part.statusbar .statusbar-item:has(.codicon-warning)": {
-            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 20%, transparent)",
-            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, #cca700) 40%, transparent)",
+            "background-color": "color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, var(--vscode-editorWarning-foreground, var(--vscode-foreground))) 20%, transparent)",
+            "border": "1px solid color-mix(in oklch, var(--vscode-statusBarItem-warningBackground, var(--vscode-editorWarning-foreground, var(--vscode-foreground))) 40%, transparent)",
             "color": "var(--vscode-statusBarItem-warningForeground, inherit)"
         },
         // ------------------------------------------------------------------
