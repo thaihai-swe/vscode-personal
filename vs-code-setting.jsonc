@@ -492,12 +492,12 @@
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
             // Floating rounded capsule tab tokens
-            "--nb-tab-surface-active": "#d1def5",
-            "--nb-tab-border-active": "#b2c6ee",
-            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
+            "--nb-tab-surface-active": "var(--vscode-tab-activeBackground, color-mix(in oklch, var(--nb-focus) 22%, var(--vscode-editor-background)))",
+            "--nb-tab-border-active": "var(--vscode-tab-activeBorder, color-mix(in oklch, var(--nb-focus) 45%, transparent))",
+            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-foreground) 8%, var(--vscode-editor-background, transparent))",
             "--nb-tab-border-inactive": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
-            "--nb-tab-border-hover": "color-mix(in oklch, var(--vscode-foreground) 24%, transparent)",
-            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-foreground) 11%, transparent)",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--vscode-foreground) 26%, transparent)",
+            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-foreground) 13%, var(--vscode-editor-background, transparent))",
             "--nb-tab-border": "var(--vscode-tab-border, var(--nb-border-subtle))",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
             // Shadow hierarchy (Multi-layer ambient + contact physics)
@@ -1078,12 +1078,12 @@
             "position": "relative",
             "z-index": "2",
             "background-color": "var(--nb-tab-surface-active) !important",
-            "color": "#242529 !important",
+            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
             "font-weight": "600 !important",
             "opacity": "1 !important",
             "border": "1px solid var(--nb-tab-border-active) !important",
             "border-radius": "var(--nb-radius-pill) !important",
-            "box-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow) 14%, transparent), inset 0 1px 0 color-mix(in srgb, #ffffff 60%, transparent) !important"
+            "box-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow) 14%, transparent), inset 0 1px 0 color-mix(in srgb, var(--vscode-foreground) 15%, transparent) !important"
         },
         ".tab.active:hover, .tab.active:hover > .tab-fill": {
             "background-color": "var(--nb-tab-surface-active) !important",
@@ -1102,7 +1102,7 @@
         },
         ".editor-group-container:not(.active) .tab.active, .editor-group-container:not(.active) .tab.active > .tab-fill": {
             "background-color": "var(--nb-tab-surface-active) !important",
-            "color": "#242529 !important",
+            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-tab-activeForeground, var(--vscode-foreground))) !important",
             "font-weight": "600 !important",
             "border": "1px solid var(--nb-tab-border-active) !important",
             "border-radius": "var(--nb-radius-pill) !important",

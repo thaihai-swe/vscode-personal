@@ -313,11 +313,11 @@
     "tab.activeForeground": "#dce0e5",
     "tab.activeModifiedBorder": "#e5c07b",
     "tab.border": "#363c46",
-    "tab.hoverBackground": "#363c46",
+    "tab.hoverBackground": "#404754",
     "tab.hoverBorder": "#00000000",
     "tab.hoverForeground": "#dce0e5",
-    "tab.inactiveBackground": "#2f343e",
-    "tab.inactiveForeground": "#a9afbc",
+    "tab.inactiveBackground": "#363c46",
+    "tab.inactiveForeground": "#dce0e5",
     "tab.inactiveModifiedBorder": "#e5c07b80",
     "tab.lastPinnedBorder": "#363c46",
     "tab.selectedBackground": "#353b4590",
@@ -368,7 +368,9 @@
     "tree.inactiveIndentGuidesStroke": "#c8ccd426",
     "tree.indentGuidesStroke": "#c8ccd450",
     "widget.border": "#363c46",
-    "widget.shadow": "#00000040"
+    "widget.shadow": "#00000040",
+    "tab.unfocusedInactiveBackground": "#363c46",
+    "tab.unfocusedInactiveForeground": "#dce0e5"
   },
   "tokenColors": [
     {
