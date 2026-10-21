@@ -22,11 +22,11 @@
     // ======================================================================
     // Set zoomLevel to 0 for crisp 1:1 physical pixel rendering on Retina/4K displays.
     "window.zoomLevel": 1.1,
-    "workbench.colorTheme": "Islands Dark",
-    "workbench.preferredDarkColorTheme": "Islands Dark",
-    "workbench.preferredLightColorTheme": "Warm Editorial",
+    "workbench.colorTheme": "Zed Dark",
+    "workbench.preferredDarkColorTheme": "Zed Dark",
+    "workbench.preferredLightColorTheme": "Zed Light",
     "window.autoDetectColorScheme": true,
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "zed-icons-colored",
     "workbench.startupEditor": "welcomePage",
     "window.titleBarStyle": "custom",
     "window.commandCenter": true,
@@ -63,8 +63,8 @@
     "editor.fontFamily": "'Lilex', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'IBM Plex Mono', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
     "editor.fontSize": 15,
     "editor.fontWeight": "400",
-    // 25px line height provides an exact 1.66x buffer ratio for crisp, comfortable vertical density.
-    "editor.lineHeight": 25,
+    // 24px line height provides an exact 1.6x buffer ratio matching Zed's comfortable 1.618 golden ratio (15px * 1.618 ≈ 24.27px).
+    "editor.lineHeight": 24,
     "editor.letterSpacing": 0,
     "editor.fontLigatures": "'calt', 'liga', 'zero', 'ss01', 'ss02', 'cv01'",
     "editor.semanticHighlighting.enabled": true,
@@ -378,7 +378,7 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.enablePersistentSessions": true,
     "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
-    "terminal.integrated.fontFamily": "'JetBrainsMono NFM', 'JetBrainsMono NF', 'Lilex', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
+    "terminal.integrated.fontFamily": "'Lilex', 'JetBrainsMono NFM', 'JetBrainsMono NF', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
     "terminal.integrated.fontSize": 15,
     "terminal.integrated.fontWeight": "450",
     "terminal.integrated.lineHeight": 1.5,
@@ -641,7 +641,7 @@
         // F. Window Titlebar & Command Center Spotlight Pill
         // ------------------------------------------------------------------
         ".part.titlebar": {
-            "background-color": "var(--nb-canvas) !important",
+            "background-color": "var(--vscode-editor-background, transparent) !important",
             "border-bottom": "1px solid var(--nb-border-subtle) !important",
             "height": "34px !important",
             "min-height": "34px !important",

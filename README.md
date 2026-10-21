@@ -14,7 +14,6 @@ Nord’s architecture is the shared grammar: Polar Night / Snow Storm for surfac
 
 - **Islands Dark** — dark canvas (`#121216`) with floating elevated island surfaces (`#181a1d`), warm slate text, and 6-hue rainbow bracket guides.
 - **Nord Arctic** — authentic Polar Night slate (`#2e3440`) with matching dark panels and terminal, Snow Storm text, Frost cyan/blue structural syntax, and Aurora semantic highlights.
-- **Midnight OLED** — pitch-black canvas (`#000000`) with elevated graphite chrome (`#090a0c`), crisp `#d4d7dd` text, and vibrant rainbow bracket guides.
 - **Warm Editorial** — warm paper surface (`#fbf7eb`) with high-contrast ink (`#2c2b27`), deep pine, terracotta, and berry syntax accents, and 6-hue warm bracket guides.
 - **Reading / Research** — warm, low-glare paper (`#f5f3ec`) and deep ink (`#29312d`) with high-contrast, restrained botanical syntax colors, coordinated six-hue bracket guides, and complete notebook/Markdown surfaces. Designed for long reading sessions without sacrificing code distinction.
 - **Reading / Research Dark** — deep botanical charcoal (`#171c1a`) and soft sage-gray text (`#d9e1d8`) with bright but controlled syntax accents, matching six-hue guides, and notebook surfaces tuned for dark mode. The paired theme for research and coding at night.
