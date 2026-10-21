@@ -60,7 +60,7 @@
     // ----------------------------------------------------------------------
     // Long-session comfort. Clear text, generous leading, and low motion.
     // ======================================================================
-    "editor.fontFamily": "'Lilex', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'IBM Plex Mono', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
+    "editor.fontFamily": "'SF Mono', 'SFMono-Regular', 'Lilex', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'IBM Plex Mono', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
     "editor.fontSize": 15,
     "editor.fontWeight": "400",
     // 24px line height provides an exact 1.6x buffer ratio matching Zed's comfortable 1.618 golden ratio (15px * 1.618 ≈ 24.27px).
@@ -377,10 +377,11 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "terminal.integrated.enablePersistentSessions": true,
     "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
-    "terminal.integrated.fontFamily": "'Lilex', 'JetBrainsMono NFM', 'JetBrainsMono NF', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
+    "terminal.integrated.fontFamily": "'SF Mono', 'SFMono-Regular', 'Lilex', 'JetBrainsMono NFM', 'JetBrainsMono NF', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font Mono', 'Fira Code', 'IBM Plex Mono', 'Monaspace Neon', 'Menlo', 'Monaco', monospace",
     "terminal.integrated.fontSize": 15,
-    "terminal.integrated.fontWeight": "450",
-    "terminal.integrated.lineHeight": 1.5,
+    "terminal.integrated.fontWeight": "400",
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.letterSpacing": 0,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorWidth": 2,
@@ -458,7 +459,7 @@
             // Typography hierarchy
             "--nb-font-ui": "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', system-ui, sans-serif",
             "--nb-font-heading": "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Inter', system-ui, sans-serif",
-            "--nb-font-mono": "'Lilex', 'Geist Mono', 'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', 'Menlo', monospace",
+            "--nb-font-mono": "'SF Mono', 'SFMono-Regular', 'Lilex', 'Geist Mono', 'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', 'Menlo', monospace",
             "--nb-font-size-ui": "13px",
             "--nb-font-size-small": "12px",
             "--nb-font-size-heading": "11px",
@@ -2004,7 +2005,7 @@
             "other": "off"
         }
     },
-    "markdown.preview.fontFamily": "'Lilex', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'IBM Plex Mono', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
+    "markdown.preview.fontFamily": "'SF Mono', 'SFMono-Regular', 'Lilex', 'JetBrains Mono', 'JetBrainsMono Nerd Font', 'IBM Plex Mono', 'Monaspace Neon', 'Fira Code', 'Menlo', 'Monaco', monospace",
     "markdown.preview.fontSize": 15,
     "markdown.preview.lineHeight": 1.6,
     "[yaml]": {
