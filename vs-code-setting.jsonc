@@ -212,6 +212,7 @@
     "workbench.editor.pinnedTabsOnSeparateRow": false,
     "workbench.editor.pinnedTabSizing": "compact",
     "workbench.editor.tabSizing": "shrink",
+    "workbench.experimental.modernUIEditorTabStyle": "pill",
     "workbench.editor.wrapTabs": false,
     "workbench.editor.tabCloseButton": "right",
     "workbench.editor.tabActionCloseVisibility": true,
@@ -363,7 +364,7 @@
     // ----------------------------------------------------------------------
     // Integrated GPU rendering, persistent sessions, and ergonomic tabs.
     // ======================================================================
-    "terminal.integrated.tabs.enabled": false,
+    "terminal.integrated.tabs.enabled": true,
     "terminal.integrated.tabs.hideCondition": "never",
     "terminal.integrated.minimumContrastRatio": 7,
     "terminal.integrated.smoothScrolling": true,
@@ -493,10 +494,12 @@
             "--nb-border-subtle": "color-mix(in oklch, var(--vscode-foreground) 8%, transparent)",
             "--nb-border-hover": "color-mix(in oklch, var(--nb-focus) 65%, transparent)",
             // Floating rounded capsule tab tokens
-            "--nb-tab-surface-inactive": "color-mix(in srgb, var(--vscode-foreground) 4%, transparent)",
-            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 20%, transparent)",
-            "--nb-tab-border-hover": "color-mix(in srgb, var(--nb-focus) 65%, transparent)",
-            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 40%, transparent)",
+            "--nb-tab-surface-active": "#d1def5",
+            "--nb-tab-border-active": "#b2c6ee",
+            "--nb-tab-surface-inactive": "transparent",
+            "--nb-tab-border-inactive": "transparent",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
+            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)",
             "--nb-tab-border": "var(--vscode-tab-border, var(--nb-border-subtle))",
             "--nb-tab-accent": "var(--vscode-tab-activeBorderTop, var(--vscode-tab-activeBorder, var(--nb-focus)))",
             // Shadow hierarchy (Multi-layer ambient + contact physics)
@@ -597,10 +600,12 @@
             "--nb-shadow-spotlight": "0 24px 54px -8px color-mix(in srgb, var(--vscode-widget-shadow) 18%, transparent), 0 6px 18px color-mix(in srgb, var(--vscode-widget-shadow) 8%, transparent)",
             "--nb-shadow-soft": "0 2px 6px color-mix(in srgb, var(--vscode-widget-shadow) 5%, transparent)",
             "--nb-pill-shadow": "inset 0 1px 2px color-mix(in srgb, var(--vscode-editorWidget-background, var(--vscode-sideBar-background)) 80%, transparent), 0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow) 6%, transparent)",
-            "--nb-tab-surface-inactive": "color-mix(in oklch, var(--vscode-foreground) 4%, var(--nb-surface-raised))",
-            "--nb-tab-border-inactive": "color-mix(in srgb, var(--vscode-foreground) 25%, transparent)",
-            "--nb-tab-border-hover": "color-mix(in oklch, var(--nb-focus) 70%, transparent)",
-            "--nb-tab-outline": "color-mix(in srgb, var(--vscode-foreground) 50%, transparent)"
+            "--nb-tab-surface-active": "#d1def5",
+            "--nb-tab-border-active": "#b2c6ee",
+            "--nb-tab-surface-inactive": "transparent",
+            "--nb-tab-border-inactive": "transparent",
+            "--nb-tab-border-hover": "color-mix(in oklch, var(--vscode-foreground) 16%, transparent)",
+            "--nb-tab-surface-hover": "color-mix(in oklch, var(--vscode-foreground) 6%, transparent)"
         },
         // ------------------------------------------------------------------
         // D. High Contrast Mode
@@ -1028,6 +1033,9 @@
         ".tabs-container:hover::-webkit-scrollbar": {
             "display": "block"
         },
+        ".tab, .tab > .tab-fill": {
+            "border-radius": "var(--nb-radius-pill) !important"
+        },
         ".tab": {
             "position": "relative",
             "font-family": "var(--nb-font-ui)",
@@ -1037,64 +1045,66 @@
             "max-height": "28px !important",
             "margin": "0 2px",
             "box-sizing": "border-box",
-            "border": "1px solid var(--nb-tab-border-inactive)",
-            "border-radius": "var(--nb-radius-tab)",
-            "box-shadow": "none",
-            "background-color": "var(--nb-tab-surface-inactive, var(--vscode-tab-inactiveBackground))",
+            "border": "1px solid var(--nb-tab-border-inactive) !important",
+            "border-radius": "var(--nb-radius-pill) !important",
+            "box-shadow": "none !important",
+            "background-color": "var(--nb-tab-surface-inactive) !important",
             "color": "var(--vscode-tab-inactiveForeground, var(--vscode-foreground))",
-            "opacity": "1",
+            "opacity": "0.72",
             "display": "flex",
             "align-items": "center",
-            "padding": "0 10px",
+            "padding": "0 12px",
             "cursor": "pointer",
             "user-select": "none",
-            "transition": "background-color var(--nb-motion-fast) var(--nb-ease-out), border-color var(--nb-motion-fast) var(--nb-ease-out), color var(--nb-motion-fast) var(--nb-ease-out), box-shadow var(--nb-motion-fast) var(--nb-ease-out)"
+            "transition": "all var(--nb-motion-fast) var(--nb-ease-out)"
         },
-        ".tab::before, .tab::after, .tab-border-top-container, .tab-border-bottom-container": {
+        ".tab::before, .tab::after, .tab-border-top-container, .tab-border-bottom-container, .tab-connected-edge": {
             "display": "none !important"
         },
         ".tab:first-child::before, .tab.active::before, .tab:hover::before, .tab.active + .tab::before, .tab:hover + .tab::before": {
             "display": "none !important"
         },
-        ".tab:hover:not(.active)": {
-            "background-color": "var(--vscode-tab-hoverBackground, var(--nb-surface-highlight))",
-            "border-color": "var(--nb-tab-border-hover)",
-            "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground))",
-            "opacity": "1"
+        ".tab:hover:not(.active), .tab:hover:not(.active) > .tab-fill": {
+            "background-color": "var(--nb-tab-surface-hover) !important",
+            "border": "1px solid var(--nb-tab-border-hover) !important",
+            "border-radius": "var(--nb-radius-pill) !important",
+            "color": "var(--vscode-tab-hoverForeground, var(--vscode-foreground)) !important",
+            "opacity": "1 !important"
         },
-        ".tab.active": {
+        ".tab.active, .tab.active > .tab-fill": {
             "position": "relative",
             "z-index": "2",
-            "background-color": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))",
-            "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground))",
-            "font-weight": "500",
-            "opacity": "1",
-            "border": "1px solid var(--nb-tab-outline)",
-            "border-radius": "var(--nb-radius-tab)",
-            "box-shadow": "var(--nb-shadow-xs), inset 0 1px 0 var(--nb-glass-n), inset 0 2px 0 var(--nb-accent)"
+            "background-color": "var(--nb-tab-surface-active) !important",
+            "color": "#242529 !important",
+            "font-weight": "600 !important",
+            "opacity": "1 !important",
+            "border": "1px solid var(--nb-tab-border-active) !important",
+            "border-radius": "var(--nb-radius-pill) !important",
+            "box-shadow": "0 1px 3px color-mix(in srgb, var(--vscode-widget-shadow) 14%, transparent), inset 0 1px 0 color-mix(in srgb, #ffffff 60%, transparent) !important"
         },
-        ".tab.active:hover": {
-            "border-color": "var(--nb-tab-border-hover)",
-            "background-color": "var(--vscode-tab-activeBackground, var(--vscode-editor-background))"
+        ".tab.active:hover, .tab.active:hover > .tab-fill": {
+            "background-color": "var(--nb-tab-surface-active) !important",
+            "border-color": "var(--nb-tab-border-active) !important"
         },
-        ".tab.active.focused": {
-            "border-color": "var(--nb-accent-ring)",
-            "box-shadow": "var(--nb-shadow-sm), inset 0 2px 0 var(--nb-accent)"
+        ".tab.active.focused, .tab.active.focused > .tab-fill": {
+            "border-color": "var(--nb-tab-border-active) !important",
+            "box-shadow": "0 0 0 2px color-mix(in oklch, var(--nb-focus) 35%, transparent), 0 1px 4px color-mix(in srgb, var(--vscode-widget-shadow) 16%, transparent) !important"
         },
-        ".tab.selected:not(.active)": {
-            "background-color": "color-mix(in oklch, var(--nb-focus) 18%, var(--nb-tab-surface-inactive)) !important",
-            "border-color": "var(--nb-accent-ring) !important",
+        ".tab.selected:not(.active), .tab.selected:not(.active) > .tab-fill": {
+            "background-color": "color-mix(in oklch, var(--nb-focus) 10%, var(--vscode-editor-background)) !important",
+            "border": "1px solid color-mix(in oklch, var(--nb-focus) 30%, transparent) !important",
+            "border-radius": "var(--nb-radius-pill) !important",
             "color": "var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important",
-            "opacity": "1"
+            "opacity": "0.95 !important"
         },
-        ".editor-group-container:not(.active) .tab.active": {
-            "background-color": "var(--vscode-tab-unfocusedActiveBackground, var(--vscode-tab-activeBackground))",
-            "color": "var(--vscode-tab-unfocusedActiveForeground, var(--vscode-foreground))",
-            "font-weight": "500",
-            "border": "1px solid var(--nb-tab-border-inactive)",
-            "border-radius": "var(--nb-radius-tab)",
-            "box-shadow": "none",
-            "transform": "none"
+        ".editor-group-container:not(.active) .tab.active, .editor-group-container:not(.active) .tab.active > .tab-fill": {
+            "background-color": "var(--nb-tab-surface-active) !important",
+            "color": "#242529 !important",
+            "font-weight": "600 !important",
+            "border": "1px solid var(--nb-tab-border-active) !important",
+            "border-radius": "var(--nb-radius-pill) !important",
+            "box-shadow": "none !important",
+            "opacity": "0.88 !important"
         },
         ".tab .tab-label": {
             "height": "100% !important",
